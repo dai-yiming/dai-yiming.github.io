@@ -275,13 +275,13 @@ git push –set-upstream origin main</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In order to eliminating username and password when pushing and pulling with GitHub, run the following commands from a terminal window:</p>
+<p>In order to eliminating username and password when pushing and pulling with your GitHub account, run the following commands from a terminal window:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>lc -al ~/.ssh # check for existing keys
 ssh-keygen -t ed25519 -C &quot;&lt;xxx&gt;@gmail.com&quot; # add new SSH key
 eval `ssh-agent -s` # fire up the SSH agent
 ssh-add ~/.ssh/id_ed25519 # add the SSH key
 cat ~/.ssh/id_ed25519.pub # pull up the key
-# Navigate to Github settings and add key
+# navigate to Github settings and add key
 git remote set-url origin git@github.com:&lt;username&gt;/&lt;repo&gt;.git
 </pre></div>
 </div>
