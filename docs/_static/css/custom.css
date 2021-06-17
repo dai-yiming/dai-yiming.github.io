@@ -11,14 +11,23 @@ i.fa-linkedin:before {
 }
 
 .navbar-brand {
-	padding-top: 0rem;
+	padding-top: 0.5rem;
 	/* padding-bottom: 0rem; */
 	height: auto;
 }
 
-.navbar-brand .title {
-	margin-bottom: 0;
+.navbar-brand .img {
+	margin-bottom: 0rem;
 	vertical-align: middle;
+}
+
+img,
+svg {
+	vertical-align: middle;
+}
+
+a.navbar-brand img {
+	height: 3rem;
 }
 
 /* Main index page overview cards */

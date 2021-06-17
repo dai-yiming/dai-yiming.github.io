@@ -69,8 +69,9 @@ exclude_patterns = ["**.ipynb_checkpoints", ".DS_Store", "Thumbs.db", ]
 # a list of builtin themes.
 #
 html_theme = 'pydata_sphinx_theme'
-
-html_title = ""
+html_favicon = '_static/img/dove-solid.ico'
+html_logo = '_static/img/dove-solid.svg'
+html_title = ''
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
