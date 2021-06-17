@@ -3,18 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. toctree::
-   :maxdepth: 2
-   
-
-
 =============
 Yiming's Blog
 =============
 
 **Last Updated**: |today|  **Version**: |version|
-
-**Useful links**:
 
 An open source, easy-to-use library containing notes in the field of data science and quantitative finance.
 
@@ -74,7 +67,7 @@ An open source, easy-to-use library containing notes in the field of data scienc
     ---
     :img-top: _static/img/index_contribute.svg
 
-    ML guide
+    Tools Guide
     ^^^^^^^^^^^^^^^
 
     Saw a typo in the documentation? Want to improve
@@ -83,9 +76,9 @@ An open source, easy-to-use library containing notes in the field of data scienc
 
     +++
 
-    .. link-button:: development
+    .. link-button:: tools
             :type: ref
-            :text: To the ML guide
+            :text: To the tools guide
             :classes: btn-block btn-secondary stretched-link
 
 .. toctree::
@@ -93,5 +86,6 @@ An open source, easy-to-use library containing notes in the field of data scienc
     :hidden:
     :titlesonly:
 
-    samples/index
-    samples/sphinx_set_up
+    tools/code_style
+    tools/sphinx_set_up
+    tools/git_ssh

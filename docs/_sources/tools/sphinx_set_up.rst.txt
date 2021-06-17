@@ -1,10 +1,12 @@
+.. highlight:: bash
+
 .. _sphinx_set_up:
 
-======
-Sphinx
-======
+===================
+Sphinx Set Up Guide
+===================
 
-This is a tutorial for setting up website with the `PyData Sphinx Theme <https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html>`__.
+This is a tutorial for setting up `Sphinx`_ with the `PyData Sphinx Theme`_.
 
 .. _set_up_repository:
 
@@ -13,12 +15,14 @@ Setting up a repository
 
 First create the repository and place yourself in its directory::
 
-    git init <github-user>.github.io
-    cd <github-user>.github.io
+    git init <username>.github.io
+    cd <username>.github.io
 
 Add your remote for your github repo. Create an empty commit and push it.
 
-    git remote add origin https://github.com/<github-user>/<github-user>.github.io
+::
+
+    git remote add origin https://github.com/<username>/<username>.github.io
     git commit --allow-empty "Inital commit"
     git push --set-upstream origin main
 
@@ -27,7 +31,7 @@ Add your remote for your github repo. Create an empty commit and push it.
 Installing from PyPI
 --------------------
 
-First you will need ``sphinx``, **sphinx_panels**, and **nbsphinx** package to be installed. Run the following commands from a terminal window::
+First you will need ``sphinx``, `sphinx_panels``, and ``nbsphinx`` package to be installed. Run the following commands from a terminal window::
 
     pip install sphinx
     pip install sphinx_panels
@@ -67,7 +71,11 @@ In the ``conf.py`` of your Sphinx source, update the ``html_theme`` configuratio
 
     html_theme = "pydata_sphinx_theme"
 
-For more configuration of the theme, follow `documentation <https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html>`__. Then, build Sphinx in a ``./docs`` subdirectory to suit GitHub Pages preset setup to serve a documentation, and add an empty `.nojekyll` file in `docs` repository to make GitHub to not try interpret files as part of a Jekyll site. You could summarize in a ``run.sh`` file::
+.. note::
+
+    For more configuration of the theme, follow `PyData Sphinx Theme`_ docs.
+
+Then, build Sphinx in a ``./docs`` subdirectory to suit GitHub Pages preset setup to serve a documentation, and add an empty `.nojekyll` file in `docs` repository to make GitHub to not try interpret files as part of a Jekyll site. You could summarize in a ``run.sh`` file::
 
     #!/bin/bash
     echo "deleting current documentation..."
@@ -92,7 +100,7 @@ Check result either locally starting an http server with Python::
 
 with address http://localhost:8080, or directly visit::
 
-    open <github-user>.github.io
+    open <username>.github.io
 
 .. warning::
 
@@ -104,12 +112,4 @@ with address http://localhost:8080, or directly visit::
 
 .. note::
 
-    In order to eliminating username and password when pushing and pulling with your GitHub account, run the following commands from a terminal window::
-
-        lc -al ~/.ssh # check for existing keys
-        ssh-keygen -t ed25519 -C "<xxx>@gmail.com" # add new SSH key
-        eval `ssh-agent -s` # fire up the SSH agent
-        ssh-add ~/.ssh/id_ed25519 # add the SSH key
-        cat ~/.ssh/id_ed25519.pub # pull up the key
-        # navigate to Github settings and add key
-        git remote set-url origin git@github.com:<username>/<repo>.git
+    In order to eliminating username and password when pushing and pulling with your GitHub account, refer to the :ref:`git_ssh`.

@@ -60,7 +60,7 @@ master_doc = "index"
 exclude_patterns = ["**.ipynb_checkpoints", ".DS_Store", "Thumbs.db", ]
 
 # The name of the Pygments (syntax highlighting) style to use.
-# pygments_style = "sphinx"
+pygments_style = "sphinx"
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -106,17 +106,17 @@ html_theme_options = {
     # The right in-page sidebar
     "page_sidebar_items": ["page-toc"],
     "footer_items": ["copyright"],
-}
+    "search_bar_text": "Search the docs .."}
 
 # The left sidebar
 html_sidebars = {
     "**": [
         "search-field",
         # "localtoc.html",
-        # "sidebar-nav-bs",
+        "sidebar-nav-bs",
         # 'relations.html',
         # 'sourcelink.html',
-        "globaltoc.html",
+        # "globaltoc.html",
         # "custom_sidebar.html"
     ]
 }
