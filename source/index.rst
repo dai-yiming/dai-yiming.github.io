@@ -94,3 +94,4 @@ An open source, easy-to-use library containing notes in the field of data scienc
     :titlesonly:
 
     samples/index
+    samples/sphinx_set_up
