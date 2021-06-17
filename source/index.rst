@@ -3,15 +3,20 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. toctree::
+   :maxdepth: 2
+   
+
+
 =============
 Yiming's Blog
 =============
 
-**Last Updated**: |today|  **Version**: 0.0.1
+**Last Updated**: |today|  **Version**: |version|
 
 **Useful links**:
 
-An open source, easy-to-use library containing notes in the field of data science.
+An open source, easy-to-use library containing notes in the field of data science and quantitative finance.
 
 .. panels::
     :card: + intro-card text-center
@@ -82,6 +87,3 @@ An open source, easy-to-use library containing notes in the field of data scienc
             :type: ref
             :text: To the ML guide
             :classes: btn-block btn-secondary stretched-link
-
-
-
