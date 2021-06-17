@@ -104,6 +104,12 @@ with address http://localhost:8080, or directly visit::
 
 .. note::
 
-    In order to eliminating username and password when pushing and pulling, run the following commands from a terminal window::
+    In order to eliminating username and password when pushing and pulling with GitHub, run the following commands from a terminal window::
 
+        lc -al ~/.ssh # check for existing keys
+        ssh-keygen -t ed25519 -C "<xxx>@gmail.com" # add new SSH key
+        eval `ssh-agent -s` # fire up the SSH agent
+        ssh-add ~/.ssh/id_ed25519 # add the SSH key
+        cat ~/.ssh/id_ed25519.pub # pull up the key
+        # Navigate to Github settings and add key
         git remote set-url origin git@github.com:<username>/<repo>.git
