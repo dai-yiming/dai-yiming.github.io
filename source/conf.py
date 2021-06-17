@@ -46,7 +46,7 @@ extensions = [
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['templates']
 
 # The encoding of source files.
 source_encoding = "utf-8"
@@ -56,7 +56,7 @@ master_doc = "index"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
+# This pattern also affects htmlstatic_path and html_extra_path.
 exclude_patterns = ["**.ipynb_checkpoints", ".DS_Store", "Thumbs.db", ]
 
 # The name of the Pygments (syntax highlighting) style to use.
@@ -69,15 +69,15 @@ exclude_patterns = ["**.ipynb_checkpoints", ".DS_Store", "Thumbs.db", ]
 # a list of builtin themes.
 #
 html_theme = 'pydata_sphinx_theme'
-html_favicon = '_static/img/dove-solid.ico'
-html_logo = '_static/img/dove-solid.svg'
+html_favicon = 'static/img/dove-solid.ico'
+html_logo = 'static/img/dove-solid.svg'
 html_title = ''
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+htmlstatic_path = ['static']
 html_css_files = [
     'css/custom.css',
 ]

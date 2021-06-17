@@ -23,7 +23,7 @@ An open source, easy-to-use library containing notes in the field of data scienc
     :column: col-lg-6 col-md-6 col-sm-6 col-xs-12 d-flex
 
     ---
-    :img-top: _static/img/index_getting_started.svg
+    :img-top: static/img/index_getting_started.svg
 
     Numpy guide
     ^^^^^^^^^^^^^^^
@@ -39,7 +39,7 @@ An open source, easy-to-use library containing notes in the field of data scienc
             :classes: btn-block btn-secondary stretched-link
 
     ---
-    :img-top: _static/img/index_user_guide.svg
+    :img-top: static/img/index_user_guide.svg
 
     pandas guide
     ^^^^^^^^^^
@@ -55,7 +55,7 @@ An open source, easy-to-use library containing notes in the field of data scienc
             :classes: btn-block btn-secondary stretched-link
 
     ---
-    :img-top: _static/img/index_api.svg
+    :img-top: static/img/index_api.svg
 
     MATLAB guide
     ^^^^^^^^^^^^^
@@ -72,7 +72,7 @@ An open source, easy-to-use library containing notes in the field of data scienc
             :classes: btn-block btn-secondary stretched-link
 
     ---
-    :img-top: _static/img/index_contribute.svg
+    :img-top: static/img/index_contribute.svg
 
     ML guide
     ^^^^^^^^^^^^^^^
