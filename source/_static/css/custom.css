@@ -12,22 +12,24 @@ i.fa-linkedin:before {
 
 .navbar-brand {
 	padding-top: 0.5rem;
+	margin-left: 0.5rem;
 	/* padding-bottom: 0rem; */
 	height: auto;
 }
 
-.navbar-brand .img {
-	margin-bottom: 0rem;
+.navbar-brand img {
+	height: 2.5rem;
+	margin: 0rem;
 	vertical-align: middle;
+}
+
+.navbar-toggler {
+	margin-right: 0.5rem;
 }
 
 img,
 svg {
 	vertical-align: middle;
-}
-
-a.navbar-brand img {
-	height: 3rem;
 }
 
 /* Main index page overview cards */
