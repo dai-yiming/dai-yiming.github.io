@@ -50,13 +50,14 @@ Configure your project perferrably::
 
     > Separate source and build directories (y/n) [n]: y
     ...
-    > Project name: your_project_name
+    > Project name:
     ...
-    > Author name(s): your_name
+    > Author name(s):
     ...
-    > Project release []: 0.0.1
+    > Project release []:
     ...
-    > Project language [en]: en
+    > Project language [en]:
+    ...
 
 .. _add_theme:
 

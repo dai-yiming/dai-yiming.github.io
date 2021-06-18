@@ -200,6 +200,11 @@
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> to generate new the SSH key with the email registering GitHub:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t ed25519 -C <span class="s2">&quot;&lt;xxx&gt;@gmail.com&quot;</span>
+&gt; Generating public/private ed25519 key pair.
+&gt; Enter file <span class="k">in</span> which to save the key:
+...
+Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
+...
 </pre></div>
 </div>
 <div class="admonition important">
@@ -213,6 +218,9 @@
 <p>Fire up the SSH agent and add the SSH key to <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> on your local machine:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -s<span class="sb">`</span>
 ssh-add ~/.ssh/id_ed25519
+&gt; Enter passphrase <span class="k">for</span> /Users/&lt;user&gt;/.ssh/id_ed25519:
+...
+&gt; Identity added: /Users/&lt;user&gt;/.ssh/id_ed25519
 </pre></div>
 </div>
 </div>
