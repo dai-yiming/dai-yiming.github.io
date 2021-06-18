@@ -21,7 +21,7 @@ Use ``ssh-keygen`` to generate new the SSH key with the email registering GitHub
 
     ssh-keygen -t ed25519 -C "<xxx>@gmail.com"
 
-.. attention::
+.. important::
 
     Your passphrase should be complicated, and you must store it safely.
 

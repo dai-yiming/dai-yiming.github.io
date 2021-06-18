@@ -21,6 +21,21 @@
 	}
 }
 
+@media (min-width: 720px) {
+	.bd-sidebar,
+	.bd-toc {
+		position: sticky;
+		top: calc(var(--pst-header-height) + 20px);
+		z-index: 1000;
+		height: calc(100vh - var(--pst-header-height) - 20px);
+	}
+}
+
+/* pre, code {
+  font-size: 100%;
+  line-height: 155%;
+} */
+
 h1 {
 	font-size: 2.4rem;
 	font-weight: 700;

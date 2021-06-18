@@ -16,6 +16,9 @@ from datetime import datetime
 import os
 import sys
 
+# Minimum version, enforced by sphinx
+needs_sphinx = '4.0.2'
+
 
 # -- Project information -----------------------------------------------------
 
@@ -55,9 +58,9 @@ extensions = [
 ]
 
 # Supporting Markdown
-source_parsers = {
-    '.md': CommonMarkParser,
-}
+# source_parsers = {
+#     '.md': CommonMarkParser,
+# }
 
 # The suffix of source filenames.
 source_suffix = ['.rst', '.md']
@@ -120,7 +123,7 @@ html_theme_options = {
     ],
     "collapse_navigation": True,
     "navigation_depth": 1,
-    "show_prev_next": False,
+    "show_prev_next": True,
     "show_toc_level": 2,
     "navbar_align": "right",
     # The right in-page sidebar
@@ -133,8 +136,8 @@ html_theme_options = {
 html_sidebars = {
     "**": [
         "search-field",
-        # "localtoc.html",
         "sidebar-nav-bs",
+        # "localtoc.html",
         # 'relations.html',
         # 'sourcelink.html',
         # "globaltoc.html",
