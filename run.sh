@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "removing everything under 'docs'..."
-rm -rfv ./docs/*
+make clean
 echo "starting building..."
-sphinx-build -E -b html ./source ./docs
+make html
 echo "add .nojekyll file..."
-touch ./docs/.nojekyll
+touch ./build/.nojekyll

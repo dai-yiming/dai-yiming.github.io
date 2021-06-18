@@ -1,9 +1,9 @@
 #!/bin/bash
-echo "deleting current documentation..."
-rm -rf docs/
-echo "starting building..."
-sphinx-build -E -b html ./source ./docs
-echo "add .nojekyll file..."
+echo "Deleting current docs..."
+rm -rf ./dai-yiming.github.io/*
+echo "Starting building..."
+sphinx-build -E -b html ./source ./dai-yiming.github.io
+echo "Add .nojekyll file..."
 touch ./docs/.nojekyll
 
 git add .

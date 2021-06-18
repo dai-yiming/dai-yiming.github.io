@@ -17,7 +17,7 @@ Yiming's Blog
 
 **Last Updated**: |today|  **Version**: |version|
 
-An open source, easy-to-use library containing notes in the field of data science and quantitative finance.
+An open source, easy-to-use library containing notes in the field of data science and financial computing.
 
 .. panels::
     :card: + intro-card text-center
