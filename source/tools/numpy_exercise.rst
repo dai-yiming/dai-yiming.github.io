@@ -6,8 +6,7 @@
 
 Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ with various and optimized solutions.
 
-1. Import the numpy package under the name ``np`` (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**1. Import the numpy package under the name ``np``**
 
 ``hint: import … as``
 
@@ -15,8 +14,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    import numpy as np
 
-2. Print the numpy version and the configuration (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**2. Print the numpy version and the configuration**
 
 ``hint: np.__version__, np.show_config)``
 
@@ -25,8 +23,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    print(np.__version__)
    np.show_config()
 
-3. Create a null vector of size 10 (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**3. Create a null vector of size 10**
 
 ``hint: np.zeros``
 
@@ -34,8 +31,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    np.zeros(10)
 
-4. How to find the memory size of any array (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**4. How to find the memory size of any array**
 
 ``hint: size, itemsize``
 
@@ -46,17 +42,16 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    # alternatively
    print(Z.nbytes)
 
-5. How to get the documentation of the numpy add function from the command line? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**5. How to get the documentation of the numpy add function from the
+command line?**
 
 ``hint: np.info``
 
-.. code:: bash
+.. code:: python
 
    %run `python -c "import numpy; numpy.info(numpy.add)"`
 
-6. Create a null vector of size 10 but the fifth value which is 1 (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**6. Create a null vector of size 10 but the fifth value which is 1**
 
 ``hint: array[4]``
 
@@ -66,8 +61,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z[4] = 1
    print(Z)
 
-7. Create a vector with values ranging from 10 to 49 (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**7. Create a vector with values ranging from 10 to 49**
 
 ``hint: arange``
 
@@ -76,8 +70,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    np.arange(10,50) # np.int64
    np.linspace(10,49,40) # np.float64
 
-8. Reverse a vector (first element becomes last) (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**8. Reverse a vector (first element becomes last)**
 
 ``hint: array[::-1]``
 
@@ -87,8 +80,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = Z[::-1]
    print(Z)
 
-9. Create a 3x3 matrix with values ranging from 0 to 8 (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**9. Create a 3x3 matrix with values ranging from 0 to 8**
 
 ``hint: reshape``
 
@@ -96,8 +88,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    np.arange(9).reshape(3, 3)
 
-10. Find indices of non-zero elements from [1,2,0,0,4,0] (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**10. Find indices of non-zero elements from [1,2,0,0,4,0]**
 
 ``hint: np.nonzero``
 
@@ -110,8 +101,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    mask = arr != 0
    arr[mask]
 
-11. Create a 3x3 identity matrix (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**11. Create a 3x3 identity matrix**
 
 ``hint: np.eye``
 
@@ -119,8 +109,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    np.eye(3)
 
-12. Create a 3x3x3 array with random values (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**12. Create a 3x3x3 array with random values**
 
 ``hint: np.random.random``
 
@@ -131,8 +120,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    rng = np.random.default_rng()
    rng.random((3,3,3))
 
-13. Create a 10x10 array with random values and find the minimum and maximum values (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**13. Create a 10x10 array with random values and find the minimum and
+maximum values**
 
 ``hint: min, max``
 
@@ -143,8 +132,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    arr = rng.random((10,10))
    print('min: %f, max: %f' % (arr.min(), arr.max()))
 
-14. Create a random vector of size 30 and find the mean value (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**14. Create a random vector of size 30 and find the mean value**
 
 ``hint: mean``
 
@@ -152,8 +140,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    np.random.random(30).mean()
 
-15. Create a 2d array with 1 on the border and 0 inside (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**15. Create a 2d array with 1 on the border and 0 inside**
 
 ``hint: array[1:-1, 1:-1]``
 
@@ -166,8 +153,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    arr = np.zeros((3,3))
    np.pad(arr, 1, constant_values=1)
 
-16. How to add a border (filled with 0’s) around an existing array? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**16. How to add a border (filled with 0’s) around an existing array?**
 
 ``hint: np.pad``
 
@@ -182,8 +168,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z[[0, -1], :] = 0
    print(Z)
 
-17. What is the result of the following expression? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**17. What is the result of the following expression?**
 
 .. code:: python
 
@@ -205,8 +190,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    print(np.nan in set([np.nan]))
    print(0.3 == 3 * 0.1)
 
-18. Create a 5x5 matrix with values 1,2,3,4 just below the diagonal (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**18. Create a 5x5 matrix with values 1,2,3,4 just below the diagonal**
 
 ``hint: np.diag``
 
@@ -214,8 +198,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    np.diag(1 + np.arange(4), k=-1)
 
-19. Create a 8x8 matrix and fill it with a checkerboard pattern (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**19. Create a 8x8 matrix and fill it with a checkerboard pattern**
 
 ``hint: array[::2]``
 
@@ -226,8 +209,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z[::2,1::2] = 1
    print(Z)
 
-20. Consider a (6,7,8) shape array, what is the index (x,y,z) of the 100th element?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**20. Consider a (6,7,8) shape array, what is the index (x,y,z) of the
+100th element?**
 
 ``hint: np.unravel_index``
 
@@ -235,8 +218,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    print(np.unravel_index(99, (6,7,8)))
 
-21. Create a checkerboard 8x8 matrix using the tile function (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**21. Create a checkerboard 8x8 matrix using the tile function**
 
 ``hint: np.tile``
 
@@ -245,8 +227,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.tile( np.array([[0,1],[1,0]]), (4,4))
    print(Z)
 
-22. Normalize a 5x5 random matrix (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**22. Normalize a 5x5 random matrix**
 
 ``hint: (x -mean)/std``
 
@@ -256,8 +237,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = (Z - np.mean (Z)) / (np.std (Z))
    print(Z)
 
-23. Create a custom dtype that describes a color as four unsigned bytes (RGBA) (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**23. Create a custom dtype that describes a color as four unsigned
+bytes (RGBA)**
 
 ``hint: np.dtype``
 
@@ -268,8 +249,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
                      ("b", np.ubyte),
                      ("a", np.ubyte)])
 
-24. Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**24. Multiply a 5x3 matrix by a 3x2 matrix (real matrix product)**
 
 ``hint:``
 
@@ -282,8 +262,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.ones((5,3)) @ np.ones((3,2))
    print(Z)
 
-25. Given a 1D array, negate all elements which are between 3 and 8, in place. (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**25. Given a 1D array, negate all elements which are between 3 and 8,
+in place.**
 
 ``hint: >, <``
 
@@ -293,8 +273,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z[(3 < Z) & (Z < 8)] *= -1
    print(Z)
 
-26. What is the output of the following script? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**26. What is the output of the following script?**
 
 .. code:: python
 
@@ -316,8 +295,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    # sum(iterable, start=0, /)
    # return the sum of a 'start' value (default: 0) plus an iterable of numbers
 
-27. Consider an integer vector Z, which of these expressions are legal? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**27. Consider an integer vector Z, which of these expressions are
+legal?**
 
 .. code:: python
 
@@ -339,8 +318,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z/1/1
    Z<Z>Z
 
-28. What are the result of the following expressions?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**28. What are the result of the following expressions?**
 
 .. code:: python
 
@@ -356,8 +334,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    print(np.array(0) // np.array(0))
    print(np.array([np.nan]).astype(int).astype(float))
 
-29. How to round away from zero a float array ? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**29. How to round away from zero a float array ?**
 
 ``hint: np.uniform, np.copysign, np.ceil, np.abs, np.where``
 
@@ -377,8 +354,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z[mask] *= -1
    print(Z)
 
-30. How to find common values between two arrays? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**30. How to find common values between two arrays?**
 
 ``hint: np.intersect1d``
 
@@ -388,8 +364,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z2 = np.random.randint(0, 10, 10)
    print(np.intersect1d(Z1, Z2))
 
-31. How to ignore all numpy warnings (not recommended)? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**31. How to ignore all numpy warnings (not recommended)?**
 
 ``hint: np.seterr, np.errstate``
 
@@ -406,8 +381,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    with np.errstate(all="ignore"):
        np.arange(3) / 0
 
-32. Is the following expressions true? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**32. Is the following expressions true?**
 
 .. code:: python
 
@@ -421,8 +395,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    # np.sqrt(-1) throw error of invalid input
    # np.emath.sqrt(-1) = 1j
 
-33. How to get the dates of yesterday, today and tomorrow? (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**33. How to get the dates of yesterday, today and tomorrow?**
 
 ``hint: np.datetime64, np.timedelta64``
 
@@ -432,8 +405,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    today     = np.datetime64('today')
    tomorrow  = np.datetime64('today') + np.timedelta64(1)
 
-34. How to get all the dates corresponding to the month of July 2016? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**34. How to get all the dates corresponding to the month of July
+2016?**
 
 ``hint: np.arange(dtype=datetime64['D'])``
 
@@ -442,8 +415,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.arange('2016-07', '2016-08', dtype='datetime64[D]')
    print(Z)
 
-35. How to compute ((A+B)*(-A/2)) in place (without copy)? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+\**35. How to compute ((A+B)*(-A/2)) in place (without copy)?*\*
 
 ``hint: np.add(out=), np.negative(out=), np.multiply(out=), np.divide(out=)``
 
@@ -456,8 +428,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    np.negative(A, out=A)
    np.multiply(A, B, out=A)
 
-36. Extract the integer part of a random array of positive numbers using 4 different methods (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**36. Extract the integer part of a random array of positive numbers
+using 4 different methods**
 
 ``hint: %, np.floor, astype, np.trunc``
 
@@ -471,8 +443,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    print(Z.astype(int))
    print(np.trunc(Z))
 
-37. Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**37. Create a 5x5 matrix with row values ranging from 0 to 4**
 
 ``hint: np.arange``
 
@@ -488,8 +459,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    # without broadcasting
    np.tile(np.arange(0, 5), (5,1))
 
-38. Consider a generator function that generates 10 integers and use it to build an array (★☆☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**38. Consider a generator function that generates 10 integers and use
+it to build an array**
 
 ``hint: np.fromiter``
 
@@ -501,8 +472,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.fromiter(generate(), dtype=float, count=-1)
    print(Z)
 
-39. Create a vector of size 10 with values ranging from 0 to 1, both excluded (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**39. Create a vector of size 10 with values ranging from 0 to 1, both
+excluded**
 
 ``hint: np.linspace``
 
@@ -510,8 +481,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    np.linspace(0,1,11,endpoint=False)[1:]
 
-40. Create a random vector of size 10 and sort it (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**40. Create a random vector of size 10 and sort it**
 
 ``hint: sort``
 
@@ -519,8 +489,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    np.random.random(10).sort()
 
-41. How to sum a small array faster than np.sum? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**41. How to sum a small array faster than np.sum?**
 
 ``hint: np.add.reduce``
 
@@ -529,8 +498,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.arange(10)
    np.add.reduce(Z)
 
-42. Consider two random array A and B, check if they are equal (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**42. Consider two random array A and B, check if they are equal**
 
 ``hint: np.allclose, np.array_equal``
 
@@ -547,8 +515,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    equal = np.array_equal(A,B)
    print(equal)
 
-43. Make an array immutable (read-only) (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**43. Make an array immutable (read-only)**
 
 ``hint: flags.writeable``
 
@@ -558,8 +525,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z.flags.writeable = False
    Z[0] = 1
 
-44. Consider a random 10x2 matrix representing cartesian coordinates, convert them to polar coordinates (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**44. Consider a random 10x2 matrix representing cartesian coordinates,
+convert them to polar coordinates**
 
 ``hint: np.sqrt, np.arctan2``
 
@@ -572,8 +539,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    print(R)
    print(T)
 
-45. Create random vector of size 10 and replace the maximum value by 0 (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**45. Create random vector of size 10 and replace the maximum value by
+0**
 
 ``hint: argmax``
 
@@ -583,8 +550,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z[Z.argmax()] = 0
    print(Z)
 
-46. Create a structured array with ``x`` and ``y`` coordinates covering the [0,1]x[0,1] area (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**46. Create a structured array with ``x`` and ``y`` coordinates
+covering the [0,1]x[0,1] area**
 
 ``hint: np.meshgrid``
 
@@ -595,8 +562,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
                                 np.linspace(0,1,5))
    print(Z)
 
-47. Given two arrays, X and Y, construct the Cauchy matrix C (Cij =1/(xi - yj))
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**47. Given two arrays, X and Y, construct the Cauchy matrix C (Cij
+=1/(xi - yj))**
 
 ``hint: np.subtract.outer``
 
@@ -607,8 +574,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    C = 1.0 / np.subtract.outer(X, Y)
    print(np.linalg.det(C))
 
-48. Print the minimum and maximum representable value for each numpy scalar type (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**48. Print the minimum and maximum representable value for each numpy
+scalar type**
 
 ``hint: np.iinfo, np.finfo, eps``
 
@@ -622,8 +589,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
       print(np.finfo(dtype).max)
       print(np.finfo(dtype).eps)
 
-49. How to print all the values of an array? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**49. How to print all the values of an array?**
 
 ``hint: np.set_printoptions``
 
@@ -633,8 +599,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.zeros((40,40))
    print(Z)
 
-50. How to find the closest value (to a given scalar) in a vector? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**50. How to find the closest value (to a given scalar) in a vector?**
 
 ``hint: argmin``
 
@@ -645,8 +610,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    index = (np.abs(Z-v)).argmin()
    print(Z[index])
 
-51. Create a structured array representing a position (x,y) and a color (r,g,b) (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**51. Create a structured array representing a position (x,y) and a
+color (r,g,b)**
 
 ``hint: dtype``
 
@@ -659,8 +624,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
                                      ('b', float, 1)])])
    print(Z)
 
-52. Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**52. Consider a random vector with shape (100,2) representing
+coordinates, find point by point distances**
 
 ``hint: np.atleast_2d, T, np.sqrt``
 
@@ -680,8 +645,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    D = scipy.spatial.distance.cdist(Z,Z)
    print(D)
 
-53. How to convert a float (32 bits) array into an integer (32 bits) in place?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**53. How to convert a float (32 bits) array into an integer (32 bits)
+in place?**
 
 ``hint: view and [:] =``
 
@@ -694,8 +659,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Y[:] = Z
    print(Y)
 
-54. How to read the following file? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**54. How to read the following file?**
 
 ::
 
@@ -719,8 +683,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.genfromtxt(s, delimiter=",", dtype=np.int)
    print(Z)
 
-55. What is the equivalent of enumerate for numpy arrays? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**55. What is the equivalent of enumerate for numpy arrays?**
 
 ``hint: np.ndenumerate, np.ndindex``
 
@@ -732,8 +695,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    for index in np.ndindex(Z.shape):
        print(index, Z[index])
 
-56. Generate a generic 2D Gaussian-like array (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**56. Generate a generic 2D Gaussian-like array**
 
 ``hint: np.meshgrid, np.exp``
 
@@ -745,8 +707,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    G = np.exp(-( (D-mu)**2 / ( 2.0 * sigma**2 ) ) )
    print(G)
 
-57. How to randomly place p elements in a 2D array? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**57. How to randomly place p elements in a 2D array?**
 
 ``hint: np.put, np.random.choice``
 
@@ -760,8 +721,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    np.put(Z, np.random.choice(range(n*n), p, replace=False),1)
    print(Z)
 
-58. Subtract the mean of each row of a matrix (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**58. Subtract the mean of each row of a matrix**
 
 ``hint: mean(axis=,keepdims=)``
 
@@ -779,8 +739,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    print(Y)
 
-59. How to sort an array by the nth column? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**59. How to sort an array by the nth column?**
 
 ``hint: argsort``
 
@@ -792,8 +751,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    print(Z)
    print(Z[Z[:,1].argsort()])
 
-60. How to tell if a given 2D array has null columns? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**60. How to tell if a given 2D array has null columns?**
 
 ``hint: any, ~``
 
@@ -804,8 +762,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.random.randint(0,3,(3,10))
    print((~Z.any(axis=0)).any())
 
-61. Find the nearest value from a given value in an array (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**61. Find the nearest value from a given value in an array**
 
 ``hint: np.abs, argmin, flat``
 
@@ -816,8 +773,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    m = Z.flat[np.abs(Z - z).argmin()]
    print(m)
 
-62. Considering two arrays with shape (1,3) and (3,1), how to compute their sum using an iterator? (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**62. Considering two arrays with shape (1,3) and (3,1), how to compute
+their sum using an iterator?**
 
 ``hint: np.nditer``
 
@@ -829,8 +786,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    for x,y,z in it: z[...] = x + y
    print(it.operands[2])
 
-63. Create an array class that has a name attribute (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**63. Create an array class that has a name attribute**
 
 ``hint: class method``
 
@@ -848,8 +804,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = NamedArray(np.arange(10), "range_10")
    print (Z.name)
 
-64. Consider a given vector, how to add 1 to each element indexed by a second vector (be careful with repeated indices)? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**64. Consider a given vector, how to add 1 to each element indexed by a
+second vector (be careful with repeated indices)?**
 
 ``hint: np.bincount | np.add.at``
 
@@ -867,8 +823,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    np.add.at(Z, I, 1)
    print(Z)
 
-65. How to accumulate elements of a vector (X) to an array (F) based on an index list (I)? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**65. How to accumulate elements of a vector (X) to an array (F) based
+on an index list (I)?**
 
 ``hint: np.bincount``
 
@@ -881,8 +837,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    F = np.bincount(I,X)
    print(F)
 
-66. Considering a (w,h,3) image of (dtype=ubyte), compute the number of unique colors (★★☆)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**66. Considering a (w,h,3) image of (dtype=ubyte), compute the number
+of unique colors**
 
 ``hint: np.unique``
 
@@ -910,8 +866,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    n = len(np.unique(I24))
    print(n)
 
-67. Considering a four dimensions array, how to get sum over the last two axis at once? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**67. Considering a four dimensions array, how to get sum over the last
+two axis at once?**
 
 ``hint: sum(axis=(-2,-1))``
 
@@ -926,8 +882,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    sum = A.reshape(A.shape[:-2] + (-1,)).sum(axis=-1)
    print(sum)
 
-68. Considering a one-dimensional vector D, how to compute means of subsets of D using a vector S of same size describing subset indices? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**68. Considering a one-dimensional vector D, how to compute means of
+subsets of D using a vector S of same size describing subset indices?**
 
 ``hint: np.bincount``
 
@@ -946,8 +902,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    import pandas as pd
    print(pd.Series(D).groupby(S).mean())
 
-69. How to get the diagonal of a dot product? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**69. How to get the diagonal of a dot product?**
 
 ``hint: np.diag``
 
@@ -967,8 +922,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    # Faster version
    np.einsum("ij,ji->i", A, B)
 
-70. Consider the vector [1, 2, 3, 4, 5], how to build a new vector with 3 consecutive zeros interleaved between each value? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**70. Consider the vector [1, 2, 3, 4, 5], how to build a new vector
+with 3 consecutive zeros interleaved between each value?**
 
 ``hint: array[::4]``
 
@@ -982,8 +937,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z0[::nz+1] = Z
    print(Z0)
 
-71. Consider an array of dimension (5,5,3), how to mulitply it by an array with dimensions (5,5)? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**71. Consider an array of dimension (5,5,3), how to mulitply it by an
+array with dimensions (5,5)?**
 
 ``hint: array[:, :, None]``
 
@@ -993,8 +948,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    B = 2*np.ones((5,5))
    print(A * B[:,:,None])
 
-72. How to swap two rows of an array? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**72. How to swap two rows of an array?**
 
 ``hint: array[[]] = array[[]]``
 
@@ -1006,8 +960,9 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    A[[0,1]] = A[[1,0]]
    print(A)
 
-73. Consider a set of 10 triplets describing 10 triangles (with shared vertices), find the set of unique line segments composing all the triangles (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**73. Consider a set of 10 triplets describing 10 triangles (with shared
+vertices), find the set of unique line segments composing all the
+triangles**
 
 ``hint: repeat, np.roll, np.sort, view, np.unique``
 
@@ -1023,8 +978,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    G = np.unique(G)
    print(G)
 
-74. Given a sorted array C that corresponds to a bincount, how to produce an array A such that np.bincount(A) == C? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**74. Given a sorted array C that corresponds to a bincount, how to
+produce an array A such that np.bincount(A) == C?**
 
 ``hint: np.repeat``
 
@@ -1036,8 +991,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    A = np.repeat(np.arange(len(C)), C)
    print(A)
 
-75. How to compute averages using a sliding window over an array? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**75. How to compute averages using a sliding window over an array?**
 
 ``hint: np.cumsum``
 
@@ -1052,8 +1006,9 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.arange(20)
    print(moving_average(Z, n=3))
 
-76. Consider a one-dimensional array Z, build a two-dimensional array whose first row is (Z[0],Z[1],Z[2]) and each subsequent row is shifted by 1 (last row should be (Z[-3],Z[-2],Z[-1]) (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**76. Consider a one-dimensional array Z, build a two-dimensional array
+whose first row is (Z[0],Z[1],Z[2]) and each subsequent row is shifted
+by 1 (last row should be (Z[-3],Z[-2],Z[-1])**
 
 ``hint: from numpy.lib import stride_tricks``
 
@@ -1069,8 +1024,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = rolling(np.arange(10), 3)
    print(Z)
 
-77. How to negate a boolean, or to change the sign of a float inplace? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**77. How to negate a boolean, or to change the sign of a float
+inplace?**
 
 ``hint: np.logical_not, np.negative``
 
@@ -1084,9 +1039,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.random.uniform(-1.0,1.0,100)
    np.negative(Z, out=Z)
 
-78. Consider 2 sets of points P0,P1 describing lines (2d) and a point p, how to compute distance from p to each line i (P0[i],P1[i])? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+**78. Consider 2 sets of points P0,P1 describing lines (2d) and a point
+p, how to compute distance from p to each line i (P0[i],P1[i])?**
 ``No hints provided...``
 
 .. code:: python
@@ -1104,10 +1058,9 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    p  = np.random.uniform(-10,10,( 1,2))
    print(distance(P0, P1, p))
 
-79. Consider 2 sets of points P0,P1 describing lines (2d) and a set of points P, how to compute distance from each point j (P[j]) to each line i (P0[i],P1[i])? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-``No hints provided...``
+**79. Consider 2 sets of points P0,P1 describing lines (2d) and a set of
+points P, how to compute distance from each point j (P[j]) to each line
+i (P0[i],P1[i])?** ``No hints provided...``
 
 .. code:: python
 
@@ -1119,8 +1072,9 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    p = np.random.uniform(-10, 10, (10,2))
    print(np.array([distance(P0,P1,p_i) for p_i in p]))
 
-80. Consider an arbitrary array, write a function that extract a subpart with a fixed shape and centered on a given element (pad with a ``fill`` value when necessary) (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**80. Consider an arbitrary array, write a function that extract a
+subpart with a fixed shape and centered on a given element (pad with a
+``fill`` value when necessary)**
 
 ``hint: minimum maximum``
 
@@ -1154,8 +1108,9 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    print(Z)
    print(R)
 
-81. Consider an array Z = [1,2,3,4,5,6,7,8,9,10,11,12,13,14], how to generate an array R = [[1,2,3,4], [2,3,4,5], [3,4,5,6], …, [11,12,13,14]]? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**81. Consider an array Z = [1,2,3,4,5,6,7,8,9,10,11,12,13,14], how to
+generate an array R = [[1,2,3,4], [2,3,4,5], [3,4,5,6], …,
+[11,12,13,14]]?**
 
 ``hint: stride_tricks.as_strided``
 
@@ -1167,8 +1122,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    R = stride_tricks.as_strided(Z,(11,4),(4,4))
    print(R)
 
-82. Compute a matrix rank (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**82. Compute a matrix rank**
 
 ``hint: np.linalg.svd``
 
@@ -1181,8 +1135,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    rank = np.sum(S > 1e-10)
    print(rank)
 
-83. How to find the most frequent value in an array?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**83. How to find the most frequent value in an array?**
 
 ``hint: np.bincount, argmax``
 
@@ -1191,8 +1144,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    Z = np.random.randint(0,10,50)
    print(np.bincount(Z).argmax())
 
-84. Extract all the contiguous 3x3 blocks from a random 10x10 matrix (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**84. Extract all the contiguous 3x3 blocks from a random 10x10 matrix**
 
 ``hint: stride_tricks.as_strided``
 
@@ -1207,8 +1159,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    C = stride_tricks.as_strided(Z, shape=(i, j, n, n), strides=Z.strides + Z.strides)
    print(C)
 
-85. Create a 2D array subclass such that Z[i,j] == Z[j,i] (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**85. Create a 2D array subclass such that Z[i,j] == Z[j,i]**
 
 ``hint: class method``
 
@@ -1230,8 +1181,9 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    S[2,3] = 42
    print(S)
 
-86. Consider a set of p matrices wich shape (n,n) and a set of p vectors with shape (n,1). How to compute the sum of of the p matrix products at once? (result has shape (n,1)) (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**86. Consider a set of p matrices wich shape (n,n) and a set of p
+vectors with shape (n,1). How to compute the sum of of the p matrix
+products at once? (result has shape (n,1))**
 
 ``hint: np.tensordot``
 
@@ -1251,8 +1203,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    # Thus, summing over the paired axes 0 and 0 (of M and V independently),
    # and 2 and 1, to remain with a (n,1) vector.
 
-87. Consider a 16x16 array, how to get the block-sum (block size is 4x4)? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**87. Consider a 16x16 array, how to get the block-sum (block size is
+4x4)?**
 
 ``hint: np.add.reduceat``
 
@@ -1266,9 +1218,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
                                           np.arange(0, Z.shape[1], k), axis=1)
    print(S)
 
-88. How to implement the Game of Life using numpy arrays? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+**88. How to implement the Game of Life using numpy arrays?**
 ``No hints provided...``
 
 .. code:: python
@@ -1292,8 +1242,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    for i in range(100): Z = iterate(Z)
    print(Z)
 
-89. How to get the n largest values of an array (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**89. How to get the n largest values of an array**
 
 ``hint: np.argsort | np.argpartition``
 
@@ -1309,8 +1258,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    # Fast
    print (Z[np.argpartition(-Z,n)[:n]])
 
-90. Given an arbitrary number of vectors, build the cartesian product (every combinations of every item) (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**90. Given an arbitrary number of vectors, build the cartesian product
+(every combinations of every item)**
 
 ``hint: np.indices``
 
@@ -1332,8 +1281,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
 
    print (cartesian(([1, 2, 3], [4, 5], [6, 7])))
 
-91. How to create a record array from a regular array? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**91. How to create a record array from a regular array?**
 
 ``hint: np.core.records.fromarrays``
 
@@ -1346,8 +1294,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
                                   formats = 'S8, f8, i8')
    print(R)
 
-92. Consider a large vector Z, compute Z to the power of 3 using 3 different methods (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**92. Consider a large vector Z, compute Z to the power of 3 using 3
+different methods**
 
 ``hint: np.power, *, np.einsum``
 
@@ -1361,8 +1309,9 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    %timeit x*x*x
    %timeit np.einsum('i,i,i->i',x,x,x)
 
-93. Consider two arrays A and B of shape (8,3) and (2,2). How to find rows of A that contain elements of each row of B regardless of the order of the elements in B? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**93. Consider two arrays A and B of shape (8,3) and (2,2). How to find
+rows of A that contain elements of each row of B regardless of the order
+of the elements in B?**
 
 ``hint: np.where``
 
@@ -1377,10 +1326,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    rows = np.where(C.any((3,1)).all(1))[0]
    print(rows)
 
-94. Considering a 10x3 matrix, extract rows with unequal values (e.g. [2,2,3]) (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-``No hints provided...``
+**94. Considering a 10x3 matrix, extract rows with unequal values
+(e.g. [2,2,3])** ``No hints provided...``
 
 .. code:: python
 
@@ -1396,8 +1343,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    U = Z[Z.max(axis=1) != Z.min(axis=1),:]
    print(U)
 
-95. Convert a vector of ints into a matrix binary representation (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**95. Convert a vector of ints into a matrix binary representation**
 
 ``hint: np.unpackbits``
 
@@ -1414,8 +1360,7 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    I = np.array([0, 1, 2, 3, 15, 16, 32, 64, 128], dtype=np.uint8)
    print(np.unpackbits(I[:, np.newaxis], axis=1))
 
-96. Given a two dimensional array, how to extract unique rows? (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**96. Given a two dimensional array, how to extract unique rows?**
 
 ``hint: np.ascontiguousarray | np.unique``
 
@@ -1434,8 +1379,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    uZ = np.unique(Z, axis=0)
    print(uZ)
 
-97. Considering 2 vectors A & B, write the einsum equivalent of inner, outer, sum, and mul function (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**97. Considering 2 vectors A & B, write the einsum equivalent of inner,
+outer, sum, and mul function**
 
 ``hint: np.einsum``
 
@@ -1452,8 +1397,8 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    np.einsum('i,i', A, B)    # np.inner(A, B)
    np.einsum('i,j->ij', A, B)    # np.outer(A, B)
 
-98. Considering a path described by two vectors (X,Y), how to sample it using equidistant samples (★★★)?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**98. Considering a path described by two vectors (X,Y), how to sample
+it using equidistant samples?**
 
 ``hint: np.cumsum, np.interp``
 
@@ -1473,8 +1418,10 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    x_int = np.interp(r_int, r, x)       # integrate path
    y_int = np.interp(r_int, r, y)
 
-99. Given an integer n and a 2D array X, select from X the rows which can be interpreted as draws from a multinomial distribution with n degrees, i.e., the rows which only contain integers and which sum to n. (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**99. Given an integer n and a 2D array X, select from X the rows which
+can be interpreted as draws from a multinomial distribution with n
+degrees, i.e., the rows which only contain integers and which sum to
+n.**
 
 ``hint: np.logical_and.reduce, np.mod``
 
@@ -1490,8 +1437,10 @@ Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ wi
    M &= (X.sum(axis=-1) == n)
    print(X[M])
 
-100. Compute bootstrapped 95% confidence intervals for the mean of a 1D array X (i.e., resample the elements of an array with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**100. Compute bootstrapped 95% confidence intervals for the mean of a
+1D array X (i.e., resample the elements of an array with replacement N
+times, compute the mean of each sample, and then compute percentiles
+over the means).**
 
 ``hint: np.percentile``
 

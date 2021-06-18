@@ -119,7 +119,7 @@ html_theme_options = {
         },
     ],
     "collapse_navigation": True,
-    "navigation_depth": 2,
+    "navigation_depth": 1,
     "show_prev_next": False,
     "show_toc_level": 2,
     "navbar_align": "right",

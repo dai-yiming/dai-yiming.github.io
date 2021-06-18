@@ -44,7 +44,7 @@ Pull up the key::
 
     cat ~/.ssh/id_ed25519.pub
 
-Copy the output, navigate to Github settings, and add the SSH key.
+now copy the output, navigate to Github settings, and add the SSH key.
 
 .. _login_escape:
 
