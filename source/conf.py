@@ -10,10 +10,11 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+# sys.path.insert(0, os.path.abspath('.'))
+from recommonmark.parser import CommonMarkParser
 from datetime import datetime
 import os
 import sys
-# sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
@@ -37,13 +38,29 @@ language = "en"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.doctest',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.githubpages',
     "IPython.sphinxext.ipython_directive",
     "IPython.sphinxext.ipython_console_highlighting",
     "matplotlib.sphinxext.plot_directive",
-    "sphinx.ext.ifconfig",
     "nbsphinx",
     'sphinx_panels',
 ]
+
+# Supporting Markdown
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+# The suffix of source filenames.
+source_suffix = ['.rst', '.md']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -69,8 +86,11 @@ pygments_style = "sphinx"
 # a list of builtin themes.
 #
 html_theme = 'pydata_sphinx_theme'
-html_favicon = '_static/img/dove-solid.ico'
-html_logo = '_static/img/dove-solid.svg'
+
+html_favicon = '_static/img/favicon.ico'
+
+html_logo = '_static/img/logo.svg'
+
 html_title = ''
 
 
@@ -106,7 +126,8 @@ html_theme_options = {
     # The right in-page sidebar
     "page_sidebar_items": ["page-toc"],
     "footer_items": ["copyright"],
-    "search_bar_text": "Search the docs .."}
+    "search_bar_text": "Search the docs ..",
+}
 
 # The left sidebar
 html_sidebars = {

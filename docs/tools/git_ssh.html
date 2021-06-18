@@ -36,9 +36,10 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../_static/dove-solid.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="100 numpy exercises" href="numpy_exercise.html" />
     <link rel="prev" title="Sphinx Set Up Guide" href="sphinx_set_up.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -56,7 +57,7 @@
     
 
 <a class="navbar-brand" href="../index.html">
-  <img src="../_static/dove-solid.svg" class="logo" alt="logo">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
 </a>
 
 
@@ -73,21 +74,9 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="code_style.html">
-  Code Style Guide
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="sphinx_set_up.html">
-  Sphinx Set Up Guide
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
-  Git SSH Set Up Guide
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Tools
  </a>
 </li>
 
@@ -132,7 +121,24 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="sphinx_set_up.html">
+   Sphinx Set Up Guide
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Git SSH Set Up Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_exercise.html">
+   100 numpy exercises
+  </a>
+ </li>
+</ul>
+
   </div>
 </nav>
             </div>
@@ -198,7 +204,7 @@
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Your passphrase must be complicated, and you should store it safely.</p>
+<p>Your passphrase should be complicated, and you must store it safely.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -216,10 +222,7 @@ ssh-add ~/.ssh/id_ed25519
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat ~/.ssh/id_ed25519.pub
 </pre></div>
 </div>
-<p>Copy the output, navigate to Github settings, and add the SSH key:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.. figure:: ../_static/img/github_ssh_key.png
-</pre></div>
-</div>
+<p>Copy the output, navigate to Github settings, and add the SSH key.</p>
 </div>
 <div class="section" id="login-escape">
 <span id="id3"></span><h2>Login Escape<a class="headerlink" href="#login-escape" title="Permalink to this headline">¶</a></h2>

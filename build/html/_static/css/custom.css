@@ -1,0 +1,87 @@
+/* i.fa-linkedin:before {
+	color: #0077b5;
+} */
+
+:root {
+	--pst-header-height: 50px;
+}
+
+.bd-sidebar {
+	top: 0rem;
+}
+
+h1 {
+	font-size: 2.4rem;
+	font-weight: 700;
+	color: #130654;
+}
+h2 {
+	font-size: 1.45rem;
+	font-weight: 700;
+	color: #130654;
+}
+h3 {
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: #130654;
+}
+
+.navbar-brand {
+	padding-top: 0.5rem;
+	margin-left: 1rem;
+	/* padding-bottom: 0rem; */
+	height: auto;
+}
+
+.navbar-brand img {
+	height: 2.3rem;
+	margin: 0rem;
+	vertical-align: middle;
+}
+
+.navbar-toggler {
+	margin-right: 1rem;
+}
+
+img,
+svg {
+	vertical-align: middle;
+}
+
+/* Main index page overview cards */
+
+.intro-card {
+	background: #fff;
+	border-radius: 0;
+	padding: 30px 10px 20px 10px;
+	margin: 10px 0px;
+}
+
+.intro-card p.card-text {
+	margin: 0px;
+}
+
+.intro-card .card-img-top {
+	margin: 10px;
+	height: 52px;
+}
+
+.intro-card .card-header {
+	border: none;
+	background-color: white;
+	color: #150458 !important;
+	font-size: var(--pst-font-size-h5);
+	font-weight: bold;
+	padding: 2.5rem 0rem 0.5rem 0rem;
+}
+
+.intro-card .card-footer {
+	border: none;
+	background-color: white;
+}
+
+.intro-card .card-footer p.card-text {
+	max-width: 220px;
+	margin-left: auto;
+	margin-right: auto;
+}

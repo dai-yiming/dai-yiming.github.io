@@ -78,12 +78,13 @@ In the ``conf.py`` of your Sphinx source, update the ``html_theme`` configuratio
 Then, build Sphinx in a ``./docs`` subdirectory to suit GitHub Pages preset setup to serve a documentation, and add an empty `.nojekyll` file in `docs` repository to make GitHub to not try interpret files as part of a Jekyll site. You could summarize in a ``run.sh`` file::
 
     #!/bin/bash
-    echo "deleting current documentation..."
-    rm -rf docs/
+    echo "removing everything under 'docs'..."
+    rm -rfv ./docs/*
     echo "starting building..."
     sphinx-build -E -b html ./source ./docs
     echo "add .nojekyll file..."
     touch ./docs/.nojekyll
+
 
 .. _publish_enjoy:
 
@@ -104,7 +105,7 @@ with address http://localhost:8080, or directly visit::
 
 .. warning::
 
-    The documentation was last updated on |today| and may be deprecated. If unexpected errors occur, check out official documentation for `Sphinx`_, `PyData Sphinx Theme`_, `GitHub Pages`_.
+    The documentation was last updated on |today| and may be deprecated. If unexpected errors occur, check out official documentation for `Sphinx`_, `PyData Sphinx Theme`_, and `GitHub Pages`_.
     
 .. _Sphinx: https://www.sphinx-doc.org/en/master/index.html
 .. _PyData Sphinx Theme: https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html

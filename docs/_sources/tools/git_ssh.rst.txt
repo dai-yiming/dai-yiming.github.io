@@ -23,7 +23,7 @@ Use ``ssh-keygen`` to generate new the SSH key with the email registering GitHub
 
 .. attention::
 
-    Your passphrase must be complicated, and you should store it safely.
+    Your passphrase should be complicated, and you must store it safely.
 
 .. note::
 
@@ -44,9 +44,7 @@ Pull up the key::
 
     cat ~/.ssh/id_ed25519.pub
 
-Copy the output, navigate to Github settings, and add the SSH key::
-
-.. figure:: ../_static/img/github_ssh_key.png
+Copy the output, navigate to Github settings, and add the SSH key.
 
 .. _login_escape:
 

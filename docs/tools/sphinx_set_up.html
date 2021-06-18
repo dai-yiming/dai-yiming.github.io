@@ -36,11 +36,11 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../_static/dove-solid.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Git SSH Set Up Guide" href="git_ssh.html" />
-    <link rel="prev" title="Code Style Guide" href="code_style.html" />
+    <link rel="prev" title="Tools" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -57,7 +57,7 @@
     
 
 <a class="navbar-brand" href="../index.html">
-  <img src="../_static/dove-solid.svg" class="logo" alt="logo">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
 </a>
 
 
@@ -74,21 +74,9 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="code_style.html">
-  Code Style Guide
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
-  Sphinx Set Up Guide
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="git_ssh.html">
-  Git SSH Set Up Guide
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Tools
  </a>
 </li>
 
@@ -133,7 +121,24 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Sphinx Set Up Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="git_ssh.html">
+   Git SSH Set Up Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_exercise.html">
+   100 numpy exercises
+  </a>
+ </li>
+</ul>
+
   </div>
 </nav>
             </div>
@@ -255,8 +260,8 @@ pip install nbsphinx
 </div>
 <p>Then, build Sphinx in a <code class="docutils literal notranslate"><span class="pre">./docs</span></code> subdirectory to suit GitHub Pages preset setup to serve a documentation, and add an empty <cite>.nojekyll</cite> file in <cite>docs</cite> repository to make GitHub to not try interpret files as part of a Jekyll site. You could summarize in a <code class="docutils literal notranslate"><span class="pre">run.sh</span></code> file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="nb">echo</span> <span class="s2">&quot;deleting current documentation...&quot;</span>
-rm -rf docs/
+<span class="nb">echo</span> <span class="s2">&quot;removing everything under &#39;docs&#39;...&quot;</span>
+rm -rfv ./docs/*
 <span class="nb">echo</span> <span class="s2">&quot;starting building...&quot;</span>
 sphinx-build -E -b html ./source ./docs
 <span class="nb">echo</span> <span class="s2">&quot;add .nojekyll file...&quot;</span>
@@ -280,7 +285,7 @@ touch ./docs/.nojekyll
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The documentation was last updated on Jun 18, 2021 and may be deprecated. If unexpected errors occur, check out official documentation for <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>, <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html">PyData Sphinx Theme</a>, <a class="reference external" href="https://docs.github.com/en/pages/getting-started-with-github-pages">GitHub Pages</a>.</p>
+<p>The documentation was last updated on Jun 18, 2021 and may be deprecated. If unexpected errors occur, check out official documentation for <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>, <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html">PyData Sphinx Theme</a>, and <a class="reference external" href="https://docs.github.com/en/pages/getting-started-with-github-pages">GitHub Pages</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
