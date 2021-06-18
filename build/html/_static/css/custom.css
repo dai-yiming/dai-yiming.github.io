@@ -6,8 +6,19 @@
 	--pst-header-height: 50px;
 }
 
-.bd-sidebar {
-	top: 0rem;
+.bd-sidebar,
+.bd-toc {
+	top: 0;
+}
+
+@media (min-width: 1200px) {
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm,
+	.container-xl {
+		max-width: 1400px;
+	}
 }
 
 h1 {
@@ -15,32 +26,38 @@ h1 {
 	font-weight: 700;
 	color: #130654;
 }
+
 h2 {
 	font-size: 1.45rem;
-	font-weight: 700;
+	font-weight: 500;
 	color: #130654;
 }
+
 h3 {
 	font-size: 1.3rem;
-	font-weight: 600;
+	font-weight: 500;
 	color: #130654;
 }
 
 .navbar-brand {
 	padding-top: 0.5rem;
 	margin-left: 1rem;
-	/* padding-bottom: 0rem; */
+	/* padding-bottom: 0; */
 	height: auto;
 }
 
 .navbar-brand img {
 	height: 2.3rem;
-	margin: 0rem;
+	margin: 0;
 	vertical-align: middle;
 }
 
 .navbar-toggler {
 	margin-right: 1rem;
+}
+
+nav.bg-light {
+	background-color: #fff !important;
 }
 
 img,
@@ -72,7 +89,7 @@ svg {
 	color: #150458 !important;
 	font-size: var(--pst-font-size-h5);
 	font-weight: bold;
-	padding: 2.5rem 0rem 0.5rem 0rem;
+	padding: 2.5rem 0 0.5rem 0;
 }
 
 .intro-card .card-footer {

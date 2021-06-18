@@ -105,7 +105,7 @@ with address http://localhost:8080, or directly visit::
 
 .. warning::
 
-    The documentation was last updated on |today| and may be deprecated. If unexpected errors occur, check out official documentation for `Sphinx`_, `PyData Sphinx Theme`_, `GitHub Pages`_.
+    The documentation was last updated on |today| and may be deprecated. If unexpected errors occur, check out official documentation for `Sphinx`_, `PyData Sphinx Theme`_, and `GitHub Pages`_.
     
 .. _Sphinx: https://www.sphinx-doc.org/en/master/index.html
 .. _PyData Sphinx Theme: https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html

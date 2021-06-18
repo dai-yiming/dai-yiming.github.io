@@ -47,7 +47,7 @@ command line?**
 
 ``hint: np.info``
 
-.. code:: python
+.. code:: bash
 
    %run `python -c "import numpy; numpy.info(numpy.add)"`
 
@@ -283,7 +283,7 @@ in place.**
 
 ``hint: np.sum``
 
-.. code:: python
+.. code:: none
 
    print(sum(range(5), -1))
    from numpy import *
