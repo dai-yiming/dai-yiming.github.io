@@ -8,6 +8,7 @@
     :hidden:
     :titlesonly:
 
+    docs/index
     tools/index
 
 =============
@@ -25,61 +26,26 @@ An open source, easy-to-use library containing notes in the field of data scienc
     ---
     :img-top: _static/img/index_getting_started.svg
 
-    Numpy guide
-    ^^^^^^^^^^^^^^^
+    Data Science Docs
+    ^^^^^^^^^^^^^^^^^
 
-    New to *pandas*? Check out the getting started guides. They contain an
-    introduction to *pandas'* main concepts and links to additional tutorials.
+    New to data science? Check out the comprehensive guides containing tutorials about Python, Numpy, pandas, sklearn, and more!
 
     +++
 
-    .. link-button:: getting_started
+    .. link-button:: docs
             :type: ref
             :text: To the numpy guides
             :classes: btn-block btn-secondary stretched-link
 
-    ---
-    :img-top: _static/img/index_user_guide.svg
-
-    pandas guide
-    ^^^^^^^^^^
-
-    The user guide provides in-depth information on the
-    key concepts of pandas with useful background information and explanation.
-
-    +++
-
-    .. link-button:: user_guide
-            :type: ref
-            :text: To the pandas guide
-            :classes: btn-block btn-secondary stretched-link
 
     ---
     :img-top: _static/img/index_api.svg
 
-    MATLAB guide
-    ^^^^^^^^^^^^^
+    Useful Tools
+    ^^^^^^^^^^^^
 
-    The reference guide contains a detailed description of
-    the pandas API. The reference describes how the methods work and which parameters can
-    be used. It assumes that you have an understanding of the key concepts.
-
-    +++
-
-    .. link-button:: api
-            :type: ref
-            :text: To the MATLAB guide
-            :classes: btn-block btn-secondary stretched-link
-
-    ---
-    :img-top: _static/img/index_contribute.svg
-
-    Tools Guide
-    ^^^^^^^^^^^^^^^
-
-    Saw a typo in the documentation? Want to improve
-    existing functionalities? The contributing guidelines will guide
-    you through the process of improving pandas.
+    Stuck on projects? Check out the guides of useful tools showing concise concepts and preferred solutions.
 
     +++
 

@@ -12,7 +12,6 @@ This guide is an overview and explains the convenient tools.
 
     sphinx_set_up
     git_ssh
-    numpy_exercise
 
 ..
     comment: below is global toc in the left sidebar
@@ -22,7 +21,3 @@ This guide is an overview and explains the convenient tools.
    numpy.org/devdocs and numpy.org/doc/XX) and are not in any toctree, so
    we include them here to avoid a "WARNING: document isn't included in any
    toctree" message [from numpy user/index.rst]
-
-.. toctree::
-    :maxdepth: 1
-    :hidden:

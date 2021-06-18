@@ -111,6 +111,6 @@ with address http://localhost:8080, or directly visit::
 .. _PyData Sphinx Theme: https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html
 .. _GitHub Pages: https://docs.github.com/en/pages/getting-started-with-github-pages
 
-.. note::
+.. tip::
 
     In order to eliminating username and password when pushing and pulling with your GitHub account, refer to the :ref:`git_ssh`.
