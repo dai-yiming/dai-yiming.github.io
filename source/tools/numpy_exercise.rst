@@ -1,7 +1,7 @@
 .. _numpy_exercise:
 
 ===================
-100 numpy exercises
+100 Numpy Exercises
 ===================
 
 Edited Numpy exercises from `GitHub <https://github.com/rougier/numpy-100>`__ with various and optimized solutions.
