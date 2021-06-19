@@ -31,7 +31,7 @@ Add your remote for your github repo. Create an empty commit and push it.
 Installing from PyPI
 --------------------
 
-First you will need ``sphinx``, `sphinx_panels``, and ``nbsphinx`` package to be installed. Run the following commands from a terminal window::
+First you will need ``sphinx``, ``sphinx_panels``, and ``nbsphinx`` package to be installed. Run the following commands from a terminal window::
 
     pip install sphinx
     pip install sphinx_panels
