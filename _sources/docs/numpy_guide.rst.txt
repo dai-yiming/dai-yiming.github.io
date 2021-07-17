@@ -16,7 +16,7 @@ Numpy Guide
 ====================
 
 This is a short introduction to Numpy, geared mainly for new users.
-You can see more complex recipes at `Numpy`_.
+You can see more complex recipes at `Numpy`_. While 
 
 
 Import and settings
@@ -39,6 +39,8 @@ Several methods to create Numpy arrays are available, and we should contain homo
    a = np.array([1, 2, 3, 4, 5, 6]); a
    a.dtype
    a.shape
+   a.ndim
+   a.nbytes
 
 As for growth accelaration of arrays, we can
 
@@ -192,6 +194,12 @@ Use ``math.isclose`` to compare two values, and use ``np.allclose`` to test whet
    math.isclose(0.1+0.2-0.3, 0, rel_tol=1e-09, abs_tol=1e-8)
    np.allclose([1.0, np.nan], [1.0, np.nan], equal_nan=True)
 
+Note that ``np.allclose`` assumes identical shape and a tolerance. To check whether two ndarrays have same shape and elements with no tolerance, use ``np.array_equal``.
+
+.. ipython:: python
+
+   np.array_equal(np.array([[1, 0], [0, 1]]), np.eye(2))
+
 
 Reshape
 -------------------------
@@ -228,6 +236,14 @@ Suppose we create a 1D array named `a` of size `n`, the default shape would be (
 
 4. use ``np.transpose`` or ``.T`` for swap between **(n, 1)** and **(1, n)**
 
+
+5. to add a particular dimension, use ``np.newaxis``.
+
+.. ipython:: python
+
+   rand = rng.random((2, 3)); rand.shape
+   rand[:, np.newaxis, :].shape
+   
 .. tip::
 
    Obviously, ``np.newaxis`` is equivalent to ``None``. Also, when we set axis to -1, dimension will be inferred automatically.
@@ -306,15 +322,42 @@ Differentiate Python's builtin ``slice`` and index array as the parameter for lo
    np.append([[1, 2, 3], [4, 5, 6]], [[7, 8, 9]], axis=0)
    np.append([[1, 2], [3, 4]], [[5, 6], [7, 8]], axis=1)
 
+.. ipython:: python
+
+   g = np.arange(1, 17).reshape(4, 4); g
+   np.delete(g, [1, 3], axis=0)
+
+Preferably, we use a boolean mask for further use of mask; the above is then equivalent to
+
+.. ipython:: python
+
+   mask = np.ones_like(g, dtype=bool)
+   mask[[1, 3], :] = False
+   g[mask] # flattened
+
+Use ``np.pad`` for periphery appending
+
+.. ipython:: python
+   
+   #        np.pad(g, pad_width=((u, d), (l, r)))
+   np.pad(g, pad_width=((1, 2), (1, 2)), constant_values=(0, 6))
+
+
+
+
+
+
+
+
 .. warning::
 
-   All manipulations and indexing are not in-place (shaddow copy), and changes will be reflected on original object. Avoid this by doing assignment directly or assigning the output to a specific existing object through possible parameter ``out``.
+   All manipulations and indexing are not-in-place (shaddow copy), and changes will be reflected on original object. Avoid this by doing assignment directly or assigning the output to a specific existing object through possible parameter ``out``.
 
 
 Others
 -------------------------
 
-To sort an object, we use ``np.sort``
+To not-in-place sort, we use ``np.sort``
 
 .. ipython:: python
 
@@ -327,6 +370,7 @@ Preferably, pandas is better capable of handling sorting with more functionaliti
    unsort = np.array([3, 9, 0, 8])
    pd.DataFrame(unsort).sort_values(by=0).to_numpy().flatten()
 
+Note that Python's builtin ``.sort()`` is in-place sorting.
 
 
 .. _Numpy: https://numpy.org/
