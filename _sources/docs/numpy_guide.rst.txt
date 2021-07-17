@@ -16,7 +16,9 @@ Numpy Guide
 ====================
 
 This is a short introduction to Numpy, geared mainly for new users.
-You can see more complex recipes at `Numpy`_. While 
+You can see more complex recipes at `Numpy`_.
+
+While Python use ``help()`` for docstring reference, IPython use ``?`` or ``np.info``. Also, it uses ``??`` for source code.
 
 
 Import and settings
