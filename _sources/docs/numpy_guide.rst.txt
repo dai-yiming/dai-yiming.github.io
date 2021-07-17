@@ -1,6 +1,7 @@
 .. ipython:: python
    :suppress:
 
+   import math
    import numpy as np
    import pandas as pd
 
@@ -15,16 +16,318 @@ Numpy Guide
 ====================
 
 This is a short introduction to Numpy, geared mainly for new users.
-You can see more complex recipes at `Numpy <https://numpy.org/>`__.
+You can see more complex recipes at `Numpy`_.
+
 
 Import and settings
 -------------------
 
-Customarily, we import as follows::
+Customarily, we import as follows
 
 .. ipython:: python
 
    import numpy as np
 
+
 Object creation
----------------
+--------------------------
+
+Several methods to create Numpy arrays are available, and we should contain homogeneous elements only for optimal efficiency. The simplest way is
+
+.. ipython:: python
+
+   a = np.array([1, 2, 3, 4, 5, 6]); a
+   a.dtype
+   a.shape
+
+As for growth accelaration of arrays, we can
+
+- initialize a Python list and convert it to a Numpy array
+- preallocate spaces as Numpy array directly
+
+.. ipython:: python
+
+   lst = [1, 2, 3, 4.5] # a simple Python list
+   np.array(lst)
+   # the default dtype is float64
+   np.zeros(shape=6)
+   # the first parameter is capable of n-dim object as tuple
+   np.ones(shape=(1,6), dtype='int64')
+   np.empty(shape=6) # random address of length six
+   # parameters N for number of rows and M for number of columns
+   np.eye(N=3, M=None, k=1) # identity matrix w/ upside offset
+   np.full(shape=6, fill_value=0, dtype=np.int64)
+
+If we already have an array and prefer to imitate only the format for preallocation purposes, we could use ``_like`` functions, e.g.
+
+.. ipython:: python
+
+   np.full_like(a, fill_value=1)
+
+In addition, we could use ``np.arange`` and ``np.linspace`` for faster customized array creation
+
+.. ipython:: python
+
+   # must have stop parameter, and the default value is 0
+   # for start and 1 for step parameter
+   np.arange(start=0, stop=6, step=1)
+   # must have start and stop parameters, and the
+   # default value for num parameter is 50
+   np.linspace(start=0, stop=1, num=6, endpoint=True)
+
+.. note::
+
+   ``np.linspace`` is of better precision when involving fractional calculations.
+
+In order to make a deep copy, use ``.copy()`` for both Python and Numpy objects.
+
+.. ipython:: python
+
+   b = a.copy(); b
+
+Object indexing
+--------------------------
+
+The common method to index an array is ``a[start:stop:step]`` with default value 0, len(a), and 1. When `step` is negative, reverse reading is performed.
+
+.. ipython:: python
+
+   a[0:6:2]
+   a[:3]
+   a[::2]
+   a[::-1] # reverse list
+   a[[1, 4, 5]] # fancy indexing
+
+
+Logics & boolean algebra
+-------------------------
+
+Numpy uses `and` ``&`` , `or` ``|`` , `xor` ``^`` , and `not` ``~`` for logical operations
+
+.. ipython:: python
+
+   a[(a >= 1) & (a < 3)]
+   a[(a < 1) | (a >= 3)]
+   a[~(a < 3)]
+
+Similarly, we use ``np.where`` for logical operations when all there parameters are provided: `condition`, `x` for origincal value or new filling value when condition is met, and `y` for new filling value otherwise. But note that ``np.where()`` takes no keyword arguments. If only the `condition` parameter is provided, ``np.nonzero`` is preferred.
+
+.. ipython:: python
+
+   np.nonzero(a > 3)
+   np.where(a > 3, a, 10*a)
+
+Another useful function to use is ``np.clip``, which specifies lower and upper bounds while keeping the intermediate original
+
+.. ipython:: python
+
+   np.clip(a, a_min=1, a_max=4)
+
+Boolean masking is typically the most efficient way to quantify a sub-collection in a collection. Masking in python and data science is when you want manipulated data in a collection based on some criteria, often represented as a boolean object.
+
+.. ipython:: python
+
+   criteria = (a < 1) | (a >= 3)
+   a[criteria]
+
+
+Random system
+-----------------------
+
+Several methods for randomly generating numbers with different statistical distributions are available. Specifically, we import the ``default_rng`` (random number generator) object as a variable
+
+.. ipython:: python
+
+   rng = np.random.default_rng()
+
+and illustrate common usages for uniform and (standard) normal distribution
+
+.. ipython:: python
+
+   # uniform distribution with half-open interval (default)
+   rng.integers(low=0, high=6, size=6, dtype=np.int64) # U[0,6)
+   # closed-interval uniform distribution
+   rng.integers(low=0, high=6, size=6, endpoint=True) # U[0,6]
+   rng.random(size=5) # U[0,1)
+   rng.uniform(low=1, high=6, size=(2, 6)) # U[0,6)
+   rng.normal(loc=5, scale=2, size=6) # N(5,2)
+   rng.standard_normal(size=6) # N(0,1)
+
+For more information about ``default_rng``, check out the official documentation for `default_rng`_.
+
+
+Math operations
+-------------------------
+
+Element-wise operations including ``+`` or ``np.add``, ``-`` or ``np.subtract`` or ``*``, ``np.multiply`` or ``**``, ``/`` or ``np.divide``, ``//``, ``np.sqrt``, ``np.exp``, ``np.log``, ``np.[trigonometry]``, ``np.floor``, ``np.ceil``, ``np.round``, ``np.maximum``, ``np.minimum``, ``np.transpose`` or ``.T``, etc.
+
+Operations for single output including ``np.max``, ``np.min``, ``np.sum``, ``np.argmax``, ``np.argmin``, ``np.mean``, ``np.median``, ``np.percentile``, ``np.std``, ``np.var``, ``np.all``, ``np.any``, etc. Note that ``axis`` parameter is available for many of these.
+
+Use ``np.dot`` for 1D dot product, and use ``np.matmul`` or ``@`` for n-dim cross product
+
+.. ipython:: python
+
+   np.dot([1, 1], [2, 3])
+   np.matmul(np.array([[4, 1], [2, 2]]), np.eye(2))
+   np.diag(a) @ np.eye(6)
+
+Use ``np.round`` for approximate rounding. Alternatively, Python’s builtin round function uses a more accurate but slower algorithm for 64-bit floating point values.
+
+.. ipython:: python
+
+   np.round(10.055, decimals=2), round(10.055, 2)
+   np.round([0.396, 0.158, 0.999, 0.197, 0.261], decimals=2)
+   np.round([100.0585, 100.6489,  97.5847], decimals=-1)
+
+Note that for values exactly halfway between rounded decimal values, NumPy rounds to the nearest even value.
+
+.. ipython:: python
+
+   np.round(1.5) == np.round(2.5) == 2
+
+Use ``math.isclose`` to compare two values, and use ``np.allclose`` to test whether two arrays are element-wise equal with a tolerance.
+
+.. ipython:: python
+
+   math.isclose(0.1+0.2-0.3, 0, rel_tol=1e-09, abs_tol=1e-8)
+   np.allclose([1.0, np.nan], [1.0, np.nan], equal_nan=True)
+
+
+Reshape
+-------------------------
+
+Suppose we create a 1D array named `a` of size `n`, the default shape would be (n,). Some operations like transpose cannot be done, and we need to reshape to a formal shape with two options: (1, n) or (n, 1). Now, we discuss the shape conversion among three shapes. Specifically, we will use ``np.reshape`` or ``ndarray.reshape``, ``np.expand_dims``, ``np.squeeze``, ``np.flatten``, ``np.ravel``, ``np.transpose`` or ``.T``.
+
+1. **(n,)** -> **(1, n)**
+
+.. ipython:: python
+
+   a = np.array([0, 1, 2])
+   a.reshape(1, -1)
+   a[np.newaxis, :]
+   a[None, :]
+   np.expand_dims(a, axis=0)
+
+2. **(n,)** -> **(n, 1)**
+
+.. ipython:: python
+
+   a.reshape(-1, 1)
+   a[:, np.newaxis]
+   a[:, None]
+   np.expand_dims(a, axis=1)
+
+3. **(n, 1)** or **(1, n)** -> **(n,)**
+
+.. ipython:: python
+
+   a.squeeze()
+   a.flatten()
+   a.reshape(-1)
+   np.ravel(a)
+
+4. use ``np.transpose`` or ``.T`` for swap between **(n, 1)** and **(1, n)**
+
+.. tip::
+
+   Obviously, ``np.newaxis`` is equivalent to ``None``. Also, when we set axis to -1, dimension will be inferred automatically.
+
+
+Manipulation
+-------------------------
+
+Several methods to stack objects are available, either vertical or horizontal.
+
+.. ipython:: python
+
+   a = np.array([[0, 1, 2]])
+   b = np.array([[3, 4, 5]])
+   # horizontal
+   np.hstack((a, b))
+   np.concatenate((a, b), axis=1)
+   # vertical
+   np.vstack((a, b))
+   np.concatenate((a, b), axis=0)
+   # depth - axis=3
+   np.dstack((a, b))
+   
+also with fancy element-wise or integral replication.
+
+.. ipython:: python
+
+   np.tile(a, (3, 1))
+   c = np.arange(1, 5).reshape(2, 2).repeat(3, axis=1).repeat(2, axis=0); c
+   np.repeat(a, [1, 2, 3], axis=1)
+   np.block([[0, a], [np.eye(4)]])
+
+Alternatively, we split 1D array by
+
+.. ipython:: python
+
+   d = np.arange(6); d
+   np.split(d, 3)
+   np.split(d, [3, 5, 6])
+
+or ndarray by
+
+.. ipython:: python
+
+   np.hsplit(c, 2)
+   np.hsplit(c, np.array([2])) # [2:]
+   np.hsplit(c, np.array([2, 5]))
+   np.vsplit(c, 2)
+   
+For above functions, passing an integer as division parameter leads to equal division. According to official documentation, ``np.array_split`` allows `indices_or_sections` to be an integer that does not equally divide the axis. For an array of length l that should be split into n sections, it returns l % n sub-arrays of size l//n + 1 and the rest of size l//n.
+
+.. ipython:: python
+
+   e = np.arange(8); e
+   np.array_split(e, 3)
+
+In addition, we have ``np.insert``, ``np.append``, and ``np.delete`` with the assuption that input ndarray have same number of dimensions.
+
+.. ipython:: python
+
+   f = np.array([[1, 1], [2, 2], [3, 3]]); f
+   np.insert(f, 1, 5.5, axis=1) # type casting
+   np.insert(f, [1], [[1],[2],[3]], axis=1)
+   np.array_equal(np.insert(f, 1, [1, 2, 3], axis=1),
+                  np.insert(f, [1], [[1],[2],[3]], axis=1))
+
+Differentiate Python's builtin ``slice`` and index array as the parameter for location to insert
+
+.. ipython:: python
+
+   np.insert(f, slice(2, 4), [5, 6])
+   np.insert(f, [2, 4], [5, 6])
+
+.. ipython:: python
+
+   np.append([[1, 2, 3], [4, 5, 6]], [[7, 8, 9]], axis=0)
+   np.append([[1, 2], [3, 4]], [[5, 6], [7, 8]], axis=1)
+
+.. warning::
+
+   All manipulations and indexing are not in-place (shaddow copy), and changes will be reflected on original object. Avoid this by doing assignment directly or assigning the output to a specific existing object through possible parameter ``out``.
+
+
+Others
+-------------------------
+
+To sort an object, we use ``np.sort``
+
+.. ipython:: python
+
+   np.sort(np.array([[3, 5], [2, 4]]), axis=None, kind='quicksort')
+
+Preferably, pandas is better capable of handling sorting with more functionalities. For more information about pandas, check out :ref:`pandas_guide`.
+
+.. ipython:: python
+
+   unsort = np.array([3, 9, 0, 8])
+   pd.DataFrame(unsort).sort_values(by=0).to_numpy().flatten()
+
+
+
+.. _Numpy: https://numpy.org/
+.. _default_rng: https://numpy.org/doc/stable/reference/random/generator.html

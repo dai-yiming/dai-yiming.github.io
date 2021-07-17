@@ -76,7 +76,7 @@ In the ``conf.py`` of your Sphinx source, update the ``html_theme`` configuratio
 
     For more configuration of the theme, follow `PyData Sphinx Theme`_ docs.
 
-Then, build Sphinx in a ``./docs`` subdirectory to suit GitHub Pages preset setup to serve a documentation, and add an empty `.nojekyll` file in `docs` repository to make GitHub to not try interpret files as part of a Jekyll site. You could summarize in a ``run.sh`` file::
+Then, build Sphinx in a ``./docs`` subdirectory to suit GitHub Pages preset setup to serve a documentation, and add an empty `.nojekyll` file in `docs` repository to make GitHub to not try to interpret files as part of a Jekyll site as default. You could summarize in a ``run.sh`` file::
 
     #!/bin/bash
     echo "removing everything under 'docs'..."
@@ -107,11 +107,12 @@ with address http://localhost:8080, or directly visit::
 .. warning::
 
     The documentation was last updated on |today| and may be deprecated. If unexpected errors occur, check out official documentation for `Sphinx`_, `PyData Sphinx Theme`_, and `GitHub Pages`_.
-    
-.. _Sphinx: https://www.sphinx-doc.org/en/master/index.html
-.. _PyData Sphinx Theme: https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html
-.. _GitHub Pages: https://docs.github.com/en/pages/getting-started-with-github-pages
 
 .. tip::
 
     In order to eliminating username and password when pushing and pulling with your GitHub account, refer to the :ref:`git_ssh`.
+
+    
+.. _Sphinx: https://www.sphinx-doc.org/en/master/index.html
+.. _PyData Sphinx Theme: https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html
+.. _GitHub Pages: https://docs.github.com/en/pages/getting-started-with-github-pages

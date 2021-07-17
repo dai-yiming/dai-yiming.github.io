@@ -11,4 +11,5 @@ This guide is an overview and explains the fundamental components of data scienc
     :hidden:
 
     numpy_guide
+    pandas_guide
     numpy_exercise
