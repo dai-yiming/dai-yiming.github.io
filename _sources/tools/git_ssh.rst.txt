@@ -54,7 +54,7 @@ Pull up the key::
 
 now copy the output, navigate to Github settings, and add the SSH key
 
-.. image:: ssh_key.png
+.. image:: ../_static/img/ssh_key.png
 
 .. _login_escape:
 

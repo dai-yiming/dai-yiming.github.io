@@ -39,7 +39,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pandas Guide" href="pandas_guide.html" />
+    <link rel="next" title="MATLAB Guide" href="matlab_guide.html" />
     <link rel="prev" title="Docs" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -134,6 +134,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="matlab_guide.html">
+   MATLAB Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="pandas_guide.html">
    pandas Guide
   </a>
@@ -179,8 +184,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#logics-boolean-algebra">
-   Logics &amp; boolean algebra
+  <a class="reference internal nav-link" href="#logics-boolean-mask">
+   Logics &amp; boolean mask
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -189,8 +194,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#math-operations">
-   Math operations
+  <a class="reference internal nav-link" href="#mathematics">
+   Mathematics
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -204,8 +209,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#others">
-   Others
+  <a class="reference internal nav-link" href="#sorting">
+   Sorting
   </a>
  </li>
 </ul>
@@ -227,9 +232,8 @@
                 
   <div class="section" id="numpy-guide">
 <span id="id1"></span><h1>Numpy Guide<a class="headerlink" href="#numpy-guide" title="Permalink to this headline">¶</a></h1>
-<p>This is a short introduction to Numpy, geared mainly for new users.
-You can see more complex recipes at <a class="reference external" href="https://numpy.org/">Numpy</a>.</p>
-<p>While Python use <code class="docutils literal notranslate"><span class="pre">help()</span></code> for docstring reference, IPython use <code class="docutils literal notranslate"><span class="pre">?</span></code> or <code class="docutils literal notranslate"><span class="pre">np.info</span></code>. Also, it uses <code class="docutils literal notranslate"><span class="pre">??</span></code> for source code.</p>
+<p>This is an elegant-design introduction to Numpy, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="https://numpy.org/">Numpy</a>.</p>
+<p>While Python uses <code class="docutils literal notranslate"><span class="pre">help()</span></code> for docstring reference, IPython uses <code class="docutils literal notranslate"><span class="pre">?</span></code> or <code class="docutils literal notranslate"><span class="pre">np.info</span></code> or <code class="docutils literal notranslate"><span class="pre">np.help</span></code>. Also, it uses <code class="docutils literal notranslate"><span class="pre">??</span></code> or <code class="docutils literal notranslate"><span class="pre">np.source</span></code> for source code.</p>
 <div class="section" id="import-and-settings">
 <h2>Import and settings<a class="headerlink" href="#import-and-settings" title="Permalink to this headline">¶</a></h2>
 <p>Customarily, we import as follows</p>
@@ -256,9 +260,9 @@ You can see more complex recipes at <a class="reference external" href="https://
 <span class="gh">Out[6]: </span><span class="go">48</span>
 </pre></div>
 </div>
-<p>As for growth accelaration of arrays, we can</p>
+<p>As for the growth accelaration of arrays, we can</p>
 <ul class="simple">
-<li><p>initialize a Python list and convert it to a Numpy array</p></li>
+<li><p>initialize a Python list and convert it to a Numpy array, or</p></li>
 <li><p>preallocate spaces as Numpy array directly</p></li>
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">]</span> <span class="c1"># a simple Python list</span>
@@ -275,9 +279,7 @@ You can see more complex recipes at <a class="reference external" href="https://
 <span class="gh">Out[10]: </span><span class="go">array([[1, 1, 1, 1, 1, 1]])</span>
 
 <span class="gp">In [11]: </span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># random address of length six</span>
-<span class="gh">Out[11]: </span><span class="go"></span>
-<span class="go">array([3.1050e+231, 3.1111e+231, 1.4822e-323, 0.0000e+000, 0.0000e+000,</span>
-<span class="go">       4.1720e-309])</span>
+<span class="gh">Out[11]: </span><span class="go">array([0., 0., 0., 0., 0., 0.])</span>
 
 <span class="go"># parameters N for number of rows and M for number of columns</span>
 <span class="gp">In [12]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># identity matrix w/ upside offset</span>
@@ -311,113 +313,127 @@ You can see more complex recipes at <a class="reference external" href="https://
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> is of better precision when involving fractional calculations.</p>
 </div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">np.ogrid</span></code> to generate grid for optimal efficiency. While <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> generates a 1D array, <code class="docutils literal notranslate"><span class="pre">np.ogrid</span></code> generates two 2D matrices with shape (n, 1) and (1, n).</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+
+<span class="gp">In [18]: </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">[[0]</span>
+<span class="go"> [2]</span>
+<span class="go"> [4]</span>
+<span class="go"> [6]</span>
+<span class="go"> [8]] (5, 1)</span>
+
+<span class="gp">In [19]: </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">[[0 1 2 3 4 5]] (1, 6)</span>
+</pre></div>
+</div>
 <p>In order to make a deep copy, use <code class="docutils literal notranslate"><span class="pre">.copy()</span></code> for both Python and Numpy objects.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span> <span class="n">b</span>
-<span class="gh">Out[17]: </span><span class="go">array([1, 2, 3, 4, 5, 6])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span> <span class="n">b</span>
+<span class="gh">Out[20]: </span><span class="go">array([1, 2, 3, 4, 5, 6])</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="object-indexing">
 <h2>Object indexing<a class="headerlink" href="#object-indexing" title="Permalink to this headline">¶</a></h2>
-<p>The common method to index an array is <code class="docutils literal notranslate"><span class="pre">a[start:stop:step]</span></code> with default value 0, len(a), and 1. When <cite>step</cite> is negative, reverse reading is performed.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[18]: </span><span class="go">array([1, 3, 5])</span>
+<p>The common method to index an array is <code class="docutils literal notranslate"><span class="pre">a[start:stop:step]</span></code> with default value 0, len(a), and 1 respectively. When <cite>step</cite> is negative, reverse reading is performed.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="gh">Out[21]: </span><span class="go">array([1, 3, 5])</span>
 
-<span class="gp">In [19]: </span><span class="n">a</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
-<span class="gh">Out[19]: </span><span class="go">array([1, 2, 3])</span>
+<span class="gp">In [22]: </span><span class="n">a</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="gh">Out[22]: </span><span class="go">array([1, 2, 3])</span>
 
-<span class="gp">In [20]: </span><span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[20]: </span><span class="go">array([1, 3, 5])</span>
+<span class="gp">In [23]: </span><span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+<span class="gh">Out[23]: </span><span class="go">array([1, 3, 5])</span>
 
-<span class="gp">In [21]: </span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># reverse list</span>
-<span class="gh">Out[21]: </span><span class="go">array([6, 5, 4, 3, 2, 1])</span>
+<span class="gp">In [24]: </span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># reverse list</span>
+<span class="gh">Out[24]: </span><span class="go">array([6, 5, 4, 3, 2, 1])</span>
 
-<span class="gp">In [22]: </span><span class="n">a</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span> <span class="c1"># fancy indexing</span>
-<span class="gh">Out[22]: </span><span class="go">array([2, 5, 6])</span>
+<span class="gp">In [25]: </span><span class="n">a</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span> <span class="c1"># fancy indexing</span>
+<span class="gh">Out[25]: </span><span class="go">array([2, 5, 6])</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="logics-boolean-algebra">
-<h2>Logics &amp; boolean algebra<a class="headerlink" href="#logics-boolean-algebra" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="logics-boolean-mask">
+<h2>Logics &amp; boolean mask<a class="headerlink" href="#logics-boolean-mask" title="Permalink to this headline">¶</a></h2>
 <p>Numpy uses <cite>and</cite> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> , <cite>or</cite> <code class="docutils literal notranslate"><span class="pre">|</span></code> , <cite>xor</cite> <code class="docutils literal notranslate"><span class="pre">^</span></code> , and <cite>not</cite> <code class="docutils literal notranslate"><span class="pre">~</span></code> for logical operations</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">a</span><span class="p">[(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)]</span>
-<span class="gh">Out[23]: </span><span class="go">array([1, 2])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">a</span><span class="p">[(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)]</span>
+<span class="gh">Out[26]: </span><span class="go">array([1, 2])</span>
 
-<span class="gp">In [24]: </span><span class="n">a</span><span class="p">[(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)]</span>
-<span class="gh">Out[24]: </span><span class="go">array([3, 4, 5, 6])</span>
+<span class="gp">In [27]: </span><span class="n">a</span><span class="p">[(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)]</span>
+<span class="gh">Out[27]: </span><span class="go">array([3, 4, 5, 6])</span>
 
-<span class="gp">In [25]: </span><span class="n">a</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)]</span>
-<span class="gh">Out[25]: </span><span class="go">array([3, 4, 5, 6])</span>
+<span class="gp">In [28]: </span><span class="n">a</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)]</span>
+<span class="gh">Out[28]: </span><span class="go">array([3, 4, 5, 6])</span>
 </pre></div>
 </div>
-<p>Similarly, we use <code class="docutils literal notranslate"><span class="pre">np.where</span></code> for logical operations when all there parameters are provided: <cite>condition</cite>, <cite>x</cite> for origincal value or new filling value when condition is met, and <cite>y</cite> for new filling value otherwise. But note that <code class="docutils literal notranslate"><span class="pre">np.where()</span></code> takes no keyword arguments. If only the <cite>condition</cite> parameter is provided, <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> is preferred.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[26]: </span><span class="go">(array([3, 4, 5]),)</span>
+<p>Similarly, we use <code class="docutils literal notranslate"><span class="pre">np.where</span></code> for logical operations when all there parameters are provided: <cite>condition</cite>, <cite>x</cite> for origincal value or new filling value when condition is met, and <cite>y</cite> for new filling value otherwise. But note that <code class="docutils literal notranslate"><span class="pre">np.where()</span></code> takes no keyword arguments. If only the <cite>condition</cite> parameter is provided, <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> is preferable to generate indices that met the condition to the original ndarray.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># indices</span>
+<span class="gh">Out[29]: </span><span class="go">(array([3, 4, 5]),)</span>
 
-<span class="gp">In [27]: </span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
-<span class="gh">Out[27]: </span><span class="go">array([10, 20, 30,  4,  5,  6])</span>
+<span class="gp">In [30]: </span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+<span class="gh">Out[30]: </span><span class="go">array([10, 20, 30,  4,  5,  6])</span>
 </pre></div>
 </div>
 <p>Another useful function to use is <code class="docutils literal notranslate"><span class="pre">np.clip</span></code>, which specifies lower and upper bounds while keeping the intermediate original</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="gh">Out[28]: </span><span class="go">array([1, 2, 3, 4, 4, 4])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[31]: </span><span class="go">array([1, 2, 3, 4, 4, 4])</span>
 </pre></div>
 </div>
 <p>Boolean masking is typically the most efficient way to quantify a sub-collection in a collection. Masking in python and data science is when you want manipulated data in a collection based on some criteria, often represented as a boolean object.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="n">criteria</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">criteria</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span>
 
-<span class="gp">In [30]: </span><span class="n">a</span><span class="p">[</span><span class="n">criteria</span><span class="p">]</span>
-<span class="gh">Out[30]: </span><span class="go">array([3, 4, 5, 6])</span>
+<span class="gp">In [33]: </span><span class="n">a</span><span class="p">[</span><span class="n">criteria</span><span class="p">]</span>
+<span class="gh">Out[33]: </span><span class="go">array([3, 4, 5, 6])</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="random-system">
 <h2>Random system<a class="headerlink" href="#random-system" title="Permalink to this headline">¶</a></h2>
 <p>Several methods for randomly generating numbers with different statistical distributions are available. Specifically, we import the <code class="docutils literal notranslate"><span class="pre">default_rng</span></code> (random number generator) object as a variable</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [34]: </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>and illustrate common usages for uniform and (standard) normal distribution</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># uniform distribution with half-open interval (default)</span>
-<span class="gp">In [32]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="c1"># U[0,6)</span>
-<span class="gh">Out[32]: </span><span class="go">array([2, 4, 3, 1, 4, 5])</span>
+<span class="gp">In [35]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="c1"># U[0,6)</span>
+<span class="gh">Out[35]: </span><span class="go">array([0, 0, 0, 2, 5, 2])</span>
 
 <span class="go"># closed-interval uniform distribution</span>
-<span class="gp">In [33]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># U[0,6]</span>
-<span class="gh">Out[33]: </span><span class="go">array([4, 3, 5, 5, 3, 1])</span>
+<span class="gp">In [36]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># U[0,6]</span>
+<span class="gh">Out[36]: </span><span class="go">array([4, 4, 6, 4, 0, 5])</span>
 
-<span class="gp">In [34]: </span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># U[0,1)</span>
-<span class="gh">Out[34]: </span><span class="go">array([0.319 , 0.7236, 0.4551, 0.6912, 0.1428])</span>
+<span class="gp">In [37]: </span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># U[0,1)</span>
+<span class="gh">Out[37]: </span><span class="go">array([0.7516, 0.6546, 0.5828, 0.6947, 0.4807])</span>
 
-<span class="gp">In [35]: </span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="c1"># U[0,6)</span>
-<span class="gh">Out[35]: </span><span class="go"></span>
-<span class="go">array([[1.2917, 4.5346, 5.0946, 3.109 , 5.8993, 1.0934],</span>
-<span class="go">       [1.5124, 3.6082, 4.3178, 1.2303, 3.807 , 1.4629]])</span>
+<span class="gp">In [38]: </span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="c1"># U[0,6)</span>
+<span class="gh">Out[38]: </span><span class="go"></span>
+<span class="go">array([[4.6172, 5.8447, 1.8389, 2.3633, 5.675 , 5.7699],</span>
+<span class="go">       [2.765 , 2.5776, 3.4924, 4.4499, 5.8374, 5.2238]])</span>
 
-<span class="gp">In [36]: </span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(5,2)</span>
-<span class="gh">Out[36]: </span><span class="go">array([6.5406, 5.0066, 4.2813, 6.0127, 1.8477, 7.0987])</span>
+<span class="gp">In [39]: </span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(5,2)</span>
+<span class="gh">Out[39]: </span><span class="go">array([7.032 , 2.4498, 6.9199, 5.1546, 6.375 , 6.3269])</span>
 
-<span class="gp">In [37]: </span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(0,1)</span>
-<span class="gh">Out[37]: </span><span class="go">array([-0.4951, -0.0589,  0.1364,  1.6054, -0.8742, -1.0873])</span>
+<span class="gp">In [40]: </span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(0,1)</span>
+<span class="gh">Out[40]: </span><span class="go">array([-0.125 ,  0.2155, -0.887 ,  0.3212,  0.4676,  0.1282])</span>
 </pre></div>
 </div>
 <p>For more information about <code class="docutils literal notranslate"><span class="pre">default_rng</span></code>, check out the official documentation for <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html">default_rng</a>.</p>
 </div>
-<div class="section" id="math-operations">
-<h2>Math operations<a class="headerlink" href="#math-operations" title="Permalink to this headline">¶</a></h2>
-<p>Element-wise operations including <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">np.add</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> or <code class="docutils literal notranslate"><span class="pre">np.subtract</span></code> or <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">np.multiply</span></code> or <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">np.divide</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>, <code class="docutils literal notranslate"><span class="pre">np.log</span></code>, <code class="docutils literal notranslate"><span class="pre">np.[trigonometry]</span></code>, <code class="docutils literal notranslate"><span class="pre">np.floor</span></code>, <code class="docutils literal notranslate"><span class="pre">np.ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">np.round</span></code>, <code class="docutils literal notranslate"><span class="pre">np.maximum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.minimum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code> or <code class="docutils literal notranslate"><span class="pre">.T</span></code>, etc.</p>
-<p>Operations for single output including <code class="docutils literal notranslate"><span class="pre">np.max</span></code>, <code class="docutils literal notranslate"><span class="pre">np.min</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argmin</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">np.median</span></code>, <code class="docutils literal notranslate"><span class="pre">np.percentile</span></code>, <code class="docutils literal notranslate"><span class="pre">np.std</span></code>, <code class="docutils literal notranslate"><span class="pre">np.var</span></code>, <code class="docutils literal notranslate"><span class="pre">np.all</span></code>, <code class="docutils literal notranslate"><span class="pre">np.any</span></code>, etc. Note that <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter is available for many of these.</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">np.dot</span></code> for 1D dot product, and use <code class="docutils literal notranslate"><span class="pre">np.matmul</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> for n-dim cross product</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="gh">Out[38]: </span><span class="go">5</span>
+<div class="section" id="mathematics">
+<h2>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">¶</a></h2>
+<p>Element-wise operations with broadcasting concept include <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">np.add</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> or <code class="docutils literal notranslate"><span class="pre">np.subtract</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> or <code class="docutils literal notranslate"><span class="pre">np.multiply</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">np.divide</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>, <code class="docutils literal notranslate"><span class="pre">np.log</span></code>, <code class="docutils literal notranslate"><span class="pre">np.[trigonometry]</span></code>, <code class="docutils literal notranslate"><span class="pre">np.floor</span></code>, <code class="docutils literal notranslate"><span class="pre">np.ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">np.round</span></code>, <code class="docutils literal notranslate"><span class="pre">np.maximum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.minimum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code> or <code class="docutils literal notranslate"><span class="pre">.T</span></code>, etc.</p>
+<p>Operations for single output include <code class="docutils literal notranslate"><span class="pre">np.max</span></code>, <code class="docutils literal notranslate"><span class="pre">np.min</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argmin</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">np.median</span></code>, <code class="docutils literal notranslate"><span class="pre">np.percentile</span></code>, <code class="docutils literal notranslate"><span class="pre">np.std</span></code>, <code class="docutils literal notranslate"><span class="pre">np.var</span></code>, <code class="docutils literal notranslate"><span class="pre">np.all</span></code>, <code class="docutils literal notranslate"><span class="pre">np.any</span></code>, etc. Note that <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter is available for many of these.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">np.dot</span></code> for 1D dot product, and use <code class="docutils literal notranslate"><span class="pre">np.matmul</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> for matrix multiplication.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [41]: </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gh">Out[41]: </span><span class="go">5</span>
 
-<span class="gp">In [39]: </span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="gh">Out[39]: </span><span class="go"></span>
+<span class="gp">In [42]: </span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="gh">Out[42]: </span><span class="go"></span>
 <span class="go">array([[4., 1.],</span>
 <span class="go">       [2., 2.]])</span>
 
-<span class="gp">In [40]: </span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="gh">Out[40]: </span><span class="go"></span>
+<span class="gp">In [43]: </span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gh">Out[43]: </span><span class="go"></span>
 <span class="go">array([[1., 0., 0., 0., 0., 0.],</span>
 <span class="go">       [0., 2., 0., 0., 0., 0.],</span>
 <span class="go">       [0., 0., 3., 0., 0., 0.],</span>
@@ -427,32 +443,32 @@ You can see more complex recipes at <a class="reference external" href="https://
 </pre></div>
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">np.round</span></code> for approximate rounding. Alternatively, Python’s builtin round function uses a more accurate but slower algorithm for 64-bit floating point values.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [41]: </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mf">10.055</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="mf">10.055</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[41]: </span><span class="go">(10.06, 10.05)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [44]: </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mf">10.055</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="mf">10.055</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[44]: </span><span class="go">(10.06, 10.05)</span>
 
-<span class="gp">In [42]: </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">([</span><span class="mf">0.396</span><span class="p">,</span> <span class="mf">0.158</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">,</span> <span class="mf">0.197</span><span class="p">,</span> <span class="mf">0.261</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[42]: </span><span class="go">array([0.4 , 0.16, 1.  , 0.2 , 0.26])</span>
+<span class="gp">In [45]: </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">([</span><span class="mf">0.396</span><span class="p">,</span> <span class="mf">0.158</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">,</span> <span class="mf">0.197</span><span class="p">,</span> <span class="mf">0.261</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[45]: </span><span class="go">array([0.4 , 0.16, 1.  , 0.2 , 0.26])</span>
 
-<span class="gp">In [43]: </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">([</span><span class="mf">100.0585</span><span class="p">,</span> <span class="mf">100.6489</span><span class="p">,</span>  <span class="mf">97.5847</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[43]: </span><span class="go">array([100., 100., 100.])</span>
+<span class="gp">In [46]: </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">([</span><span class="mf">100.0585</span><span class="p">,</span> <span class="mf">100.6489</span><span class="p">,</span>  <span class="mf">97.5847</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[46]: </span><span class="go">array([100., 100., 100.])</span>
 </pre></div>
 </div>
 <p>Note that for values exactly halfway between rounded decimal values, NumPy rounds to the nearest even value.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [44]: </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
-<span class="gh">Out[44]: </span><span class="go">True</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="gh">Out[47]: </span><span class="go">True</span>
 </pre></div>
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">math.isclose</span></code> to compare two values, and use <code class="docutils literal notranslate"><span class="pre">np.allclose</span></code> to test whether two arrays are element-wise equal with a tolerance.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-09</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
-<span class="gh">Out[45]: </span><span class="go">True</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [48]: </span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-09</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
+<span class="gh">Out[48]: </span><span class="go">True</span>
 
-<span class="gp">In [46]: </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="n">equal_nan</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[46]: </span><span class="go">True</span>
+<span class="gp">In [49]: </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="n">equal_nan</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[49]: </span><span class="go">True</span>
 </pre></div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">np.allclose</span></code> assumes identical shape and a tolerance. To check whether two ndarrays have same shape and elements with no tolerance, use <code class="docutils literal notranslate"><span class="pre">np.array_equal</span></code>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="gh">Out[47]: </span><span class="go">True</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [50]: </span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="gh">Out[50]: </span><span class="go">True</span>
 </pre></div>
 </div>
 </div>
@@ -462,44 +478,44 @@ You can see more complex recipes at <a class="reference external" href="https://
 <ol class="arabic simple">
 <li><p><strong>(n,)</strong> -&gt; <strong>(1, n)</strong></p></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [48]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [51]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
-<span class="gp">In [49]: </span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[49]: </span><span class="go">array([[0, 1, 2]])</span>
-
-<span class="gp">In [50]: </span><span class="n">a</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
-<span class="gh">Out[50]: </span><span class="go">array([[0, 1, 2]])</span>
-
-<span class="gp">In [51]: </span><span class="n">a</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-<span class="gh">Out[51]: </span><span class="go">array([[0, 1, 2]])</span>
-
-<span class="gp">In [52]: </span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">In [52]: </span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="gh">Out[52]: </span><span class="go">array([[0, 1, 2]])</span>
+
+<span class="gp">In [53]: </span><span class="n">a</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+<span class="gh">Out[53]: </span><span class="go">array([[0, 1, 2]])</span>
+
+<span class="gp">In [54]: </span><span class="n">a</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+<span class="gh">Out[54]: </span><span class="go">array([[0, 1, 2]])</span>
+
+<span class="gp">In [55]: </span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gh">Out[55]: </span><span class="go">array([[0, 1, 2]])</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p><strong>(n,)</strong> -&gt; <strong>(n, 1)</strong></p></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[53]: </span><span class="go"></span>
-<span class="go">array([[0],</span>
-<span class="go">       [1],</span>
-<span class="go">       [2]])</span>
-
-<span class="gp">In [54]: </span><span class="n">a</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-<span class="gh">Out[54]: </span><span class="go"></span>
-<span class="go">array([[0],</span>
-<span class="go">       [1],</span>
-<span class="go">       [2]])</span>
-
-<span class="gp">In [55]: </span><span class="n">a</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
-<span class="gh">Out[55]: </span><span class="go"></span>
-<span class="go">array([[0],</span>
-<span class="go">       [1],</span>
-<span class="go">       [2]])</span>
-
-<span class="gp">In [56]: </span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [56]: </span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gh">Out[56]: </span><span class="go"></span>
+<span class="go">array([[0],</span>
+<span class="go">       [1],</span>
+<span class="go">       [2]])</span>
+
+<span class="gp">In [57]: </span><span class="n">a</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="gh">Out[57]: </span><span class="go"></span>
+<span class="go">array([[0],</span>
+<span class="go">       [1],</span>
+<span class="go">       [2]])</span>
+
+<span class="gp">In [58]: </span><span class="n">a</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="gh">Out[58]: </span><span class="go"></span>
+<span class="go">array([[0],</span>
+<span class="go">       [1],</span>
+<span class="go">       [2]])</span>
+
+<span class="gp">In [59]: </span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[59]: </span><span class="go"></span>
 <span class="go">array([[0],</span>
 <span class="go">       [1],</span>
 <span class="go">       [2]])</span>
@@ -508,87 +524,99 @@ You can see more complex recipes at <a class="reference external" href="https://
 <ol class="arabic simple" start="3">
 <li><p><strong>(n, 1)</strong> or <strong>(1, n)</strong> -&gt; <strong>(n,)</strong></p></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">a</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
-<span class="gh">Out[57]: </span><span class="go">array([0, 1, 2])</span>
-
-<span class="gp">In [58]: </span><span class="n">a</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-<span class="gh">Out[58]: </span><span class="go">array([0, 1, 2])</span>
-
-<span class="gp">In [59]: </span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[59]: </span><span class="go">array([0, 1, 2])</span>
-
-<span class="gp">In [60]: </span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [60]: </span><span class="n">a</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
 <span class="gh">Out[60]: </span><span class="go">array([0, 1, 2])</span>
+
+<span class="gp">In [61]: </span><span class="n">a</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="gh">Out[61]: </span><span class="go">array([0, 1, 2])</span>
+
+<span class="gp">In [62]: </span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[62]: </span><span class="go">array([0, 1, 2])</span>
+
+<span class="gp">In [63]: </span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gh">Out[63]: </span><span class="go">array([0, 1, 2])</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Array flattened by <code class="docutils literal notranslate"><span class="pre">np.ravel</span></code> is a reference to the parent ndarray (shadow copy), hence memory efficiently. <code class="docutils literal notranslate"><span class="pre">np.flatten</span></code> creates a new array (deep copy).</p>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>use <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code> or <code class="docutils literal notranslate"><span class="pre">.T</span></code> for swap between <strong>(n, 1)</strong> and <strong>(1, n)</strong></p></li>
 <li><p>to add a particular dimension, use <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code>.</p></li>
 </ol>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [61]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="n">rand</span><span class="o">.</span><span class="n">shape</span>
-<span class="gh">Out[61]: </span><span class="go">(2, 3)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="n">rand</span><span class="o">.</span><span class="n">shape</span>
+<span class="gh">Out[64]: </span><span class="go">(2, 3)</span>
 
-<span class="gp">In [62]: </span><span class="n">rand</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
-<span class="gh">Out[62]: </span><span class="go">(2, 1, 3)</span>
+<span class="gp">In [65]: </span><span class="n">rand</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
+<span class="gh">Out[65]: </span><span class="go">(2, 1, 3)</span>
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Obviously, <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">None</span></code>. Also, when we set axis to -1, dimension will be inferred automatically.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">None</span></code>. When we set axis to -1, dimension will be inferred automatically.</p>
 </div>
 </div>
 <div class="section" id="manipulation">
 <h2>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h2>
 <p>Several methods to stack objects are available, either vertical or horizontal.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [63]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [66]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 
-<span class="gp">In [64]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="gp">In [67]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 
 <span class="go"># horizontal</span>
-<span class="gp">In [65]: </span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
-<span class="gh">Out[65]: </span><span class="go">array([[0, 1, 2, 3, 4, 5]])</span>
+<span class="gp">In [68]: </span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+<span class="gh">Out[68]: </span><span class="go">array([[0, 1, 2, 3, 4, 5]])</span>
 
-<span class="gp">In [66]: </span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[66]: </span><span class="go">array([[0, 1, 2, 3, 4, 5]])</span>
+<span class="gp">In [69]: </span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
+<span class="gh">Out[69]: </span><span class="go">array([[0, 1, 2, 3, 4, 5]])</span>
+
+<span class="gp">In [70]: </span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[70]: </span><span class="go">array([[0, 1, 2, 3, 4, 5]])</span>
 
 <span class="go"># vertical</span>
-<span class="gp">In [67]: </span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
-<span class="gh">Out[67]: </span><span class="go"></span>
+<span class="gp">In [71]: </span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+<span class="gh">Out[71]: </span><span class="go"></span>
 <span class="go">array([[0, 1, 2],</span>
 <span class="go">       [3, 4, 5]])</span>
 
-<span class="gp">In [68]: </span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="gh">Out[68]: </span><span class="go"></span>
+<span class="gp">In [72]: </span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
+<span class="gh">Out[72]: </span><span class="go"></span>
+<span class="go">array([[0, 1, 2],</span>
+<span class="go">       [3, 4, 5]])</span>
+
+<span class="gp">In [73]: </span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gh">Out[73]: </span><span class="go"></span>
 <span class="go">array([[0, 1, 2],</span>
 <span class="go">       [3, 4, 5]])</span>
 
 <span class="go"># depth - axis=3</span>
-<span class="gp">In [69]: </span><span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
-<span class="gh">Out[69]: </span><span class="go"></span>
+<span class="gp">In [74]: </span><span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+<span class="gh">Out[74]: </span><span class="go"></span>
 <span class="go">array([[[0, 3],</span>
 <span class="go">        [1, 4],</span>
 <span class="go">        [2, 5]]])</span>
 </pre></div>
 </div>
 <p>also with fancy element-wise or integral replication.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [70]: </span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="gh">Out[70]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [75]: </span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gh">Out[75]: </span><span class="go"></span>
 <span class="go">array([[0, 1, 2],</span>
 <span class="go">       [0, 1, 2],</span>
 <span class="go">       [0, 1, 2]])</span>
 
-<span class="gp">In [71]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span> <span class="n">c</span>
-<span class="gh">Out[71]: </span><span class="go"></span>
+<span class="gp">In [76]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span> <span class="n">c</span>
+<span class="gh">Out[76]: </span><span class="go"></span>
 <span class="go">array([[1, 1, 1, 2, 2, 2],</span>
 <span class="go">       [1, 1, 1, 2, 2, 2],</span>
 <span class="go">       [3, 3, 3, 4, 4, 4],</span>
 <span class="go">       [3, 3, 3, 4, 4, 4]])</span>
 
-<span class="gp">In [72]: </span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[72]: </span><span class="go">array([[0, 1, 1, 2, 2, 2]])</span>
+<span class="gp">In [77]: </span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[77]: </span><span class="go">array([[0, 1, 1, 2, 2, 2]])</span>
 
-<span class="gp">In [73]: </span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)]])</span>
-<span class="gh">Out[73]: </span><span class="go"></span>
+<span class="gp">In [78]: </span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)]])</span>
+<span class="gh">Out[78]: </span><span class="go"></span>
 <span class="go">array([[0., 0., 1., 2.],</span>
 <span class="go">       [1., 0., 0., 0.],</span>
 <span class="go">       [0., 1., 0., 0.],</span>
@@ -597,19 +625,19 @@ You can see more complex recipes at <a class="reference external" href="https://
 </pre></div>
 </div>
 <p>Alternatively, we split 1D array by</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [74]: </span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span> <span class="n">d</span>
-<span class="gh">Out[74]: </span><span class="go">array([0, 1, 2, 3, 4, 5])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [79]: </span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span> <span class="n">d</span>
+<span class="gh">Out[79]: </span><span class="go">array([0, 1, 2, 3, 4, 5])</span>
 
-<span class="gp">In [75]: </span><span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[75]: </span><span class="go">[array([0, 1]), array([2, 3]), array([4, 5])]</span>
+<span class="gp">In [80]: </span><span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[80]: </span><span class="go">[array([0, 1]), array([2, 3]), array([4, 5])]</span>
 
-<span class="gp">In [76]: </span><span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-<span class="gh">Out[76]: </span><span class="go">[array([0, 1, 2]), array([3, 4]), array([5]), array([], dtype=int64)]</span>
+<span class="gp">In [81]: </span><span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gh">Out[81]: </span><span class="go">[array([0, 1, 2]), array([3, 4]), array([5]), array([], dtype=int64)]</span>
 </pre></div>
 </div>
 <p>or ndarray by</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [77]: </span><span class="n">np</span><span class="o">.</span><span class="n">hsplit</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[77]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [82]: </span><span class="n">np</span><span class="o">.</span><span class="n">hsplit</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[82]: </span><span class="go"></span>
 <span class="go">[array([[1, 1, 1],</span>
 <span class="go">        [1, 1, 1],</span>
 <span class="go">        [3, 3, 3],</span>
@@ -619,8 +647,8 @@ You can see more complex recipes at <a class="reference external" href="https://
 <span class="go">        [4, 4, 4],</span>
 <span class="go">        [4, 4, 4]])]</span>
 
-<span class="gp">In [78]: </span><span class="n">np</span><span class="o">.</span><span class="n">hsplit</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">]))</span> <span class="c1"># [2:]</span>
-<span class="gh">Out[78]: </span><span class="go"></span>
+<span class="gp">In [83]: </span><span class="n">np</span><span class="o">.</span><span class="n">hsplit</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">]))</span> <span class="c1"># [2:]</span>
+<span class="gh">Out[83]: </span><span class="go"></span>
 <span class="go">[array([[1, 1],</span>
 <span class="go">        [1, 1],</span>
 <span class="go">        [3, 3],</span>
@@ -630,8 +658,8 @@ You can see more complex recipes at <a class="reference external" href="https://
 <span class="go">        [3, 4, 4, 4],</span>
 <span class="go">        [3, 4, 4, 4]])]</span>
 
-<span class="gp">In [79]: </span><span class="n">np</span><span class="o">.</span><span class="n">hsplit</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
-<span class="gh">Out[79]: </span><span class="go"></span>
+<span class="gp">In [84]: </span><span class="n">np</span><span class="o">.</span><span class="n">hsplit</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+<span class="gh">Out[84]: </span><span class="go"></span>
 <span class="go">[array([[1, 1],</span>
 <span class="go">        [1, 1],</span>
 <span class="go">        [3, 3],</span>
@@ -645,8 +673,8 @@ You can see more complex recipes at <a class="reference external" href="https://
 <span class="go">        [4],</span>
 <span class="go">        [4]])]</span>
 
-<span class="gp">In [80]: </span><span class="n">np</span><span class="o">.</span><span class="n">vsplit</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gh">Out[80]: </span><span class="go"></span>
+<span class="gp">In [85]: </span><span class="n">np</span><span class="o">.</span><span class="n">vsplit</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[85]: </span><span class="go"></span>
 <span class="go">[array([[1, 1, 1, 2, 2, 2],</span>
 <span class="go">        [1, 1, 1, 2, 2, 2]]),</span>
 <span class="go"> array([[3, 3, 3, 4, 4, 4],</span>
@@ -654,84 +682,84 @@ You can see more complex recipes at <a class="reference external" href="https://
 </pre></div>
 </div>
 <p>For above functions, passing an integer as division parameter leads to equal division. According to official documentation, <code class="docutils literal notranslate"><span class="pre">np.array_split</span></code> allows <cite>indices_or_sections</cite> to be an integer that does not equally divide the axis. For an array of length l that should be split into n sections, it returns l % n sub-arrays of size l//n + 1 and the rest of size l//n.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [81]: </span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span> <span class="n">e</span>
-<span class="gh">Out[81]: </span><span class="go">array([0, 1, 2, 3, 4, 5, 6, 7])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [86]: </span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span> <span class="n">e</span>
+<span class="gh">Out[86]: </span><span class="go">array([0, 1, 2, 3, 4, 5, 6, 7])</span>
 
-<span class="gp">In [82]: </span><span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[82]: </span><span class="go">[array([0, 1, 2]), array([3, 4, 5]), array([6, 7])]</span>
+<span class="gp">In [87]: </span><span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[87]: </span><span class="go">[array([0, 1, 2]), array([3, 4, 5]), array([6, 7])]</span>
 </pre></div>
 </div>
 <p>In addition, we have <code class="docutils literal notranslate"><span class="pre">np.insert</span></code>, <code class="docutils literal notranslate"><span class="pre">np.append</span></code>, and <code class="docutils literal notranslate"><span class="pre">np.delete</span></code> with the assuption that input ndarray have same number of dimensions.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [83]: </span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]);</span> <span class="n">f</span>
-<span class="gh">Out[83]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [88]: </span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]);</span> <span class="n">f</span>
+<span class="gh">Out[88]: </span><span class="go"></span>
 <span class="go">array([[1, 1],</span>
 <span class="go">       [2, 2],</span>
 <span class="go">       [3, 3]])</span>
 
-<span class="gp">In [84]: </span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># type casting</span>
-<span class="gh">Out[84]: </span><span class="go"></span>
+<span class="gp">In [89]: </span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># type casting</span>
+<span class="gh">Out[89]: </span><span class="go"></span>
 <span class="go">array([[1, 5, 1],</span>
 <span class="go">       [2, 5, 2],</span>
 <span class="go">       [3, 5, 3]])</span>
 
-<span class="gp">In [85]: </span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[85]: </span><span class="go"></span>
+<span class="gp">In [90]: </span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[90]: </span><span class="go"></span>
 <span class="go">array([[1, 1, 1],</span>
 <span class="go">       [2, 2, 2],</span>
 <span class="go">       [3, 3, 3]])</span>
 
-<span class="gp">In [86]: </span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+<span class="gp">In [91]: </span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
 <span class="gp">   ....: </span>               <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="gp">   ....: </span>
-<span class="gh">Out[86]: </span><span class="go">True</span>
+<span class="gh">Out[91]: </span><span class="go">True</span>
 </pre></div>
 </div>
 <p>Differentiate Python’s builtin <code class="docutils literal notranslate"><span class="pre">slice</span></code> and index array as the parameter for location to insert</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [87]: </span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-<span class="gh">Out[87]: </span><span class="go">array([1, 1, 5, 2, 6, 2, 3, 3])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [92]: </span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gh">Out[92]: </span><span class="go">array([1, 1, 5, 2, 6, 2, 3, 3])</span>
 
-<span class="gp">In [88]: </span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-<span class="gh">Out[88]: </span><span class="go">array([1, 1, 5, 2, 2, 6, 3, 3])</span>
+<span class="gp">In [93]: </span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gh">Out[93]: </span><span class="go">array([1, 1, 5, 2, 2, 6, 3, 3])</span>
 </pre></div>
 </div>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [89]: </span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="gh">Out[89]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [94]: </span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gh">Out[94]: </span><span class="go"></span>
 <span class="go">array([[1, 2, 3],</span>
 <span class="go">       [4, 5, 6],</span>
 <span class="go">       [7, 8, 9]])</span>
 
-<span class="gp">In [90]: </span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gh">Out[90]: </span><span class="go"></span>
+<span class="gp">In [95]: </span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[95]: </span><span class="go"></span>
 <span class="go">array([[1, 2, 5, 6],</span>
 <span class="go">       [3, 4, 7, 8]])</span>
 </pre></div>
 </div>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [91]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="n">g</span>
-<span class="gh">Out[91]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [96]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="n">g</span>
+<span class="gh">Out[96]: </span><span class="go"></span>
 <span class="go">array([[ 1,  2,  3,  4],</span>
 <span class="go">       [ 5,  6,  7,  8],</span>
 <span class="go">       [ 9, 10, 11, 12],</span>
 <span class="go">       [13, 14, 15, 16]])</span>
 
-<span class="gp">In [92]: </span><span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="gh">Out[92]: </span><span class="go"></span>
+<span class="gp">In [97]: </span><span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gh">Out[97]: </span><span class="go"></span>
 <span class="go">array([[ 1,  2,  3,  4],</span>
 <span class="go">       [ 9, 10, 11, 12]])</span>
 </pre></div>
 </div>
 <p>Preferably, we use a boolean mask for further use of mask; the above is then equivalent to</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [93]: </span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [98]: </span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
-<span class="gp">In [94]: </span><span class="n">mask</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">:]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="gp">In [99]: </span><span class="n">mask</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">:]</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="gp">In [95]: </span><span class="n">g</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># flattened</span>
-<span class="gh">Out[95]: </span><span class="go">array([ 1,  2,  3,  4,  9, 10, 11, 12])</span>
+<span class="gp">In [100]: </span><span class="n">g</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="c1"># flattened</span>
+<span class="gh">Out[100]: </span><span class="go">array([ 1,  2,  3,  4,  9, 10, 11, 12])</span>
 </pre></div>
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">np.pad</span></code> for periphery appending</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go">#        np.pad(g, pad_width=((u, d), (l, r)))</span>
-<span class="gp">In [96]: </span><span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">pad_width</span><span class="o">=</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">constant_values</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="gh">Out[96]: </span><span class="go"></span>
+<span class="gp">In [101]: </span><span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">pad_width</span><span class="o">=</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">constant_values</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="gh">Out[101]: </span><span class="go"></span>
 <span class="go">array([[ 0,  0,  0,  0,  0,  6,  6],</span>
 <span class="go">       [ 0,  1,  2,  3,  4,  6,  6],</span>
 <span class="go">       [ 0,  5,  6,  7,  8,  6,  6],</span>
@@ -741,26 +769,76 @@ You can see more complex recipes at <a class="reference external" href="https://
 <span class="go">       [ 0,  6,  6,  6,  6,  6,  6]])</span>
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>All manipulations and indexing are not-in-place (shaddow copy), and changes will be reflected on original object. Avoid this by doing assignment directly or assigning the output to a specific existing object through possible parameter <code class="docutils literal notranslate"><span class="pre">out</span></code>.</p>
 </div>
-</div>
-<div class="section" id="others">
-<h2>Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h2>
-<p>To not-in-place sort, we use <code class="docutils literal notranslate"><span class="pre">np.sort</span></code></p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [97]: </span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]),</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;quicksort&#39;</span><span class="p">)</span>
-<span class="gh">Out[97]: </span><span class="go">array([2, 3, 4, 5])</span>
+<div class="section" id="sorting">
+<h2>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">np.sort</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argsort</span></code>, <code class="docutils literal notranslate"><span class="pre">np.lexsort</span></code> to get sorted values, indices, and lexical-sorted values. While the <code class="docutils literal notranslate"><span class="pre">order</span></code> parameter set a order of sorting from front to back, the <code class="docutils literal notranslate"><span class="pre">keys</span></code> as a tuple parameter for <code class="docutils literal notranslate"><span class="pre">np.lexsort</span></code> set a order of sorting from back to forth.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [102]: </span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]]);</span> <span class="n">h</span>
+<span class="gh">Out[102]: </span><span class="go"></span>
+<span class="go">array([[1, 8, 2, 4],</span>
+<span class="go">       [4, 5, 1, 3]])</span>
+
+<span class="go"># Numpy structured array</span>
+<span class="gp">In [103]: </span><span class="n">dtype</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)]</span>
+
+<span class="gp">In [104]: </span><span class="n">val</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Leo&#39;</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">21</span><span class="p">),(</span><span class="s1">&#39;Rebecca&#39;</span><span class="p">,</span> <span class="mi">166</span><span class="p">,</span> <span class="mi">24</span><span class="p">)]</span>
+
+<span class="gp">In [105]: </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">);</span> <span class="n">k</span>
+<span class="gh">Out[105]: </span><span class="go"></span>
+<span class="go">array([(&#39;&#39;, 180, 21), (&#39;&#39;, 179, 21), (&#39;&#39;, 166, 24)],</span>
+<span class="go">      dtype=[(&#39;name&#39;, &#39;&lt;U&#39;), (&#39;height&#39;, &#39;&lt;i8&#39;), (&#39;age&#39;, &#39;&lt;i8&#39;)])</span>
 </pre></div>
 </div>
-<p>Preferably, pandas is better capable of handling sorting with more functionalities. For more information about pandas, check out <a class="reference internal" href="pandas_guide.html#pandas-guide"><span class="std std-ref">pandas Guide</span></a>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [98]: </span><span class="n">unsort</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [106]: </span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[106]: </span><span class="go"></span>
+<span class="go">array([[1, 2, 4, 8],</span>
+<span class="go">       [1, 3, 4, 5]])</span>
 
-<span class="gp">In [99]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">unsort</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-<span class="gh">Out[99]: </span><span class="go">array([0, 3, 8, 9])</span>
+<span class="gp">In [107]: </span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gh">Out[107]: </span><span class="go"></span>
+<span class="go">array([[1, 5, 1, 3],</span>
+<span class="go">       [4, 8, 2, 4]])</span>
+
+<span class="gp">In [108]: </span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="gh">Out[108]: </span><span class="go">array([1, 1, 2, 3, 4, 4, 5, 8])</span>
+
+<span class="gp">In [109]: </span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">])</span>
+<span class="gh">Out[109]: </span><span class="go"></span>
+<span class="go">array([(&#39;&#39;, 179, 21), (&#39;&#39;, 180, 21), (&#39;&#39;, 166, 24)],</span>
+<span class="go">      dtype=[(&#39;name&#39;, &#39;&lt;U&#39;), (&#39;height&#39;, &#39;&lt;i8&#39;), (&#39;age&#39;, &#39;&lt;i8&#39;)])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [110]: </span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="gh">Out[110]: </span><span class="go"></span>
+<span class="go">array([[0, 2, 3, 1],</span>
+<span class="go">       [2, 3, 0, 1]])</span>
+
+<span class="gp">In [111]: </span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">])</span>
+<span class="gh">Out[111]: </span><span class="go">array([1, 0, 2])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [112]: </span><span class="n">finance</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+
+<span class="gp">In [113]: </span><span class="n">math</span> <span class="o">=</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span>
+
+<span class="gp">In [114]: </span><span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="mi">165</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">185</span><span class="p">,</span> <span class="mi">165</span><span class="p">]</span>
+
+<span class="gp">In [115]: </span><span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">((</span><span class="n">finance</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">total</span><span class="p">))</span>
+<span class="gh">Out[115]: </span><span class="go">array([0, 3, 1, 2])</span>
+</pre></div>
+</div>
+<p>Alternatively, pandas is also capable of handling sorting. For more information about pandas, check out <a class="reference internal" href="pandas_guide.html#pandas-guide"><span class="std std-ref">pandas Guide</span></a>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [116]: </span><span class="n">unsort</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+
+<span class="gp">In [117]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">unsort</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="gh">Out[117]: </span><span class="go">array([0, 3, 8, 9])</span>
 </pre></div>
 </div>
 <p>Note that Python’s builtin <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> is in-place sorting.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All manipulations, indexing, and sorting are not-in-place (shadow copy), and changes will be reflected on original object. Avoid this by doing assignment directly or assigning the output to a specific existing object through possible parameter <code class="docutils literal notranslate"><span class="pre">out</span></code>.</p>
+</div>
 </div>
 </div>
 
@@ -771,7 +849,7 @@ You can see more complex recipes at <a class="reference external" href="https://
               <div class='prev-next-bottom'>
                 
     <a class='left-prev' id="prev-link" href="index.html" title="previous page">Docs</a>
-    <a class='right-next' id="next-link" href="pandas_guide.html" title="next page">pandas Guide</a>
+    <a class='right-next' id="next-link" href="matlab_guide.html" title="next page">MATLAB Guide</a>
 
               </div>
               
@@ -788,7 +866,7 @@ You can see more complex recipes at <a class="reference external" href="https://
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2021, Yiming Dai..<br/>
+    &copy; Copyright 2021, Yiming Dai.<br/>
 </p>
     </div>
     

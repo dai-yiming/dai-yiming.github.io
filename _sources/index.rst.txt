@@ -35,7 +35,7 @@ An open source, easy-to-use documentation containing notes in the field of data 
 
     .. link-button:: docs
             :type: ref
-            :text: To the numpy guides
+            :text: To the docs
             :classes: btn-block btn-secondary stretched-link
 
 
@@ -51,5 +51,5 @@ An open source, easy-to-use documentation containing notes in the field of data 
 
     .. link-button:: tools
             :type: ref
-            :text: To the tools guide
+            :text: To the tools
             :classes: btn-block btn-secondary stretched-link

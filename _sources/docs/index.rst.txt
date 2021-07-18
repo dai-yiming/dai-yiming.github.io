@@ -4,12 +4,13 @@
 Docs
 ====
 
-This guide is an overview and explains the fundamental components of data science toolkit. 
+An elegant-design and concise guide for fundamental components of data science toolkit. 
 
 .. toctree::
-    :maxdepth: 1
-    :hidden:
-
-    numpy_guide
-    pandas_guide
-    numpy_exercise
+   :maxdepth: 1
+   :hidden:
+   
+   numpy_guide
+   matlab_guide
+   pandas_guide
+   numpy_exercise

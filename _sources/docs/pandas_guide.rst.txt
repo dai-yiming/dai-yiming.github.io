@@ -1,21 +1,12 @@
-.. ipython:: python
-   :suppress:
-
-   import numpy as np
-   import pandas as pd
-
-   np.random.seed(20787239)
-   np.set_printoptions(precision=4, suppress=True)
-   pd.options.display.max_rows = 15
-
 .. _pandas_guide:
 
-====================
+=========================
 pandas Guide
-====================
+=========================
 
-This is a short introduction to pandas, geared mainly for new users.
-You can see more complex recipes at `pandas`_.
+This is an elegant-design introduction to pandas, geared mainly for new users. You can see more complex recipes at `pandas`_.
+
+**Under construction !! Expected publish date to be Jul 23, 2021.**
 
 
 .. _pandas: https://pandas.pydata.org/docs/index.html
