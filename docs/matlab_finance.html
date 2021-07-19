@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pandas Guide</title>
+    <title>MATLAB for Finance</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -36,11 +36,13 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="100 Numpy Exercises" href="numpy_exercise.html" />
-    <link rel="prev" title="MATLAB Guide" href="matlab_guide.html" />
+    <link rel="next" title="Tools" href="../tools/index.html" />
+    <link rel="prev" title="100 Numpy Exercises" href="numpy_exercise.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -138,8 +140,8 @@
    MATLAB Guide
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_guide.html">
    pandas Guide
   </a>
  </li>
@@ -148,8 +150,8 @@
    100 Numpy Exercises
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="matlab_finance.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    MATLAB for Finance
   </a>
  </li>
@@ -185,10 +187,21 @@
               
               <div>
                 
-  <div class="section" id="pandas-guide">
-<span id="id1"></span><h1>pandas Guide<a class="headerlink" href="#pandas-guide" title="Permalink to this headline">¶</a></h1>
-<p>This is an elegant-design introduction to pandas, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="https://pandas.pydata.org/docs/index.html">pandas</a>.</p>
-<p><strong>Under construction !! Expected publish date to be Jul 23, 2021.</strong></p>
+  <div class="section" id="matlab-for-finance">
+<span id="matlab-finance"></span><h1>MATLAB for Finance<a class="headerlink" href="#matlab-for-finance" title="Permalink to this headline">¶</a></h1>
+<p>This is an elegant-design introduction to MATLAB application in computational finance.</p>
+<p>We start by illustrating predictions in stock prices using the grometric Brownian motion model (GBM). Recall the GBM equation is</p>
+<div class="math notranslate nohighlight">
+\[S(t + \Delta t) = S(t)e^{\left(\mu - \frac{\sigma^2}{2}\right) \Delta t + \sigma \epsilon \sqrt{\Delta t}}\]</div>
+<p>Suppose to simulate 100 paths with GBM, we could</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">epsilon</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="n">factors</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">exp</span><span class="p">((</span><span class="n">mu</span><span class="o">-</span><span class="n">sigma</span>^<span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">deltaT</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sigma</span><span class="o">*</span><span class="n">epsilon</span><span class="o">*</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">deltaT</span><span class="p">));</span><span class="w"></span>
+</pre></div>
+</div>
+<p>and use the function cumprod to cumulatively multiply the elements of the vector</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 
 
@@ -197,8 +210,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="matlab_guide.html" title="previous page">MATLAB Guide</a>
-    <a class='right-next' id="next-link" href="numpy_exercise.html" title="next page">100 Numpy Exercises</a>
+    <a class='left-prev' id="prev-link" href="numpy_exercise.html" title="previous page">100 Numpy Exercises</a>
+    <a class='right-next' id="next-link" href="../tools/index.html" title="next page">Tools</a>
 
               </div>
               

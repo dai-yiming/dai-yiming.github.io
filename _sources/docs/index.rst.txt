@@ -14,3 +14,4 @@ An elegant-design and concise guide for fundamental components of data science t
    matlab_guide
    pandas_guide
    numpy_exercise
+   matlab_finance

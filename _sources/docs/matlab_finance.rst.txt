@@ -1,0 +1,26 @@
+.. _matlab_finance:
+
+=========================
+MATLAB for Finance
+=========================
+
+This is an elegant-design introduction to MATLAB application in computational finance.
+
+We start by illustrating predictions in stock prices using the grometric Brownian motion model (GBM). Recall the GBM equation is
+
+.. math::
+
+   S(t + \Delta t) = S(t)e^{\left(\mu - \frac{\sigma^2}{2}\right) \Delta t + \sigma \epsilon \sqrt{\Delta t}}
+
+Suppose to simulate 100 paths with GBM, we could
+
+.. code-block:: matlab
+
+   epsilon = randn(100, 1);
+   factors = exp((mu-sigma^2/2)*deltaT + sigma*epsilon*sqrt(deltaT));
+
+and use the function cumprod to cumulatively multiply the elements of the vector
+
+.. code-block:: matlab
+
+   

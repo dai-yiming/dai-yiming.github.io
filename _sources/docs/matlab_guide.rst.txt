@@ -4,7 +4,7 @@
 MATLAB Guide
 =========================
 
-This is an elegant-design to MATLAB, geared mainly for new users. You can see more complex recipes at `MATLAB`_.
+This is an elegant-design introduction to MATLAB, geared mainly for new users. You can see more complex recipes at `MATLAB`_.
 
 As for getting help, MATLAB uses ``help func`` to get documentation on the function `func` within the command window, and uses ``doc func`` to open the documentation page with external browser. Also, it uses ``type func`` for user-defined source code.
 
@@ -27,9 +27,11 @@ Preallocation is an option for the growth acceleration of arrays
 
 .. code-block:: matlab
 
-   >> rand(n) % square matrix with n rows and n cols
-   >> zeros(m, n) % matrix with m rows and n cols
-   >> ones(n) % square matrix with n rows and n cols
+   >> rand(n)  % square matrix cols in U(0,1)
+   >> randn(n) % square matrix cols in N(0,1)
+   >> randi([upper lower], n) % square matrix cols in U(u,l)
+   >> zeros(m, n) % mxn matrix
+   >> ones(n) % square matrix
    >> eye(n) % identity matrix
    >> diag(n) % 2D diagonal matrix
 
@@ -61,6 +63,25 @@ Use ``meshgrid`` to generate grid for optimal efficiency which generates two 2D 
 
 In order to make a deep copy, direct assigning the result to a new variable.
 
+Stack matrices are easy in MATLAB, either vertical or horizontal
+
+.. code-block:: matlab
+
+   >> a = [0, 1, 2]
+   >> b = [3, 4, 5]
+   >> [a b] % horizontal
+   ans = 0 1 2 3 4 5
+
+   >> [a;b] % vertical
+   ans = 0   1   2
+         3   4   5
+
+To create an array of strings or a cell array, commonly used by pie chart, use curly bracket ``{}``.
+
+.. code-block:: matlab
+
+   cryptoNames = {"BTC", "SNX", "YFI"}
+
 
 Object indexing
 --------------------------
@@ -72,6 +93,10 @@ The common method to index an array is ``a(start:step:stop)``. If we want to acc
    >> y(1:2:end, :)
    ans = 0     0     0
          2     2     2
+   % extract the second row
+   >> y(:, 2)
+   >> y(1:4, 2)
+   >> y(1:end, 2)
 
    >> y(1, 2) = 5 % change value
    y = 0     5     0
@@ -137,12 +162,21 @@ Now we illustrate the `if` and `for` loops
 Mathematics
 -------------------------
 
-Element-wise operations with broadcasting concept include ``+``, ``-``, ``.*``, ``.^``, ``./`` , ``sqrt``, ``exp``, ``log``, ``[trigonometry]``, ``floor``, ``ceil``, ``round``, etx. Column-wise operations include ``max``, ``min``, ``sum``, ``mean``, ``median``, ``std``, ``var``, ``all``, ``any``, ``.'`` for transpose, ``'`` for conjugate transpose, etc. Use ``*`` for matrix multiplication.
+Operations between a matrix and a scalar include ``+``, ``-``, ``*``, ``^``, ``/``.
+
+Element-wise operations between matrices with broadcasting concept include ``+``, ``-``, ``.*``, ``.^``, ``./`` , ``sqrt``, ``nthroot``, ``exp``, ``log``, ``[trigonometry]``, ``floor``, ``ceil``, ``round``, ``mod`` etc. 
+
+Statistical operations include ``max``, ``min``, ``sum``, ``mean``, ``median``, ``std``, ``var``, ``prctile``, ``all``, ``any``, ``.'`` for transpose, ``'`` for conjugate transpose, etc. These operations are default as column-wise, we could conduct row-wise operations by ``func(x, 2)``,Moreover,
+
+- ``*``: matrix multiplication
+- ``/``: solve linear systems of equations
+- ``diff``: calculate differences between adjacent elements of the input
+- ``[]``: a placeholder to skip a parameter
 
 .. code-block:: matlab
 
-   >> sqrt(y)
-   ans =      0    2.2361         0
+   >> nthroot(y, 2)
+   ans =      0         0         0
          1.0000    1.0000    1.0000
          1.4142    1.4142    1.4142
          1.7321    1.7321    1.7321
@@ -158,54 +192,59 @@ Element-wise operations with broadcasting concept include ``+``, ``-``, ``.*``, 
    >> mean(y)
    ans = 1.5000  2.7500  1.5000
 
+   >> min(returns, [], 2) % mean return in a row vector
+
 some functions above have polymorphism for multiple outputs
 
 .. code-block:: matlab
 
    >> [nrow, ncol] = size(x)
    >> [xMax, idx] = max(x)
-   
 
-Manipulation
+For more information about operation and special characters, check out official documentation for `operation`_ and `special characters`_. 
+
+
+Graphics
 -------------------------
 
-Stack matrices are easy in MATLAB, either vertical or horizontal
+Use ``plot(x, y[, "format", *args])`` to create line plots of numeric data, ``hold on`` to draw multiple plots on the same canvas, and ``hold off`` to create a new axes for the next plotted line. For more information about plots, check out official documentation for `plots`_. 
+
+To create multiple figures simultaneously, we use ``figure`` and make figure number `k` active by ``figure(k)``. To close one or more figures, we use ``close`` to close current active window, ``close(k)`` to close window number k, and ``close all`` to close all figures windows.
+
+Currently, we only discuss about drawing one plot per window. If we want to create multiple axes within a single window, using ``subplot(m,n,k)`` to create an active set of axes at the `kth` position in an `m-by-n` grid . If axes already exist in this location, they are made active. The axes in the grid are numbered sequentially left-to-right, then top-to-bottom.
 
 .. code-block:: matlab
 
-   >> a = [0, 1, 2]
-   >> b = [3, 4, 5]
-   >> [a b] % horizontal
-   ans = 0 1 2 3 4 5
-
-   >> [a;b] % vertical
-   ans = 0   1   2
-         3   4   5
-
-
-Plot
--------------------------
-
-The easiest way to plot is using ``plot(x, y[, "format", *args])``. Use the command ``hold on`` to draw multiple lines on the same canvas, and use the command ``hold off`` to create a new axes for the next plotted line.
-
-.. code-block:: matlab
-
-   >> x = (1:1:50)
-   >> y1 = rand(50, 1)
-   >> y2 = rand(50, 1)
-   >> plot(x, y1, "r-+", "LineWidth", 1)
+   >> x = (1:1:100)
+   >> BTC = randi([20000, 22000], 100, 1)
+   >> YFI = randi([19500, 21500], 100, 1)
+   >> subplot(2, 1, 1)
+   >> plot(x, BTC, "r+", "LineWidth", 1)
    >> hold on
-   >> plot(x, y2, "b--o")
-   >> title("Random Graph")
-   >> ylabel("value")
-   >> legend("line 1", "line 2")
-   >> xlim([1 50])
+   >> plot(x, YFI, "Color", [0.3 0.3 0.8])
+   >> title("Cryptocurrency Price Changes")
+   >> xlabel("Days")
+   >> ylabel("Price in " + char(163))
+   >> legend("BTC", "YFI", "Location", "best")
+   >> xlim([1 100])
+   >> hold off
+   >> subplot(2, 1, 2)
+   >> histogram(BTC, 40, "DisplayStyle", "stairs")
+   >> hold on
+   >> histogram(YFI, 40, "EdgeColor", "none")
+   >> var = prctile(BTC, 25)
+   >> plot([var var], [0, 0.9]) 
+   >> title("Cryptocurrency Price Histogram")
+   >> xlabel("Price in " + char(163))
+   >> ylabel("Frequency")
+   >> legend("BTC", "YFI", "Location", "best")
+   >> grid on
    >> hold off
 
 A possible output for the code above could be
 
 .. image:: ../_static/img/matlab_plot_eg.png
-   :scale: 50%
+   :scale: 60%
    :align: center
 
 
@@ -214,9 +253,17 @@ Desktop management
 
 - ``save file``: save current workspace to `file.mat`
 - ``load file``: load variables in `file.mat` to the workspace
-- ``clear``: clear all variables from the workspace
+- ``clear [var]``: clear certain variable from the workspace, or clear all if not specified
 - ``clc``: clear all text from the Command Window
-- ``format long/short``: set how numeric output is displayed (15 digits or 4 as default)
+- ``format bank/short/long``: set 2/4/16 digits for numeric display
+- ``xlsread``: import data from an Excel file
+
+.. code-block:: matlab
+
+   [num, txt] = xlsread(filename, sheetname)
 
     
 .. _MATLAB: https://www.mathworks.com/help/index.html?s_tid=CRUX_lftnav
+.. _operation: https://www.mathworks.com/help/matlab/matlab_prog/matlab-operators-and-special-characters.html
+.. _special characters: https://www.mathworks.com/help/matlab/creating_plots/greek-letters-and-special-characters-in-graph-text.html
+.. _plots: https://www.mathworks.com/help/matlab/creating_plots/types-of-matlab-plots.html

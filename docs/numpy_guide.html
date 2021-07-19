@@ -148,6 +148,11 @@
    100 Numpy Exercises
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matlab_finance.html">
+   MATLAB for Finance
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -279,7 +284,9 @@
 <span class="gh">Out[10]: </span><span class="go">array([[1, 1, 1, 1, 1, 1]])</span>
 
 <span class="gp">In [11]: </span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># random address of length six</span>
-<span class="gh">Out[11]: </span><span class="go">array([0., 0., 0., 0., 0., 0.])</span>
+<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="go">array([2.6816e+154, 2.0039e+000, 1.4822e-323, 0.0000e+000, 0.0000e+000,</span>
+<span class="go">       4.1720e-309])</span>
 
 <span class="go"># parameters N for number of rows and M for number of columns</span>
 <span class="gp">In [12]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># identity matrix w/ upside offset</span>
@@ -374,7 +381,7 @@
 <span class="gh">Out[30]: </span><span class="go">array([10, 20, 30,  4,  5,  6])</span>
 </pre></div>
 </div>
-<p>Another useful function to use is <code class="docutils literal notranslate"><span class="pre">np.clip</span></code>, which specifies lower and upper bounds while keeping the intermediate original</p>
+<p>Another useful function is <code class="docutils literal notranslate"><span class="pre">np.clip</span></code>, which specifies lower and upper bounds while keeping the intermediate original</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="gh">Out[31]: </span><span class="go">array([1, 2, 3, 4, 4, 4])</span>
 </pre></div>
@@ -396,25 +403,25 @@
 <p>and illustrate common usages for uniform and (standard) normal distribution</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># uniform distribution with half-open interval (default)</span>
 <span class="gp">In [35]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="c1"># U[0,6)</span>
-<span class="gh">Out[35]: </span><span class="go">array([0, 0, 0, 2, 5, 2])</span>
+<span class="gh">Out[35]: </span><span class="go">array([4, 5, 0, 3, 3, 4])</span>
 
 <span class="go"># closed-interval uniform distribution</span>
 <span class="gp">In [36]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># U[0,6]</span>
-<span class="gh">Out[36]: </span><span class="go">array([4, 4, 6, 4, 0, 5])</span>
+<span class="gh">Out[36]: </span><span class="go">array([2, 3, 1, 5, 0, 1])</span>
 
 <span class="gp">In [37]: </span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># U[0,1)</span>
-<span class="gh">Out[37]: </span><span class="go">array([0.7516, 0.6546, 0.5828, 0.6947, 0.4807])</span>
+<span class="gh">Out[37]: </span><span class="go">array([0.9712, 0.3585, 0.0196, 0.722 , 0.9435])</span>
 
 <span class="gp">In [38]: </span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="c1"># U[0,6)</span>
 <span class="gh">Out[38]: </span><span class="go"></span>
-<span class="go">array([[4.6172, 5.8447, 1.8389, 2.3633, 5.675 , 5.7699],</span>
-<span class="go">       [2.765 , 2.5776, 3.4924, 4.4499, 5.8374, 5.2238]])</span>
+<span class="go">array([[3.2542, 5.9196, 2.8868, 5.2824, 4.624 , 3.1655],</span>
+<span class="go">       [4.5517, 4.4324, 3.0337, 2.5742, 5.9536, 2.5068]])</span>
 
 <span class="gp">In [39]: </span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(5,2)</span>
-<span class="gh">Out[39]: </span><span class="go">array([7.032 , 2.4498, 6.9199, 5.1546, 6.375 , 6.3269])</span>
+<span class="gh">Out[39]: </span><span class="go">array([8.1537, 3.3384, 2.9398, 4.435 , 3.3163, 4.257 ])</span>
 
 <span class="gp">In [40]: </span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(0,1)</span>
-<span class="gh">Out[40]: </span><span class="go">array([-0.125 ,  0.2155, -0.887 ,  0.3212,  0.4676,  0.1282])</span>
+<span class="gh">Out[40]: </span><span class="go">array([-0.5379, -1.6082,  0.7481,  0.4663, -0.9441,  0.8495])</span>
 </pre></div>
 </div>
 <p>For more information about <code class="docutils literal notranslate"><span class="pre">default_rng</span></code>, check out the official documentation for <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html">default_rng</a>.</p>
@@ -423,7 +430,7 @@
 <h2>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">¶</a></h2>
 <p>Element-wise operations with broadcasting concept include <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">np.add</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> or <code class="docutils literal notranslate"><span class="pre">np.subtract</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> or <code class="docutils literal notranslate"><span class="pre">np.multiply</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">np.divide</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>, <code class="docutils literal notranslate"><span class="pre">np.log</span></code>, <code class="docutils literal notranslate"><span class="pre">np.[trigonometry]</span></code>, <code class="docutils literal notranslate"><span class="pre">np.floor</span></code>, <code class="docutils literal notranslate"><span class="pre">np.ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">np.round</span></code>, <code class="docutils literal notranslate"><span class="pre">np.maximum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.minimum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code> or <code class="docutils literal notranslate"><span class="pre">.T</span></code>, etc.</p>
 <p>Operations for single output include <code class="docutils literal notranslate"><span class="pre">np.max</span></code>, <code class="docutils literal notranslate"><span class="pre">np.min</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argmin</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">np.median</span></code>, <code class="docutils literal notranslate"><span class="pre">np.percentile</span></code>, <code class="docutils literal notranslate"><span class="pre">np.std</span></code>, <code class="docutils literal notranslate"><span class="pre">np.var</span></code>, <code class="docutils literal notranslate"><span class="pre">np.all</span></code>, <code class="docutils literal notranslate"><span class="pre">np.any</span></code>, etc. Note that <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter is available for many of these.</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">np.dot</span></code> for 1D dot product, and use <code class="docutils literal notranslate"><span class="pre">np.matmul</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> for matrix multiplication.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">np.dot</span></code> for 1D dot product and <code class="docutils literal notranslate"><span class="pre">np.matmul</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> for matrix multiplication.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [41]: </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gh">Out[41]: </span><span class="go">5</span>
 
@@ -458,7 +465,7 @@
 <span class="gh">Out[47]: </span><span class="go">True</span>
 </pre></div>
 </div>
-<p>Use <code class="docutils literal notranslate"><span class="pre">math.isclose</span></code> to compare two values, and use <code class="docutils literal notranslate"><span class="pre">np.allclose</span></code> to test whether two arrays are element-wise equal with a tolerance.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">math.isclose</span></code> to compare two values and <code class="docutils literal notranslate"><span class="pre">np.allclose</span></code> to test whether two arrays are element-wise equal with a tolerance.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [48]: </span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-09</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
 <span class="gh">Out[48]: </span><span class="go">True</span>
 
@@ -747,7 +754,7 @@
 <span class="go">       [ 9, 10, 11, 12]])</span>
 </pre></div>
 </div>
-<p>Preferably, we use a boolean mask for further use of mask; the above is then equivalent to</p>
+<p>Preferably, we use a boolean mask for further usage of mask; the above is then equivalent to</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [98]: </span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
 <span class="gp">In [99]: </span><span class="n">mask</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">:]</span> <span class="o">=</span> <span class="kc">False</span>

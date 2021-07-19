@@ -128,7 +128,7 @@ Similarly, we use ``np.where`` for logical operations when all there parameters 
    np.nonzero(a > 3) # indices
    np.where(a > 3, a, 10*a)
 
-Another useful function to use is ``np.clip``, which specifies lower and upper bounds while keeping the intermediate original
+Another useful function is ``np.clip``, which specifies lower and upper bounds while keeping the intermediate original
 
 .. ipython:: python
 
@@ -174,7 +174,7 @@ Element-wise operations with broadcasting concept include ``+`` or ``np.add``, `
 
 Operations for single output include ``np.max``, ``np.min``, ``np.sum``, ``np.argmax``, ``np.argmin``, ``np.mean``, ``np.median``, ``np.percentile``, ``np.std``, ``np.var``, ``np.all``, ``np.any``, etc. Note that ``axis`` parameter is available for many of these.
 
-Use ``np.dot`` for 1D dot product, and use ``np.matmul`` or ``@`` for matrix multiplication.
+Use ``np.dot`` for 1D dot product and ``np.matmul`` or ``@`` for matrix multiplication.
 
 .. ipython:: python
 
@@ -196,7 +196,7 @@ Note that for values exactly halfway between rounded decimal values, NumPy round
 
    np.round(1.5) == np.round(2.5) == 2
 
-Use ``math.isclose`` to compare two values, and use ``np.allclose`` to test whether two arrays are element-wise equal with a tolerance.
+Use ``math.isclose`` to compare two values and ``np.allclose`` to test whether two arrays are element-wise equal with a tolerance.
 
 .. ipython:: python
 
@@ -342,7 +342,7 @@ Differentiate Python's builtin ``slice`` and index array as the parameter for lo
    g = np.arange(1, 17).reshape(4, 4); g
    np.delete(g, [1, 3], axis=0)
 
-Preferably, we use a boolean mask for further use of mask; the above is then equivalent to
+Preferably, we use a boolean mask for further usage of mask; the above is then equivalent to
 
 .. ipython:: python
 

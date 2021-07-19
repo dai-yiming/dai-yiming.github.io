@@ -148,6 +148,11 @@
    100 Numpy Exercises
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matlab_finance.html">
+   MATLAB for Finance
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -189,13 +194,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#manipulation">
-   Manipulation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot">
-   Plot
+  <a class="reference internal nav-link" href="#graphics">
+   Graphics
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -222,7 +222,7 @@
                 
   <div class="section" id="matlab-guide">
 <span id="id1"></span><h1>MATLAB Guide<a class="headerlink" href="#matlab-guide" title="Permalink to this headline">¶</a></h1>
-<p>This is an elegant-design to MATLAB, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="https://www.mathworks.com/help/index.html?s_tid=CRUX_lftnav">MATLAB</a>.</p>
+<p>This is an elegant-design introduction to MATLAB, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="https://www.mathworks.com/help/index.html?s_tid=CRUX_lftnav">MATLAB</a>.</p>
 <p>As for getting help, MATLAB uses <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">func</span></code> to get documentation on the function <cite>func</cite> within the command window, and uses <code class="docutils literal notranslate"><span class="pre">doc</span> <span class="pre">func</span></code> to open the documentation page with external browser. Also, it uses <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">func</span></code> for user-defined source code.</p>
 <div class="section" id="object-creation">
 <h2>Object creation<a class="headerlink" href="#object-creation" title="Permalink to this headline">¶</a></h2>
@@ -236,9 +236,11 @@
 </pre></div>
 </div>
 <p>Preallocation is an option for the growth acceleration of arrays</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix with n rows and n cols</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% matrix with m rows and n cols</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix with n rows and n cols</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">  </span><span class="c">% square matrix cols in U(0,1)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix cols in N(0,1)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">randi</span><span class="p">([</span><span class="nb">upper</span><span class="w"> </span><span class="nb">lower</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix cols in U(u,l)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% mxn matrix</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% identity matrix</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">diag</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% 2D diagonal matrix</span><span class="w"></span>
 </pre></div>
@@ -265,6 +267,21 @@
 </pre></div>
 </div>
 <p>In order to make a deep copy, direct assigning the result to a new variable.</p>
+<p>Stack matrices are easy in MATLAB, either vertical or horizontal</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="c">% horizontal</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">;</span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="c">% vertical</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="mi">3</span><span class="w">   </span><span class="mi">4</span><span class="w">   </span><span class="mi">5</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To create an array of strings or a cell array, commonly used by pie chart, use curly bracket <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">cryptoNames</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;BTC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SNX&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YFI&quot;</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="object-indexing">
 <h2>Object indexing<a class="headerlink" href="#object-indexing" title="Permalink to this headline">¶</a></h2>
@@ -272,6 +289,10 @@
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w"></span>
 <span class="w">      </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="c">% extract the second row</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c">% change value</span><span class="w"></span>
 <span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="mi">5</span><span class="w">     </span><span class="mi">0</span><span class="w"></span>
@@ -329,9 +350,17 @@
 </div>
 <div class="section" id="mathematics">
 <h2>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">¶</a></h2>
-<p>Element-wise operations with broadcasting concept include <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.^</span></code>, <code class="docutils literal notranslate"><span class="pre">./</span></code> , <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">[trigonometry]</span></code>, <code class="docutils literal notranslate"><span class="pre">floor</span></code>, <code class="docutils literal notranslate"><span class="pre">ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>, etx. Column-wise operations include <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">std</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">all</span></code>, <code class="docutils literal notranslate"><span class="pre">any</span></code>, <code class="docutils literal notranslate"><span class="pre">.'</span></code> for transpose, <code class="docutils literal notranslate"><span class="pre">'</span></code> for conjugate transpose, etc. Use <code class="docutils literal notranslate"><span class="pre">*</span></code> for matrix multiplication.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
-<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w">      </span><span class="mi">0</span><span class="w">    </span><span class="mf">2.2361</span><span class="w">         </span><span class="mi">0</span><span class="w"></span>
+<p>Operations between a matrix and a scalar include <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<p>Element-wise operations between matrices with broadcasting concept include <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.^</span></code>, <code class="docutils literal notranslate"><span class="pre">./</span></code> , <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">nthroot</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">[trigonometry]</span></code>, <code class="docutils literal notranslate"><span class="pre">floor</span></code>, <code class="docutils literal notranslate"><span class="pre">ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>, <code class="docutils literal notranslate"><span class="pre">mod</span></code> etc.</p>
+<p>Statistical operations include <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">std</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">prctile</span></code>, <code class="docutils literal notranslate"><span class="pre">all</span></code>, <code class="docutils literal notranslate"><span class="pre">any</span></code>, <code class="docutils literal notranslate"><span class="pre">.'</span></code> for transpose, <code class="docutils literal notranslate"><span class="pre">'</span></code> for conjugate transpose, etc. These operations are default as column-wise, we could conduct row-wise operations by <code class="docutils literal notranslate"><span class="pre">func(x,</span> <span class="pre">2)</span></code>,Moreover,</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: matrix multiplication</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code>: solve linear systems of equations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diff</span></code>: calculate differences between adjacent elements of the input</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[]</span></code>: a placeholder to skip a parameter</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">nthroot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w">      </span><span class="mi">0</span><span class="w">         </span><span class="mi">0</span><span class="w">         </span><span class="mi">0</span><span class="w"></span>
 <span class="w">      </span><span class="mf">1.0000</span><span class="w">    </span><span class="mf">1.0000</span><span class="w">    </span><span class="mf">1.0000</span><span class="w"></span>
 <span class="w">      </span><span class="mf">1.4142</span><span class="w">    </span><span class="mf">1.4142</span><span class="w">    </span><span class="mf">1.4142</span><span class="w"></span>
 <span class="w">      </span><span class="mf">1.7321</span><span class="w">    </span><span class="mf">1.7321</span><span class="w">    </span><span class="mf">1.7321</span><span class="w"></span>
@@ -346,6 +375,8 @@
 
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.5000</span><span class="w">  </span><span class="mf">2.7500</span><span class="w">  </span><span class="mf">1.5000</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">returns</span><span class="p">,</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c">% mean return in a row vector</span><span class="w"></span>
 </pre></div>
 </div>
 <p>some functions above have polymorphism for multiple outputs</p>
@@ -353,49 +384,56 @@
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">xMax</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
+<p>For more information about operation and special characters, check out official documentation for <a class="reference external" href="https://www.mathworks.com/help/matlab/matlab_prog/matlab-operators-and-special-characters.html">operation</a> and <a class="reference external" href="https://www.mathworks.com/help/matlab/creating_plots/greek-letters-and-special-characters-in-graph-text.html">special characters</a>.</p>
 </div>
-<div class="section" id="manipulation">
-<h2>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h2>
-<p>Stack matrices are easy in MATLAB, either vertical or horizontal</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="c">% horizontal</span><span class="w"></span>
-<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
-
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">;</span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="c">% vertical</span><span class="w"></span>
-<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">2</span><span class="w"></span>
-<span class="w">      </span><span class="mi">3</span><span class="w">   </span><span class="mi">4</span><span class="w">   </span><span class="mi">5</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="plot">
-<h2>Plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h2>
-<p>The easiest way to plot is using <code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">y[,</span> <span class="pre">&quot;format&quot;,</span> <span class="pre">*args])</span></code>. Use the command <code class="docutils literal notranslate"><span class="pre">hold</span> <span class="pre">on</span></code> to draw multiple lines on the same canvas, and use the command <code class="docutils literal notranslate"><span class="pre">hold</span> <span class="pre">off</span></code> to create a new axes for the next plotted line.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r-+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LineWidth&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<div class="section" id="graphics">
+<h2>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">y[,</span> <span class="pre">&quot;format&quot;,</span> <span class="pre">*args])</span></code> to create line plots of numeric data, <code class="docutils literal notranslate"><span class="pre">hold</span> <span class="pre">on</span></code> to draw multiple plots on the same canvas, and <code class="docutils literal notranslate"><span class="pre">hold</span> <span class="pre">off</span></code> to create a new axes for the next plotted line. For more information about plots, check out official documentation for <a class="reference external" href="https://www.mathworks.com/help/matlab/creating_plots/types-of-matlab-plots.html">plots</a>.</p>
+<p>To create multiple figures simultaneously, we use <code class="docutils literal notranslate"><span class="pre">figure</span></code> and make figure number <cite>k</cite> active by <code class="docutils literal notranslate"><span class="pre">figure(k)</span></code>. To close one or more figures, we use <code class="docutils literal notranslate"><span class="pre">close</span></code> to close current active window, <code class="docutils literal notranslate"><span class="pre">close(k)</span></code> to close window number k, and <code class="docutils literal notranslate"><span class="pre">close</span> <span class="pre">all</span></code> to close all figures windows.</p>
+<p>Currently, we only discuss about drawing one plot per window. If we want to create multiple axes within a single window, using <code class="docutils literal notranslate"><span class="pre">subplot(m,n,k)</span></code> to create an active set of axes at the <cite>kth</cite> position in an <cite>m-by-n</cite> grid . If axes already exist in this location, they are made active. The axes in the grid are numbered sequentially left-to-right, then top-to-bottom.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">BTC</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">randi</span><span class="p">([</span><span class="mi">20000</span><span class="p">,</span><span class="w"> </span><span class="mi">22000</span><span class="p">],</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">YFI</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">randi</span><span class="p">([</span><span class="mi">19500</span><span class="p">,</span><span class="w"> </span><span class="mi">21500</span><span class="p">],</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">BTC</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LineWidth&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b--o&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&quot;Random Graph&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&quot;value&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">legend</span><span class="p">(</span><span class="s">&quot;line 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;line 2&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlim</span><span class="p">([</span><span class="mi">1</span><span class="w"> </span><span class="mi">50</span><span class="p">])</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">YFI</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Color&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0.3</span><span class="w"> </span><span class="mf">0.3</span><span class="w"> </span><span class="mf">0.8</span><span class="p">])</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&quot;Cryptocurrency Price Changes&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&quot;Days&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&quot;Price in &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">163</span><span class="p">))</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">legend</span><span class="p">(</span><span class="s">&quot;BTC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YFI&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Location&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;best&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlim</span><span class="p">([</span><span class="mi">1</span><span class="w"> </span><span class="mi">100</span><span class="p">])</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">histogram</span><span class="p">(</span><span class="n">BTC</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DisplayStyle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;stairs&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">histogram</span><span class="p">(</span><span class="n">YFI</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;EdgeColor&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">var</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prctile</span><span class="p">(</span><span class="n">BTC</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">([</span><span class="nb">var</span><span class="w"> </span><span class="nb">var</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9</span><span class="p">])</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&quot;Cryptocurrency Price Histogram&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&quot;Price in &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">163</span><span class="p">))</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&quot;Frequency&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">legend</span><span class="p">(</span><span class="s">&quot;BTC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YFI&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Location&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;best&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A possible output for the code above could be</p>
-<a class="reference internal image-reference" href="../_images/matlab_plot_eg.png"><img alt="../_images/matlab_plot_eg.png" class="align-center" src="../_images/matlab_plot_eg.png" style="width: 560.0px; height: 420.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/matlab_plot_eg.png"><img alt="../_images/matlab_plot_eg.png" class="align-center" src="../_images/matlab_plot_eg.png" style="width: 672.0px; height: 504.0px;" /></a>
 </div>
 <div class="section" id="desktop-management">
 <h2>Desktop management<a class="headerlink" href="#desktop-management" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">save</span> <span class="pre">file</span></code>: save current workspace to <cite>file.mat</cite></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">file</span></code>: load variables in <cite>file.mat</cite> to the workspace</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">clear</span></code>: clear all variables from the workspace</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clear</span> <span class="pre">[var]</span></code>: clear certain variable from the workspace, or clear all if not specified</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">clc</span></code>: clear all text from the Command Window</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">long/short</span></code>: set how numeric output is displayed (15 digits or 4 as default)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">bank/short/long</span></code>: set 2/4/16 digits for numeric display</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlsread</span></code>: import data from an Excel file</p></li>
 </ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">txt</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xlsread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">sheetname</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
 </div>
 </div>
 
