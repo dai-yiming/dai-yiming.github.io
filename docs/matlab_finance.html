@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MATLAB for Finance</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pandas Guide" href="pandas_guide.html" />
+    <link rel="prev" title="MATLAB Guide" href="matlab_guide.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="ml-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Docs
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tools/index.html">
+  Tools
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/dai-yiming" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.linkedin.com/in/yimingdai/" rel="noopener" target="_blank" title="LinkedIn">
+            <span><i class="fab fa-linkedin"></i></span>
+            <label class="sr-only">LinkedIn</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_guide.html">
+   Numpy Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_exercise.html">
+   Numpy Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matlab_guide.html">
+   MATLAB Guide
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MATLAB for Finance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_guide.html">
+   pandas Guide
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#monte-carlo-and-var">
+   Monte-Carlo and VaR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datafeed-toolbox">
+   Datafeed Toolbox™
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#economy-performance">
+   Economy Performance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpolation">
+   Interpolation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multivariate-statistics">
+   Multivariate statistics
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="matlab-for-finance">
+<span id="matlab-finance"></span><h1>MATLAB for Finance<a class="headerlink" href="#matlab-for-finance" title="Permalink to this headline">¶</a></h1>
+<p>This is an elegant-design introduction to MATLAB application in computational finance.</p>
+<div class="section" id="monte-carlo-and-var">
+<h2>Monte-Carlo and VaR<a class="headerlink" href="#monte-carlo-and-var" title="Permalink to this headline">¶</a></h2>
+<p>We start by illustrating predictions in stock prices using the grometric Brownian motion model (GBM). Recall the GBM equation is</p>
+<div class="math notranslate nohighlight">
+\[S(t + \Delta t) = S(t)e^{\left(\mu - \frac{\sigma^2}{2}\right) \Delta t + \sigma \epsilon \sqrt{\Delta t}}\]</div>
+<p>Suppose to simulate 100 paths about BA with GBM using the Monte-Carlo simulation method and calculate the 5% VaR as a red line, we could write a script and generate plots</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% read data and calculate returns</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">BA</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">stockReturns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">diff</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="n">BA</span><span class="p">))</span><span class="w"></span>
+
+<span class="c">%% calculate the descriptive statistics</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">stockReturns</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">sigma</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">std</span><span class="p">(</span><span class="n">stockReturns</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">deltaT</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">BA</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="w"></span>
+
+<span class="c">%% calculate the future prices</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">epsilon</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c">% predict 30 days by vectorization</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">factors</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">exp</span><span class="p">((</span><span class="n">mu</span><span class="o">-</span><span class="n">sigma</span>^<span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">deltaT</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sigma</span><span class="o">*</span><span class="n">epsilon</span><span class="o">*</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">deltaT</span><span class="p">));</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">lastPriceVector</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">S0</span><span class="p">;</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">priceAndFactors</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">lastPriceVector</span><span class="p">;</span><span class="w"> </span><span class="n">factors</span><span class="p">]</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cumprod</span><span class="p">(</span><span class="n">priceAndFactors</span><span class="p">)</span><span class="w"></span>
+
+<span class="c">%% extract final prices, calculate returns and 5% VaR</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">finalPrices</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">paths</span><span class="p">(</span><span class="k">end</span><span class="p">,:);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">possibleReturns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">log</span><span class="p">(</span><span class="n">finalPrices</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">log</span><span class="p">(</span><span class="n">S0</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">var5</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prctile</span><span class="p">(</span><span class="n">possibleReturns</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">%% plot the paths and histogram</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">BA</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="mi">300</span><span class="p">:</span><span class="mi">330</span><span class="p">,</span><span class="w"> </span><span class="n">paths</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlim</span><span class="p">([</span><span class="mi">275</span><span class="w"> </span><span class="mi">330</span><span class="p">])</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&quot;BA Price Prediction by GBM&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&quot;Days&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&quot;Price in &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">163</span><span class="p">))</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">histogram</span><span class="p">(</span><span class="n">possibleReturns</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">([</span><span class="n">var5</span><span class="w"> </span><span class="n">var5</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">13</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&quot;5% VaR of BA Simulations&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&quot;Logreturn&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&quot;Price Frequency in &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">163</span><span class="p">))</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/gbm.png"><img alt="../_images/gbm.png" class="align-center" src="../_images/gbm.png" style="width: 728.0px; height: 546.0px;" /></a>
+<p>Formally, we could form a function to calculate the final estimated future stock price and level% VaR for maintenance purposes as</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[var, finalPrices] = calculateVaR</span><span class="p">(</span>stock, level<span class="p">)</span><span class="w"></span>
+
+<span class="c">% calculate the daily log returns and the statistics</span><span class="w"></span>
+<span class="n">stockReturns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">diff</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="n">stock</span><span class="p">));</span><span class="w"></span>
+<span class="n">mu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">stockReturns</span><span class="p">);</span><span class="w"></span>
+<span class="n">sigma</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">std</span><span class="p">(</span><span class="n">stockReturns</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% simulate prices for 30 days in future based on GBM</span><span class="w"></span>
+<span class="n">deltaT</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="n">S0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">stock</span><span class="p">(</span><span class="k">end</span><span class="p">);</span><span class="w"></span>
+<span class="n">epsilon</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
+<span class="n">factors</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">exp</span><span class="p">((</span><span class="n">mu</span><span class="o">-</span><span class="n">sigma</span>^<span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">deltaT</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sigma</span><span class="o">*</span><span class="n">epsilon</span><span class="o">*</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">deltaT</span><span class="p">));</span><span class="w"></span>
+<span class="n">lastPriceVector</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">S0</span><span class="p">;</span><span class="w"></span>
+<span class="n">factors2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">lastPriceVector</span><span class="p">;</span><span class="w"> </span><span class="n">factors</span><span class="p">];</span><span class="w"></span>
+<span class="n">paths</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cumprod</span><span class="p">(</span><span class="n">factors2</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% extract final prices</span><span class="w"></span>
+<span class="n">finalPrices</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">paths</span><span class="p">(</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="p">:);</span><span class="w"></span>
+
+<span class="c">% calculate returns</span><span class="w"></span>
+<span class="n">possibleReturns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">log</span><span class="p">(</span><span class="n">finalPrices</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">log</span><span class="p">(</span><span class="n">S0</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% calculate the VaR</span><span class="w"></span>
+<span class="nb">var</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prctile</span><span class="p">(</span><span class="n">possibleReturns</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="datafeed-toolbox">
+<h2>Datafeed Toolbox™<a class="headerlink" href="#datafeed-toolbox" title="Permalink to this headline">¶</a></h2>
+<p>With MATLAB and Datafeed Toolbox™, you can download data from an external service provider such as Bloomberg® or FRED®.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fred</span><span class="p">;</span><span class="w"> </span><span class="c">% connect to FRED server;</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tStart</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tEnd</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fetch</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DJIA&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tStart</span><span class="p">,</span><span class="w"> </span><span class="n">tEnd</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">DJIAData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Date</span><span class="w"></span>
+<span class="n">DJIAData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0e+05</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="w">           </span><span class="mf">7.3560</span><span class="w">       </span><span class="nb">NaN</span><span class="w"></span>
+<span class="w">           </span><span class="mf">7.3560</span><span class="w">    </span><span class="mf">0.1644</span><span class="w"></span>
+<span class="w">             </span><span class="k">...</span><span class="c">       ...</span><span class="w"></span>
+<span class="w">           </span><span class="mf">7.3596</span><span class="w">    </span><span class="mf">0.1782</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">DJIADates</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">djiaData</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="c">% convert the dates to the datetime format</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">DJIADates</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="n">djiaDates</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ConvertFrom&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;datenum&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">DJIADates</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">01</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">2014</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w">   </span><span class="nb">NaT</span><span class="w"></span>
+<span class="w">            </span><span class="mi">02</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">2014</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w">   </span><span class="mi">04</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">0045</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">00</span><span class="w"></span>
+<span class="w">                     </span><span class="k">...</span><span class="c">                     ...</span><span class="w"></span>
+<span class="w">            </span><span class="mi">31</span><span class="o">-</span><span class="n">Dec</span><span class="o">-</span><span class="mi">2014</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w">   </span><span class="mi">17</span><span class="o">-</span><span class="n">Oct</span><span class="o">-</span><span class="mi">0048</span><span class="w"> </span><span class="mi">01</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">48</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">close</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">clear</span><span class="w"> </span><span class="n">c</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="economy-performance">
+<h2>Economy Performance<a class="headerlink" href="#economy-performance" title="Permalink to this headline">¶</a></h2>
+<p>The moving average convergence/divergence (MACD) can be used as a simple indicator of the state of the economy. You can calculate the MACD by subtracting the lagging (long-term) exponential moving average from the leading (short-term) exponential moving average. Use <code class="docutils literal notranslate"><span class="pre">movavg(ticker,</span> <span class="pre">'exponential',</span> <span class="pre">n)</span></code> to find the exponential moving average of <cite>n</cite> samples.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">movAvgShort</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">movavg</span><span class="p">(</span><span class="n">AAPL</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;exponential&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">movAvgLong</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">movavg</span><span class="p">(</span><span class="n">AAPL</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;exponential&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">MACD</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">movAvgShort</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">movAvgLong</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To create a column vector named <cite>econPerformance</cite> whose elements are 1 when the economy is up, -1 when the economy is down, and 0 otherwise, we could</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">econPerformance</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">MACD</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">econPerformance</span><span class="p">(</span><span class="n">MACD</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">econPerformance</span><span class="p">(</span><span class="n">MACD</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>then extract the stock codes of all the ‘upcycle’ stocks to get the corresponding stock prices</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">upcycleIdx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">strcmp</span><span class="p">(</span><span class="n">stockInfo</span><span class="p">.</span><span class="n">Classification</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;upcycle&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">stocksToBuy</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">stockInfo</span><span class="p">.</span><span class="n">Code</span><span class="p">(</span><span class="n">upcycleIdx</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">stocksToBuyPrices</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">stockPrices</span><span class="p">{:,</span><span class="w"> </span><span class="n">stocksToBuy</span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To calculate returns and remove NaNs from the output, we could</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% calculate returns</span><span class="w"></span>
+<span class="n">stockRet</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tick2ret</span><span class="p">(</span><span class="n">stockData</span><span class="p">{:,:});</span><span class="w"></span>
+
+<span class="c">% remove NaNs from stockRet</span><span class="w"></span>
+<span class="n">stockRet</span><span class="p">(:,</span><span class="nb">all</span><span class="p">(</span><span class="nb">isnan</span><span class="p">(</span><span class="n">stockRet</span><span class="p">)))</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<span class="n">stockRet</span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="nb">isnan</span><span class="p">(</span><span class="n">stockRet</span><span class="p">),</span><span class="mi">2</span><span class="p">),:)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+
+<span class="c">% show the return values</span><span class="w"></span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&#39;stockRet = &#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">stockRet</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="interpolation">
+<h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we want to linearly interpolate the data from the first day to the last day in <cite>Dates</cite> and plot this data as a solid red line over the original data as black dots, we could</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% import data from CanadianExchange.csv</span><span class="w"></span>
+<span class="n">canEx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readtable</span><span class="p">(</span><span class="s">&#39;CanadianExchange.csv&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">canEx</span><span class="p">.</span><span class="n">Dates</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="n">canEx</span><span class="p">.</span><span class="n">Dates</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% plot the Canadian dollar exchange rates using black points</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">canEx</span><span class="p">.</span><span class="n">Dates</span><span class="p">,</span><span class="w"> </span><span class="n">canEx</span><span class="p">.</span><span class="n">ExchangeRate</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;k.&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% create a duration vector containing the current dates in the plot</span><span class="w"></span>
+<span class="n">origDays</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">days</span><span class="p">(</span><span class="n">canEx</span><span class="p">.</span><span class="n">Dates</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">canEx</span><span class="p">.</span><span class="n">Dates</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w"></span>
+
+<span class="c">% create a vector of days on which to interpolate</span><span class="w"></span>
+<span class="n">daysI</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">origDays</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span><span class="n">origDays</span><span class="p">(</span><span class="k">end</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% interpolate the missing values</span><span class="w"></span>
+<span class="n">exI</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">interp1</span><span class="p">(</span><span class="n">origDays</span><span class="p">,</span><span class="w"> </span><span class="n">canEx</span><span class="p">.</span><span class="n">ExchangeRate</span><span class="p">,</span><span class="w"> </span><span class="n">daysI</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% create the interpolated date vector from the interpolated day (duration) vector</span><span class="w"></span>
+<span class="n">datesI</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">canEx</span><span class="p">.</span><span class="n">Dates</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">daysI</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">datesI</span><span class="p">,</span><span class="w"> </span><span class="n">exI</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Dates&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Canadian Exchange Rate&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/ca_ex.png"><img alt="../_images/ca_ex.png" class="align-center" src="../_images/ca_ex.png" style="width: 676.8000000000001px; height: 533.6px;" /></a>
+</div>
+<div class="section" id="multivariate-statistics">
+<h2>Multivariate statistics<a class="headerlink" href="#multivariate-statistics" title="Permalink to this headline">¶</a></h2>
+<p>To create a <cite>t</cite> Location-Scale probability distribution with a fit for FTSE, we would</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% import data and compute returns</span><span class="w"></span>
+<span class="n">FTSEtable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readtable</span><span class="p">(</span><span class="s">&#39;FTSEavgs.csv&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">FTSEtable</span><span class="p">.</span><span class="n">Dates</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="n">FTSEtable</span><span class="p">.</span><span class="n">Dates</span><span class="p">);</span><span class="w"></span>
+<span class="n">dys</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">days</span><span class="p">(</span><span class="nb">datetime</span><span class="p">(</span><span class="n">FTSEtable</span><span class="p">.</span><span class="n">Dates</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="n">FTSEtable</span><span class="p">.</span><span class="n">Dates</span><span class="p">(</span><span class="mi">1</span><span class="p">)));</span><span class="w"></span>
+<span class="n">FTSEreturns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tick2ret</span><span class="p">(</span><span class="n">FTSEtable</span><span class="p">.</span><span class="n">FTSE</span><span class="p">,</span><span class="w"> </span><span class="n">dys</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">%% fit a t scale-location distribution</span><span class="w"></span>
+<span class="n">tFit</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fitdist</span><span class="p">(</span><span class="n">FTSEreturns</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;tlocationscale&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">%% Monte-Carlo Simulations for a t distribution</span><span class="w"></span>
+<span class="n">nSteps</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">       </span><span class="c">% Number of steps into the future</span><span class="w"></span>
+<span class="n">nExp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">5e3</span><span class="p">;</span><span class="w">        </span><span class="c">% Number of random experiments to run</span><span class="w"></span>
+
+<span class="c">%% modify simReturns to generate random numbers from the fit</span><span class="w"></span>
+<span class="n">simReturns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="n">tFit</span><span class="p">,</span><span class="w"> </span><span class="n">nSteps</span><span class="p">,</span><span class="w"> </span><span class="n">nExp</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">predictions</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ret2tick</span><span class="p">(</span><span class="n">simReturns</span><span class="p">,</span><span class="w"> </span><span class="n">FTSEtable</span><span class="p">.</span><span class="n">FTSE</span><span class="p">(</span><span class="k">end</span><span class="p">));</span><span class="w"></span>
+<span class="n">quantileCurves</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">quantile</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0.01</span><span class="w"> </span><span class="mf">0.05</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="mf">0.95</span><span class="w"> </span><span class="mf">0.99</span><span class="p">],</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">%% plot the returns</span><span class="w"></span>
+<span class="nb">figure</span><span class="w"></span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">FTSEtable</span><span class="p">.</span><span class="n">Dates</span><span class="p">,</span><span class="w"> </span><span class="n">FTSEtable</span><span class="p">.</span><span class="n">FTSE</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;FTSE Closing Value&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Date&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">FTSEtable</span><span class="p">.</span><span class="n">Dates</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">nSteps</span><span class="p">),</span><span class="w"> </span><span class="n">quantileCurves</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;Historical Data&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Future Predictions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;NW&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="nb">histogram</span><span class="p">(</span><span class="n">predictions</span><span class="p">(</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="s">&#39;Normalization&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;pdf&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;FTSE Closing Value&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Distrubtion of Simulated Values at Dec. 31, 2008&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/dist_fit.png"><img alt="../_images/dist_fit.png" class="align-center" src="../_images/dist_fit.png" style="width: 767.1999999999999px; height: 605.5px;" /></a>
+<p>Next, we perform a fit based regression on multiple economic factor data to predict DJI movement</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% import the data</span><span class="w"></span>
+<span class="n">djData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readtable</span><span class="p">(</span><span class="s">&#39;djiEconModel.csv&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">%% create a model to fit the data</span><span class="w"></span>
+<span class="n">model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fitlm</span><span class="p">(</span><span class="n">djData</span><span class="p">{:,</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="k">end</span><span class="p">},</span><span class="w"> </span><span class="n">djData</span><span class="p">.</span><span class="n">DJI</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">%% plot the original data with the fitted values in red</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">djData</span><span class="p">.</span><span class="n">Dates</span><span class="p">,</span><span class="n">djData</span><span class="p">.</span><span class="n">DJI</span><span class="p">)</span><span class="w"></span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">djData</span><span class="p">.</span><span class="n">Dates</span><span class="p">,</span><span class="n">model</span><span class="p">.</span><span class="n">Fitted</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;DatetimeTickFormat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;QQQ-yy&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="nb">axis</span><span class="w"> </span><span class="n">tight</span><span class="w"></span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Dow Jones Industrial Average&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;Original Data&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Multiple Linear Fit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;NW&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="c">%% create Rsquared containing the ordinary R-squared value</span><span class="w"></span>
+<span class="n">Rsquared</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Rsquared</span><span class="p">.</span><span class="n">Ordinary</span><span class="p">;</span><span class="w"></span>
+<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;The Ordinary R-squared value is: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">num2str</span><span class="p">(</span><span class="n">Rsquared</span><span class="p">)])</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/dji_regress.png"><img alt="../_images/dji_regress.png" class="align-center" src="../_images/dji_regress.png" style="width: 700.2px; height: 552.6px;" /></a>
+<p>Another Monte-Carlo simulation example is using the numbers from DAX and a <cite>t</cite> Location-Scale distribution to calculate a matrix of random numbers with <cite>nSteps</cite> rows, indicating the number of days, and <cite>nExperiments</cite> columns, indicating the number of trials, named <cite>simReturns</cite>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% import table of returns</span><span class="w"></span>
+<span class="n">returns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readtable</span><span class="p">(</span><span class="s">&#39;germanStocks.csv&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">%% plot original data</span><span class="w"></span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">returns</span><span class="p">.</span><span class="n">Dates</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">50</span><span class="p">:</span><span class="k">end</span><span class="p">),</span><span class="w"> </span><span class="n">returns</span><span class="p">.</span><span class="n">DAX</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">50</span><span class="p">:</span><span class="k">end</span><span class="p">))</span><span class="w"></span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="nb">title</span><span class="p">({</span><span class="s">&#39;Deutscher Aktienindex (DAX) Returns&#39;</span><span class="p">;</span><span class="s">&#39;German Stock Index Return Values&#39;</span><span class="p">})</span><span class="w"></span>
+
+<span class="c">%% set-up dimensions for Monte-Carlo Simulations</span><span class="w"></span>
+<span class="n">nSteps</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w">            </span><span class="c">% Number of steps into the future</span><span class="w"></span>
+<span class="n">nExperiments</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">       </span><span class="c">% Number of different experiments to run</span><span class="w"></span>
+
+<span class="c">%% generate random numbers from the information in DAX</span><span class="w"></span>
+<span class="n">tFit</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fitdist</span><span class="p">(</span><span class="n">returns</span><span class="p">.</span><span class="n">DAX</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;tLocationScale&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">simReturns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="n">tFit</span><span class="p">,</span><span class="w"> </span><span class="n">nSteps</span><span class="p">,</span><span class="w"> </span><span class="n">nExperiments</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">%% plot the returns</span><span class="w"></span>
+<span class="n">futureDates</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">returns</span><span class="p">.</span><span class="n">Dates</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">days</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nSteps</span><span class="p">);</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">([</span><span class="n">returns</span><span class="p">.</span><span class="n">Dates</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="n">futureDates</span><span class="p">],</span><span class="w"></span>
+<span class="w">     </span><span class="p">[</span><span class="n">returns</span><span class="p">.</span><span class="n">DAX</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nExperiments</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">simReturns</span><span class="p">])</span><span class="w"></span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
+
+<span class="c">%% plot the Index Values</span><span class="w"></span>
+<span class="n">lastDAX</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">6147.97</span><span class="p">;</span><span class="w"></span>
+<span class="n">predictions</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ret2tick</span><span class="p">(</span><span class="n">simReturns</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;StartPrice&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">lastDAX</span><span class="p">);</span><span class="w"></span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">([</span><span class="n">returns</span><span class="p">.</span><span class="n">Dates</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="n">futureDates</span><span class="p">],</span><span class="w"> </span><span class="n">predictions</span><span class="p">)</span><span class="w"></span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="nb">title</span><span class="p">({</span><span class="s">&#39;Deutscher Aktienindex (DAX)&#39;</span><span class="p">;</span><span class="w"> </span><span class="s">&#39;German Stock Index&#39;</span><span class="p">})</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/dax_mc.png"><img alt="../_images/dax_mc.png" class="align-center" src="../_images/dax_mc.png" style="width: 744.0px; height: 612.0px;" /></a>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="matlab_guide.html" title="previous page">MATLAB Guide</a>
+    <a class='right-next' id="next-link" href="pandas_guide.html" title="next page">pandas Guide</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Yiming Dai.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
