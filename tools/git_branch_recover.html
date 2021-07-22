@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Git SSH Set Up Guide</title>
+    <title>Git Branch Recovery</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -39,8 +39,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Git Branch Recovery" href="git_branch_recover.html" />
-    <link rel="prev" title="Sphinx Set Up Guide" href="sphinx_set_up.html" />
+    <link rel="prev" title="Git SSH Set Up Guide" href="git_ssh.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -133,13 +132,13 @@
    Sphinx Set Up Guide
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="git_ssh.html">
    Git SSH Set Up Guide
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="git_branch_recover.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Git Branch Recovery
   </a>
  </li>
@@ -164,18 +163,13 @@
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ssh-key-generation">
-   SSH Key Generation
+  <a class="reference internal nav-link" href="#remote-branch-recovery">
+   Remote branch recovery
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ssh-key-link">
-   SSH Key Link
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#login-escape">
-   Login Escape
+  <a class="reference internal nav-link" href="#local-branch-recovery">
+   Local branch recovery
   </a>
  </li>
 </ul>
@@ -195,54 +189,45 @@
               
               <div>
                 
-  <div class="section" id="git-ssh-set-up-guide">
-<span id="git-ssh"></span><h1>Git SSH Set Up Guide<a class="headerlink" href="#git-ssh-set-up-guide" title="Permalink to this headline">¶</a></h1>
-<p>This is a tutorial for setting up <code class="docutils literal notranslate"><span class="pre">SSH</span></code> keys with GitHub.</p>
-<div class="section" id="ssh-key-generation">
-<span id="id1"></span><h2>SSH Key Generation<a class="headerlink" href="#ssh-key-generation" title="Permalink to this headline">¶</a></h2>
-<p>First check for existing keys:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lc -al ~/.ssh
+  <div class="section" id="git-branch-recovery">
+<span id="git-branch-recover"></span><h1>Git Branch Recovery<a class="headerlink" href="#git-branch-recovery" title="Permalink to this headline">¶</a></h1>
+<p>This is a tutorial for recovering git branch if accidentally deleted.</p>
+<div class="section" id="remote-branch-recovery">
+<h2>Remote branch recovery<a class="headerlink" href="#remote-branch-recovery" title="Permalink to this headline">¶</a></h2>
+<p>If we have pushed the branch to a remote server, we could use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reflog</span></code> to recover easily and reliably. Suppose we have following commit history to the branch named <code class="docutils literal notranslate"><span class="pre">main</span></code> with corresponding activity id:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git reflog
+1ed7510 HEAD@<span class="o">{</span><span class="m">1</span><span class="o">}</span>: commit: message <span class="m">1</span>
+70b3696 HEAD@<span class="o">{</span><span class="m">2</span><span class="o">}</span>: commit: message <span class="m">2</span>
+98f2fc2 HEAD@<span class="o">{</span><span class="m">3</span><span class="o">}</span>: commit: message <span class="m">3</span>
 </pre></div>
 </div>
-<p>Use <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> to generate new the SSH key with the email registering GitHub:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen -t ed25519 -C <span class="s2">&quot;&lt;xxx&gt;@gmail.com&quot;</span>
-Generating public/private ed25519 key pair.
-Enter file <span class="k">in</span> which to save the key:
-...
-Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
-...
-</pre></div>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Your passphrase should be complicated, and you must store it safely.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A passphrase is a memorized secret consisting of a sequence of words or other text that a claimant uses to authenticate their identity. Here, it refers to a secret used to protect an encryption key. Commonly, an actual encryption key is derived from the passphrase and used to encrypt the protected resource.</p>
-</div>
-<p>Fire up the SSH agent and add the SSH key to <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> on your local machine:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">eval</span> <span class="sb">`</span>ssh-agent -s<span class="sb">`</span>
-$ ssh-add ~/.ssh/id_ed25519
-Enter passphrase <span class="k">for</span> /Users/&lt;user&gt;/.ssh/id_ed25519:
-...
-Identity added: /Users/&lt;user&gt;/.ssh/id_ed25519
+<p>we could find the target commit and push back to origin to recover:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ checkout -b main 1ed7510
+$ add -A
+$ push origin main
 </pre></div>
 </div>
 </div>
-<div class="section" id="ssh-key-link">
-<span id="id2"></span><h2>SSH Key Link<a class="headerlink" href="#ssh-key-link" title="Permalink to this headline">¶</a></h2>
-<p>Pull up the key:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat ~/.ssh/id_ed25519.pub
+<div class="section" id="local-branch-recovery">
+<h2>Local branch recovery<a class="headerlink" href="#local-branch-recovery" title="Permalink to this headline">¶</a></h2>
+<p>If we have <strong>not</strong> pushed the branch, we could create a list of all dangling or unreachable commits, where the commits are copied into <cite>.git/lost-found/commit/</cite>, and non-commit objects are copied into <cite>.git/lost-found/other/</cite>,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git fsck --full --no-reflogs --unreachable --lost-found
+unreachable tree 4a407b1b09e0d8a16be70aa1547332432a698e18
+unreachable tree 5040d8cf08c78119e66b9a3f8c4b61a240229259
+unreachable tree 60c0ce61b040f5e604850f747f525e88043dae12
 </pre></div>
 </div>
-<p>now copy the output, navigate to Github settings, and add the SSH key</p>
-<img alt="../_images/ssh_key.png" class="align-center" src="../_images/ssh_key.png" />
+<p>print a list of commit messages for all commits in the lost and found,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls -1 .git/lost-found/commit/ <span class="p">|</span> xargs -n <span class="m">1</span> git log -n <span class="m">1</span> --pretty<span class="o">=</span>oneline
+9ae38fc6b0548cab08ccee1178db0ba0edeafdb2 foo <span class="c1"># target commit</span>
+6ed99e63db69ca04f0cc78081a1fd471289551b2 On master: search and reset
+973d9be3e2cefcd0c5801ad9cd1b2e18774b4bee Rename decorator proxy
+9efa6b28b3b0a89c312484f28cf589385d613dfd On master: mysql db config
+</pre></div>
 </div>
-<div class="section" id="login-escape">
-<span id="id3"></span><h2>Login Escape<a class="headerlink" href="#login-escape" title="Permalink to this headline">¶</a></h2>
-<p>If it is asking you for a username and password when manipulating with GitHub, your origin remote is pointing at the HTTPS url rather than the SSH url. You need to change it to SSH url:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote set-url origin git@github.com:&lt;username&gt;/&lt;repo&gt;.git
+<p>and create a new branch with the missing commit as the branch head:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git checkout -b &lt;branch-name&gt; 9ae38fc
+Switched to a new branch &lt;branch-name&gt;
 </pre></div>
 </div>
 </div>
@@ -254,8 +239,7 @@ Identity added: /Users/&lt;user&gt;/.ssh/id_ed25519
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="sphinx_set_up.html" title="previous page">Sphinx Set Up Guide</a>
-    <a class='right-next' id="next-link" href="git_branch_recover.html" title="next page">Git Branch Recovery</a>
+    <a class='left-prev' id="prev-link" href="git_ssh.html" title="previous page">Git SSH Set Up Guide</a>
 
               </div>
               
