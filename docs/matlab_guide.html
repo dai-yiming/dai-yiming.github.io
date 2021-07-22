@@ -153,6 +153,11 @@
    pandas Guide
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy_guide.html">
+   SciPy Guide
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -174,23 +179,55 @@
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#io-management">
+   IO management
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#workspace-io">
+     Workspace IO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-io">
+     Text IO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graphical-io">
+     Graphical IO
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#object-creation">
    Object creation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#object-indexing">
-   Object indexing
+  <a class="reference internal nav-link" href="#selection">
+   Selection
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#logics-missing-data">
-   Logics &amp; missing data
+  <a class="reference internal nav-link" href="#control-flow">
+   Control flow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-data">
+   Missing data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mathematics">
    Mathematics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistics">
+   Statistics
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -211,11 +248,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tabular-data">
    Tabular Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#io-management">
-   IO management
   </a>
  </li>
 </ul>
@@ -239,6 +271,52 @@
 <span id="id1"></span><h1>MATLAB Guide<a class="headerlink" href="#matlab-guide" title="Permalink to this headline">¶</a></h1>
 <p>This is an elegant-design introduction to MATLAB, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="https://www.mathworks.com/help/index.html?s_tid=CRUX_lftnav">MATLAB</a>.</p>
 <p>As for getting help, MATLAB uses <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">func</span></code> to get documentation on the function <cite>func</cite> within the command window, and uses <code class="docutils literal notranslate"><span class="pre">doc</span> <span class="pre">func</span></code> to open the documentation page with external browser. Also, it uses <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">func</span></code> for user-defined source code. When debugging, before making a fix to your code, you should always stop your debugging session first so that you can save your changes.</p>
+<div class="section" id="io-management">
+<h2>IO management<a class="headerlink" href="#io-management" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="workspace-io">
+<h3>Workspace IO<a class="headerlink" href="#workspace-io" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">save</span> <span class="pre">file</span></code>: save current workspace to <cite>file.mat</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">file</span></code>: load variables in <cite>file.mat</cite> to the workspace</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clear</span> <span class="pre">[var]</span></code>: clear certain variable from the workspace, or clear all if not specified</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clc</span></code>: clear all text from the Command Window</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">bank/short/long</span></code>: set 2/4/16 digits for numeric display</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">[scriptName]</span></code>: edit script or create one if not existed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scriptName</span></code>: run the script</p></li>
+</ul>
+</div>
+<div class="section" id="text-io">
+<h3>Text IO<a class="headerlink" href="#text-io" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">input</span></code>: gather textual input from the Command Window</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disp</span></code>: display text or array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fprintf</span></code>: write data on the screen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warning</span></code>: display warning message in orange, program continues to execute</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code>: display error message in red, program stops execution</p></li>
+</ul>
+</div>
+<div class="section" id="graphical-io">
+<h3>Graphical IO<a class="headerlink" href="#graphical-io" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">menu</span></code>: a multiple-choice dialog box</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inputdlg</span></code>: a dialog box with input window</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uigetfile</span></code>: pen standard dialog box for retrieving files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msgbox</span></code>: message dialog</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warndlg</span></code>: warning dialog</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">errordlg</span></code>: error dialog</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlsread</span></code>: import data from an Excel file</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">txt</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xlsread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">sheetname</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Cost = $%d\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
+<span class="n">Cost</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>$<span class="mi">20</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">menu</span><span class="p">(</span><span class="s">&#39;Choose a color&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;yellow&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">inputdlg</span><span class="p">(</span><span class="s">&#39;Please enter your ID: &#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">uigetfile</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">warndlg</span><span class="p">(</span><span class="s">&#39;Divided by zero.&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="object-creation">
 <h2>Object creation<a class="headerlink" href="#object-creation" title="Permalink to this headline">¶</a></h2>
 <p>Several methods to create MATLAB arrays are available, and we should contain homogeneous elements only for optimal efficiency. The simplest way is</p>
@@ -302,8 +380,12 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="object-indexing">
-<h2>Object indexing<a class="headerlink" href="#object-indexing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selection">
+<h2>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Indexing in MATLAB starts with zero.</p>
+</div>
 <p>The common method to index an array is <code class="docutils literal notranslate"><span class="pre">a(start:step:stop)</span></code>. If we want to access the last element, use <code class="docutils literal notranslate"><span class="pre">end</span></code> logical value.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w"></span>
@@ -320,9 +402,6 @@
 <span class="w">    </span><span class="mi">3</span><span class="w">     </span><span class="mi">3</span><span class="w">     </span><span class="mi">3</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="logics-missing-data">
-<h2>Logics &amp; missing data<a class="headerlink" href="#logics-missing-data" title="Permalink to this headline">¶</a></h2>
 <p>MATLAB uses <cite>and</cite> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> , <cite>or</cite> <code class="docutils literal notranslate"><span class="pre">|</span></code>, <cite>not</cite> <code class="docutils literal notranslate"><span class="pre">~</span></code>, <cite>equal</cite> <code class="docutils literal notranslate"><span class="pre">==</span></code> for logical operations with application for boolean mask, assuming identical matrix dimensions. NaN data is dangerous in that it may ruins the analytical results or graphics, which leads to unsatisfactory conclusion.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span><span class="o">&#39;</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
@@ -363,7 +442,20 @@
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Now we illustrate the <cite>if</cite>, <cite>switch</cite>, <cite>for</cite>, and <cite>while</cite> loops, with <cite>ctrl + c</cite> to end infinite loops if happens</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> to check whether two strings are equal. Use <code class="docutils literal notranslate"><span class="pre">isequal</span></code> to test equality of two arrays, and use <code class="docutils literal notranslate"><span class="pre">isequaln</span></code> for similar functionality ignoring NaN.</p>
+<p>Use column-wise operations <code class="docutils literal notranslate"><span class="pre">all</span></code> or <code class="docutils literal notranslate"><span class="pre">any</span></code> to test whether all or any elements in a logical vector are true. Use <code class="docutils literal notranslate"><span class="pre">nnz</span></code> to compute the number of non-zero elements.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">all</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">nnz</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="control-flow">
+<h2>Control flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h2>
+<p>Now we illustrate the <cite>if</cite>, <cite>switch</cite>, <cite>for</cite>, and <cite>while</cite> loops</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="n">condition</span><span class="w"></span>
 <span class="w">   </span><span class="n">statement</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <span class="k">elseif</span><span class="w"> </span><span class="n">condition</span><span class="w"></span>
@@ -395,15 +487,12 @@
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Use <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> to check whether two strings are equal. Use <code class="docutils literal notranslate"><span class="pre">isequal</span></code> to test equality of two arrays, and use <code class="docutils literal notranslate"><span class="pre">isequaln</span></code> for similar functionality ignoring NaN.</p>
-<p>Use column-wise operations <code class="docutils literal notranslate"><span class="pre">all</span></code> or <code class="docutils literal notranslate"><span class="pre">any</span></code> to test whether all or any elements in a logical vector are true. Use <code class="docutils literal notranslate"><span class="pre">nnz</span></code> to compute the number of non-zero elements. One approach to delete elements is by assigning to <cite>[]</cite></p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">all</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
-<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
-<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">nnz</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
-<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="c">% flattened output</span><span class="w"></span>
+<p>Use <cite>ctrl + c</cite> to end infinite loops if happens.</p>
+</div>
+<div class="section" id="missing-data">
+<h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
+<p>One approach to delete elements is by assigning to <cite>[]</cite></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="c">% flattened output</span><span class="w"></span>
 <span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
 </pre></div>
 </div>
@@ -476,6 +565,9 @@
 </pre></div>
 </div>
 <p>For more information about operation and special characters, check out official documentation for <a class="reference external" href="https://www.mathworks.com/help/matlab/matlab_prog/matlab-operators-and-special-characters.html">operation</a> and <a class="reference external" href="https://www.mathworks.com/help/matlab/creating_plots/greek-letters-and-special-characters-in-graph-text.html">special characters</a>.</p>
+</div>
+<div class="section" id="statistics">
+<h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">mdl</span> <span class="pre">=</span> <span class="pre">fitlm(X,</span> <span class="pre">y)</span></code> function to create a MATLAB object, with more information about <a class="reference external" href="https://www.mathworks.com/help/stats/fitdist.html#inputarg_distname">fitdist</a></p>
 <ul class="simple">
 <li><p><cite>mdl</cite>:        A LinearModel object representing a least-squares fit of the response to the data</p></li>
@@ -636,7 +728,7 @@
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/matlab_plot_eg.png"><img alt="../_images/matlab_plot_eg.png" class="align-center" src="../_images/matlab_plot_eg.png" style="width: 728.0px; height: 546.0px;" /></a>
+<img alt="../_images/matlab_plot.png" class="align-center" src="../_images/matlab_plot.png" />
 </div>
 <div class="section" id="dates-times">
 <h2>Dates &amp; Times<a class="headerlink" href="#dates-times" title="Permalink to this headline">¶</a></h2>
@@ -832,40 +924,7 @@
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">writetable</span><span class="p">(</span><span class="n">tableName</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;filename.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delimiter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\t&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="io-management">
-<h2>IO management<a class="headerlink" href="#io-management" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">save</span> <span class="pre">file</span></code>: save current workspace to <cite>file.mat</cite></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">file</span></code>: load variables in <cite>file.mat</cite> to the workspace</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">clear</span> <span class="pre">[var]</span></code>: clear certain variable from the workspace, or clear all if not specified</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">clc</span></code>: clear all text from the Command Window</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">bank/short/long</span></code>: set 2/4/16 digits for numeric display</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">[scriptName]</span></code>: edit script or create one if not existed</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">scriptName</span></code>: run the script</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">input</span></code>: gather textual input from the Command Window</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">disp</span></code>: display text or array</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fprintf</span></code>: write data on the screen</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">warning</span></code>: display warning message in orange, program continues to execute</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code>: display error message in red, program stops execution</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">menu</span></code>: a multiple-choice dialog box</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">inputdlg</span></code>: a dialog box with input window</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uigetfile</span></code>: pen standard dialog box for retrieving files</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">msgbox</span></code>: message dialog</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">warndlg</span></code>: warning dialog</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">errordlg</span></code>: error dialog</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xlsread</span></code>: import data from an Excel file</p></li>
-</ul>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">txt</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xlsread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">sheetname</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Cost = $%d\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
-<span class="n">Cost</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>$<span class="mi">20</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">menu</span><span class="p">(</span><span class="s">&#39;Choose a color&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;yellow&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">inputdlg</span><span class="p">(</span><span class="s">&#39;Please enter your ID: &#39;</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">uigetfile</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">warndlg</span><span class="p">(</span><span class="s">&#39;Divided by zero.&#39;</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-<p>MATLAB basic functions can be referenced through a <a class="reference external" href="https://www.mathworks.com/content/dam/mathworks/fact-sheet/matlab-basic-functions-reference.pdf">cheatsheet</a>.</p>
+<p>MATLAB basic functions can be referenced through an official <a class="reference external" href="https://www.mathworks.com/content/dam/mathworks/fact-sheet/matlab-basic-functions-reference.pdf">cheatsheet</a>.</p>
 </div>
 </div>
 

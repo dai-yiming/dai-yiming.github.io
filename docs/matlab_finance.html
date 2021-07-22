@@ -155,6 +155,11 @@
    pandas Guide
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy_guide.html">
+   SciPy Guide
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -268,7 +273,7 @@
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/gbm.png"><img alt="../_images/gbm.png" class="align-center" src="../_images/gbm.png" style="width: 728.0px; height: 546.0px;" /></a>
+<img alt="../_images/gbm.png" class="align-center" src="../_images/gbm.png" />
 <p>Formally, we could form a function to calculate the final estimated future stock price and level% VaR for maintenance purposes as</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[var, finalPrices] = calculateVaR</span><span class="p">(</span>stock, level<span class="p">)</span><span class="w"></span>
 
@@ -385,7 +390,7 @@
 <span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/ca_ex.png"><img alt="../_images/ca_ex.png" class="align-center" src="../_images/ca_ex.png" style="width: 676.8000000000001px; height: 533.6px;" /></a>
+<img alt="../_images/ca_ex.png" class="align-center" src="../_images/ca_ex.png" />
 </div>
 <div class="section" id="multivariate-statistics">
 <h2>Multivariate statistics<a class="headerlink" href="#multivariate-statistics" title="Permalink to this headline">¶</a></h2>
@@ -427,7 +432,7 @@
 <span class="nb">title</span><span class="p">(</span><span class="s">&#39;Distrubtion of Simulated Values at Dec. 31, 2008&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/dist_fit.png"><img alt="../_images/dist_fit.png" class="align-center" src="../_images/dist_fit.png" style="width: 767.1999999999999px; height: 605.5px;" /></a>
+<img alt="../_images/dist_fit.png" class="align-center" src="../_images/dist_fit.png" />
 <p>Next, we perform a fit based regression on multiple economic factor data to predict DJI movement</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% import the data</span><span class="w"></span>
 <span class="n">djData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readtable</span><span class="p">(</span><span class="s">&#39;djiEconModel.csv&#39;</span><span class="p">);</span><span class="w"></span>
@@ -450,7 +455,7 @@
 <span class="nb">disp</span><span class="p">([</span><span class="s">&#39;The Ordinary R-squared value is: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">num2str</span><span class="p">(</span><span class="n">Rsquared</span><span class="p">)])</span><span class="w"></span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/dji_regress.png"><img alt="../_images/dji_regress.png" class="align-center" src="../_images/dji_regress.png" style="width: 700.2px; height: 552.6px;" /></a>
+<img alt="../_images/dji_regress.png" class="align-center" src="../_images/dji_regress.png" />
 <p>Another Monte-Carlo simulation example is using the numbers from DAX and a <cite>t</cite> Location-Scale distribution to calculate a matrix of random numbers with <cite>nSteps</cite> rows, indicating the number of days, and <cite>nExperiments</cite> columns, indicating the number of trials, named <cite>simReturns</cite>.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% import table of returns</span><span class="w"></span>
 <span class="n">returns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readtable</span><span class="p">(</span><span class="s">&#39;germanStocks.csv&#39;</span><span class="p">);</span><span class="w"></span>
@@ -485,7 +490,7 @@
 <span class="nb">title</span><span class="p">({</span><span class="s">&#39;Deutscher Aktienindex (DAX)&#39;</span><span class="p">;</span><span class="w"> </span><span class="s">&#39;German Stock Index&#39;</span><span class="p">})</span><span class="w"></span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/dax_mc.png"><img alt="../_images/dax_mc.png" class="align-center" src="../_images/dax_mc.png" style="width: 744.0px; height: 612.0px;" /></a>
+<img alt="../_images/dax_mc.png" class="align-center" src="../_images/dax_mc.png" />
 </div>
 </div>
 
