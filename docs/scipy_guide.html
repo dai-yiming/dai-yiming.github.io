@@ -36,10 +36,12 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tools" href="../tools/index.html" />
+    <link rel="next" title="MATLAB Guide" href="matlab_guide.html" />
     <link rel="prev" title="pandas Guide" href="pandas_guide.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -139,16 +141,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="matlab_guide.html">
-   MATLAB Guide
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="matlab_finance.html">
-   MATLAB for Finance
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="pandas_guide.html">
    pandas Guide
   </a>
@@ -156,6 +148,16 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    SciPy Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matlab_guide.html">
+   MATLAB Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matlab_finance.html">
+   MATLAB for Finance
   </a>
  </li>
 </ul>
@@ -172,9 +174,44 @@
               
               <div class="toc-item">
                 
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#io-management">
+   IO Management
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integration">
+   Integration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-algebra">
+   Linear algebra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpolation">
+   Interpolation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#root-finding">
+   Root finding
+  </a>
+ </li>
+</ul>
+
 </nav>
               </div>
               
@@ -193,7 +230,228 @@
   <div class="section" id="scipy-guide">
 <span id="id1"></span><h1>SciPy Guide<a class="headerlink" href="#scipy-guide" title="Permalink to this headline">¶</a></h1>
 <p>This is an elegant-design introduction to SciPy, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="http://scipy.github.io/devdocs/index.html">SciPy</a>.</p>
-<p><strong>Under construction !! Expected publish date to be Jul 26, 2021.</strong></p>
+<div class="section" id="composition">
+<h2>Composition<a class="headerlink" href="#composition" title="Permalink to this headline">¶</a></h2>
+<p>SciPy is composed of task-specific sub-modules:</p>
+<table class="table">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 61%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.cluster</span></code></p></td>
+<td><p>Vector quantization / Kmeans</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.constants</span></code></p></td>
+<td><p>Physical and mathematical constants</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.fftpack</span></code></p></td>
+<td><p>Fourier transform</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code></p></td>
+<td><p>Integration routines</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code></p></td>
+<td><p>Interpolation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.io</span></code></p></td>
+<td><p>Data input and output</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code></p></td>
+<td><p>Linear algebra routines</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.ndimage</span></code></p></td>
+<td><p>n-dimensional image package</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.odr</span></code></p></td>
+<td><p>Orthogonal distance regression</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></p></td>
+<td><p>Optimization</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code></p></td>
+<td><p>Signal processing</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.sparse</span></code></p></td>
+<td><p>Sparse matrices</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.spatial</span></code></p></td>
+<td><p>Spatial data structures and algorithms</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.special</span></code></p></td>
+<td><p>Any special mathematical functions</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></p></td>
+<td><p>Statistics</p></td>
+</tr>
+</tbody>
+</table>
+<p>Though SciPy is independent from Numpy, the modules depend on Numpy. The main namespace of SciPy contains original Numpy functions, so we do not import <code class="docutils literal notranslate"><span class="pre">scipy</span></code> only. The conventional way of importing Numpy and SciPy modules necessary for illustration is:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">scipy.io</span> <span class="k">as</span> <span class="nn">sio</span>
+
+<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">special</span>
+
+<span class="gp">In [4]: </span><span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
+
+<span class="gp">In [5]: </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="gp">In [6]: </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+
+<span class="gp">In [7]: </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+
+<span class="gp">In [8]: </span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+<p>Next, we illustrate the common usage of libraries we imported with detailed examples.</p>
+</div>
+<div class="section" id="io-management">
+<h2>IO Management<a class="headerlink" href="#io-management" title="Permalink to this headline">¶</a></h2>
+<p>Load and save MATLAB files:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="gp">In [10]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">rand</span>
+<span class="gh">Out[11]: </span><span class="go">array([0.5968, 0.016 , 0.2722])</span>
+
+<span class="gp">In [12]: </span><span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;rand&quot;</span> <span class="p">:</span> <span class="n">rand</span><span class="p">})</span>
+
+<span class="gp">In [13]: </span><span class="n">var</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">)</span>
+
+<span class="gp">In [14]: </span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;rand&quot;</span><span class="p">]</span>
+<span class="gh">Out[14]: </span><span class="go">array([[0.5968, 0.016 , 0.2722]])</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Notice MATLAB does not support 1D arrays; the shape of 1D arrays in Numpy and MATLAB are different with <strong>(n,)</strong> for Numpy and <strong>(1, n)</strong> for MATLAB by default.</p>
+</div>
+</div>
+<div class="section" id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="o">-</span><span class="p">]:</span> <span class="n">help</span><span class="p">(</span><span class="n">integrate</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="o">-</span><span class="p">]:</span>
+
+<span class="n">Integrating</span> <span class="n">functions</span><span class="p">,</span> <span class="n">given</span> <span class="n">function</span> <span class="nb">object</span>
+<span class="o">============================================</span>
+
+   <span class="n">quad</span>          <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">integration</span>
+   <span class="n">quad_vec</span>      <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">integration</span> <span class="n">of</span> <span class="n">vector</span><span class="o">-</span><span class="n">valued</span> <span class="n">functions</span>
+   <span class="n">dblquad</span>       <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">double</span> <span class="n">integration</span>
+   <span class="n">tplquad</span>       <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">triple</span> <span class="n">integration</span>
+   <span class="n">nquad</span>         <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">N</span><span class="o">-</span><span class="n">D</span> <span class="n">integration</span>
+   <span class="n">fixed_quad</span>    <span class="o">--</span> <span class="n">Integrate</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">using</span> <span class="n">Gaussian</span> <span class="n">quadrature</span> <span class="n">of</span> <span class="n">order</span> <span class="n">n</span>
+   <span class="n">quadrature</span>    <span class="o">--</span> <span class="n">Integrate</span> <span class="k">with</span> <span class="n">given</span> <span class="n">tolerance</span> <span class="n">using</span> <span class="n">Gaussian</span> <span class="n">quadrature</span>
+   <span class="n">romberg</span>       <span class="o">--</span> <span class="n">Integrate</span> <span class="n">func</span> <span class="n">using</span> <span class="n">Romberg</span> <span class="n">integration</span>
+   <span class="n">quad_explain</span>  <span class="o">--</span> <span class="n">Print</span> <span class="n">information</span> <span class="k">for</span> <span class="n">use</span> <span class="n">of</span> <span class="n">quad</span>
+   <span class="n">newton_cotes</span>  <span class="o">--</span> <span class="n">Weights</span> <span class="ow">and</span> <span class="n">error</span> <span class="n">coefficient</span> <span class="k">for</span> <span class="n">Newton</span><span class="o">-</span><span class="n">Cotes</span> <span class="n">integration</span>
+   <span class="n">IntegrationWarning</span> <span class="o">--</span> <span class="ne">Warning</span> <span class="n">on</span> <span class="n">issues</span> <span class="n">during</span> <span class="n">integration</span>
+   <span class="n">AccuracyWarning</span>  <span class="o">--</span> <span class="ne">Warning</span> <span class="n">on</span> <span class="n">issues</span> <span class="n">during</span> <span class="n">quadrature</span> <span class="n">integration</span>
+
+<span class="n">Integrating</span> <span class="n">functions</span><span class="p">,</span> <span class="n">given</span> <span class="n">fixed</span> <span class="n">samples</span>
+<span class="o">==========================================</span>
+
+   <span class="n">trapezoid</span>            <span class="o">--</span> <span class="n">Use</span> <span class="n">trapezoidal</span> <span class="n">rule</span> <span class="n">to</span> <span class="n">compute</span> <span class="n">integral</span><span class="o">.</span>
+   <span class="n">cumulative_trapezoid</span> <span class="o">--</span> <span class="n">Use</span> <span class="n">trapezoidal</span> <span class="n">rule</span> <span class="n">to</span> <span class="n">cumulatively</span> <span class="n">compute</span> <span class="n">integral</span><span class="o">.</span>
+   <span class="n">simpson</span>              <span class="o">--</span> <span class="n">Use</span> <span class="n">Simpson</span><span class="s1">&#39;s rule to compute integral from samples.</span>
+   <span class="n">romb</span>                 <span class="o">--</span> <span class="n">Use</span> <span class="n">Romberg</span> <span class="n">Integration</span> <span class="n">to</span> <span class="n">compute</span> <span class="n">integral</span> <span class="kn">from</span>
+                        <span class="o">--</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">evenly</span><span class="o">-</span><span class="n">spaced</span> <span class="n">samples</span><span class="o">.</span>
+
+<span class="n">Solving</span> <span class="n">initial</span> <span class="n">value</span> <span class="n">problems</span> <span class="k">for</span> <span class="n">ODE</span> <span class="n">systems</span>
+<span class="o">==============================================</span>
+<span class="n">The</span> <span class="n">solvers</span> <span class="n">are</span> <span class="n">implemented</span> <span class="k">as</span> <span class="n">individual</span> <span class="n">classes</span><span class="p">,</span> <span class="n">which</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">directly</span>
+<span class="p">(</span><span class="n">low</span><span class="o">-</span><span class="n">level</span> <span class="n">usage</span><span class="p">)</span> <span class="ow">or</span> <span class="n">through</span> <span class="n">a</span> <span class="n">convenience</span> <span class="n">function</span><span class="o">.</span>
+
+   <span class="n">solve_ivp</span>     <span class="o">--</span> <span class="n">Convenient</span> <span class="n">function</span> <span class="k">for</span> <span class="n">ODE</span> <span class="n">integration</span><span class="o">.</span>
+   <span class="n">RK23</span>          <span class="o">--</span> <span class="n">Explicit</span> <span class="n">Runge</span><span class="o">-</span><span class="n">Kutta</span> <span class="n">solver</span> <span class="n">of</span> <span class="n">order</span> <span class="mi">3</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span>
+   <span class="n">RK45</span>          <span class="o">--</span> <span class="n">Explicit</span> <span class="n">Runge</span><span class="o">-</span><span class="n">Kutta</span> <span class="n">solver</span> <span class="n">of</span> <span class="n">order</span> <span class="mi">5</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span>
+   <span class="n">DOP853</span>        <span class="o">--</span> <span class="n">Explicit</span> <span class="n">Runge</span><span class="o">-</span><span class="n">Kutta</span> <span class="n">solver</span> <span class="n">of</span> <span class="n">order</span> <span class="mf">8.</span>
+   <span class="n">Radau</span>         <span class="o">--</span> <span class="n">Implicit</span> <span class="n">Runge</span><span class="o">-</span><span class="n">Kutta</span> <span class="n">solver</span> <span class="n">of</span> <span class="n">order</span> <span class="mf">5.</span>
+   <span class="n">BDF</span>           <span class="o">--</span> <span class="n">Implicit</span> <span class="n">multi</span><span class="o">-</span><span class="n">step</span> <span class="n">variable</span> <span class="n">order</span> <span class="p">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">5</span><span class="p">)</span> <span class="n">solver</span><span class="o">.</span>
+   <span class="n">LSODA</span>         <span class="o">--</span> <span class="n">LSODA</span> <span class="n">solver</span> <span class="kn">from</span> <span class="nn">ODEPACK</span> <span class="n">Fortran</span> <span class="n">package</span><span class="o">.</span>
+   <span class="n">OdeSolver</span>     <span class="o">--</span> <span class="n">Base</span> <span class="k">class</span> <span class="nc">for</span> <span class="n">ODE</span> <span class="n">solvers</span><span class="o">.</span>
+   <span class="n">DenseOutput</span>   <span class="o">--</span> <span class="n">Local</span> <span class="n">interpolant</span> <span class="k">for</span> <span class="n">computing</span> <span class="n">a</span> <span class="n">dense</span> <span class="n">output</span><span class="o">.</span>
+   <span class="n">OdeSolution</span>   <span class="o">--</span> <span class="n">Class</span> <span class="n">which</span> <span class="n">represents</span> <span class="n">a</span> <span class="n">continuous</span> <span class="n">ODE</span> <span class="n">solution</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Integrate a bessel function <code class="docutils literal notranslate"><span class="pre">jv(3.5,x)</span></code> using <code class="docutils literal notranslate"><span class="pre">quad</span></code> along the interval <span class="math notranslate nohighlight">\([0, 4]\)</span></p>
+<div class="math notranslate nohighlight">
+\[I = \int^{4}_{0} J_{3.5} (x) dx\]</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">special</span><span class="o">.</span><span class="n">jv</span><span class="p">(</span><span class="mf">3.5</span> <span class="p">,</span><span class="n">x</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[15]: </span><span class="go">(0.4584570300316943, 2.7693610998177206e-10)</span>
+</pre></div>
+</div>
+<p>The return value is a tuple, with the first element holding the estimated value of the integral and the second element holding an upper bound on the error.</p>
+</div>
+<div class="section" id="linear-algebra">
+<h2>Linear algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h2>
+<p>Calculate determinant and matrix inverse.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="gp">In [17]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gh">Out[17]: </span><span class="go">0.02872774516693877</span>
+
+<span class="gp">In [18]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="go">array([[  0.7121,  -1.2746,   1.1099],</span>
+<span class="go">       [  9.4342, -11.7876,  -2.5698],</span>
+<span class="go">       [-18.1901,  25.8512,   3.9597]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="interpolation">
+<h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
+<p>Perform linear and cubic interpolation with 1D data.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="gp">In [20]: </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">9.0</span><span class="p">)</span>
+
+<span class="gp">In [21]: </span><span class="n">f1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="gp">In [22]: </span><span class="n">f2</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+
+<span class="gp">In [23]: </span><span class="n">xnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="gp">In [24]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="go">[&lt;matplotlib.lines.Line2D at 0x7fc9a8a81370&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fc9a8a811c0&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fc9a8a813a0&gt;]</span>
+</pre></div>
+</div>
+<img alt="../_images/scipy_interp1d.png" class="align-center" src="../_images/scipy_interp1d.png" />
+</div>
+<div class="section" id="root-finding">
+<h2>Root finding<a class="headerlink" href="#root-finding" title="Permalink to this headline">¶</a></h2>
+<p>Finding the roots of a scalar function.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">   ....: </span>   <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [26]: </span><span class="n">root1</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [27]: </span><span class="n">root1</span>
+<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="go">    fjac: array([[-1.]])</span>
+<span class="go">     fun: array([0.])</span>
+<span class="go"> message: &#39;The solution converged.&#39;</span>
+<span class="go">    nfev: 10</span>
+<span class="go">     qtf: array([0.])</span>
+<span class="go">       r: array([-10.])</span>
+<span class="go">  status: 1</span>
+<span class="go"> success: True</span>
+<span class="go">       x: array([0.])</span>
+
+<span class="gp">In [28]: </span><span class="n">root2</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=-</span><span class="mf">2.5</span><span class="p">)</span>
+
+<span class="gp">In [29]: </span><span class="p">(</span><span class="n">root1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">root2</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="gh">Out[29]: </span><span class="go">(array([0.]), array([-2.4795]))</span>
+</pre></div>
+</div>
+<img alt="../_images/scipy_root.png" class="align-center" src="../_images/scipy_root.png" />
+</div>
 </div>
 
 
@@ -203,7 +461,7 @@
               <div class='prev-next-bottom'>
                 
     <a class='left-prev' id="prev-link" href="pandas_guide.html" title="previous page">pandas Guide</a>
-    <a class='right-next' id="next-link" href="../tools/index.html" title="next page">Tools</a>
+    <a class='right-next' id="next-link" href="matlab_guide.html" title="next page">MATLAB Guide</a>
 
               </div>
               
