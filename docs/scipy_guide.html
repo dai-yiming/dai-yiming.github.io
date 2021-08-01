@@ -286,7 +286,8 @@
 </tr>
 </tbody>
 </table>
-<p>Though SciPy is independent from Numpy, the modules depend on Numpy. The main namespace of SciPy contains original Numpy functions, so we do not import <code class="docutils literal notranslate"><span class="pre">scipy</span></code> only. The conventional way of importing Numpy and SciPy modules necessary for illustration is:</p>
+<p>The main namespace of SciPy contains original Numpy functions, so we do not import <code class="docutils literal notranslate"><span class="pre">scipy</span></code> only. Though SciPy is independent from Numpy, the modules depend on Numpy. For more information about Numpy, check out <a class="reference internal" href="numpy_guide.html#numpy-guide"><span class="std std-ref">Numpy Guide</span></a>.</p>
+<p>The conventional way of importing Numpy and SciPy modules necessary for illustration is:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">scipy.io</span> <span class="k">as</span> <span class="nn">sio</span>
@@ -314,14 +315,14 @@
 <span class="gp">In [10]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [11]: </span><span class="n">rand</span>
-<span class="gh">Out[11]: </span><span class="go">array([0.5968, 0.016 , 0.2722])</span>
+<span class="gh">Out[11]: </span><span class="go">array([0.4007, 0.6776, 0.3944])</span>
 
 <span class="gp">In [12]: </span><span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;rand&quot;</span> <span class="p">:</span> <span class="n">rand</span><span class="p">})</span>
 
 <span class="gp">In [13]: </span><span class="n">var</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">)</span>
 
 <span class="gp">In [14]: </span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;rand&quot;</span><span class="p">]</span>
-<span class="gh">Out[14]: </span><span class="go">array([[0.5968, 0.016 , 0.2722]])</span>
+<span class="gh">Out[14]: </span><span class="go">array([[0.4007, 0.6776, 0.3944]])</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -391,13 +392,13 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="gp">In [17]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gh">Out[17]: </span><span class="go">0.02872774516693877</span>
+<span class="gh">Out[17]: </span><span class="go">0.19618191996446063</span>
 
 <span class="gp">In [18]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[  0.7121,  -1.2746,   1.1099],</span>
-<span class="go">       [  9.4342, -11.7876,  -2.5698],</span>
-<span class="go">       [-18.1901,  25.8512,   3.9597]])</span>
+<span class="go">array([[ 2.054 ,  0.4043, -4.0684],</span>
+<span class="go">       [-0.1894,  1.2637, -0.8483],</span>
+<span class="go">       [-0.3382, -0.2964,  2.7934]])</span>
 </pre></div>
 </div>
 </div>
@@ -416,9 +417,9 @@
 
 <span class="gp">In [24]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="gh">Out[24]: </span><span class="go"></span>
-<span class="go">[&lt;matplotlib.lines.Line2D at 0x7fc9a8a81370&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fc9a8a811c0&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fc9a8a813a0&gt;]</span>
+<span class="go">[&lt;matplotlib.lines.Line2D at 0x7faec7b0ea60&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x7faec7b0e6a0&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x7faec7b0ea90&gt;]</span>
 </pre></div>
 </div>
 <img alt="../_images/scipy_interp1d.png" class="align-center" src="../_images/scipy_interp1d.png" />
