@@ -186,6 +186,11 @@
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up">
+   Setting up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#notations">
    Notations
   </a>
@@ -206,13 +211,30 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gradient-descent">
-     Gradient descent
+    <a class="reference internal nav-link" href="#derivatives">
+     Derivatives
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gradient-descent">
+   Gradient descent
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Definition
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#derivatives">
-     Derivatives
+    <a class="reference internal nav-link" href="#gradient-checking">
+     Gradient checking
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mini-batch">
+     Mini-batch
     </a>
    </li>
   </ul>
@@ -249,6 +271,48 @@
    Activation functions
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias-variance">
+   Bias &amp; Variance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regularization">
+   Regularization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Logistic regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#neural-network">
+     Neural network
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weight-update">
+     Weight update
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dropout-regularization">
+     Dropout regularization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalize-inputs">
+     Normalize inputs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-methods">
+     Other methods
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
 </nav>
@@ -269,6 +333,16 @@
   <div class="section" id="neural-networks-guide">
 <span id="id1"></span><h1>Neural Networks Guide<a class="headerlink" href="#neural-networks-guide" title="Permalink to this headline">¶</a></h1>
 <p>This is an elegant-design introduction to Standard Deep Neural Networks (DNN), geared mainly for new users. A neural network can be illustrated as a computation graph with forward passes and backward propagation of biases. The performance of deep learning depends on several factors: data availability, GPU and computational power, algorithm like activation functions and optimizers, ML iterative cycle, size of DNN, etc. Vectorization is a fundamental tool to accelerate computation.</p>
+<div class="section" id="setting-up">
+<h2>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">¶</a></h2>
+<p>Applied machine learning is a highly iterative process with recurrent components: idea, code implementation, and experiment. In modern era, the dataset is usually splitted into a ratio of 98/1/1 with training set being the largest component. There are four components that usually exist in a ML project:</p>
+<ul class="simple">
+<li><p>training set: build the</p></li>
+<li><p>dev set (or hold-out cross validation set): optimize hyperparameters</p></li>
+<li><p>test set: evaluate performance</p></li>
+</ul>
+<p>Make sure the data in the dev set and test set are from the same distribution.</p>
+</div>
 <div class="section" id="notations">
 <h2>Notations<a class="headerlink" href="#notations" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -300,15 +374,24 @@
 <p>Given <span class="math notranslate nohighlight">\(\left\{\left(x^{1}, y^{1}\right),\left(x^{2}, y^{2}\right), \ldots\left(x^{m}, y^{m}\right)\right\}\)</span>, we want <span class="math notranslate nohighlight">\(\hat{y}^{(i)} \approx y^{(i)}\)</span>. To calculate the cost function, we first need to choose a loss function which is a convex function</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{L}(\hat{y}, y) = - \left(y \log \hat{y} + (1 - y) \log (1 - \hat{y}) \right)\]</div>
-<p>Commonly, if we replace <span class="math notranslate nohighlight">\(\hat{y}\)</span> with <span class="math notranslate nohighlight">\(a\)</span>, we have</p>
+<p>Commonly, if replacing <span class="math notranslate nohighlight">\(\hat{y}\)</span> with <span class="math notranslate nohighlight">\(a\)</span>, we have</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{L}(a, y) = - \left(y \log a + (1 - y) \log (1 - a) \right)\]</div>
 <p>The cost function is defined as</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{J}(w, b)=\frac{1}{m} \sum_{i=1}^{m} \mathcal{L}\left(\hat{y}^{(i)}, y^{(i)}\right)=\frac{1}{m} \sum \mathcal{L}\left(a, y\right)\]</div>
 </div>
+<div class="section" id="derivatives">
+<h3>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this headline">¶</a></h3>
+<p>To calculate derivatives with respect to a certain variable in the cost function, use one step backward propagation on a computational graph with chain rule, calculating from right to left. Recall that <span class="math notranslate nohighlight">\(\hat{y} = a = \sigma(z)\)</span> where <span class="math notranslate nohighlight">\(z = w^{T}x + b)\)</span>, the solution to the derivative is</p>
+<div class="math notranslate nohighlight">
+\[dz = \frac{dL}{dz} = \frac{dL}{da} \frac{da}{dz} = \frac{a-y}{a(1-a)} \times a(1-a) = a - y = \hat{y} - y\]</div>
+</div>
+</div>
 <div class="section" id="gradient-descent">
-<h3>Gradient descent<a class="headerlink" href="#gradient-descent" title="Permalink to this headline">¶</a></h3>
+<h2>Gradient descent<a class="headerlink" href="#gradient-descent" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>Definition<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Gradient descent wants to find <span class="math notranslate nohighlight">\(w, b\)</span> that minimize <span class="math notranslate nohighlight">\(\mathcal{J}(w, b)\)</span>, i.e. to find the minima in the graph of convex loss function</p>
 <div class="math notranslate nohighlight">
 \[w = w - \alpha \frac{\partial \mathcal{J}}{\partial w}, \quad
@@ -318,21 +401,68 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
 \[\frac{\partial J}{\partial w} = \frac{1}{m}X(A-Y)^T, \quad
 \frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^m \left(a^{(i)}-y^{(i)}\right)\]</div>
 <p>For simplicity, we denote <span class="math notranslate nohighlight">\(dx\)</span> as the (partial) derivative of a variable, e.g. <span class="math notranslate nohighlight">\(dw = \frac{\partial J}{\partial w}\)</span>.</p>
+<p>In a deep neural network, the activation and gradients will explode if <span class="math notranslate nohighlight">\(W &gt; I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is identity matrix; the gradients will vanish if <span class="math notranslate nohighlight">\(W &lt; I\)</span>. To solve this, refer to <a class="reference internal" href="#random-initialization"><span class="std std-ref">Random initialization</span></a>.</p>
 </div>
-<div class="section" id="derivatives">
-<h3>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this headline">¶</a></h3>
-<p>To calculate derivatives with respect to a certain variable in the cost function, use one step backward propagation on a computational graph with chain rule, calculating from right to left. Recall that <span class="math notranslate nohighlight">\(\hat{y} = a = \sigma(z)\)</span> where <span class="math notranslate nohighlight">\(z = w^{T}x + b)\)</span>, the solution to the derivative is</p>
+<div class="section" id="gradient-checking">
+<h3>Gradient checking<a class="headerlink" href="#gradient-checking" title="Permalink to this headline">¶</a></h3>
+<p>Recall the definition of a derivative (or gradient) as</p>
 <div class="math notranslate nohighlight">
-\[dz = \frac{dL}{dz} = \frac{dL}{da} \frac{da}{dz} = \frac{a-y}{a(1-a)} \times a(1-a) = a - y = \hat{y} - y\]</div>
+\[\frac{\partial J}{\partial \theta} = \lim_{\varepsilon \to 0} \frac{J(\theta + \varepsilon) - J(\theta - \varepsilon)}{2 \varepsilon}\]</div>
+<p>Gradient checking tells you if your implementation of backpropagation is correct. We prefer to run gradient checking at random initialization and train the network for several iteration, and bugs may be detected from abnormal growth of weight and bias matrix.</p>
+<ul class="simple">
+<li><p>use it only for debugging purpose.</p></li>
+<li><p>use backward propagation regularization version if <span class="math notranslate nohighlight">\(L_2\)</span> or <span class="math notranslate nohighlight">\(L_1\)</span> regularization is applied.</p></li>
+<li><p>gradient checking doesn’t work with dropout regularization because the cost function is not consistent.</p></li>
+<li><p>if algorithm fails grad check, look at components to try to identify bug.</p></li>
+</ul>
+<p>We implement by</p>
+<ul class="simple">
+<li><p>concatenate all flattened weight and bias matrices into a vector <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
+<li><p>concatenate all flattened weight and bias derivative matrices into a vector <span class="math notranslate nohighlight">\(d\theta\)</span></p></li>
+<li><p>calculate approximate gradient <span class="math notranslate nohighlight">\(d\theta\)</span> by</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[d \theta_{a p p r o x}^{[i]}=\frac{J\left(\theta_{1}, \theta_{2}, \ldots, \theta_{i}+\varepsilon, \ldots\right)-J\left(\theta_{1}, \theta_{2}, \ldots, \theta_{i}-\varepsilon, \ldots\right)}{2 \varepsilon} \approx d \theta^{[i]}=\frac{\partial J}{\partial \theta_{i}}\]</div>
+<ul class="simple">
+<li><p>calculate distance using normalized Euclidean distance as</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{\left\|d \theta_{a p p r o x}^{[i]}-d \theta\right\|_{2}}{\left\|d \theta_{a p p r o x}^{[i]}\right\|_{2}+\|d \theta\|_{2}}\]</div>
+<p>Now, we interpret results as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{distance} \approx
+\begin{cases}
+             1e-7, &amp; \text{good implementation}\\
+   1e-5, &amp; \text{further inspection}\\
+   1e-3, &amp; \text{bad implementation}
+\end{cases}\end{split}\]</div>
+</div>
+<div class="section" id="mini-batch">
+<h3>Mini-batch<a class="headerlink" href="#mini-batch" title="Permalink to this headline">¶</a></h3>
+<p>For large <span class="math notranslate nohighlight">\(m\)</span>, vectorization can still be slow. A solution is to use mini-batch gradient descent rather than batch gradient descent using explicit loop. We should choose a batch size between 1 and <span class="math notranslate nohighlight">\(m\)</span> since</p>
+<ul class="simple">
+<li><p>if batch size is 1, each example is a batch</p></li>
+<li><p>if batch size is <span class="math notranslate nohighlight">\(m\)</span>, batch gradient descent is performed</p></li>
+</ul>
+<p>By convention, we choose a batch size of <span class="math notranslate nohighlight">\(2^n\)</span> with <span class="math notranslate nohighlight">\(n\)</span> determined by the size of the dataset. We do not consider stochastic gradient descent since it is too noisy, never converge, and breaking vectorization.</p>
+<p>Recall that the graph of the cost funciton demonstrate a mostly monotonically decreasing function. For small batch size, the cost may volatile, but it will decrease macroscopically.</p>
 </div>
 </div>
 <div class="section" id="random-initialization">
-<h2>Random initialization<a class="headerlink" href="#random-initialization" title="Permalink to this headline">¶</a></h2>
-<p>Initializing the bias to zero is acceptable; but initializing the weights to zero causes different neurons learn with identical output since they are symmetrical. A common practice is to randomly assign small weights with a defined statistical distribution; if the weights are large, some activation functions tend to saturate in large values, i.e. slow learning rate.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">layer_dims</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">layer_dims</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.01</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">layer_dims</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+<span id="id3"></span><h2>Random initialization<a class="headerlink" href="#random-initialization" title="Permalink to this headline">¶</a></h2>
+<p>Initializing the bias to zero is acceptable; but initializing the weights to zero causes different neurons learn with identical output since they are symmetrical. A common practice is to randomly assign small weights with a defined statistical distribution; if the weights are large, some activation functions tend to saturate in large values, i.e. slow learning rate. Thus, the weights should be initialized randomly to break symmetry</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">layerDim</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">layerDim</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.01</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">layerDim</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
+<p>To avoid gradient vanishing or exploding, we want to achieve a variance of value <span class="math notranslate nohighlight">\(\frac{2}{n}\)</span> by using He initialization with ReLU activations, randomly initializing weights around zero but either above and below equally</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">layerDim</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">layerDim</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="n">layerDim</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Other recommended activation function options are Xavier or Bengio et al activation</p>
+<div class="math notranslate nohighlight">
+\[tanh\left(\sqrt{\frac{1}{n^{[l-1]}}}\right) \quad \text{or} \quad
+tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 </div>
 <div class="section" id="neural-network-basics">
 <h2>Neural network basics<a class="headerlink" href="#neural-network-basics" title="Permalink to this headline">¶</a></h2>
@@ -340,26 +470,26 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
 <p>Each neuron is a two-step process computing <span class="math notranslate nohighlight">\(z\)</span> and the activation function of that, and each layer has its own chosen activation function with dimension correspondent parameters.</p>
 <p>The general methodology to build a Neural Network is to</p>
 <ol class="arabic simple">
-<li><p>Define the neural network structure, initialize the model’s parameters, and define hyperparameters</p></li>
-<li><p>Loop:</p>
+<li><p>define the neural network structure, initialize the model’s parameters, and define hyperparameters</p></li>
+<li><p>loop:</p>
 <ul class="simple">
-<li><p>Implement forward propagation and generate cache</p></li>
-<li><p>Compute loss</p></li>
-<li><p>Implement backward propagation with cache to get the gradients</p></li>
-<li><p>Update parameters with gradient descent</p></li>
+<li><p>implement forward propagation and generate cache</p></li>
+<li><p>compute loss</p></li>
+<li><p>implement backward propagation with cache to get the gradients</p></li>
+<li><p>update parameters with gradient descent</p></li>
 </ul>
 </li>
-<li><p>Use trained parameters to predict labels</p></li>
+<li><p>use trained parameters to predict labels</p></li>
 </ol>
 <div class="section" id="forward-pass">
 <h3>Forward Pass<a class="headerlink" href="#forward-pass" title="Permalink to this headline">¶</a></h3>
-<p>The formulae of forward propagation in a DNN are</p>
+<p>Given parameters <span class="math notranslate nohighlight">\(A^{[l-1]}\)</span>, the formulae of forward propagation in a DNN are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}
    Z^{[l]} &amp; = W^{[l]} A^{[l-1]} + b^{[l]}\\
    A^{[l]} &amp; = g^{[l]}\left(Z^{[l]}\right)
 \end{align*}\end{split}\]</div>
-<p>where in both ends we have</p>
+<p>generating <span class="math notranslate nohighlight">\(A^{[l]}\)</span> and cache. In both ends we have</p>
 <div class="math notranslate nohighlight">
 \[A^{0} = X \text{ and } A^{L} = \hat{y}\]</div>
 </div>
@@ -380,18 +510,22 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
 </div>
 <div class="section" id="backward-prop">
 <h3>Backward Prop<a class="headerlink" href="#backward-prop" title="Permalink to this headline">¶</a></h3>
-<p>The formulae of backward propagation in a DNN are</p>
+<p>Given parameters <span class="math notranslate nohighlight">\(dA^{[l]}\)</span> and caches from forward propagation, the formulae of backward propagation in a DNN are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}
-   dZ^{[l]} &amp; = \frac{\partial \mathcal{J} }{\partial Z^{[l]}} = A^{[l]} - Y\\
+   dZ^{[l]} &amp; = \frac{\partial \mathcal{J} }{\partial Z^{[l]}} = dA^{[l]} * g'(Z^{[l]})\\
    dW^{[l]} &amp; = \frac{\partial \mathcal{J} }{\partial W^{[l]}} = \frac{1}{m} dZ^{[l]}A^{[l-1]T}\\
    db^{[l]} &amp; = \frac{\partial \mathcal{J} }{\partial b^{[l]}} = \frac{1}{m} \sum_{i = 1}^{m} \left(dZ^{[l](i)}\right)\\
-   dZ^{[l-1]} &amp; = \frac{\partial \mathcal{J} }{\partial Z^{[l-1]}} = dW^{[l]T} dZ^{[l]} g^{\prime [l]}\left(Z^{[l-1]}\right)
+   dZ^{[l-1]} &amp; = \frac{\partial \mathcal{J} }{\partial Z^{[l-1]}} = dW^{[l]T} dZ^{[l]} g^{\prime [l]}\left(Z^{[l-1]}\right)\\
+   dA^{[l-1]} &amp; = \frac{\partial \mathcal{L} }{\partial A^{[l-1]}} = W^{[l] T} dZ^{[l]}\\
 \end{align*}\end{split}\]</div>
+<p>generating <span class="math notranslate nohighlight">\(dA^{[l-1]}\)</span>, <span class="math notranslate nohighlight">\(dW^{[l]}\)</span>, and <span class="math notranslate nohighlight">\(db^{[l]}\)</span>. If we choose sigmoid activation function, we have</p>
+<div class="math notranslate nohighlight">
+\[dZ^{[l]} = \frac{\partial \mathcal{J} }{\partial Z^{[l]}} = A^{[l]} - Y\]</div>
 </div>
 </div>
 <div class="section" id="activation-functions">
-<span id="id2"></span><h2>Activation functions<a class="headerlink" href="#activation-functions" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Activation functions<a class="headerlink" href="#activation-functions" title="Permalink to this headline">¶</a></h2>
 <p>Linear activation function resembles identity function, equipping with less solving power to the neurons. Thus, linear activation functions are commonly used in the output layer.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sigmoid</span></code> function is defined as</p></li>
@@ -457,7 +591,111 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
              1, &amp; \text{if } z \geq 0\\
    \alpha , &amp; \text{if } z &lt; 0
 \end{cases}\end{split}\]</div>
+</div>
+<div class="section" id="bias-variance">
+<h2>Bias &amp; Variance<a class="headerlink" href="#bias-variance" title="Permalink to this headline">¶</a></h2>
+<p>The basic assumption is that the human orror or optimal base error is 0%. If a model is underfitting, high bias occurs. Try</p>
+<ul class="simple">
+<li><p>to make your NN bigger (size of hidden units, number of layers)</p></li>
+<li><p>to run it longer</p></li>
+<li><p>a different model that is suitable for your data</p></li>
+<li><p>a different (advanced) optimization algorithm</p></li>
+</ul>
+<p>If a model is overfitting, high variance occurs. Try</p>
+<ul class="simple">
+<li><p>more data</p></li>
+<li><p>regularization</p></li>
+<li><p>a different model that is suitable for your data</p></li>
+</ul>
+<p>until your algorithm has a low bias and a low variance.</p>
+</div>
+<div class="section" id="regularization">
+<h2>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h2>
+<p>We often encounter two regularization schemes</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(L_2\)</span> regularization is <span class="math notranslate nohighlight">\(\|m\|^{2}_{2} = \sum^{n_x}_{i = 1} w^2_i = w^Tw\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(L_1\)</span> regularization is <span class="math notranslate nohighlight">\(\|m\|_{1} = \sum^{n_x}_{i = 1} |w_i|\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(L_2\)</span> regularization also named weight decay, and <span class="math notranslate nohighlight">\(L_1\)</span> regularization shrinks model size by changing some weights to zero.</p></li>
+</ul>
+<div class="section" id="id5">
+<h3>Logistic regression<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Regularization for logistic regression is to minimize <span class="math notranslate nohighlight">\(\mathcal{J}(w,b)\)</span> with regularization parameter <span class="math notranslate nohighlight">\(\lambda\)</span>, which is a hyperparameter in the DNN</p>
+<div class="math notranslate nohighlight">
+\[J_{regularized} = \small \underbrace{ \frac{1}{m} \sum_{i=1}^{m} \mathcal{L}\left(\hat{y}^{(i)}, y^{(i)}\right) }_\text{cross-entropy cost} + \small \underbrace{ \frac{\lambda}{2 m} \|w\|_{2}^{2} + \frac{\lambda}{2 m} \sum_{i=1}^{m} b^{(i)^2} }_{L_2 \text{ regularization cost}}\]</div>
+<p>where the last term, or regularization on bias, is usually omitted. The denominator of the regularization term is a scale parameter.</p>
+</div>
+<div class="section" id="neural-network">
+<h3>Neural network<a class="headerlink" href="#neural-network" title="Permalink to this headline">¶</a></h3>
+<p>Regularization for neural networks is to minimize <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> for all layers, that is</p>
+<div class="math notranslate nohighlight">
+\[J\left(w^{[1]}, b^{[1]}, \ldots, w^{[L]}, b^{[L]}\right)=\frac{1}{m} \sum_{i=1}^{n} \mathcal{L}\left(\hat{y}^{(i)}, y^{(i)}\right)+\frac{\lambda}{2 m} \sum_{l=1}^{L}\left\|w^{[l]}\right\|_{F}^{2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\|w^{[l]}\|^2_F = \sum^{n^{[l]}}_{i = 1} \sum^{n^{[l-1]}}_{j=1} \left(w_{ij}^{[l]}\right)\)</span> is the Frobenius norm.</p>
+</div>
+<div class="section" id="weight-update">
+<h3>Weight update<a class="headerlink" href="#weight-update" title="Permalink to this headline">¶</a></h3>
+<p>Recall from backward propagation we have</p>
+<div class="math notranslate nohighlight">
+\[dW^{[l]} = \frac{\partial \mathcal{J} }{\partial W^{[l]}} = \frac{1}{m} dZ^{[l]}A^{[l-1]T}\]</div>
+<p>With regularization, we update by</p>
+<div class="math notranslate nohighlight">
+\[dW^{[l]} = \frac{1}{m} dZ^{[l]}A^{[l-1]T} + \frac{\lambda}{m} W^{[l]}\]</div>
+<p>then weight matrix update process becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+   W^{[l]} &amp; = W^{[l]} - \alpha dW^{[l]}\\
+   &amp; = W^{[l]} - \alpha \left[\frac{1}{m} dZ^{[l]}A^{[l-1]T} + \frac{\lambda}{m} W^{[l]} \right]\\
+   &amp; = W^{[l]} - \frac{\alpha \lambda}{m} W^{[l]} - \alpha \left[\frac{1}{m} dZ^{[l]}A^{[l-1]T} \right]\\
+   &amp; = \left(1 - \frac{\alpha \lambda}{m}\right) - \alpha \left[\frac{1}{m} dZ^{[l]}A^{[l-1]T} \right]\\
+\end{align*}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\left(1 - \frac{\alpha \lambda}{m}\right) &lt; 1\)</span> causing the weight decays, with an inverse relationship exists between parameters <span class="math notranslate nohighlight">\(W^{[l]}\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\lambda\)</span> is set too large, some weights become zero causing a smaller neural network. Take <code class="docutils literal notranslate"><span class="pre">tanh</span></code> activation function, if <span class="math notranslate nohighlight">\(\lambda\)</span> is properly set, the activations are roughly linear, learning fastest and preventing overfitting.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When implementing gradient descent, one debug method is to plot the cost function <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> as a function of the number of iterations of gradient descent.</p>
+<p>The cost function should decrease monotonically after every evaluation of gradient descent with regularization. If you plot the cost function without regularization, then you might not see it decrease monotonically.</p>
+</div>
+</div>
+<div class="section" id="dropout-regularization">
+<h3>Dropout regularization<a class="headerlink" href="#dropout-regularization" title="Permalink to this headline">¶</a></h3>
+<p>The intuition is that the model cannot rely on any features, so have to spread out weights. Formally, dropout regularization eliminates some neurons/weights on each iteration based on a probability. A most common technique is inverted dropout</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># set 0 &lt;= keep_prob &lt;= 1</span>
+<span class="n">keep_prob</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="c1"># initialize matrix d</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># convert entries of d to 0 or 1</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span> <span class="o">&lt;</span> <span class="n">keep_prob</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="c1"># shut down some neurons of a</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">d</span>
+<span class="c1"># scale the value of alive neurons</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">keep_prob</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Dropout can have different value of parameter <code class="docutils literal notranslate"><span class="pre">keep_prob</span></code> per layer.</p></li>
+<li><p>The dropout for input layer has to be near one.</p></li>
+<li><p>Dropout isn’t used at test time because it would add noise to predictions.</p></li>
+<li><p>Apply dropout both during forward and backward propagation.</p></li>
+<li><p>If you’re more worried about some layers overfitting than others, apply dropout to certain layers with just one hyperparameter <code class="docutils literal notranslate"><span class="pre">keep_prob</span></code>.</p></li>
+<li><p>A downside of dropout is that the cost function is not well defined, hard to debug. To solve this, turn off dropout, i.e. setting <code class="docutils literal notranslate"><span class="pre">keep_prob</span></code> to one, and check the cost function do decrease monotonically.</p></li>
+</ul>
+</div>
+<div class="section" id="normalize-inputs">
+<h3>Normalize inputs<a class="headerlink" href="#normalize-inputs" title="Permalink to this headline">¶</a></h3>
+<p>Normalize inputs will speed up the training process. We use the mean and variance of teh training set to apply normalization to training, dev, and test sets in the way</p>
+<div class="math notranslate nohighlight">
+\[\frac{x^{(i)} - \mu}{\sigma^2}\]</div>
+<p>The cost function is inconsistent (or elongated) and hard to optimize. With normalization, the cost function will be consistent and symmetrical and optimized faster with less volatility.</p>
+</div>
+<div class="section" id="other-methods">
+<h3>Other methods<a class="headerlink" href="#other-methods" title="Permalink to this headline">¶</a></h3>
+<p><strong>Data augmentation</strong> is to create more data based on current data easily and cheaply, e.g. image rotation, horizontally flipping, zooming.</p>
+<p><strong>Early stopping</strong> may be of cheaper price and shorter time to prevent overfitting. Usually, we plot the training set and the dev set cost together for each iteration. At some iteration the dev set cost will stop decreasing and will start increasing, and we pick the point at which the training set error and dev set error are best.</p>
+<ul class="simple">
+<li><p>One advantage is that no hyperparameters are investigated, unlike lambda in <span class="math notranslate nohighlight">\(L_2\)</span> regularization.</p></li>
+<li><p>One downside is that early stopping tries to simultaneously optimize the cost function with gradient descent and prevent overfitting with regularization, breaking orthogonalization. Hence, we prefer to use <span class="math notranslate nohighlight">\(L_2\)</span> regularization</p></li>
+</ul>
 <p><strong>Under construction !! Expected publish date to be Aug 15, 2021.</strong></p>
+</div>
 </div>
 </div>
 
