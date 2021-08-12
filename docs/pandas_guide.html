@@ -158,6 +158,11 @@
    MATLAB for Finance
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="neural_networks.html">
+   Neural Networks Guide
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -766,12 +771,14 @@
 
 <span class="gp">In [46]: </span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[46]: </span><span class="go"></span>
-<span class="go">   survived  pclass     sex   age  sibsp  parch     fare embarked  class    who  adult_male deck  embark_town alive  alone</span>
-<span class="go">0         0       3    male  22.0      1      0   7.2500        S  Third    man        True  NaN  Southampton    no  False</span>
-<span class="go">1         1       1  female  38.0      1      0  71.2833        C  First  woman       False    C    Cherbourg   yes  False</span>
-<span class="go">2         1       3  female  26.0      0      0   7.9250        S  Third  woman       False  NaN  Southampton   yes   True</span>
-<span class="go">3         1       1  female  35.0      1      0  53.1000        S  First  woman       False    C  Southampton   yes  False</span>
-<span class="go">4         0       3    male  35.0      0      0   8.0500        S  Third    man        True  NaN  Southampton    no   True</span>
+<span class="go">   survived  pclass     sex   age  sibsp  parch  ...    who adult_male deck  embark_town  alive  alone</span>
+<span class="go">0         0       3    male  22.0      1      0  ...    man       True  NaN  Southampton     no  False</span>
+<span class="go">1         1       1  female  38.0      1      0  ...  woman      False    C    Cherbourg    yes  False</span>
+<span class="go">2         1       3  female  26.0      0      0  ...  woman      False  NaN  Southampton    yes   True</span>
+<span class="go">3         1       1  female  35.0      1      0  ...  woman      False    C  Southampton    yes  False</span>
+<span class="go">4         0       3    male  35.0      0      0  ...    man       True  NaN  Southampton     no   True</span>
+
+<span class="go">[5 rows x 15 columns]</span>
 
 <span class="gp">In [47]: </span><span class="n">titanic</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[47]: </span><span class="go"></span>
