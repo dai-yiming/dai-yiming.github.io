@@ -191,6 +191,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-performance">
+   Model performance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#notations">
    Notations
   </a>
@@ -216,6 +221,11 @@
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#softmax-regression">
+   Softmax regression
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gradient-descent">
@@ -279,11 +289,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#activation-functions">
    Activation functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bias-variance">
-   Bias &amp; Variance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -351,11 +356,6 @@
    Hyperparameters
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#softmax-regression">
-   Softmax regression
-  </a>
- </li>
 </ul>
 
 </nav>
@@ -381,11 +381,51 @@
 <h2>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">¶</a></h2>
 <p>Applied machine learning is a highly iterative process with recurrent components: idea, code implementation, and experiment. In modern era, the dataset is usually splitted into a ratio of 98/1/1 with training set being the largest component. There are four components that usually exist in a ML project:</p>
 <ul class="simple">
-<li><p>training set: build the</p></li>
+<li><p>training set: build the model</p></li>
+<li><p>training-dev set</p></li>
 <li><p>dev set (or hold-out cross validation set): optimize hyperparameters</p></li>
 <li><p>test set: evaluate performance</p></li>
 </ul>
-<p>Make sure the data in the dev set and test set are from the same distribution.</p>
+<p>Make sure the data in the dev and test set are from the same distribution, which reflects target deployment. If data is insufficient, move some of data in the dev and test set to training set. Though the distributions of training set and dev/test set are slightly different, the dev/test set data distribution still target to application.</p>
+</div>
+<div class="section" id="model-performance">
+<h2>Model performance<a class="headerlink" href="#model-performance" title="Permalink to this headline">¶</a></h2>
+<p>Several metric is introduced:</p>
+<ul class="simple">
+<li><p>A model key performance indicator (KPI) is often chosen as a single-number evaluation metric before starting the project.</p></li>
+<li><p>A satisfying metric is a metric that cannot exceed.</p></li>
+<li><p>A optimizing metric is a metric you want to maximize or minimize</p></li>
+</ul>
+<p>Make sure to <strong>build your first model quickly, then iterate.</strong></p>
+<p>As your products iterate versions, re-consider if the KPI metric still aims at the target accurately. If the model does well on metrics but the dev and test set does poorly on application, change metrics and/or dev and test set.</p>
+<p>Bayes optimal optimal error is the theoretical lowest error using a mapping function for which human-level performance can be a proxy. If the model cannot near human-level performance, you can</p>
+<ul class="simple">
+<li><p>get more labeled data from human</p></li>
+<li><p>manual error analysis and investigation</p></li>
+<li><p>improve bias-variance analysis</p></li>
+</ul>
+<p>Four errors could happen</p>
+<ul class="simple">
+<li><p>Avoidable bias, or just bias, is the difference between the training error and the human-level performance. You cannot do better than Bayes error unless the model is overfitting.</p></li>
+<li><p>Variance is the difference between the training error and the dev error, or the difference between the training-dev error and the training error if training-dev set exists.</p></li>
+<li><p>Data mismatch happens when the difference between training-dev error and dev error is big. There are not systematic solutions to this but you could try manual error analysis and artificial data synthesis about which overfitting is a concern.</p></li>
+<li><p>Degree of overfitting to dev set is the difference between test error and dev error.</p></li>
+</ul>
+<p>If a model is underfitting, high bias occurs. Try</p>
+<ul class="simple">
+<li><p>to enlarge NN</p></li>
+<li><p>to run longer</p></li>
+<li><p>NN architecture search</p></li>
+<li><p>Hyperparameter search</p></li>
+<li><p>better optimization algorithm</p></li>
+</ul>
+<p>If a model is overfitting, high variance occurs. Try</p>
+<ul class="simple">
+<li><p>get more data</p></li>
+<li><p>regularization</p></li>
+<li><p>NN architecture search</p></li>
+</ul>
+<p>Deep learning algorithms are robust to random errors in the training set but fragile to systematic errors like mislabeled data. So, error analysis and label correction should be done to determine the next step. Remember to conduct same strategy on dev and test set to ensure distribution consistency.</p>
 </div>
 <div class="section" id="notations">
 <h2>Notations<a class="headerlink" href="#notations" title="Permalink to this headline">¶</a></h2>
@@ -431,6 +471,17 @@
 <div class="math notranslate nohighlight">
 \[dz = \frac{dL}{dz} = \frac{dL}{da} \frac{da}{dz} = \frac{a-y}{a(1-a)} \times a(1-a) = a - y = \hat{y} - y\]</div>
 </div>
+</div>
+<div class="section" id="softmax-regression">
+<h2>Softmax regression<a class="headerlink" href="#softmax-regression" title="Permalink to this headline">¶</a></h2>
+<p>Softmax regression is a generalized version of logistic regression used for multiple output classes. Suppose we have <span class="math notranslate nohighlight">\(C\)</span> number of classes, the Softmax activation equation is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+   t &amp; = e^{z^{[l]}}\\
+   a^{[l]}
+   &amp; = \frac{e^{z^{[l]}}}{\sum^{C}_{i = 1} t_i}\\
+   &amp; = \frac{t}{\sum^{C}_{i = 1} t_i}\\
+\end{align*}\end{split}\]</div>
 </div>
 <div class="section" id="gradient-descent">
 <h2>Gradient descent<a class="headerlink" href="#gradient-descent" title="Permalink to this headline">¶</a></h2>
@@ -671,23 +722,6 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
    \alpha , &amp; \text{if } z &lt; 0
 \end{cases}\end{split}\]</div>
 </div>
-<div class="section" id="bias-variance">
-<h2>Bias &amp; Variance<a class="headerlink" href="#bias-variance" title="Permalink to this headline">¶</a></h2>
-<p>The basic assumption is that the human orror or optimal base error is 0%. If a model is underfitting, high bias occurs. Try</p>
-<ul class="simple">
-<li><p>to make your NN bigger (size of hidden units, number of layers)</p></li>
-<li><p>to run it longer</p></li>
-<li><p>a different model that is suitable for your data</p></li>
-<li><p>a different (advanced) optimization algorithm</p></li>
-</ul>
-<p>If a model is overfitting, high variance occurs. Try</p>
-<ul class="simple">
-<li><p>more data</p></li>
-<li><p>regularization</p></li>
-<li><p>a different model that is suitable for your data</p></li>
-</ul>
-<p>until your algorithm has a low bias and a low variance.</p>
-</div>
 <div class="section" id="regularization">
 <h2>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h2>
 <p>We often encounter two regularization schemes</p>
@@ -839,17 +873,7 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 <p>Currently, we discussed several hyperparameters including learning rate <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, <span class="math notranslate nohighlight">\(\beta_1\)</span>, <span class="math notranslate nohighlight">\(\beta_2\)</span>, <span class="math notranslate nohighlight">\(\epsilon\)</span>, number of layers, number of hidden units, <span class="math notranslate nohighlight">\(\alpha\)</span> decay, mini-batch size, activation functions, regularization lambda <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 <p>When sampling hyperparameters, random generator is used rather than grid system to offer better variation and perception on importance and range. In addition, coarse to fine is a sampling scheme which zooms spaces with better performance.</p>
 <p>Given a specific range for a hyperparameter, it is better to use the logarithm scale rather than linear scale to search for an ideal value. For different NN architectures and projects, hyperparameter setting may or may not vary. Babysitting model is used to manually tune the hyperparameters if computational resources are limited; if enough computational power, try runing model for different hyperparameter values in parallel.</p>
-</div>
-<div class="section" id="softmax-regression">
-<h2>Softmax regression<a class="headerlink" href="#softmax-regression" title="Permalink to this headline">¶</a></h2>
-<p>Softmax regression is a generalized version of logistic regression used for multiple output classes. Suppose we have <span class="math notranslate nohighlight">\(C\)</span> number of classes, the Softmax activation equation is</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
-   t &amp; = e^{z^{[l]}}\\
-   a^{[l]}
-   &amp; = \frac{e^{z^{[l]}}}{\sum^{C}_{i = 1} t_i}\\
-   &amp; = \frac{t}{\sum^{C}_{i = 1} t_i}\\
-\end{align*}\end{split}\]</div>
+<p>Some deep learning developers know exactly what hyperparameter to tune in order to try to achieve one effect. This is orthogonalization, a process to adjust one or a set of parameters withous changing the rest.</p>
 <p><strong>Under construction !! Expected publish date to be Aug 15, 2021.</strong></p>
 </div>
 </div>
