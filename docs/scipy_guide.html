@@ -38,6 +38,7 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <script src="../_static/disqus.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -320,14 +321,14 @@
 <span class="gp">In [10]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [11]: </span><span class="n">rand</span>
-<span class="gh">Out[11]: </span><span class="go">array([0.0488, 0.441 , 0.121 ])</span>
+<span class="gh">Out[11]: </span><span class="go">array([0.8919, 0.4813, 0.0368])</span>
 
 <span class="gp">In [12]: </span><span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;rand&quot;</span> <span class="p">:</span> <span class="n">rand</span><span class="p">})</span>
 
 <span class="gp">In [13]: </span><span class="n">var</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">)</span>
 
 <span class="gp">In [14]: </span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;rand&quot;</span><span class="p">]</span>
-<span class="gh">Out[14]: </span><span class="go">array([[0.0488, 0.441 , 0.121 ]])</span>
+<span class="gh">Out[14]: </span><span class="go">array([[0.8919, 0.4813, 0.0368]])</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -397,13 +398,13 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="gp">In [17]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gh">Out[17]: </span><span class="go">0.05488984056567254</span>
+<span class="gh">Out[17]: </span><span class="go">0.21994870880182593</span>
 
 <span class="gp">In [18]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[ 3.4799, -3.2163,  2.7043],</span>
-<span class="go">       [ 1.0496,  0.2487, -3.2543],</span>
-<span class="go">       [-3.7029,  3.3099,  1.7937]])</span>
+<span class="go">array([[ 0.9184, -1.4579,  1.0239],</span>
+<span class="go">       [ 2.0566,  0.5897, -2.182 ],</span>
+<span class="go">       [-2.3257,  0.5753,  2.3098]])</span>
 </pre></div>
 </div>
 </div>
@@ -422,9 +423,9 @@
 
 <span class="gp">In [24]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="gh">Out[24]: </span><span class="go"></span>
-<span class="go">[&lt;matplotlib.lines.Line2D at 0x7fb49cabc220&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fb49cabc070&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fb49cabcb20&gt;]</span>
+<span class="go">[&lt;matplotlib.lines.Line2D at 0x7fb937a3c340&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fb937a3cf70&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fb937a3cc70&gt;]</span>
 </pre></div>
 </div>
 <img alt="../_images/scipy_interp1d.png" class="align-center" src="../_images/scipy_interp1d.png" />
@@ -457,7 +458,7 @@
 </pre></div>
 </div>
 <img alt="../_images/scipy_root.png" class="align-center" src="../_images/scipy_root.png" />
-</div>
+<div data-disqus-identifier="SciPy Guide" data-disqus-shortname="blog-yiming" id="disqus_thread"></div></div>
 </div>
 
 
