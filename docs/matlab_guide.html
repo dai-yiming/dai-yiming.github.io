@@ -281,7 +281,7 @@
   <div class="section" id="matlab-guide">
 <span id="id1"></span><h1>MATLAB Guide<a class="headerlink" href="#matlab-guide" title="Permalink to this headline">¶</a></h1>
 <p>This is an elegant-design introduction to MATLAB, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="https://www.mathworks.com/help/index.html?s_tid=CRUX_lftnav">MATLAB</a>.</p>
-<p>As for getting help, MATLAB uses <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">func</span></code> to get documentation on the function <cite>func</cite> within the command window, and uses <code class="docutils literal notranslate"><span class="pre">doc</span> <span class="pre">func</span></code> to open the documentation page with external browser. Also, it uses <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">func</span></code> for user-defined source code. When debugging, before making a fix to your code, you should always stop your debugging session first so that you can save your changes.</p>
+<p>As for getting help, MATLAB uses <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">func</span></code> to get brief documentation on the function <cite>func</cite> within the command window, and uses <code class="docutils literal notranslate"><span class="pre">doc</span> <span class="pre">func</span></code> to open the documentation page with external browser. Also, it uses <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">func</span></code> for user-defined source code. When debugging, before making a fix to your code, you should always stop your debugging session first so that you can save your changes.</p>
 <div class="section" id="io-management">
 <h2>IO management<a class="headerlink" href="#io-management" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="workspace-io">
@@ -311,7 +311,7 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">menu</span></code>: a multiple-choice dialog box</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">inputdlg</span></code>: a dialog box with input window</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uigetfile</span></code>: pen standard dialog box for retrieving files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uigetfile</span></code>: open standard dialog box for retrieving files</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">msgbox</span></code>: message dialog</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">warndlg</span></code>: warning dialog</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">errordlg</span></code>: error dialog</p></li>
@@ -340,16 +340,16 @@
 </pre></div>
 </div>
 <p>Preallocation is an option for the growth acceleration of arrays</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">  </span><span class="c">% square matrix cols in U(0,1)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix cols in N(0,1)</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">randi</span><span class="p">([</span><span class="nb">upper</span><span class="w"> </span><span class="nb">lower</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix cols in U(u,l)</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">  </span><span class="c">% square matrix in U(0,1)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix in N(0,1)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">randi</span><span class="p">([</span><span class="nb">upper</span><span class="w"> </span><span class="nb">lower</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix in U(u,l)</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% mxn matrix</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% identity matrix</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">diag</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% 2D diagonal matrix</span><span class="w"></span>
 </pre></div>
 </div>
-<p>In addition, we could use <code class="docutils literal notranslate"><span class="pre">:</span></code> and <code class="docutils literal notranslate"><span class="pre">linspace</span></code> to create evenly spaced vectors, and both methods’ <cite>end</cite> parameter is border-inclusive</p>
+<p>In addition, we could use <code class="docutils literal notranslate"><span class="pre">:</span></code> and <code class="docutils literal notranslate"><span class="pre">linspace</span></code> to create evenly spaced vectors, and both methods’ <cite>end</cite> parameter is border-inclusive.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%  start : space : end</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="p">:</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="p">:</span><span class="w">  </span><span class="mi">6</span><span class="w"></span>
 <span class="c">%  linspace(start, end, steps)</span><span class="w"></span>
@@ -395,7 +395,7 @@
 <h2>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Indexing in MATLAB starts with zero.</p>
+<p>Indexing in MATLAB starts with one.</p>
 </div>
 <p>The common method to index an array is <code class="docutils literal notranslate"><span class="pre">a(start:step:stop)</span></code>. If we want to access the last element, use <code class="docutils literal notranslate"><span class="pre">end</span></code> logical value.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span><span class="w"></span>
@@ -414,7 +414,7 @@
 </pre></div>
 </div>
 <p>MATLAB uses <cite>and</cite> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> , <cite>or</cite> <code class="docutils literal notranslate"><span class="pre">|</span></code>, <cite>not</cite> <code class="docutils literal notranslate"><span class="pre">~</span></code>, <cite>equal</cite> <code class="docutils literal notranslate"><span class="pre">==</span></code> for logical operations with application for boolean mask, assuming identical matrix dimensions. NaN data is dangerous in that it may ruins the analytical results or graphics, which leads to unsatisfactory conclusion.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span><span class="o">&#39;</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">&#39;</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
 
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">((</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="o">&#39;</span><span class="w"></span>
@@ -435,7 +435,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Logical operator <code class="docutils literal notranslate"><span class="pre">==</span></code> cannot recognize NaN since basically it is for numerical comparison. Instead, we could use <code class="docutils literal notranslate"><span class="pre">isnan</span></code></p>
+<p>Logical operator <code class="docutils literal notranslate"><span class="pre">==</span></code> cannot recognize NaN since basically it is for numerical comparison. Instead, we could use <code class="docutils literal notranslate"><span class="pre">isnan</span></code>.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">Inf</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nb">NaN</span><span class="p">];</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NaN</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
@@ -443,9 +443,9 @@
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Numerous <code class="docutils literal notranslate"><span class="pre">is...</span></code> funcitons is provided that take an array as a input and return a logical output</p>
+<p>Numerous <code class="docutils literal notranslate"><span class="pre">is...</span></code> funcitons is provided that take an array as a input and return a logical output.</p>
 </div>
-<p>Use <code class="docutils literal notranslate"><span class="pre">find</span></code> to generate indices that met the condition to the original ndarray</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">find</span></code> to generate indices that met the condition to the original <cite>ndarray</cite>.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">criteria</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">find</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c">% indices</span><span class="w"></span>
 <span class="n">criteria</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">12</span><span class="w"></span>
 
@@ -453,12 +453,15 @@
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Use <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> to check whether two strings are equal. Use <code class="docutils literal notranslate"><span class="pre">isequal</span></code> to test equality of two arrays, and use <code class="docutils literal notranslate"><span class="pre">isequaln</span></code> for similar functionality ignoring NaN.</p>
-<p>Use column-wise operations <code class="docutils literal notranslate"><span class="pre">all</span></code> or <code class="docutils literal notranslate"><span class="pre">any</span></code> to test whether all or any elements in a logical vector are true. Use <code class="docutils literal notranslate"><span class="pre">nnz</span></code> to compute the number of non-zero elements.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> to check whether two strings are equal. Use <code class="docutils literal notranslate"><span class="pre">isequal</span></code> to test equality of two arrays, and use <code class="docutils literal notranslate"><span class="pre">isequaln</span></code> for the same functionality except ignoring NaN.</p>
+<p>Use column-wise operations <code class="docutils literal notranslate"><span class="pre">all</span></code> or <code class="docutils literal notranslate"><span class="pre">any</span></code> to test whether all or any elements in a logical vector are true. Use <code class="docutils literal notranslate"><span class="pre">nnz</span></code> to compute the number of non-zero elements. Parse the second argument to perform operation down this dimensional argument.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">all</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">nnz</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
 </pre></div>
@@ -498,7 +501,7 @@
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Use <cite>ctrl + c</cite> to end infinite loops if happens.</p>
+<p>Use <cite>ctrl + c</cite> to terminate infinite loops if happens.</p>
 </div>
 <div class="section" id="missing-data">
 <h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
@@ -567,7 +570,7 @@
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.5000</span><span class="w">  </span><span class="mf">2.7500</span><span class="w">  </span><span class="mf">1.5000</span><span class="w"></span>
 
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">returns</span><span class="p">,</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c">% mean return in a row vector</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="nb">ans</span><span class="p">,</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;omitnan&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">% row vector</span><span class="w"></span>
 </pre></div>
 </div>
 <p>some functions above have polymorphism for multiple outputs</p>
