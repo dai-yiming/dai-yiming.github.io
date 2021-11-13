@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Black Scholes Guide</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Docs" href="../docs/index.html" />
+    <link rel="prev" title="Binomial Model Guide" href="binomial_model.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="ml-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Finance
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../docs/index.html">
+  Docs
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tools/index.html">
+  Tools
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/dai-yiming" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.linkedin.com/in/yimingdai/" rel="noopener" target="_blank" title="LinkedIn">
+            <span><i class="fab fa-linkedin"></i></span>
+            <label class="sr-only">LinkedIn</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="binomial_model.html">
+   Binomial Model Guide
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Black Scholes Guide
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assumptions">
+   Assumptions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-special-portfolio">
+   A Special Portfolio
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-terms">
+     Random terms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deterministic-terms">
+     Deterministic terms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bse-for-option-contracts">
+   BSE for option contracts
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="black-scholes-guide">
+<span id="black-scholes-model"></span><h1>Black Scholes Guide<a class="headerlink" href="#black-scholes-guide" title="Permalink to this headline">¶</a></h1>
+<p>This is an elegant-design introduction to black scholes model, geared mainly for new users. The end result is a diffusion-type partial differential equation used for derivative pricing. The option value will depend on variables <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(t\)</span>, parameters <span class="math notranslate nohighlight">\(\sigma\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span> associated with the asset price following GBM, <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(T\)</span> associated with the particular contract, and <span class="math notranslate nohighlight">\(r\)</span> associated with currency, namely</p>
+<div class="math notranslate nohighlight">
+\[V(S, t; \sigma, \mu; E, T; r) = V(S, t)\]</div>
+<div class="section" id="assumptions">
+<h2>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The underlying follows a lognormal random walk with known volatility, i.e.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{dS}{S} = \mu dt + \sigma dW, ~ \mu, \sigma, r(t) \in \mathbb{R}\]</div>
+<ul class="simple">
+<li><p>No dividends on the underlying or <span class="math notranslate nohighlight">\(D = 0\)</span></p></li>
+<li><p>Delta hedging is done continuously</p></li>
+<li><p>No transaction costs on the underlying</p></li>
+<li><p>No arbitrage opportunities</p></li>
+</ul>
+</div>
+<div class="section" id="a-special-portfolio">
+<h2>A Special Portfolio<a class="headerlink" href="#a-special-portfolio" title="Permalink to this headline">¶</a></h2>
+<p>Set up a portfolio <span class="math notranslate nohighlight">\(\Pi\)</span> consisting of one long position in an option and short <span class="math notranslate nohighlight">\(\Delta\)</span> shares in continuous time world</p>
+<div class="math notranslate nohighlight">
+\[\Pi = V(S, t) - \Delta S\]</div>
+<p>where <span class="math notranslate nohighlight">\(V\)</span> is value of the option depending on <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(\Delta\)</span> is the number of shares, and <span class="math notranslate nohighlight">\(S\)</span> is the stock price. Changes in the option value and the underlying both contribute to the change in the portfolio value.</p>
+<div class="math notranslate nohighlight">
+\[d\Pi = dV(S, t) - \Delta dS\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\Delta\)</span> is fixed from time step <span class="math notranslate nohighlight">\(t\)</span> to <span class="math notranslate nohighlight">\(t + dt\)</span>, but recalculation is needed at a new time step.</p>
+<div class="section" id="random-terms">
+<h3>Random terms<a class="headerlink" href="#random-terms" title="Permalink to this headline">¶</a></h3>
+<p>From Ito we have</p>
+<div class="math notranslate nohighlight">
+\[d V = \frac{\partial V}{\partial t} d t+\frac{\partial V}{\partial S} d S+\frac{1}{2} \sigma^{2} S^{2} \frac{\partial^{2} V}{\partial S^{2}} d t\]</div>
+<p>The random change in portfolio is therefore</p>
+<div class="math notranslate nohighlight">
+\[d \Pi = \frac{\partial V}{\partial t} d t+\frac{\partial V}{\partial S} d S+\frac{1}{2} \sigma^{2} S^{2} \frac{\partial^{2} V}{\partial S^{2}} d t - \Delta dS\]</div>
+<p>and, after plugging <span class="math notranslate nohighlight">\(dS = \mu S dt + \sigma S dW\)</span>, the random terms in our portfolio are</p>
+<div class="math notranslate nohighlight">
+\[\left(\sigma S \frac{\partial V}{\partial S} - \Delta \sigma S \right) dW\]</div>
+<p>where the risk can be eliminated by carefully choosing <span class="math notranslate nohighlight">\(\Delta\)</span> to be</p>
+<div class="math notranslate nohighlight">
+\[\Delta = \frac{\partial V}{\partial S}\]</div>
+<p>in order to reduce the randomness to zero. Delta hedgeing is the perfect elimination of risk, and it is a dynamic hedging strategy where continuous rebalancing is necessary.</p>
+</div>
+<div class="section" id="deterministic-terms">
+<h3>Deterministic terms<a class="headerlink" href="#deterministic-terms" title="Permalink to this headline">¶</a></h3>
+<p>After determining the random terms, we are left with deterministic changes which is completely risk-free, namely</p>
+<div class="math notranslate nohighlight">
+\[d \Pi = \left(\frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2}\right) dt\]</div>
+<p>Intuitively, another risk-free portfolio is just compounding at a risk-free rate, or</p>
+<div class="math notranslate nohighlight">
+\[\left(\frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 \S^2 \frac{\partial^2 V}{\partial S^2}\right) dt = d \Pi = r \Pi dt = r \left(V - S \frac{\partial V}{\partial S}\right) dt\]</div>
+<p>Dividing above equation by <span class="math notranslate nohighlight">\(dt\)</span> and rearraging we get</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - r V = 0\]</div>
+<p>and this is the <strong>Black-Scholes equation</strong>, a linear parabolic partial differential equation since it is linear in the first order and ?. It contains all variables and parameters but the drift term <span class="math notranslate nohighlight">\(\mu\)</span>, so the volatility <span class="math notranslate nohighlight">\(\sigma\)</span> determines the value of derivatives.</p>
+<p>In a <strong>complete market</strong>, an option can be replicated only with the underlying. If <span class="math notranslate nohighlight">\(\Delta\)</span> is the partial derivative of some option value then the portfolio will yield the same amount as the option payoff.</p>
+<p>Note that the Black Scholes equation is defined independent of options. We must specify the <span class="math notranslate nohighlight">\(V(S, T)\)</span> as a final condition.</p>
+</div>
+</div>
+<div class="section" id="bse-for-option-contracts">
+<h2>BSE for option contracts<a class="headerlink" href="#bse-for-option-contracts" title="Permalink to this headline">¶</a></h2>
+<p>Assume the asset receives a continuous and constant dividend <strong>yield</strong> <span class="math notranslate nohighlight">\(D\)</span>, so each time step the asset receives <span class="math notranslate nohighlight">\(D S dt\)</span>. Putting into the Black-Scholes equation and choosing <span class="math notranslate nohighlight">\(\Delta = \frac{\partial V}{\partial S}\)</span> we get</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+d \Pi
+&amp; = dV - \Delta dS - D \Delta S dt\\
+&amp; = \frac{\partial V}{\partial t} d t+\frac{\partial V}{\partial S} d S+\frac{1}{2} \sigma^{2} S^{2} \frac{\partial^{2} V}{\partial S^{2}} d t - \Delta dS - D \Delta S dt
+\end{align*}\\
+\Rightarrow 0 = \frac{\partial V}{\partial t} + \frac{1}{2} \sigma^{2} S^{2} \frac{\partial^{2} V}{\partial S^{2}} + (r - D) S \frac{\partial V}{\partial S} - r V\end{split}\]</div>
+<p>Options on currencies are handled the same way as dividend-paying stock. We receive interest at a foreign rate of <span class="math notranslate nohighlight">\(r_f\)</span> while holding the foreign currency</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial V}{\partial t} + \frac{1}{2} \sigma^{2} S^{2} \frac{\partial^{2} V}{\partial S^{2}} + (r - r_f) S \frac{\partial V}{\partial S} - r V = 0\]</div>
+<p>Commodity options require cost of carry <span class="math notranslate nohighlight">\(q\)</span>, which is the cost of storage</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial V}{\partial t} + \frac{1}{2} \sigma^{2} S^{2} \frac{\partial^{2} V}{\partial S^{2}} + (r + q) S \frac{\partial V}{\partial S} - r V = 0\]</div>
+<p>Notice that here we use a positive sign in the Black-Scholes equation since, though we may sell the commodity to the counterparty, it is our responsibility to store and secure.</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="binomial_model.html" title="previous page">Binomial Model Guide</a>
+    <a class='right-next' id="next-link" href="../docs/index.html" title="next page">Docs</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Yiming Dai.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

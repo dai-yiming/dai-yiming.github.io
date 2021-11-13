@@ -77,7 +77,13 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../finance/index.html">
+  Finance
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="index.html">
   Docs
  </a>
@@ -321,14 +327,14 @@
 <span class="gp">In [10]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [11]: </span><span class="n">rand</span>
-<span class="gh">Out[11]: </span><span class="go">array([0.7497, 0.17  , 0.4998])</span>
+<span class="gh">Out[11]: </span><span class="go">array([0.6873, 0.1119, 0.7401])</span>
 
 <span class="gp">In [12]: </span><span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;rand&quot;</span> <span class="p">:</span> <span class="n">rand</span><span class="p">})</span>
 
 <span class="gp">In [13]: </span><span class="n">var</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">)</span>
 
 <span class="gp">In [14]: </span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;rand&quot;</span><span class="p">]</span>
-<span class="gh">Out[14]: </span><span class="go">array([[0.7497, 0.17  , 0.4998]])</span>
+<span class="gh">Out[14]: </span><span class="go">array([[0.6873, 0.1119, 0.7401]])</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -398,13 +404,13 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="gp">In [17]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gh">Out[17]: </span><span class="go">0.32890638838007785</span>
+<span class="gh">Out[17]: </span><span class="go">0.1100630322115447</span>
 
 <span class="gp">In [18]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[ 0.768 ,  1.1818, -1.1231],</span>
-<span class="go">       [-1.789 , -0.0657,  2.5052],</span>
-<span class="go">       [ 2.4067, -0.0456, -1.8915]])</span>
+<span class="go">array([[ 2.8328,  0.2194, -4.9103],</span>
+<span class="go">       [-1.8821,  1.4675,  0.6313],</span>
+<span class="go">       [-1.7611, -0.2485,  5.2235]])</span>
 </pre></div>
 </div>
 </div>
@@ -423,9 +429,9 @@
 
 <span class="gp">In [24]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="gh">Out[24]: </span><span class="go"></span>
-<span class="go">[&lt;matplotlib.lines.Line2D at 0x7fb0221865b0&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fb022186d30&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fb022186280&gt;]</span>
+<span class="go">[&lt;matplotlib.lines.Line2D at 0x7fd435bbbbb0&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fd435bbbe50&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x7fd435bbb4f0&gt;]</span>
 </pre></div>
 </div>
 <img alt="../_images/scipy_interp1d.png" class="align-center" src="../_images/scipy_interp1d.png" />
