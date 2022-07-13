@@ -4,48 +4,53 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Neural Networks Guide</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
+    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
     
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
+    <link rel="stylesheet"
+      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
     
       
-
+  
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/disqus.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tools" href="../tools/index.html" />
+    <link rel="next" title="Tricks" href="trick.html" />
     <link rel="prev" title="MATLAB for Finance" href="matlab_finance.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -106,16 +111,12 @@
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/dai-yiming" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
+          <a class="nav-link" href="https://github.com/dai-yiming" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://www.linkedin.com/in/yimingdai/" rel="noopener" target="_blank" title="LinkedIn">
-            <span><i class="fab fa-linkedin"></i></span>
-            <label class="sr-only">LinkedIn</label>
-          </a>
+          <a class="nav-link" href="https://www.linkedin.com/in/yimingdai/" rel="noopener" target="_blank" title="LinkedIn"><span><i class="fab fa-linkedin"></i></span>
+            <label class="sr-only">LinkedIn</label></a>
         </li>
       </ul>
       </div>
@@ -131,7 +132,8 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
@@ -172,10 +174,18 @@
    Neural Networks Guide
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="trick.html">
+   Tricks
+  </a>
+ </li>
 </ul>
 
   </div>
 </nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
             </div>
             
           
@@ -380,11 +390,11 @@
               
               <div>
                 
-  <div class="section" id="neural-networks-guide">
+  <section id="neural-networks-guide">
 <span id="id1"></span><h1>Neural Networks Guide<a class="headerlink" href="#neural-networks-guide" title="Permalink to this headline">¶</a></h1>
 <p>This is an elegant-design introduction to Standard Deep Neural Networks (DNN), geared mainly for new users. A neural network can be illustrated as a computation graph with forward passes and backward propagation of biases. The performance of deep learning depends on several factors: data availability, GPU and computational power, algorithm like activation functions and optimizers, ML iterative cycle, size of DNN, etc.</p>
 <p>Vectorization is a fundamental tool to accelerate computation, and modern ML frameworks provide libraries and functions of DNN.</p>
-<div class="section" id="setting-up">
+<section id="setting-up">
 <h2>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">¶</a></h2>
 <p>Applied machine learning is a highly iterative process with recurrent components: idea, code implementation, and experiment. In modern era, the dataset is usually splitted into a ratio of 98/1/1 with training set being the largest component. There are four components that usually exist in a ML project:</p>
 <ul class="simple">
@@ -394,8 +404,8 @@
 <li><p>test set: evaluate performance</p></li>
 </ul>
 <p>Make sure the data in the dev and test set are from the same distribution, which reflects target deployment. If data is insufficient, move some of data in the dev and test set to training set. Though the distributions of training set and dev/test set are slightly different, the dev/test set data distribution still target to application.</p>
-</div>
-<div class="section" id="model-performance">
+</section>
+<section id="model-performance">
 <h2>Model performance<a class="headerlink" href="#model-performance" title="Permalink to this headline">¶</a></h2>
 <p>Several metric is introduced:</p>
 <ul class="simple">
@@ -433,8 +443,8 @@
 <li><p>NN architecture search</p></li>
 </ul>
 <p>Deep learning algorithms are robust to random errors in the training set but fragile to systematic errors like mislabeled data. So, error analysis and label correction should be done to determine the next step. Remember to conduct same strategy on dev and test set to ensure distribution consistency.</p>
-</div>
-<div class="section" id="notations">
+</section>
+<section id="notations">
 <h2>Notations<a class="headerlink" href="#notations" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(m\)</span> : number of examples</p></li>
@@ -449,18 +459,18 @@
 <li><p><span class="math notranslate nohighlight">\(b^{[l]}\)</span> : bias vector for <span class="math notranslate nohighlight">\(l^{th}\)</span> layer</p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{y}\)</span> : predicted output vector (or <span class="math notranslate nohighlight">\(a^{[L]}\)</span>)</p></li>
 </ul>
-</div>
-<div class="section" id="logistic-regression">
+</section>
+<section id="logistic-regression">
 <h2>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="definition">
+<section id="definition">
 <h3>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
 <p>Given parameters <span class="math notranslate nohighlight">\(x \in \mathbb{R}^{n_x}\)</span>, <span class="math notranslate nohighlight">\(w \in \mathbb{R}^{n_x}\)</span>, and <span class="math notranslate nohighlight">\(b \in \mathbb{R}\)</span>, we want <span class="math notranslate nohighlight">\(\hat{y}\)</span> to be, with sigmoid function as the activation function to illustrate binary classification in this guide,</p>
 <div class="math notranslate nohighlight">
 \[\hat{y} = P(y = 1 | x) = \sigma(z) = \sigma(w^{T}x + b)\]</div>
 <p>where <span class="math notranslate nohighlight">\(0 \leq \hat{y} \leq 1\)</span>.</p>
 <p>For the definition of the chosen activation function, refer to <a class="reference internal" href="#activation-functions"><span class="std std-ref">activation functions</span></a></p>
-</div>
-<div class="section" id="cost-function">
+</section>
+<section id="cost-function">
 <h3>Cost function<a class="headerlink" href="#cost-function" title="Permalink to this headline">¶</a></h3>
 <p>Given <span class="math notranslate nohighlight">\(\left\{\left(x^{1}, y^{1}\right),\left(x^{2}, y^{2}\right), \ldots\left(x^{m}, y^{m}\right)\right\}\)</span>, we want <span class="math notranslate nohighlight">\(\hat{y}^{(i)} \approx y^{(i)}\)</span>. To calculate the cost function, we first need to choose a loss function which is a convex function</p>
 <div class="math notranslate nohighlight">
@@ -471,15 +481,15 @@
 <p>The cost function (or log likelihood) is defined as</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{J}(w, b)=\frac{1}{m} \sum_{i=1}^{m} \mathcal{L}\left(\hat{y}^{(i)}, y^{(i)}\right)=\frac{1}{m} \sum \mathcal{L}\left(a, y\right)\]</div>
-</div>
-<div class="section" id="derivatives">
+</section>
+<section id="derivatives">
 <h3>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this headline">¶</a></h3>
 <p>To calculate derivatives with respect to a certain variable in the cost function, use one step backward propagation on a computational graph with chain rule, calculating from right to left. Recall that <span class="math notranslate nohighlight">\(\hat{y} = a = \sigma(z)\)</span> where <span class="math notranslate nohighlight">\(z = w^{T}x + b)\)</span>, the solution to the derivative is</p>
 <div class="math notranslate nohighlight">
 \[dz = \frac{dL}{dz} = \frac{dL}{da} \frac{da}{dz} = \frac{a-y}{a(1-a)} \times a(1-a) = a - y = \hat{y} - y\]</div>
-</div>
-</div>
-<div class="section" id="softmax-regression">
+</section>
+</section>
+<section id="softmax-regression">
 <h2>Softmax regression<a class="headerlink" href="#softmax-regression" title="Permalink to this headline">¶</a></h2>
 <p>Softmax regression is a generalized version of logistic regression used for multiple output classes. Suppose we have <span class="math notranslate nohighlight">\(C\)</span> number of classes, the Softmax activation equation is</p>
 <div class="math notranslate nohighlight">
@@ -489,10 +499,10 @@
    &amp; = \frac{e^{z^{[l]}}}{\sum^{C}_{i = 1} t_i}\\
    &amp; = \frac{t}{\sum^{C}_{i = 1} t_i}\\
 \end{align*}\end{split}\]</div>
-</div>
-<div class="section" id="gradient-descent">
+</section>
+<section id="gradient-descent">
 <h2>Gradient descent<a class="headerlink" href="#gradient-descent" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
+<section id="id2">
 <h3>Definition<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Gradient descent optimization algorithm finds <span class="math notranslate nohighlight">\(w, b\)</span> that minimize <span class="math notranslate nohighlight">\(\mathcal{J}(w, b)\)</span>, i.e. to find the minima in the graph of convex loss function.</p>
 <div class="math notranslate nohighlight">
@@ -504,8 +514,8 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
 \frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^m \left(a^{(i)}-y^{(i)}\right)\]</div>
 <p>For simplicity, we denote <span class="math notranslate nohighlight">\(dx\)</span> as the (partial) derivative of a variable, e.g. <span class="math notranslate nohighlight">\(dw = \frac{\partial J}{\partial w}\)</span>.</p>
 <p>In a deep neural network, the activation and gradients will explode if <span class="math notranslate nohighlight">\(W &gt; I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is identity matrix; the gradients will vanish if <span class="math notranslate nohighlight">\(W &lt; I\)</span>. To solve this, refer to <a class="reference internal" href="#random-initialization"><span class="std std-ref">random initialization</span></a>.</p>
-</div>
-<div class="section" id="gradient-checking">
+</section>
+<section id="gradient-checking">
 <h3>Gradient checking<a class="headerlink" href="#gradient-checking" title="Permalink to this headline">¶</a></h3>
 <p>Recall the definition of a derivative (or gradient) as</p>
 <div class="math notranslate nohighlight">
@@ -538,8 +548,8 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
    1e-5, &amp; \text{further inspection}\\
    1e-3, &amp; \text{bad implementation}
 \end{cases}\end{split}\]</div>
-</div>
-<div class="section" id="mini-batch-gd">
+</section>
+<section id="mini-batch-gd">
 <span id="mini-batch"></span><h3>Mini-batch GD<a class="headerlink" href="#mini-batch-gd" title="Permalink to this headline">¶</a></h3>
 <p>For large <span class="math notranslate nohighlight">\(m\)</span>, vectorization can still be slow. A solution is to use mini-batch gradient descent rather than batch gradient descent using explicit loop. We should choose a batch size, which is a hyperparameter, between 1 and <span class="math notranslate nohighlight">\(m\)</span> since</p>
 <ul class="simple">
@@ -549,8 +559,8 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
 <p>By convention, we choose a batch size of <span class="math notranslate nohighlight">\(2^n\)</span> with <span class="math notranslate nohighlight">\(n\)</span> determined by the size of the dataset. We do not consider stochastic gradient descent since it is too noisy, never converge, and breaking vectorization.</p>
 <p>After determining the batch size, run a loop of batch-size iterations to perform gradient descent on each mini-batch.</p>
 <p>Recall that the graph of the cost funciton demonstrate a mostly monotonically decreasing function. For small batch size, the cost may volatile, but it will decrease macroscopically.</p>
-</div>
-<div class="section" id="batch-normalization">
+</section>
+<section id="batch-normalization">
 <h3>Batch normalization<a class="headerlink" href="#batch-normalization" title="Permalink to this headline">¶</a></h3>
 <p>Batch normalization speeds up learning process. Before <a class="reference internal" href="#input-normalization"><span class="std std-ref">normalizing inputs</span></a>, normalizing <span class="math notranslate nohighlight">\(z^{[l]}\)</span> helps reach the minima faster. Given <span class="math notranslate nohighlight">\(z^{[l]} = z^{[l](1)}, \ldots, z^{[l](n)}\)</span> for all layers, we perform</p>
 <div class="math notranslate nohighlight">
@@ -571,8 +581,8 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
 <p><span class="math notranslate nohighlight">\(L_2\)</span> regularization is still necassary for the purpose of regularization since batch normalization just normalizes hidden units and activation within a mini batch.</p>
 <p>Moreover, bias term will be eliminated after normalization, so removing it or set it to zero.</p>
 </div>
-</div>
-<div class="section" id="gd-with-momentum">
+</section>
+<section id="gd-with-momentum">
 <span id="momentum"></span><h3>GD with momentum<a class="headerlink" href="#gd-with-momentum" title="Permalink to this headline">¶</a></h3>
 <p>The gradient descent with momentum optimization algorithm almost always works faster than standard gradient descent. The basic idea of this algorithm is to compute gradients using <a class="reference internal" href="#ewma"><span class="std std-ref">EWMA</span></a>, and use the gradient to update the weight and bias, adding the impact of previous iterations. It can be applied to both batch and mini-batch gradient descent.</p>
 <div class="math notranslate nohighlight">
@@ -583,9 +593,9 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
    b &amp; = b - \alpha v_{db}
 \end{align*}\end{split}\]</div>
 <p>With this algorithm, finding optimum can be achieved in fewer steps with less oscillations in vertical direction and longer jump in horizontal direction. Notice that <span class="math notranslate nohighlight">\(\beta\)</span> is a hyperparameter interfering on the learning rate <span class="math notranslate nohighlight">\(\alpha\)</span>, where <span class="math notranslate nohighlight">\(\beta = 0.9\)</span> is a common practice.</p>
-</div>
-</div>
-<div class="section" id="random-initialization">
+</section>
+</section>
+<section id="random-initialization">
 <span id="id3"></span><h2>Random initialization<a class="headerlink" href="#random-initialization" title="Permalink to this headline">¶</a></h2>
 <p>Initializing the bias to zero is acceptable; but initializing the weights to zero causes different neurons learn with identical output since they are symmetrical. A common practice is to randomly assign small weights with a defined statistical distribution; if the weights are large, some activation functions tend to saturate in large values, i.e. slow learning rate. Thus, the weights should be initialized randomly to break symmetry</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">layerDim</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">layerDim</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.01</span>
@@ -600,8 +610,8 @@ b = b - \alpha \frac{\partial \mathcal{J}}{\partial b}\]</div>
 <div class="math notranslate nohighlight">
 \[tanh\left(\sqrt{\frac{1}{n^{[l-1]}}}\right) \quad \text{or} \quad
 tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
-</div>
-<div class="section" id="neural-network-basics">
+</section>
+<section id="neural-network-basics">
 <h2>Neural network basics<a class="headerlink" href="#neural-network-basics" title="Permalink to this headline">¶</a></h2>
 <p>Neurons in the shallower layers learn simple features of data, while neurons in the deeper layers learn complex charadcteristics. Usually, we count the sum of the number of hidden layers and the output layer as the total layers for a neural network, i.e. we do not count input layer.</p>
 <p>Each neuron is a two-step process computing <span class="math notranslate nohighlight">\(z\)</span> and the activation function of that, and each layer has its own chosen activation function with dimension correspondent parameters.</p>
@@ -618,7 +628,7 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 </li>
 <li><p>use trained parameters to predict labels</p></li>
 </ol>
-<div class="section" id="forward-pass">
+<section id="forward-pass">
 <h3>Forward Pass<a class="headerlink" href="#forward-pass" title="Permalink to this headline">¶</a></h3>
 <p>Given parameters <span class="math notranslate nohighlight">\(A^{[l-1]}\)</span>, the formulae of forward propagation in a DNN are</p>
 <div class="math notranslate nohighlight">
@@ -629,8 +639,8 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 <p>generating <span class="math notranslate nohighlight">\(A^{[l]}\)</span> and cache. In both ends we have</p>
 <div class="math notranslate nohighlight">
 \[A^{0} = X \text{ and } A^{L} = \hat{y}\]</div>
-</div>
-<div class="section" id="dimensions">
+</section>
+<section id="dimensions">
 <h3>Dimensions<a class="headerlink" href="#dimensions" title="Permalink to this headline">¶</a></h3>
 <p>The dimensions for a <span class="math notranslate nohighlight">\(m\)</span> examples are</p>
 <div class="math notranslate nohighlight">
@@ -644,8 +654,8 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
    A^{[l]} &amp; \quad \left(n^{[l]}, m\right)\\
    dA^{[l]} &amp; \quad \left(n^{[l]}, m\right)\\
 \end{align*}\end{split}\]</div>
-</div>
-<div class="section" id="backward-prop">
+</section>
+<section id="backward-prop">
 <h3>Backward Prop<a class="headerlink" href="#backward-prop" title="Permalink to this headline">¶</a></h3>
 <p>Given parameters <span class="math notranslate nohighlight">\(dA^{[l]}\)</span> and caches from forward propagation, the formulae of backward propagation in a DNN are</p>
 <div class="math notranslate nohighlight">
@@ -659,9 +669,9 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 <p>generating <span class="math notranslate nohighlight">\(dA^{[l-1]}\)</span>, <span class="math notranslate nohighlight">\(dW^{[l]}\)</span>, and <span class="math notranslate nohighlight">\(db^{[l]}\)</span>. If we choose sigmoid activation function, we have</p>
 <div class="math notranslate nohighlight">
 \[dZ^{[l]} = \frac{\partial \mathcal{J} }{\partial Z^{[l]}} = A^{[l]} - Y\]</div>
-</div>
-</div>
-<div class="section" id="activation-functions">
+</section>
+</section>
+<section id="activation-functions">
 <span id="id4"></span><h2>Activation functions<a class="headerlink" href="#activation-functions" title="Permalink to this headline">¶</a></h2>
 <p>Linear activation function resembles identity function, equipping with less solving power to the neurons. Thus, linear activation functions are commonly used in the output layer.</p>
 <ul class="simple">
@@ -728,8 +738,8 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
              1, &amp; \text{if } z \geq 0\\
    \alpha , &amp; \text{if } z &lt; 0
 \end{cases}\end{split}\]</div>
-</div>
-<div class="section" id="regularization">
+</section>
+<section id="regularization">
 <h2>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h2>
 <p>We often encounter two regularization schemes</p>
 <ul class="simple">
@@ -737,21 +747,21 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 <li><p><span class="math notranslate nohighlight">\(L_1\)</span> regularization is <span class="math notranslate nohighlight">\(\|m\|_{1} = \sum^{n_x}_{i = 1} |w_i|\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(L_2\)</span> regularization also named weight decay, and <span class="math notranslate nohighlight">\(L_1\)</span> regularization shrinks model size by changing some weights to zero.</p></li>
 </ul>
-<div class="section" id="id5">
+<section id="id5">
 <h3>Logistic regression<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>Regularization for logistic regression is to minimize <span class="math notranslate nohighlight">\(\mathcal{J}(w,b)\)</span> with regularization parameter <span class="math notranslate nohighlight">\(\lambda\)</span>, which is a hyperparameter in the DNN</p>
 <div class="math notranslate nohighlight">
 \[J_{regularized} = \small \underbrace{ \frac{1}{m} \sum_{i=1}^{m} \mathcal{L}\left(\hat{y}^{(i)}, y^{(i)}\right) }_\text{cross-entropy cost} + \small \underbrace{ \frac{\lambda}{2 m} \|w\|_{2}^{2} + \frac{\lambda}{2 m} \sum_{i=1}^{m} b^{(i)^2} }_{L_2 \text{ regularization cost}}\]</div>
 <p>where the last term, or regularization on bias, is usually omitted. The denominator of the regularization term is a scale parameter.</p>
-</div>
-<div class="section" id="neural-network">
+</section>
+<section id="neural-network">
 <h3>Neural network<a class="headerlink" href="#neural-network" title="Permalink to this headline">¶</a></h3>
 <p>Regularization for neural networks is to minimize <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> for all layers, that is</p>
 <div class="math notranslate nohighlight">
 \[J\left(w^{[1]}, b^{[1]}, \ldots, w^{[L]}, b^{[L]}\right)=\frac{1}{m} \sum_{i=1}^{n} \mathcal{L}\left(\hat{y}^{(i)}, y^{(i)}\right)+\frac{\lambda}{2 m} \sum_{l=1}^{L}\left\|w^{[l]}\right\|_{F}^{2}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\|w^{[l]}\|^2_F = \sum^{n^{[l]}}_{i = 1} \sum^{n^{[l-1]}}_{j=1} \left(w_{ij}^{[l]}\right)\)</span> is the Frobenius norm.</p>
-</div>
-<div class="section" id="weight-update">
+</section>
+<section id="weight-update">
 <h3>Weight update<a class="headerlink" href="#weight-update" title="Permalink to this headline">¶</a></h3>
 <p>Recall from backward propagation we have</p>
 <div class="math notranslate nohighlight">
@@ -774,8 +784,8 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 <p>When implementing gradient descent, one debug method is to plot the cost function <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> as a function of the number of iterations of gradient descent.</p>
 <p>The cost function should decrease monotonically after every evaluation of gradient descent with regularization. If you plot the cost function without regularization, then you might not see it decrease monotonically.</p>
 </div>
-</div>
-<div class="section" id="dropout-regularization">
+</section>
+<section id="dropout-regularization">
 <h3>Dropout regularization<a class="headerlink" href="#dropout-regularization" title="Permalink to this headline">¶</a></h3>
 <p>The intuition is that the model cannot rely on any features, so have to spread out weights. Formally, dropout regularization eliminates some neurons/weights on each iteration based on a probability. A most common technique is inverted dropout</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># set 0 &lt;= keep_prob &lt;= 1</span>
@@ -798,15 +808,15 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 <li><p>If you’re more worried about some layers overfitting than others, apply dropout to certain layers with just one hyperparameter <code class="docutils literal notranslate"><span class="pre">keep_prob</span></code>.</p></li>
 <li><p>A downside of dropout is that the cost function is not well defined, hard to debug. To solve this, turn off dropout, i.e. setting <code class="docutils literal notranslate"><span class="pre">keep_prob</span></code> to one, and check the cost function do decrease monotonically.</p></li>
 </ul>
-</div>
-<div class="section" id="input-normalization">
+</section>
+<section id="input-normalization">
 <span id="id6"></span><h3>Input normalization<a class="headerlink" href="#input-normalization" title="Permalink to this headline">¶</a></h3>
 <p>Normalize inputs will speed up the training process. We use the mean and variance of teh training set to apply normalization to training, dev, and test sets in the way</p>
 <div class="math notranslate nohighlight">
 \[\frac{x^{(i)} - \mu}{\sigma^2}\]</div>
 <p>The cost function is inconsistent (or elongated) and hard to optimize. With normalization, the cost function will be consistent and symmetrical and optimized faster with less volatility.</p>
-</div>
-<div class="section" id="other-methods">
+</section>
+<section id="other-methods">
 <h3>Other methods<a class="headerlink" href="#other-methods" title="Permalink to this headline">¶</a></h3>
 <p><strong>Data augmentation</strong> is to create more data based on current data easily and cheaply, e.g. image rotation, horizontally flipping, zooming.</p>
 <p><strong>Early stopping</strong> may be of cheaper price and shorter time to prevent overfitting. Usually, we plot the training set and the dev set cost together for each iteration. At some iteration the dev set cost will stop decreasing and will start increasing, and we pick the point at which the training set error and dev set error are best.</p>
@@ -814,17 +824,17 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 <li><p>One advantage is that no hyperparameters are investigated, unlike lambda in <span class="math notranslate nohighlight">\(L_2\)</span> regularization.</p></li>
 <li><p>One downside is that early stopping tries to simultaneously optimize the cost function with gradient descent and prevent overfitting with regularization, breaking orthogonalization. Hence, we prefer to use <span class="math notranslate nohighlight">\(L_2\)</span> regularization</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="ewma">
+</section>
+</section>
+<section id="ewma">
 <span id="id7"></span><h2>EWMA<a class="headerlink" href="#ewma" title="Permalink to this headline">¶</a></h2>
 <p>Exponentially weighted moving averages (EWMA) optimization algorithm is better than gradient descent with general equation</p>
 <div class="math notranslate nohighlight">
 \[v_t = \beta v_{t-1} + (1 - \beta) \theta_t\]</div>
 <p>which represents the averages over <span class="math notranslate nohighlight">\(\frac{1}{1 - \beta}\)</span> units. Small <span class="math notranslate nohighlight">\(\beta\)</span> value implies putting more weights on recent data, responding quickly to regressions with noisier curve, while large <span class="math notranslate nohighlight">\(\beta\)</span> value implies a delayed regression and smoother curve. Given values for <span class="math notranslate nohighlight">\(\theta\)</span>, we calculate and interpret <span class="math notranslate nohighlight">\(v_{\text{today}}\)</span> from historical values.</p>
 <p>Since <span class="math notranslate nohighlight">\(v_0 = 0\)</span> by default, the first few values from EWMA formula suffers from accuracy. To solve this, we apply bias correction by dividing correction factor as <span class="math notranslate nohighlight">\(\frac{v_t}{1 - \beta^t}\)</span>. As <span class="math notranslate nohighlight">\(t\)</span> becomes larger, the correction factor approaches one, applying almost no effect to future values.</p>
-</div>
-<div class="section" id="rmsprop">
+</section>
+<section id="rmsprop">
 <span id="id8"></span><h2>RMSprop<a class="headerlink" href="#rmsprop" title="Permalink to this headline">¶</a></h2>
 <p>Root Mean Square prop (RMSprop) optimization algorithm speeds up the gradient descent, and makes the cost function move slower on the vertical direction and faster on the horizontal direction. Learning rate increases with this algorithm.</p>
 <div class="math notranslate nohighlight">
@@ -838,8 +848,8 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
 <p class="admonition-title">Tip</p>
 <p>The <span class="math notranslate nohighlight">\(\epsilon\)</span> term ensures a non-zero denominator.</p>
 </div>
-</div>
-<div class="section" id="adam">
+</section>
+<section id="adam">
 <span id="id9"></span><h2>Adam<a class="headerlink" href="#adam" title="Permalink to this headline">¶</a></h2>
 <p>Adaptive Moment Estimation (Adam) optimization algorithm is basically a combination of gradient descent with momentum and RMSprop, and it works well with numerous NN architectures.</p>
 <div class="math notranslate nohighlight">
@@ -862,8 +872,8 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
    b &amp; = b - \alpha \frac{v^{\text{corrected}}_{db}}{\sqrt{S^{\text{corrected}}_{db}} + \epsilon}\\
 \end{align*}\end{split}\]</div>
 <p>The hyperparameters in this algorithm with recommended value in brackets are learning rate <span class="math notranslate nohighlight">\(\alpha\)</span> needed to be tuned, <span class="math notranslate nohighlight">\(\beta_1 = 0.9\)</span>, <span class="math notranslate nohighlight">\(\beta_2 = 0.999\)</span>, and <span class="math notranslate nohighlight">\(\epsilon = 10^{-8}\)</span>.</p>
-</div>
-<div class="section" id="alpha-decay">
+</section>
+<section id="alpha-decay">
 <h2><span class="math notranslate nohighlight">\(\alpha\)</span> decay<a class="headerlink" href="#alpha-decay" title="Permalink to this headline">¶</a></h2>
 <p>Mini-batch gradient descent may never reach optimum. However, by tuning the learning rate <span class="math notranslate nohighlight">\(\alpha\)</span> to be smaller near the convergence point, we may reach optimum.</p>
 <p>The number of epochs is a hyperparameter that defines the number times that the learning algorithm will work through the entire training dataset, or one pass over the training set. One epoch means that each sample in the training dataset has had an opportunity to update the internal model parameters.</p>
@@ -874,26 +884,37 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
    \alpha &amp; = \alpha_0 \frac{k}{\sqrt{\text{epoch num}}}\\
    \alpha &amp; = \alpha_0 \cdot 0.95^{\text{epoch num}}
 \end{align*}\end{split}\]</div>
-</div>
-<div class="section" id="hyperparameters">
+</section>
+<section id="hyperparameters">
 <h2>Hyperparameters<a class="headerlink" href="#hyperparameters" title="Permalink to this headline">¶</a></h2>
 <p>Currently, we discussed several hyperparameters including learning rate <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, <span class="math notranslate nohighlight">\(\beta_1\)</span>, <span class="math notranslate nohighlight">\(\beta_2\)</span>, <span class="math notranslate nohighlight">\(\epsilon\)</span>, number of layers, number of hidden units, <span class="math notranslate nohighlight">\(\alpha\)</span> decay, mini-batch size, activation functions, regularization lambda <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 <p>When sampling hyperparameters, random generator is used rather than grid system to offer better variation and perception on importance and range. In addition, coarse to fine is a sampling scheme which zooms spaces with better performance.</p>
 <p>Given a specific range for a hyperparameter, it is better to use the logarithm scale rather than linear scale to search for an ideal value. For different NN architectures and projects, hyperparameter setting may or may not vary. Babysitting model is used to manually tune the hyperparameters if computational resources are limited; if enough computational power, try runing model for different hyperparameter values in parallel.</p>
 <p>Some deep learning developers know exactly what hyperparameter to tune in order to try to achieve one effect. This is orthogonalization, a process to adjust one or a set of parameters withous changing the rest.</p>
-<div data-disqus-identifier="Neural Networks Guide" data-disqus-shortname="blog-yiming" id="disqus_thread"></div></div>
+<div data-disqus-identifier="Neural Networks Guide" data-disqus-shortname="blog-yiming" id="disqus_thread"></div></section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="matlab_finance.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">MATLAB for Finance</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="trick.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tricks</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-
-
-              </div>
-              
-              
-              <div class='prev-next-bottom'>
-                
-    <a class='left-prev' id="prev-link" href="matlab_finance.html" title="previous page">MATLAB for Finance</a>
-    <a class='right-next' id="next-link" href="../tools/index.html" title="next page">Tools</a>
-
-              </div>
               
           </main>
           
@@ -901,14 +922,13 @@ tanh\left(\sqrt{\frac{2}{n^{[l]} + n^{[l-1]}}}\right)\]</div>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
+    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
   <footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2021, Yiming Dai.<br/>
+    &copy; Copyright 2022, Yiming Dai.<br>
 </p>
     </div>
     

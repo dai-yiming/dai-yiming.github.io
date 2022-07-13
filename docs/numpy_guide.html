@@ -4,33 +4,35 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Numpy Guide</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
+    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
     
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
+    <link rel="stylesheet"
+      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
     
       
-
+  
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,7 +45,10 @@
     <link rel="next" title="Numpy Exercises" href="numpy_exercise.html" />
     <link rel="prev" title="Docs" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -104,16 +109,12 @@
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/dai-yiming" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
+          <a class="nav-link" href="https://github.com/dai-yiming" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://www.linkedin.com/in/yimingdai/" rel="noopener" target="_blank" title="LinkedIn">
-            <span><i class="fab fa-linkedin"></i></span>
-            <label class="sr-only">LinkedIn</label>
-          </a>
+          <a class="nav-link" href="https://www.linkedin.com/in/yimingdai/" rel="noopener" target="_blank" title="LinkedIn"><span><i class="fab fa-linkedin"></i></span>
+            <label class="sr-only">LinkedIn</label></a>
         </li>
       </ul>
       </div>
@@ -129,7 +130,8 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
@@ -170,10 +172,18 @@
    Neural Networks Guide
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="trick.html">
+   Tricks
+  </a>
+ </li>
 </ul>
 
   </div>
 </nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
             </div>
             
           
@@ -252,7 +262,7 @@
               
               <div>
                 
-  <div class="section" id="numpy-guide">
+  <section id="numpy-guide">
 <span id="id1"></span><h1>Numpy Guide<a class="headerlink" href="#numpy-guide" title="Permalink to this headline">¶</a></h1>
 <p>This is an elegant-design introduction to Numpy, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="https://numpy.org/">Numpy</a>.</p>
 <p>While Python uses <code class="docutils literal notranslate"><span class="pre">help()</span></code> for docstring reference, IPython uses <code class="docutils literal notranslate"><span class="pre">?</span></code> or <code class="docutils literal notranslate"><span class="pre">np.info</span></code> or <code class="docutils literal notranslate"><span class="pre">np.help</span></code>. Also, it uses <code class="docutils literal notranslate"><span class="pre">??</span></code> or <code class="docutils literal notranslate"><span class="pre">np.source</span></code> for source code.</p>
@@ -262,7 +272,7 @@
 <span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
-<div class="section" id="object-creation">
+<section id="object-creation">
 <h2>Object creation<a class="headerlink" href="#object-creation" title="Permalink to this headline">¶</a></h2>
 <p>Several methods to create Numpy arrays are available, and we should contain homogeneous elements only for optimal efficiency. The simplest way is</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]);</span> <span class="n">a</span>
@@ -300,9 +310,7 @@
 <span class="gh">Out[11]: </span><span class="go">array([[1, 1, 1, 1, 1, 1]])</span>
 
 <span class="gp">In [12]: </span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># random address of length six</span>
-<span class="gh">Out[12]: </span><span class="go"></span>
-<span class="go">array([-1.2882e-231, -2.6868e+154,  1.4822e-323,  0.0000e+000,</span>
-<span class="go">        0.0000e+000,  4.1720e-309])</span>
+<span class="gh">Out[12]: </span><span class="go">array([0., 0., 0., 0., 0., 0.])</span>
 
 <span class="go"># parameters N for number of rows and M for number of columns</span>
 <span class="gp">In [13]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># identity matrix w/ upside offset</span>
@@ -355,8 +363,8 @@
 <span class="gh">Out[21]: </span><span class="go">array([1, 2, 3, 4, 5, 6])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="selection">
+</section>
+<section id="selection">
 <h2>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h2>
 <p>The common method to index an array is <code class="docutils literal notranslate"><span class="pre">a[start:stop:step]</span></code> with default value 0, len(a), and 1 respectively. When <cite>step</cite> is negative, reverse reading is performed.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
@@ -375,8 +383,8 @@
 <span class="gh">Out[26]: </span><span class="go">array([2, 5, 6])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="logics-boolean-mask">
+</section>
+<section id="logics-boolean-mask">
 <h2>Logics &amp; boolean mask<a class="headerlink" href="#logics-boolean-mask" title="Permalink to this headline">¶</a></h2>
 <p>Numpy uses <cite>and</cite> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> , <cite>or</cite> <code class="docutils literal notranslate"><span class="pre">|</span></code> , <cite>xor</cite> <code class="docutils literal notranslate"><span class="pre">^</span></code> , and <cite>not</cite> <code class="docutils literal notranslate"><span class="pre">~</span></code> for logical operations</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">a</span><span class="p">[(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)]</span>
@@ -409,8 +417,8 @@
 <span class="gh">Out[34]: </span><span class="go">array([3, 4, 5, 6])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="random-system">
+</section>
+<section id="random-system">
 <h2>Random system<a class="headerlink" href="#random-system" title="Permalink to this headline">¶</a></h2>
 <p>Several methods for randomly generating numbers with different statistical distributions are available. Specifically, we import the <code class="docutils literal notranslate"><span class="pre">default_rng</span></code> (random number generator) object as a variable</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -419,30 +427,30 @@
 <p>and illustrate common usages for uniform and (standard) normal distribution</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># uniform distribution with half-open interval (default)</span>
 <span class="gp">In [36]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="c1"># U[0,6)</span>
-<span class="gh">Out[36]: </span><span class="go">array([0, 3, 0, 0, 2, 2])</span>
+<span class="gh">Out[36]: </span><span class="go">array([3, 4, 2, 5, 5, 4])</span>
 
 <span class="go"># closed-interval uniform distribution</span>
 <span class="gp">In [37]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># U[0,6]</span>
-<span class="gh">Out[37]: </span><span class="go">array([2, 1, 2, 1, 2, 6])</span>
+<span class="gh">Out[37]: </span><span class="go">array([1, 5, 6, 6, 6, 6])</span>
 
 <span class="gp">In [38]: </span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># U[0,1)</span>
-<span class="gh">Out[38]: </span><span class="go">array([0.6972, 0.2673, 0.3745, 0.1416, 0.9783])</span>
+<span class="gh">Out[38]: </span><span class="go">array([0.2967, 0.4125, 0.5244, 0.3008, 0.4629])</span>
 
 <span class="gp">In [39]: </span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="c1"># U[0,6)</span>
 <span class="gh">Out[39]: </span><span class="go"></span>
-<span class="go">array([[1.335 , 2.4066, 3.784 , 3.498 , 3.9192, 5.0309],</span>
-<span class="go">       [5.9861, 5.8596, 3.7974, 5.6359, 5.3531, 2.7015]])</span>
+<span class="go">array([[5.8106, 4.4766, 2.0818, 1.1869, 1.083 , 2.2426],</span>
+<span class="go">       [1.2028, 3.7385, 1.7914, 2.4689, 3.6558, 1.1768]])</span>
 
 <span class="gp">In [40]: </span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(5,2)</span>
-<span class="gh">Out[40]: </span><span class="go">array([7.8092, 6.9238, 5.7974, 4.4352, 5.3284, 3.5801])</span>
+<span class="gh">Out[40]: </span><span class="go">array([5.7745, 2.7322, 3.1601, 2.2221, 6.6247, 5.533 ])</span>
 
 <span class="gp">In [41]: </span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(0,1)</span>
-<span class="gh">Out[41]: </span><span class="go">array([-1.2078, -0.4266, -0.9355, -1.0669,  0.6305, -0.7482])</span>
+<span class="gh">Out[41]: </span><span class="go">array([ 0.5315, -0.9488,  2.7317,  0.5297,  0.4273, -1.1429])</span>
 </pre></div>
 </div>
 <p>For more information about <code class="docutils literal notranslate"><span class="pre">default_rng</span></code>, check out the official documentation for <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html">default_rng</a>.</p>
-</div>
-<div class="section" id="mathematics">
+</section>
+<section id="mathematics">
 <h2>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">¶</a></h2>
 <p>Element-wise operations with broadcasting concept include <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">np.add</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> or <code class="docutils literal notranslate"><span class="pre">np.subtract</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> or <code class="docutils literal notranslate"><span class="pre">np.multiply</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code> or <code class="docutils literal notranslate"><span class="pre">np.power</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">np.divide</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>, <code class="docutils literal notranslate"><span class="pre">np.log</span></code>, <code class="docutils literal notranslate"><span class="pre">np.[trigonometry]</span></code>, <code class="docutils literal notranslate"><span class="pre">np.floor</span></code>, <code class="docutils literal notranslate"><span class="pre">np.ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">np.round</span></code>, <code class="docutils literal notranslate"><span class="pre">np.maximum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.minimum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code> or <code class="docutils literal notranslate"><span class="pre">.T</span></code>, etc.</p>
 <p>Operations for single output include <code class="docutils literal notranslate"><span class="pre">np.max</span></code>, <code class="docutils literal notranslate"><span class="pre">np.min</span></code>, <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argmin</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">np.median</span></code>, <code class="docutils literal notranslate"><span class="pre">np.percentile</span></code>, <code class="docutils literal notranslate"><span class="pre">np.std</span></code>, <code class="docutils literal notranslate"><span class="pre">np.var</span></code>, <code class="docutils literal notranslate"><span class="pre">np.all</span></code>, <code class="docutils literal notranslate"><span class="pre">np.any</span></code>, etc. Note that <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter is available for many of these.</p>
@@ -519,8 +527,8 @@
 <span class="gh">Out[57]: </span><span class="go">array([3, 7])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="reshaping">
+</section>
+<section id="reshaping">
 <h2>Reshaping<a class="headerlink" href="#reshaping" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we create a 1D array named <cite>a</cite> of size <cite>n</cite>, the default shape would be (n,). Some operations like transpose cannot be done, and we need to reshape to a formal shape with two options: (1, n) or (n, 1). Now, we discuss the shape conversion among three shapes. Specifically, we will use <code class="docutils literal notranslate"><span class="pre">np.reshape</span></code> or <code class="docutils literal notranslate"><span class="pre">ndarray.reshape</span></code>, <code class="docutils literal notranslate"><span class="pre">np.expand_dims</span></code>, <code class="docutils literal notranslate"><span class="pre">np.squeeze</span></code>, <code class="docutils literal notranslate"><span class="pre">np.flatten</span></code>, <code class="docutils literal notranslate"><span class="pre">np.ravel</span></code>, <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code> or <code class="docutils literal notranslate"><span class="pre">.T</span></code>.</p>
 <ol class="arabic simple">
@@ -604,8 +612,8 @@
 <p class="admonition-title">Tip</p>
 <p><code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">None</span></code>. When we set axis to -1, dimension will be inferred automatically.</p>
 </div>
-</div>
-<div class="section" id="manipulation">
+</section>
+<section id="manipulation">
 <h2>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h2>
 <p>Several methods to stack objects are available, either vertical or horizontal.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [73]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
@@ -817,8 +825,8 @@
 <span class="go">       [ 0,  6,  6,  6,  6,  6,  6]])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sorting">
+</section>
+<section id="sorting">
 <h2>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">np.sort</span></code>, <code class="docutils literal notranslate"><span class="pre">np.argsort</span></code>, <code class="docutils literal notranslate"><span class="pre">np.lexsort</span></code> to get sorted values, indices, and lexical-sorted values. While the <code class="docutils literal notranslate"><span class="pre">order</span></code> parameter set a order of sorting from front to back, the <code class="docutils literal notranslate"><span class="pre">keys</span></code> as a tuple parameter for <code class="docutils literal notranslate"><span class="pre">np.lexsort</span></code> set a order of sorting from back to forth.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [109]: </span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]]);</span> <span class="n">h</span>
@@ -887,23 +895,34 @@
 <p class="admonition-title">Warning</p>
 <p>All manipulations, indexing, and sorting are not-in-place (shadow copy), and changes will be reflected on original object. Avoid this by doing assignment directly or assigning the output to a specific existing object through possible parameter <code class="docutils literal notranslate"><span class="pre">out</span></code>.</p>
 </div>
-</div>
-<div class="section" id="miscellaneous">
+</section>
+<section id="miscellaneous">
 <h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
 <p>Differentiate common usage of <a class="reference external" href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html">Numpy vs. MATLAB</a>.</p>
-<div data-disqus-identifier="Numpy Guide" data-disqus-shortname="blog-yiming" id="disqus_thread"></div></div>
+<div data-disqus-identifier="Numpy Guide" data-disqus-shortname="blog-yiming" id="disqus_thread"></div></section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Docs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="numpy_exercise.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Numpy Exercises</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-
-
-              </div>
-              
-              
-              <div class='prev-next-bottom'>
-                
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Docs</a>
-    <a class='right-next' id="next-link" href="numpy_exercise.html" title="next page">Numpy Exercises</a>
-
-              </div>
               
           </main>
           
@@ -911,14 +930,13 @@
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
+    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
   <footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2021, Yiming Dai.<br/>
+    &copy; Copyright 2022, Yiming Dai.<br>
 </p>
     </div>
     

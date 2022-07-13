@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Git Branch Recovery</title>
+    <title>Problems</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -38,11 +38,13 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../_static/disqus.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Git SSH Set Up Guide" href="git_ssh.html" />
+    <link rel="next" title="Docs" href="../docs/index.html" />
+    <link rel="prev" title="Indicators" href="indicator.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -79,8 +81,8 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../finance/index.html">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
   Finance
  </a>
 </li>
@@ -91,8 +93,8 @@
  </a>
 </li>
 
-<li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="index.html">
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tools/index.html">
   Tools
  </a>
 </li>
@@ -137,13 +139,23 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="git_ssh.html">
-   Git SSH Set Up Guide
+  <a class="reference internal" href="binomial_model.html">
+   Binomial Model Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="black_scholes_model.html">
+   Black Scholes Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="indicator.html">
+   Indicators
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Git Branch Recovery
+   Problems
   </a>
  </li>
 </ul>
@@ -163,24 +175,9 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
 
 <nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#remote-branch-recovery">
-   Remote branch recovery
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#local-branch-recovery">
-   Local branch recovery
-  </a>
- </li>
-</ul>
-
+    
 </nav>
               </div>
               
@@ -196,48 +193,12 @@
               
               <div>
                 
-  <section id="git-branch-recovery">
-<span id="git-branch-recover"></span><h1>Git Branch Recovery<a class="headerlink" href="#git-branch-recovery" title="Permalink to this headline">¶</a></h1>
-<p>This is a tutorial for recovering git branch if accidentally deleted.</p>
-<section id="remote-branch-recovery">
-<h2>Remote branch recovery<a class="headerlink" href="#remote-branch-recovery" title="Permalink to this headline">¶</a></h2>
-<p>If we have pushed the branch to a remote server, we could use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reflog</span></code> to recover easily and reliably. Suppose we have following commit history to the branch named <code class="docutils literal notranslate"><span class="pre">main</span></code> with corresponding activity id:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git reflog
-1ed7510 HEAD@<span class="o">{</span><span class="m">1</span><span class="o">}</span>: commit: message <span class="m">1</span>
-70b3696 HEAD@<span class="o">{</span><span class="m">2</span><span class="o">}</span>: commit: message <span class="m">2</span>
-98f2fc2 HEAD@<span class="o">{</span><span class="m">3</span><span class="o">}</span>: commit: message <span class="m">3</span>
-</pre></div>
-</div>
-<p>we could find the target commit and push back to origin to recover:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ checkout -b main 1ed7510
-$ add -A
-$ push origin main
-</pre></div>
-</div>
-</section>
-<section id="local-branch-recovery">
-<h2>Local branch recovery<a class="headerlink" href="#local-branch-recovery" title="Permalink to this headline">¶</a></h2>
-<p>If we have <strong>not</strong> pushed the branch, we could create a list of all dangling or unreachable commits, where the commits are copied into <cite>.git/lost-found/commit/</cite>, and non-commit objects are copied into <cite>.git/lost-found/other/</cite>,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git fsck --full --no-reflogs --unreachable --lost-found
-unreachable tree 4a407b1b09e0d8a16be70aa1547332432a698e18
-unreachable tree 5040d8cf08c78119e66b9a3f8c4b61a240229259
-unreachable tree 60c0ce61b040f5e604850f747f525e88043dae12
-</pre></div>
-</div>
-<p>print a list of commit messages for all commits in the lost and found,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls -1 .git/lost-found/commit/ <span class="p">|</span> xargs -n <span class="m">1</span> git log -n <span class="m">1</span> --pretty<span class="o">=</span>oneline
-9ae38fc6b0548cab08ccee1178db0ba0edeafdb2 foo <span class="c1"># target commit</span>
-6ed99e63db69ca04f0cc78081a1fd471289551b2 On master: search and reset
-973d9be3e2cefcd0c5801ad9cd1b2e18774b4bee Rename decorator proxy
-9efa6b28b3b0a89c312484f28cf589385d613dfd On master: mysql db config
-</pre></div>
-</div>
-<p>and create a new branch with the missing commit as the branch head:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git checkout -b &lt;branch-name&gt; 9ae38fc
-Switched to a new branch &lt;branch-name&gt;
-</pre></div>
-</div>
-<div data-disqus-identifier="Git Branch Recovery" data-disqus-shortname="blog-yiming" id="disqus_thread"></div></section>
+  <section id="problems">
+<span id="problem"></span><h1>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h1>
+<p>Find the stochastic differential equation for <span class="math notranslate nohighlight">\(sin(r_t)\)</span> using Ito Lemma using result of</p>
+<div class="math notranslate nohighlight">
+\[dx_t = \alpha ( \gamma - r_t)dt + \beta r_t dW_t\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_t = r_t^3\)</span>, and <span class="math notranslate nohighlight">\(\alpha, \gamma, \beta\)</span> are constants.</p>
 </section>
 
 
@@ -246,12 +207,19 @@ Switched to a new branch &lt;branch-name&gt;
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="git_ssh.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="indicator.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Git SSH Set Up Guide</p>
+            <p class="prev-next-title">Indicators</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../docs/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Docs</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
               

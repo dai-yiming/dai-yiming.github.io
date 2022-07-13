@@ -4,33 +4,35 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Sphinx Set Up Guide</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
+    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
     
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
+    <link rel="stylesheet"
+      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
     
       
-
+  
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -40,10 +42,11 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Git SSH Set Up Guide" href="git_ssh.html" />
-    <link rel="prev" title="Tools" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -87,7 +90,7 @@
  </a>
 </li>
 
-<li class="toctree-l1 current active nav-item">
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="index.html">
   Tools
  </a>
@@ -104,16 +107,12 @@
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/dai-yiming" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
+          <a class="nav-link" href="https://github.com/dai-yiming" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://www.linkedin.com/in/yimingdai/" rel="noopener" target="_blank" title="LinkedIn">
-            <span><i class="fab fa-linkedin"></i></span>
-            <label class="sr-only">LinkedIn</label>
-          </a>
+          <a class="nav-link" href="https://www.linkedin.com/in/yimingdai/" rel="noopener" target="_blank" title="LinkedIn"><span><i class="fab fa-linkedin"></i></span>
+            <label class="sr-only">LinkedIn</label></a>
         </li>
       </ul>
       </div>
@@ -129,31 +128,18 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Sphinx Set Up Guide
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="git_ssh.html">
-   Git SSH Set Up Guide
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="git_branch_recover.html">
-   Git Branch Recovery
-  </a>
- </li>
-</ul>
-
+    
   </div>
 </nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
             </div>
             
           
@@ -212,10 +198,10 @@
               
               <div>
                 
-  <div class="section" id="sphinx-set-up-guide">
+  <section id="sphinx-set-up-guide">
 <span id="sphinx-set-up"></span><h1>Sphinx Set Up Guide<a class="headerlink" href="#sphinx-set-up-guide" title="Permalink to this headline">¶</a></h1>
 <p>This is a tutorial for setting up <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a> with the <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html">PyData Sphinx Theme</a>.</p>
-<div class="section" id="setting-up-a-repository">
+<section id="setting-up-a-repository">
 <span id="set-up-repository"></span><h2>Setting up a repository<a class="headerlink" href="#setting-up-a-repository" title="Permalink to this headline">¶</a></h2>
 <p>First create the repository and place yourself in its directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git init &lt;username&gt;.github.io
@@ -228,8 +214,8 @@ $ git commit --allow-empty <span class="s2">&quot;Inital commit&quot;</span>
 $ git push --set-upstream origin main
 </pre></div>
 </div>
-</div>
-<div class="section" id="installing-from-pypi">
+</section>
+<section id="installing-from-pypi">
 <span id="pip-install"></span><h2>Installing from PyPI<a class="headerlink" href="#installing-from-pypi" title="Permalink to this headline">¶</a></h2>
 <p>First you will need <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, <code class="docutils literal notranslate"><span class="pre">sphinx_panels</span></code>, and <code class="docutils literal notranslate"><span class="pre">nbsphinx</span></code> package to be installed. Run the following commands from a terminal window:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install sphinx
@@ -237,8 +223,8 @@ $ pip install sphinx_panels
 $ pip install nbsphinx
 </pre></div>
 </div>
-</div>
-<div class="section" id="creating-your-sphinx">
+</section>
+<section id="creating-your-sphinx">
 <span id="create-sphinx"></span><h2>Creating your Sphinx<a class="headerlink" href="#creating-your-sphinx" title="Permalink to this headline">¶</a></h2>
 <p>Initialize a Sphinx documentation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sphinx-quickstart
@@ -257,8 +243,8 @@ Project language <span class="o">[</span>en<span class="o">]</span>:
 ...
 </pre></div>
 </div>
-</div>
-<div class="section" id="adding-a-theme">
+</section>
+<section id="adding-a-theme">
 <span id="add-theme"></span><h2>Adding a theme<a class="headerlink" href="#adding-a-theme" title="Permalink to this headline">¶</a></h2>
 <p>Intalling <code class="docutils literal notranslate"><span class="pre">pydata-sphinx-theme</span></code> package with PyPI:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install pydata-sphinx-theme
@@ -282,8 +268,8 @@ sphinx-build -E -b html ./source ./docs
 touch ./docs/.nojekyll
 </pre></div>
 </div>
-</div>
-<div class="section" id="publishing-and-enjoying">
+</section>
+<section id="publishing-and-enjoying">
 <span id="publish-enjoy"></span><h2>Publishing and enjoying<a class="headerlink" href="#publishing-and-enjoying" title="Permalink to this headline">¶</a></h2>
 <p>Commit and push changes:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git add .<span class="p">;</span> git commit -m <span class="s2">&quot;</span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&quot;</span>
@@ -299,25 +285,22 @@ touch ./docs/.nojekyll
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The documentation was last updated on Nov 14, 2021 and may be deprecated. If unexpected errors occur, check out official documentation for <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>, <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html">PyData Sphinx Theme</a>, and <a class="reference external" href="https://docs.github.com/en/pages/getting-started-with-github-pages">GitHub Pages</a>.</p>
+<p>The documentation was last updated on Jul 13, 2022 and may be deprecated. If unexpected errors occur, check out official documentation for <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>, <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html">PyData Sphinx Theme</a>, and <a class="reference external" href="https://docs.github.com/en/pages/getting-started-with-github-pages">GitHub Pages</a>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>In order to eliminating username and password when pushing and pulling with your GitHub account, refer to the <a class="reference internal" href="git_ssh.html#git-ssh"><span class="std std-ref">Git SSH Set Up Guide</span></a>.</p>
 </div>
-<div data-disqus-identifier="Sphinx Set Up Guide" data-disqus-shortname="blog-yiming" id="disqus_thread"></div></div>
+<div data-disqus-identifier="Sphinx Set Up Guide" data-disqus-shortname="blog-yiming" id="disqus_thread"></div></section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
 </div>
-
-
-              </div>
-              
-              
-              <div class='prev-next-bottom'>
-                
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Tools</a>
-    <a class='right-next' id="next-link" href="git_ssh.html" title="next page">Git SSH Set Up Guide</a>
-
-              </div>
               
           </main>
           
@@ -325,14 +308,13 @@ touch ./docs/.nojekyll
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
+    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
   <footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
       <p class="copyright">
-    &copy; Copyright 2021, Yiming Dai.<br/>
+    &copy; Copyright 2022, Yiming Dai.<br>
 </p>
     </div>
     
