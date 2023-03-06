@@ -441,7 +441,7 @@
 <span class="gh">Out[11]: </span><span class="go">array([[1, 1, 1, 1, 1, 1]])</span>
 
 <span class="gp">In [12]: </span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># random address of length six</span>
-<span class="gh">Out[12]: </span><span class="go">array([ 0.,  0.,  0.,  0., -0., -0.])</span>
+<span class="gh">Out[12]: </span><span class="go">array([0., 0., 0., 0., 0., 0.])</span>
 
 <span class="go"># parameters N for number of rows and M for number of columns</span>
 <span class="gp">In [13]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># identity matrix w/ upside offset</span>
@@ -558,25 +558,25 @@
 <p>and illustrate common usages for uniform and (standard) normal distribution</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># uniform distribution with half-open interval (default)</span>
 <span class="gp">In [36]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="c1"># U[0,6)</span>
-<span class="gh">Out[36]: </span><span class="go">array([5, 2, 2, 0, 4, 4])</span>
+<span class="gh">Out[36]: </span><span class="go">array([1, 4, 3, 5, 1, 3])</span>
 
 <span class="go"># closed-interval uniform distribution</span>
 <span class="gp">In [37]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># U[0,6]</span>
-<span class="gh">Out[37]: </span><span class="go">array([1, 0, 1, 0, 5, 0])</span>
+<span class="gh">Out[37]: </span><span class="go">array([5, 1, 3, 6, 6, 5])</span>
 
 <span class="gp">In [38]: </span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># U[0,1)</span>
-<span class="gh">Out[38]: </span><span class="go">array([0.7349, 0.0454, 0.2391, 0.6537, 0.2597])</span>
+<span class="gh">Out[38]: </span><span class="go">array([0.6591, 0.1355, 0.9215, 0.8854, 0.6939])</span>
 
 <span class="gp">In [39]: </span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="c1"># U[0,6)</span>
 <span class="gh">Out[39]: </span><span class="go"></span>
-<span class="go">array([[1.5432, 1.1897, 3.4642, 3.1675, 4.2831, 5.4975],</span>
-<span class="go">       [5.4471, 3.2031, 5.0279, 3.4154, 1.27  , 1.7797]])</span>
+<span class="go">array([[3.7972, 1.7855, 1.9179, 5.6607, 1.0549, 5.0566],</span>
+<span class="go">       [1.7233, 5.0734, 3.8054, 5.6596, 1.6019, 3.6817]])</span>
 
 <span class="gp">In [40]: </span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(5,2)</span>
-<span class="gh">Out[40]: </span><span class="go">array([3.5796, 1.9331, 5.2046, 5.9756, 3.6077, 6.8413])</span>
+<span class="gh">Out[40]: </span><span class="go">array([3.8529, 6.1833, 5.6977, 2.9527, 4.5447, 6.0918])</span>
 
 <span class="gp">In [41]: </span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(0,1)</span>
-<span class="gh">Out[41]: </span><span class="go">array([-0.9907,  0.3145,  0.4206, -0.4334, -0.0713,  0.6322])</span>
+<span class="gh">Out[41]: </span><span class="go">array([ 0.6435,  0.3027,  0.3546,  0.4883,  0.4151, -0.8076])</span>
 </pre></div>
 </div>
 <p>For more information about <code class="docutils literal notranslate"><span class="pre">default_rng</span></code>, check out the official documentation for <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html">default_rng</a>.</p>
