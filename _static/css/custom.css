@@ -26,8 +26,18 @@
 }
 
 /* Hide all scrollbar */
-::-webkit-scrollbar {
-    display: none;
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
+/* Hide scrollbar only in the primary sidebar */
+.bd-sidebar-primary {
+  overflow: hidden;
+}
+
+/* Shrink LeetCode icon */
+.icon-link-image {
+  width: 80%;
 }
 
 /* Global Config */
@@ -38,7 +48,8 @@
 }
 
 table {
-  width: auto; /* Override fit-content which breaks Styler user guide ipynb */
+  width: auto;
+  /* Override fit-content which breaks Styler user guide ipynb */
 }
 
 /* Main index page overview cards */
@@ -74,12 +85,13 @@ table {
   background-color: transparent;
 }
 
-.intro-card .card-footer p.card-text{
+.intro-card .card-footer p.card-text {
   max-width: 220px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.card, .card img {
+.card,
+.card img {
   background-color: transparent !important;
 }

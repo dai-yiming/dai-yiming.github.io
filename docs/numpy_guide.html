@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Numpy Exercises" href="numpy_exercise.html" />
-    <link rel="prev" title="Docs" href="index.html" />
+    <link rel="prev" title="Python Selected" href="python_selected.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -120,13 +120,6 @@
     </p>
     <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         Docs
@@ -135,8 +128,22 @@
                 
 
                     <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../finance/index.html">
+                        Finance
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link nav-internal" href="../tools/index.html">
                         Tools
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../about/index.html">
+                        About
                       </a>
                     </li>
                 
@@ -188,6 +195,16 @@
           <a href="https://www.linkedin.com/in/yimingdai/" title="LinkedIn" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-linkedin"></i></span>
             <label class="sr-only">LinkedIn</label></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://leetcode.com/yimingdai/" title="LeetCode" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><img src="../_static/img/leetcode.svg" class="icon-link-image" alt="LeetCode"/></a>
+        </li>
       </ul>
       </div>
       
@@ -232,13 +249,6 @@
     </p>
     <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         Docs
@@ -247,8 +257,22 @@
                 
 
                     <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../finance/index.html">
+                        Finance
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link nav-internal" href="../tools/index.html">
                         Tools
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../about/index.html">
+                        About
                       </a>
                     </li>
                 
@@ -295,6 +319,16 @@
           <a href="https://www.linkedin.com/in/yimingdai/" title="LinkedIn" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-linkedin"></i></span>
             <label class="sr-only">LinkedIn</label></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://leetcode.com/yimingdai/" title="LeetCode" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><img src="../_static/img/leetcode.svg" class="icon-link-image" alt="LeetCode"/></a>
+        </li>
       </ul>
       </div>
       
@@ -317,6 +351,7 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_selected.html">Python Selected</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Numpy Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_exercise.html">Numpy Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_guide.html">pandas Guide</a></li>
@@ -324,6 +359,7 @@
 <li class="toctree-l1"><a class="reference internal" href="matlab_guide.html">MATLAB Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matlab_finance.html">MATLAB for Finance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neural_networks.html">Neural Networks Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature_engineering.html">Feature Engineering Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell_script.html">Shell Script Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trick.html">Tricks</a></li>
 </ul>
@@ -405,7 +441,7 @@
 <span class="gh">Out[11]: </span><span class="go">array([[1, 1, 1, 1, 1, 1]])</span>
 
 <span class="gp">In [12]: </span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># random address of length six</span>
-<span class="gh">Out[12]: </span><span class="go">array([ 0.,  0.,  0.,  0.,  0., nan])</span>
+<span class="gh">Out[12]: </span><span class="go">array([ 0.,  0.,  0.,  0., -0., -0.])</span>
 
 <span class="go"># parameters N for number of rows and M for number of columns</span>
 <span class="gp">In [13]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># identity matrix w/ upside offset</span>
@@ -522,25 +558,25 @@
 <p>and illustrate common usages for uniform and (standard) normal distribution</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># uniform distribution with half-open interval (default)</span>
 <span class="gp">In [36]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="c1"># U[0,6)</span>
-<span class="gh">Out[36]: </span><span class="go">array([4, 1, 2, 2, 1, 2])</span>
+<span class="gh">Out[36]: </span><span class="go">array([5, 2, 2, 0, 4, 4])</span>
 
 <span class="go"># closed-interval uniform distribution</span>
 <span class="gp">In [37]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># U[0,6]</span>
-<span class="gh">Out[37]: </span><span class="go">array([2, 0, 1, 1, 6, 2])</span>
+<span class="gh">Out[37]: </span><span class="go">array([1, 0, 1, 0, 5, 0])</span>
 
 <span class="gp">In [38]: </span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># U[0,1)</span>
-<span class="gh">Out[38]: </span><span class="go">array([0.6   , 0.266 , 0.0707, 0.0283, 0.4143])</span>
+<span class="gh">Out[38]: </span><span class="go">array([0.7349, 0.0454, 0.2391, 0.6537, 0.2597])</span>
 
 <span class="gp">In [39]: </span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="c1"># U[0,6)</span>
 <span class="gh">Out[39]: </span><span class="go"></span>
-<span class="go">array([[5.627 , 4.2375, 1.6289, 2.8491, 3.7012, 5.6277],</span>
-<span class="go">       [1.0355, 4.9992, 5.8771, 1.3956, 1.2997, 4.9526]])</span>
+<span class="go">array([[1.5432, 1.1897, 3.4642, 3.1675, 4.2831, 5.4975],</span>
+<span class="go">       [5.4471, 3.2031, 5.0279, 3.4154, 1.27  , 1.7797]])</span>
 
 <span class="gp">In [40]: </span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(5,2)</span>
-<span class="gh">Out[40]: </span><span class="go">array([ 5.0987, 11.3727,  6.2289,  5.8363,  4.7704,  2.0187])</span>
+<span class="gh">Out[40]: </span><span class="go">array([3.5796, 1.9331, 5.2046, 5.9756, 3.6077, 6.8413])</span>
 
 <span class="gp">In [41]: </span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(0,1)</span>
-<span class="gh">Out[41]: </span><span class="go">array([-0.0785,  1.9431,  0.0371,  0.2146, -0.1269,  1.1219])</span>
+<span class="gh">Out[41]: </span><span class="go">array([-0.9907,  0.3145,  0.4206, -0.4334, -0.0713,  0.6322])</span>
 </pre></div>
 </div>
 <p>For more information about <code class="docutils literal notranslate"><span class="pre">default_rng</span></code>, check out the official documentation for <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html">default_rng</a>.</p>
@@ -1005,11 +1041,11 @@
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="python_selected.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Docs</p>
+          <p class="prev-next-title">Python Selected</p>
       </div>
   </a>
   <a class='right-next' id="next-link" href="numpy_exercise.html" title="next page">

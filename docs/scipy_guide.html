@@ -122,13 +122,6 @@
     </p>
     <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         Docs
@@ -137,8 +130,22 @@
                 
 
                     <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../finance/index.html">
+                        Finance
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link nav-internal" href="../tools/index.html">
                         Tools
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../about/index.html">
+                        About
                       </a>
                     </li>
                 
@@ -190,6 +197,16 @@
           <a href="https://www.linkedin.com/in/yimingdai/" title="LinkedIn" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-linkedin"></i></span>
             <label class="sr-only">LinkedIn</label></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://leetcode.com/yimingdai/" title="LeetCode" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><img src="../_static/img/leetcode.svg" class="icon-link-image" alt="LeetCode"/></a>
+        </li>
       </ul>
       </div>
       
@@ -234,13 +251,6 @@
     </p>
     <ul id="navbar-main-elements" class="navbar-nav">
         
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         Docs
@@ -249,8 +259,22 @@
                 
 
                     <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../finance/index.html">
+                        Finance
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link nav-internal" href="../tools/index.html">
                         Tools
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../about/index.html">
+                        About
                       </a>
                     </li>
                 
@@ -297,6 +321,16 @@
           <a href="https://www.linkedin.com/in/yimingdai/" title="LinkedIn" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-linkedin"></i></span>
             <label class="sr-only">LinkedIn</label></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://leetcode.com/yimingdai/" title="LeetCode" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><img src="../_static/img/leetcode.svg" class="icon-link-image" alt="LeetCode"/></a>
+        </li>
       </ul>
       </div>
       
@@ -319,6 +353,7 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_selected.html">Python Selected</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_guide.html">Numpy Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_exercise.html">Numpy Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_guide.html">pandas Guide</a></li>
@@ -326,6 +361,7 @@
 <li class="toctree-l1"><a class="reference internal" href="matlab_guide.html">MATLAB Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matlab_finance.html">MATLAB for Finance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neural_networks.html">Neural Networks Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature_engineering.html">Feature Engineering Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell_script.html">Shell Script Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trick.html">Tricks</a></li>
 </ul>
@@ -447,14 +483,14 @@
 <span class="gp">In [10]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [11]: </span><span class="n">rand</span>
-<span class="gh">Out[11]: </span><span class="go">array([0.7612, 0.9237, 0.2358])</span>
+<span class="gh">Out[11]: </span><span class="go">array([0.8845, 0.9845, 0.1964])</span>
 
 <span class="gp">In [12]: </span><span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;rand&quot;</span> <span class="p">:</span> <span class="n">rand</span><span class="p">})</span>
 
 <span class="gp">In [13]: </span><span class="n">var</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">)</span>
 
 <span class="gp">In [14]: </span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;rand&quot;</span><span class="p">]</span>
-<span class="gh">Out[14]: </span><span class="go">array([[0.7612, 0.9237, 0.2358]])</span>
+<span class="gh">Out[14]: </span><span class="go">array([[0.8845, 0.9845, 0.1964]])</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -524,13 +560,13 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="gp">In [17]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gh">Out[17]: </span><span class="go">-0.010931822350869543</span>
+<span class="gh">Out[17]: </span><span class="go">-0.018060909085235326</span>
 
 <span class="gp">In [18]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[ 33.3577,  21.2135, -61.051 ],</span>
-<span class="go">       [ 20.9248,  11.5322, -35.8631],</span>
-<span class="go">       [-36.0832, -21.4545,  65.5385]])</span>
+<span class="go">array([[ -6.5686,  -4.226 ,  19.299 ],</span>
+<span class="go">       [ -3.8515,  -0.1563,   8.8913],</span>
+<span class="go">       [ 11.1615,   4.4531, -26.3135]])</span>
 </pre></div>
 </div>
 </section>
@@ -549,9 +585,9 @@
 
 <span class="gp">In [24]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="gh">Out[24]: </span><span class="go"></span>
-<span class="go">[&lt;matplotlib.lines.Line2D at 0x1527aafb0&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x1527aafe0&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x1527ab340&gt;]</span>
+<span class="go">[&lt;matplotlib.lines.Line2D at 0x12272da20&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x12272e8c0&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x12272dc60&gt;]</span>
 </pre></div>
 </div>
 <img alt="../_images/scipy_interp1d.png" class="align-center" src="../_images/scipy_interp1d.png" />
