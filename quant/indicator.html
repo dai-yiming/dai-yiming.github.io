@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Tools</title>
+    <title>Indicators</title>
   
   
   
@@ -41,12 +41,10 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tools/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'quant/indicator';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Git SSH Set Up Guide" href="git_ssh.html" />
-    <link rel="prev" title="Indicators" href="../finance/indicator.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -128,15 +126,8 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Tools
+                      <a class="nav-link nav-internal" href="index.html">
+                        Quant
                       </a>
                     </li>
                 
@@ -257,15 +248,8 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Tools
+                      <a class="nav-link nav-internal" href="index.html">
+                        Quant
                       </a>
                     </li>
                 
@@ -345,19 +329,6 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
     </div>
-    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">
-    Section Navigation
-  </p>
-  <div class="bd-toc-item navbar-nav">
-    <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="git_ssh.html">Git SSH Set Up Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git_branch_recover.html">Git Branch Recovery</a></li>
-</ul>
-
-  </div>
-</nav>
-    </div>
   </div>
   
 
@@ -384,10 +355,34 @@
             
             <article class="bd-article" role="main">
               
-  <section id="tools">
-<span id="id1"></span><h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">#</a></h1>
-<p>This guide is an overview and explains the convenient tools.</p>
-<div class="toctree-wrapper compound">
+  <section id="indicators">
+<span id="indicator"></span><h1>Indicators<a class="headerlink" href="#indicators" title="Permalink to this headline">#</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="nn">web</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">pp</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># Get SPY data for past several years</span>
+
+<span class="n">SPY_Dat</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;SPY&#39;</span><span class="p">,</span> <span class="s1">&#39;yahoo&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># We are going to use a trailing 252 trading day window</span>
+<span class="n">window</span> <span class="o">=</span> <span class="mi">252</span>
+
+<span class="c1"># Calculate the max drawdown in the past window days for each day in the series.</span>
+<span class="c1"># Use min_periods=1 if you want to let the first 252 days data have an expanding window</span>
+<span class="n">Roll_Max</span> <span class="o">=</span> <span class="n">SPY_Dat</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">Daily_Drawdown</span> <span class="o">=</span> <span class="n">SPY_Dat</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">Roll_Max</span> <span class="o">-</span> <span class="mf">1.0</span>
+
+<span class="c1"># Next we calculate the minimum (negative) daily drawdown in that window.</span>
+<span class="c1"># Again, use min_periods=1 if you want to allow the expanding window</span>
+<span class="n">Max_Daily_Drawdown</span> <span class="o">=</span> <span class="n">Daily_Drawdown</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+<span class="c1"># Plot the results</span>
+<span class="n">Daily_Drawdown</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">Max_Daily_Drawdown</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 </section>
 
@@ -399,20 +394,6 @@
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="../finance/indicator.html" title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Indicators</p>
-      </div>
-  </a>
-  <a class='right-next' id="next-link" href="git_ssh.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Git SSH Set Up Guide</p>
-  </div>
-  <i class="fa-solid fa-angle-right"></i>
-  </a>
 </div>
             </footer>
             

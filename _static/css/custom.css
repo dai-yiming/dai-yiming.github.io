@@ -4,25 +4,25 @@
 
 /* Align homepage introduction and profile picture center */
 .row {
-  margin: 0;
+    margin: 0;
 }
 
 /* Size of navbar text links */
 .nav-internal {
-  font-size: 1.05rem;
+    font-size: 1.05rem;
 }
 
 #navbar-center {
-  padding-right: 10px;
+    padding-right: 10px;
 }
 
 .logo__image {
-  max-height: 60%;
+    max-height: 60%;
 }
 
 /* Shrink navbar */
 .navbar {
-  height: 18px;
+    height: 18px;
 }
 
 /* Hide all scrollbar */
@@ -31,67 +31,69 @@
 } */
 
 /* Hide scrollbar only in the primary sidebar */
-.bd-sidebar-primary {
-  overflow: hidden;
-}
+/* .bd-toc-item {
+    overflow: hidden;
+} */
 
 /* Shrink LeetCode icon */
 .icon-link-image {
-  width: 80%;
+    /* width: 80%; */
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 /* Global Config */
 
 :root {
-  /* Use softer blue from bootstrap's default info color */
-  --pst-color-info: 23, 162, 184;
+    /* Use softer blue from bootstrap's default info color */
+    --pst-color-info: 23, 162, 184;
 }
 
 table {
-  width: auto;
-  /* Override fit-content which breaks Styler user guide ipynb */
+    width: auto;
+    /* Override fit-content which breaks Styler user guide ipynb */
 }
 
 /* Main index page overview cards */
 
 .intro-card {
-  background: #fff;
-  border-radius: 0;
-  padding: 30px 10px 20px 10px;
-  margin: 10px 0px;
+    background: #fff;
+    border-radius: 0;
+    padding: 30px 10px 20px 10px;
+    margin: 10px 0px;
 }
 
 .intro-card p.card-text {
-  margin: 0px;
+    margin: 0px;
 }
 
 .intro-card .card-img-top {
-  margin: 10px;
-  height: 52px;
-  padding-right: 16px;
+    margin: 10px;
+    height: 52px;
+    padding-right: 16px;
 }
 
 .intro-card .card-header {
-  border: none;
-  background-color: transparent;
-  color: #150458 !important;
-  font-size: var(--pst-font-size-h5);
-  font-weight: bold;
-  padding: 2.5rem 0rem 0.5rem 0rem;
+    border: none;
+    background-color: transparent;
+    color: #150458 !important;
+    font-size: var(--pst-font-size-h5);
+    font-weight: bold;
+    padding: 2.5rem 0rem 0.5rem 0rem;
 }
 
 .intro-card .card-footer {
-  border: none;
-  background-color: transparent;
+    border: none;
+    background-color: transparent;
 }
 
 .intro-card .card-footer p.card-text {
-  max-width: 220px;
-  margin-left: auto;
-  margin-right: auto;
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card,
 .card img {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Git Branch Recovery</title>
+    <title>Binomial Model Guide</title>
   
   
   
@@ -41,12 +41,14 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tools/git_branch_recover';</script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'quant/binomial_model';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="About" href="../about/index.html" />
-    <link rel="prev" title="Git SSH Set Up Guide" href="git_ssh.html" />
+    <link rel="next" title="Black Scholes Guide" href="black_scholes_model.html" />
+    <link rel="prev" title="Quant" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -127,16 +129,9 @@
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Tools
+                        Quant
                       </a>
                     </li>
                 
@@ -256,16 +251,9 @@
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Tools
+                        Quant
                       </a>
                     </li>
                 
@@ -351,8 +339,8 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="git_ssh.html">Git SSH Set Up Guide</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Git Branch Recovery</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Binomial Model Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="black_scholes_model.html">Black Scholes Guide</a></li>
 </ul>
 
   </div>
@@ -384,47 +372,92 @@
             
             <article class="bd-article" role="main">
               
-  <section id="git-branch-recovery">
-<span id="git-branch-recover"></span><h1>Git Branch Recovery<a class="headerlink" href="#git-branch-recovery" title="Permalink to this headline">#</a></h1>
-<p>This is a tutorial for recovering git branch if accidentally deleted.</p>
-<section id="remote-branch-recovery">
-<h2>Remote branch recovery<a class="headerlink" href="#remote-branch-recovery" title="Permalink to this headline">#</a></h2>
-<p>If we have pushed the branch to a remote server, we could use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reflog</span></code> to recover easily and reliably. Suppose we have following commit history to the branch named <code class="docutils literal notranslate"><span class="pre">main</span></code> with corresponding activity id:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git reflog
-1ed7510 HEAD@<span class="o">{</span><span class="m">1</span><span class="o">}</span>: commit: message <span class="m">1</span>
-70b3696 HEAD@<span class="o">{</span><span class="m">2</span><span class="o">}</span>: commit: message <span class="m">2</span>
-98f2fc2 HEAD@<span class="o">{</span><span class="m">3</span><span class="o">}</span>: commit: message <span class="m">3</span>
-</pre></div>
-</div>
-<p>we could find the target commit and push back to origin to recover:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ checkout -b main 1ed7510
-$ add -A
-$ push origin main
-</pre></div>
-</div>
+  <section id="binomial-model-guide">
+<span id="binomial-model"></span><h1>Binomial Model Guide<a class="headerlink" href="#binomial-model-guide" title="Permalink to this headline">#</a></h1>
+<p>This is an elegant-design introduction to binomial model, geared mainly for new users.</p>
+<section id="assumptions">
+<h2>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">#</a></h2>
+<p>Binomial model is for discrete time finance, and is have key assumptions:</p>
+<ul class="simple">
+<li><p>an asset value changes only at discrete time intervals</p></li>
+<li><p>fractional trading is allowed</p></li>
+<li><p>an asset’s worth can change to one of only two possible new values at each time step.</p></li>
+</ul>
+<p>In option pricing theory, key assumptions are</p>
+<ul class="simple">
+<li><p>short selling allowed</p></li>
+<li><p>no arbitrage opportunities</p></li>
+</ul>
+<p>and relaxable assumptions are</p>
+<ul class="simple">
+<li><p>frictionless markets - no transaction costs, limits to trading or taxes</p></li>
+<li><p>perfect liquidity</p></li>
+<li><p>known volatility and interest rates</p></li>
+<li><p>no dividends on the underlying</p></li>
+</ul>
 </section>
-<section id="local-branch-recovery">
-<h2>Local branch recovery<a class="headerlink" href="#local-branch-recovery" title="Permalink to this headline">#</a></h2>
-<p>If we have <strong>not</strong> pushed the branch, we could create a list of all dangling or unreachable commits, where the commits are copied into <cite>.git/lost-found/commit/</cite>, and non-commit objects are copied into <cite>.git/lost-found/other/</cite>,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git fsck --full --no-reflogs --unreachable --lost-found
-unreachable tree 4a407b1b09e0d8a16be70aa1547332432a698e18
-unreachable tree 5040d8cf08c78119e66b9a3f8c4b61a240229259
-unreachable tree 60c0ce61b040f5e604850f747f525e88043dae12
-</pre></div>
-</div>
-<p>print a list of commit messages for all commits in the lost and found,</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls -1 .git/lost-found/commit/ <span class="p">|</span> xargs -n <span class="m">1</span> git log -n <span class="m">1</span> --pretty<span class="o">=</span>oneline
-9ae38fc6b0548cab08ccee1178db0ba0edeafdb2 foo <span class="c1"># target commit</span>
-6ed99e63db69ca04f0cc78081a1fd471289551b2 On master: search and reset
-973d9be3e2cefcd0c5801ad9cd1b2e18774b4bee Rename decorator proxy
-9efa6b28b3b0a89c312484f28cf589385d613dfd On master: mysql db config
-</pre></div>
-</div>
-<p>and create a new branch with the missing commit as the branch head:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git checkout -b &lt;branch-name&gt; 9ae38fc
-Switched to a new branch &lt;branch-name&gt;
-</pre></div>
-</div>
+<section id="delta-hedged-portfolio">
+<h2>Delta-hedged portfolio<a class="headerlink" href="#delta-hedged-portfolio" title="Permalink to this headline">#</a></h2>
+<p>Growing or decreasing of the option price is irrelevant, but price range is related to volatility. The larger the volatility, the greater the range. Later we will see that the drift does not exist when pricing derivatives in the binomial model.</p>
+<p>To solve the option value, set up a portfolio <span class="math notranslate nohighlight">\(\Pi\)</span> consisting of one long position in an option and short <span class="math notranslate nohighlight">\(\Delta\)</span> shares</p>
+<div class="math notranslate nohighlight">
+\[\Pi = V - \Delta S\]</div>
+<p>where <span class="math notranslate nohighlight">\(V\)</span> is value of the option, <span class="math notranslate nohighlight">\(\Delta\)</span> is the number of shares, and <span class="math notranslate nohighlight">\(S\)</span> is the stock price. By balancing <span class="math notranslate nohighlight">\(\Pi^+\)</span> and <span class="math notranslate nohighlight">\(\Pi^-\)</span> we could solve the value of <span class="math notranslate nohighlight">\(\Delta\)</span> where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Pi^+ = V^+ - \Delta S^+\\
+\Pi^- = V^- - \Delta S^-\end{split}\]</div>
+<p>or calculated directly by</p>
+<div class="math notranslate nohighlight">
+\[\Delta = \frac{V^+ - V^-}{S^+ - S^-}\]</div>
+<p>in discrete time. In continuous time, we write <span class="math notranslate nohighlight">\(\Delta = \frac{\partial V}{\partial S}\)</span>. This choice of <span class="math notranslate nohighlight">\(\Delta\)</span> makes <span class="math notranslate nohighlight">\(\Pi\)</span> risk-free, so no-arbitrage suggests that the return on <span class="math notranslate nohighlight">\(\Pi\)</span> equal the risk-free rate, i.e.</p>
+<div class="math notranslate nohighlight">
+\[e^{rT} \Pi = \Pi^+ = \Pi^-\]</div>
+<p>which derives</p>
+<div class="math notranslate nohighlight">
+\[V = e^{-rT} \left(qV^+ + (1-q)V^-\right)\]</div>
+<p>where we define</p>
+<div class="math notranslate nohighlight">
+\[q = \frac{e^{rT}S - S^-}{S^+ - S^-}\]</div>
+<p>with <span class="math notranslate nohighlight">\(0 &lt; q &lt; 1\)</span>. In discrete time finance, this becomes</p>
+<div class="math notranslate nohighlight">
+\[V = (1 - rT) \left(qV^+ + (1-q)V^-\right) = (1 - rT) \mathbb{E}^{\mathbb{Q}}[\text{payoff}]\]</div>
+<p>where we define</p>
+<div class="math notranslate nohighlight">
+\[q = \frac{(1 + rT)S - S^-}{S^+ - S^-}\]</div>
+<p>Pricing an option using the risk neutral probability, <span class="math notranslate nohighlight">\(q\)</span>, will make neither a profit nor a loss, while pricing an option using the real probability, <span class="math notranslate nohighlight">\(p\)</span>, will probably make you a profit or loss.</p>
+</section>
+<section id="self-financing-portfolio">
+<h2>Self-financing portfolio<a class="headerlink" href="#self-financing-portfolio" title="Permalink to this headline">#</a></h2>
+<p>Another aspect of binomial model is replication the option using only cash (or bonds) and the asset, by rearraging the equation from</p>
+<div class="math notranslate nohighlight">
+\[\Pi = V - \Delta S\]</div>
+<p>to</p>
+<div class="math notranslate nohighlight">
+\[V = \Pi + \Delta S\]</div>
+<p>Consider the prerequisites:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s_u\)</span> to be the price going up and <span class="math notranslate nohighlight">\(s_d\)</span> to be the price going down</p></li>
+<li><p>the option <span class="math notranslate nohighlight">\(X\)</span> pays off <span class="math notranslate nohighlight">\(x_u\)</span> if the asset price is <span class="math notranslate nohighlight">\(s_u\)</span> and <span class="math notranslate nohighlight">\(x_d\)</span> if <span class="math notranslate nohighlight">\(s_d\)</span></p></li>
+<li><p>the dynamics of the risk-free asset <span class="math notranslate nohighlight">\(B_t\)</span> satisfies <span class="math notranslate nohighlight">\(dB_t = rB_t dt\)</span> where <span class="math notranslate nohighlight">\(B_0 = 1\)</span>, or <span class="math notranslate nohighlight">\(B_t = e^{rt}B_0\)</span> in continuous time.</p></li>
+</ul>
+<p>Now consider a portfolio of <span class="math notranslate nohighlight">\(\psi\)</span> bonds with one-year duration and <span class="math notranslate nohighlight">\(\phi\)</span> assets at <span class="math notranslate nohighlight">\(t = 0\)</span> with initial value of</p>
+<div class="math notranslate nohighlight">
+\[V = \Pi(\psi, \phi) = \phi s + \psi\]</div>
+<p>After a timestamp, we replicate the option by insisting</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x_u = V^+ = \Pi^+ = \phi s_u + \psi e^r\\
+x_d = V^- = \Pi^- = \phi s_d + \psi e^r\end{split}\]</div>
+<p>which derives a hedging strategy with</p>
+<div class="math notranslate nohighlight">
+\[\phi = \frac{x_u - x_d}{s_u - s_d}, ~ \psi = e^{-r} \frac{x_d s_u - x_u s_d}{s_u - s_d}\]</div>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[q = \frac{e^{r}s - s_d}{s_u - s_d},\]</div>
+<p>we have</p>
+<div class="math notranslate nohighlight">
+\[V = e^{-r} (qx_u + (1 - q)x_d) = \mathbb{E}^{\mathbb{Q}}\left[e^{-r(T - t)}X\right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(0 &lt; q &lt; 1\)</span> and <span class="math notranslate nohighlight">\((T - t)\)</span> to be time to maturity. The set of probabilities <span class="math notranslate nohighlight">\(\mathbb{Q} = \{q, (1-q)\}\)</span> is called a risk-neutral measure. Risk neutral/fair value under <span class="math notranslate nohighlight">\(\mathbb{Q}\)</span> of a call is less than the expected value of the call under <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>.</p>
+<p>Currently, three methods of option pricing are introduced: delta-hedged portfolio, self-financing portfolio or replication, and one using risk-neutral probabilities.</p>
 </section>
 </section>
 
@@ -436,17 +469,17 @@ Switched to a new branch &lt;branch-name&gt;
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="git_ssh.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="index.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Git SSH Set Up Guide</p>
+          <p class="prev-next-title">Quant</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="../about/index.html" title="next page">
+  <a class='right-next' id="next-link" href="black_scholes_model.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">About</p>
+      <p class="prev-next-title">Black Scholes Guide</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -467,13 +500,18 @@ Switched to a new branch &lt;branch-name&gt;
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#remote-branch-recovery">
-   Remote branch recovery
+  <a class="reference internal nav-link" href="#assumptions">
+   Assumptions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#local-branch-recovery">
-   Local branch recovery
+  <a class="reference internal nav-link" href="#delta-hedged-portfolio">
+   Delta-hedged portfolio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#self-financing-portfolio">
+   Self-financing portfolio
   </a>
  </li>
 </ul>

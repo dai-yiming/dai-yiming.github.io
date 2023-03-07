@@ -47,7 +47,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Numpy Guide" href="numpy_guide.html" />
+    <link rel="next" title="Java Selected" href="java_selected.html" />
     <link rel="prev" title="Docs" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
@@ -130,15 +130,8 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../tools/index.html">
-                        Tools
+                      <a class="nav-link nav-internal" href="../quant/index.html">
+                        Quant
                       </a>
                     </li>
                 
@@ -259,15 +252,8 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../tools/index.html">
-                        Tools
+                      <a class="nav-link nav-internal" href="../quant/index.html">
+                        Quant
                       </a>
                     </li>
                 
@@ -354,6 +340,7 @@
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Python Selected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_selected.html">Java Selected</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_guide.html">Numpy Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_exercise.html">Numpy Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_guide.html">pandas Guide</a></li>
@@ -363,6 +350,7 @@
 <li class="toctree-l1"><a class="reference internal" href="neural_networks.html">Neural Networks Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="feature_engineering.html">Feature Engineering Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell_script.html">Shell Script Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_selected.html">Git Selected</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trick.html">Tricks</a></li>
 </ul>
 
@@ -597,7 +585,7 @@
 <span class="gp">   ....: </span>
 
 <span class="gp">In [21]: </span><span class="n">mul</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="go">calling &lt;function mul at 0x12d3132e0&gt; on arguments 2 3</span>
+<span class="go">calling &lt;function mul at 0x1356f69e0&gt; on arguments 2 3</span>
 <span class="gh">Out[21]: </span><span class="go">6</span>
 </pre></div>
 </div>
@@ -762,7 +750,7 @@
 <span class="gh">Out[48]: </span><span class="go">False</span>
 
 <span class="gp">In [49]: </span><span class="nb">reversed</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gh">Out[49]: </span><span class="go">&lt;list_reverseiterator at 0x12d5292d0&gt;</span>
+<span class="gh">Out[49]: </span><span class="go">&lt;list_reverseiterator at 0x134c4aec0&gt;</span>
 
 <span class="gp">In [50]: </span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">==</span> <span class="n">a</span>
 <span class="gh">Out[50]: </span><span class="go">True</span>
@@ -776,7 +764,7 @@
 </section>
 <section id="generator">
 <h3>Generator<a class="headerlink" href="#generator" title="Permalink to this headline">#</a></h3>
-<p>Generator is a special kind of iterator create automatically by calling a generator function. A generator function is a function that <code class="docutils literal notranslate"><span class="pre">yield``s</span> <span class="pre">values</span> <span class="pre">instead</span> <span class="pre">of</span> <span class="pre">``return``ing</span> <span class="pre">them.</span> <span class="pre">While</span> <span class="pre">a</span> <span class="pre">normal</span> <span class="pre">function</span> <span class="pre">returns</span> <span class="pre">once,</span> <span class="pre">a</span> <span class="pre">generator</span> <span class="pre">function</span> <span class="pre">can</span> <span class="pre">``yield</span></code> multiple times. When a generator function is called, it returns a generator that iterates over its yields.</p>
+<p>Generator is a special kind of iterator create automatically by calling a generator function. A generator function is a function that lazily <code class="docutils literal notranslate"><span class="pre">yield</span></code> values instead of <code class="docutils literal notranslate"><span class="pre">return</span></code> them. While a normal function returns once, a generator function can <code class="docutils literal notranslate"><span class="pre">yield</span></code> multiple times. When a generator function is called, it returns a generator that iterates over its yields.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="k">def</span> <span class="nf">evens</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="n">even</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">start</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="k">while</span> <span class="n">even</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
@@ -784,6 +772,10 @@
 <span class="gp">   ....: </span>        <span class="n">even</span> <span class="o">+=</span> <span class="mi">2</span>
 <span class="gp">   ....: </span>
 </pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">yield</span></code> is convenient when you want to inspect or process a few data records from a large data source. Its laziness saves memory and reduces running time.</p>
 </div>
 <p>A <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> statement yields all values from an iterator or iterable. The following two functions behave the same.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
@@ -1189,7 +1181,24 @@
 <li><p>An instance attribute called <code class="docutils literal notranslate"><span class="pre">__str__</span></code> is ignored</p></li>
 <li><p>If no <code class="docutils literal notranslate"><span class="pre">__str__</span></code> attribute is found, uses repr string</p></li>
 </ul>
-<p>Stepwise illustration: suppose we implement only the <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> function for the <code class="docutils literal notranslate"><span class="pre">Car</span></code> class and execute the file.</p>
+<p>Stepwise illustration: suppose we implement neither  <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> or <code class="docutils literal notranslate"><span class="pre">__str__</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lamborghini</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">lamborghini</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Car</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10494a920</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lamborghini</span><span class="p">))</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Car</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10494a920</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">lamborghini</span><span class="p">))</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Car</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10494a920</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">lamborghini</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Car</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10494a920</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">lamborghini</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">())</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Car</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10494a920</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Now we only the <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;Car()&quot;</span>
@@ -1207,7 +1216,11 @@
 <span class="n">Car</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Add the <code class="docutils literal notranslate"><span class="pre">__str__</span></code> function.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Implement <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> for any class you implement. This should be the second nature. Implement <code class="docutils literal notranslate"><span class="pre">__str__</span></code> for the seek of readability.</p>
+</div>
+<p>With both <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> and <code class="docutils literal notranslate"><span class="pre">__str__</span></code> functions.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;Car()&quot;</span>
@@ -1259,6 +1272,7 @@
 <h2>Practice<a class="headerlink" href="#practice" title="Permalink to this headline">#</a></h2>
 <section id="id2">
 <h3>Inheritance<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>Try to draw the environment diagram and guess the outputs.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Worker</span><span class="p">:</span>
     <span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39;Sir&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1287,6 +1301,7 @@
 </section>
 <section id="built-in-functions">
 <h3>Built-in functions<a class="headerlink" href="#built-in-functions" title="Permalink to this headline">#</a></h3>
+<p>Try to implement the function body according to the docstring and compare the solutions.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">min_abs_indices</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Indices of all elements in list s that have the smallest absolute value.</span>
 
@@ -1359,10 +1374,10 @@
           <p class="prev-next-title">Docs</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="numpy_guide.html" title="next page">
+  <a class='right-next' id="next-link" href="java_selected.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Numpy Guide</p>
+      <p class="prev-next-title">Java Selected</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>

@@ -130,15 +130,8 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../tools/index.html">
-                        Tools
+                      <a class="nav-link nav-internal" href="../quant/index.html">
+                        Quant
                       </a>
                     </li>
                 
@@ -259,15 +252,8 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../finance/index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../tools/index.html">
-                        Tools
+                      <a class="nav-link nav-internal" href="../quant/index.html">
+                        Quant
                       </a>
                     </li>
                 
@@ -354,6 +340,7 @@
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="python_selected.html">Python Selected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_selected.html">Java Selected</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_guide.html">Numpy Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_exercise.html">Numpy Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_guide.html">pandas Guide</a></li>
@@ -363,6 +350,7 @@
 <li class="toctree-l1"><a class="reference internal" href="neural_networks.html">Neural Networks Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="feature_engineering.html">Feature Engineering Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell_script.html">Shell Script Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_selected.html">Git Selected</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trick.html">Tricks</a></li>
 </ul>
 
@@ -483,14 +471,14 @@
 <span class="gp">In [10]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [11]: </span><span class="n">rand</span>
-<span class="gh">Out[11]: </span><span class="go">array([0.2306, 0.4571, 0.8786])</span>
+<span class="gh">Out[11]: </span><span class="go">array([0.1671, 0.4405, 0.334 ])</span>
 
 <span class="gp">In [12]: </span><span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;rand&quot;</span> <span class="p">:</span> <span class="n">rand</span><span class="p">})</span>
 
 <span class="gp">In [13]: </span><span class="n">var</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">)</span>
 
 <span class="gp">In [14]: </span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;rand&quot;</span><span class="p">]</span>
-<span class="gh">Out[14]: </span><span class="go">array([[0.2306, 0.4571, 0.8786]])</span>
+<span class="gh">Out[14]: </span><span class="go">array([[0.1671, 0.4405, 0.334 ]])</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -560,13 +548,13 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="gp">In [17]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gh">Out[17]: </span><span class="go">-0.029678133627275092</span>
+<span class="gh">Out[17]: </span><span class="go">-0.38403270290021596</span>
 
 <span class="gp">In [18]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[ 13.7767,  -2.662 , -12.6092],</span>
-<span class="go">       [ -5.6266,   0.385 ,   6.4564],</span>
-<span class="go">       [ -9.7932,   3.9127,   8.6868]])</span>
+<span class="go">array([[ 0.0356,  1.289 , -0.2889],</span>
+<span class="go">       [ 1.5356,  0.2604, -2.066 ],</span>
+<span class="go">       [-0.3688, -0.6384,  1.926 ]])</span>
 </pre></div>
 </div>
 </section>
@@ -585,9 +573,9 @@
 
 <span class="gp">In [24]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="gh">Out[24]: </span><span class="go"></span>
-<span class="go">[&lt;matplotlib.lines.Line2D at 0x12de077c0&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x12de04880&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x12decc040&gt;]</span>
+<span class="go">[&lt;matplotlib.lines.Line2D at 0x1362d8370&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x1362d8340&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x1362d86d0&gt;]</span>
 </pre></div>
 </div>
 <img alt="../_images/scipy_interp1d.png" class="align-center" src="../_images/scipy_interp1d.png" />

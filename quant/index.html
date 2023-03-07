@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Indicators</title>
+    <title>Quant</title>
   
   
   
@@ -41,12 +41,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'finance/indicator';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'quant/index';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tools" href="../tools/index.html" />
-    <link rel="prev" title="Black Scholes Guide" href="black_scholes_model.html" />
+    <link rel="next" title="Binomial Model Guide" href="binomial_model.html" />
+    <link rel="prev" title="Tricks" href="../docs/trick.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -128,15 +128,8 @@
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../tools/index.html">
-                        Tools
+                      <a class="nav-link nav-internal" href="#">
+                        Quant
                       </a>
                     </li>
                 
@@ -222,10 +215,6 @@
   
 
   
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
-      <span class="fa-solid fa-outdent"></span>
-  </label>
-  
 
 </div>
   </nav>
@@ -234,7 +223,7 @@
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
   
   <div class="sidebar-header-items sidebar-primary__section">
@@ -257,15 +246,8 @@
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
-                        Finance
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../tools/index.html">
-                        Tools
+                      <a class="nav-link nav-internal" href="#">
+                        Quant
                       </a>
                     </li>
                 
@@ -337,30 +319,6 @@
   </div>
 
   
-  <div class="sidebar-start-items sidebar-primary__section">
-    <div class="sidebar-start-items__item">
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-    </div>
-    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">
-    Section Navigation
-  </p>
-  <div class="bd-toc-item navbar-nav">
-    <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="binomial_model.html">Binomial Model Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="black_scholes_model.html">Black Scholes Guide</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Indicators</a></li>
-</ul>
-
-  </div>
-</nav>
-    </div>
-  </div>
-  
 
   
   <div class="sidebar-end-items sidebar-primary__section">
@@ -385,34 +343,14 @@
             
             <article class="bd-article" role="main">
               
-  <section id="indicators">
-<span id="indicator"></span><h1>Indicators<a class="headerlink" href="#indicators" title="Permalink to this headline">#</a></h1>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="nn">web</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">pp</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-
-<span class="c1"># Get SPY data for past several years</span>
-
-<span class="n">SPY_Dat</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;SPY&#39;</span><span class="p">,</span> <span class="s1">&#39;yahoo&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="c1"># We are going to use a trailing 252 trading day window</span>
-<span class="n">window</span> <span class="o">=</span> <span class="mi">252</span>
-
-<span class="c1"># Calculate the max drawdown in the past window days for each day in the series.</span>
-<span class="c1"># Use min_periods=1 if you want to let the first 252 days data have an expanding window</span>
-<span class="n">Roll_Max</span> <span class="o">=</span> <span class="n">SPY_Dat</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="n">Daily_Drawdown</span> <span class="o">=</span> <span class="n">SPY_Dat</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">Roll_Max</span> <span class="o">-</span> <span class="mf">1.0</span>
-
-<span class="c1"># Next we calculate the minimum (negative) daily drawdown in that window.</span>
-<span class="c1"># Again, use min_periods=1 if you want to allow the expanding window</span>
-<span class="n">Max_Daily_Drawdown</span> <span class="o">=</span> <span class="n">Daily_Drawdown</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-
-<span class="c1"># Plot the results</span>
-<span class="n">Daily_Drawdown</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">Max_Daily_Drawdown</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">pp</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+  <section id="quant">
+<span id="id1"></span><h1>Quant<a class="headerlink" href="#quant" title="Permalink to this headline">#</a></h1>
+<p>An elegant-design and concise guide for selected topics of quantitative discipline.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="binomial_model.html">Binomial Model Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="black_scholes_model.html">Black Scholes Guide</a></li>
+</ul>
 </div>
 </section>
 
@@ -424,17 +362,17 @@
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="black_scholes_model.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="../docs/trick.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Black Scholes Guide</p>
+          <p class="prev-next-title">Tricks</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="../tools/index.html" title="next page">
+  <a class='right-next' id="next-link" href="binomial_model.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Tools</p>
+      <p class="prev-next-title">Binomial Model Guide</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -444,23 +382,6 @@
           </div>
           
           
-          
-            <div class="bd-sidebar-secondary bd-toc">
-              
-<div class="toc-item">
-  
-<div id="searchbox"></div>
-</div>
-
-<div class="toc-item">
-  
-</div>
-
-<div class="toc-item">
-  
-</div>
-
-            </div>
           
           
         </div>
