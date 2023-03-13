@@ -471,14 +471,14 @@
 <span class="gp">In [10]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [11]: </span><span class="n">rand</span>
-<span class="gh">Out[11]: </span><span class="go">array([0.1671, 0.4405, 0.334 ])</span>
+<span class="gh">Out[11]: </span><span class="go">array([0.2379, 0.6873, 0.3396])</span>
 
 <span class="gp">In [12]: </span><span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;rand&quot;</span> <span class="p">:</span> <span class="n">rand</span><span class="p">})</span>
 
 <span class="gp">In [13]: </span><span class="n">var</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">)</span>
 
 <span class="gp">In [14]: </span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;rand&quot;</span><span class="p">]</span>
-<span class="gh">Out[14]: </span><span class="go">array([[0.1671, 0.4405, 0.334 ]])</span>
+<span class="gh">Out[14]: </span><span class="go">array([[0.2379, 0.6873, 0.3396]])</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -548,13 +548,13 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="gp">In [17]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gh">Out[17]: </span><span class="go">-0.38403270290021596</span>
+<span class="gh">Out[17]: </span><span class="go">-0.1101590589956874</span>
 
 <span class="gp">In [18]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[ 0.0356,  1.289 , -0.2889],</span>
-<span class="go">       [ 1.5356,  0.2604, -2.066 ],</span>
-<span class="go">       [-0.3688, -0.6384,  1.926 ]])</span>
+<span class="go">array([[ 4.7747, -2.4813, -1.4589],</span>
+<span class="go">       [ 2.1893, -2.6167,  0.5618],</span>
+<span class="go">       [-6.7619,  5.1363,  2.0017]])</span>
 </pre></div>
 </div>
 </section>
@@ -573,9 +573,9 @@
 
 <span class="gp">In [24]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="gh">Out[24]: </span><span class="go"></span>
-<span class="go">[&lt;matplotlib.lines.Line2D at 0x1362d8370&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x1362d8340&gt;,</span>
-<span class="go"> &lt;matplotlib.lines.Line2D at 0x1362d86d0&gt;]</span>
+<span class="go">[&lt;matplotlib.lines.Line2D at 0x15ab601c0&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x15ab60190&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x15ab60460&gt;]</span>
 </pre></div>
 </div>
 <img alt="../_images/scipy_interp1d.png" class="align-center" src="../_images/scipy_interp1d.png" />
@@ -723,7 +723,7 @@
     
 <p class="copyright">
 
-    &copy; Copyright 2023, Yiming Dai.<br>
+    &copy; Copyright 2021-2023, Yiming Dai.<br>
 
 </p>
 

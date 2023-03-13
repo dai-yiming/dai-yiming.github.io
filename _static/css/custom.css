@@ -25,21 +25,36 @@
     height: 18px;
 }
 
-/* Hide all scrollbar */
-/* ::-webkit-scrollbar {
-  display: none;
-} */
-
-/* Hide scrollbar only in the primary sidebar */
-/* .bd-toc-item {
-    overflow: hidden;
-} */
-
 /* Shrink LeetCode icon */
 .icon-link-image {
     /* width: 80%; */
     padding-top: 2px;
     padding-bottom: 2px;
+}
+
+/* Disable Content Selection */
+body {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* color: #cc00aa; */
+}
+
+/* Disable Page Printing */
+@media print {
+
+    html,
+    body {
+        display: none;
+        /* hide whole page */
+    }
+}
+
+/* Disable Picture Download */
+img {
+    pointer-events: none;
 }
 
 /* Global Config */
