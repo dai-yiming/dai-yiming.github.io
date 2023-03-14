@@ -1,0 +1,114 @@
+/* Override some aspects of the pydata-sphinx-theme */
+
+/* Customized */
+
+/* Align homepage introduction and profile picture center */
+.row {
+    margin: 0;
+}
+
+/* Size of navbar text links */
+.nav-internal {
+    font-size: 1.05rem;
+}
+
+#navbar-center {
+    padding-right: 10px;
+}
+
+.logo__image {
+    max-height: 60%;
+}
+
+/* Shrink navbar */
+.navbar {
+    height: 18px;
+}
+
+/* Shrink LeetCode icon */
+.icon-link-image {
+    /* width: 80%; */
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/* Disable Content Selection */
+body {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* color: #cc00aa; */
+}
+
+/* Disable Page Printing */
+@media print {
+
+    html,
+    body {
+        display: none;
+        /* hide whole page */
+    }
+}
+
+/* Disable Picture Download */
+img {
+    pointer-events: none;
+}
+
+/* Global Config */
+
+:root {
+    /* Use softer blue from bootstrap's default info color */
+    --pst-color-info: 23, 162, 184;
+}
+
+table {
+    width: auto;
+    /* Override fit-content which breaks Styler user guide ipynb */
+}
+
+/* Main index page overview cards */
+
+.intro-card {
+    background: #fff;
+    border-radius: 0;
+    padding: 30px 10px 20px 10px;
+    margin: 10px 0px;
+}
+
+.intro-card p.card-text {
+    margin: 0px;
+}
+
+.intro-card .card-img-top {
+    margin: 10px;
+    height: 52px;
+    padding-right: 16px;
+}
+
+.intro-card .card-header {
+    border: none;
+    background-color: transparent;
+    color: #150458 !important;
+    font-size: var(--pst-font-size-h5);
+    font-weight: bold;
+    padding: 2.5rem 0rem 0.5rem 0rem;
+}
+
+.intro-card .card-footer {
+    border: none;
+    background-color: transparent;
+}
+
+.intro-card .card-footer p.card-text {
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card,
+.card img {
+    background-color: transparent !important;
+}

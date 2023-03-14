@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>SciPy Selected</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/started.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/scipy_selected';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MATLAB Guide" href="matlab_guide.html" />
+    <link rel="prev" title="pandas Guide" href="pandas_guide.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class=" navbar-header-items">
+    <div id="navbar-center" class="ml-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Docs
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../quant/index.html">
+                        Quant
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/dai-yiming" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/yimingdai/" title="LinkedIn" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-linkedin"></i></span>
+            <label class="sr-only">LinkedIn</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://leetcode.com/yimingdai/" title="LeetCode" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><img src="../_static/img/leetcode.svg" class="icon-link-image" alt="LeetCode"/></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Docs
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../quant/index.html">
+                        Quant
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/dai-yiming" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/yimingdai/" title="LinkedIn" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-linkedin"></i></span>
+            <label class="sr-only">LinkedIn</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://leetcode.com/yimingdai/" title="LeetCode" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><img src="../_static/img/leetcode.svg" class="icon-link-image" alt="LeetCode"/></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    Section Navigation
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_selected.html">Python Selected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_selected.html">Java Selected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy_guide.html">Numpy Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy_exercise.html">Numpy Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_guide.html">pandas Guide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SciPy Selected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab_guide.html">MATLAB Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab_finance.html">MATLAB for Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature_engineering.html">Feature Engineering Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neural_networks.html">Neural Networks Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_script.html">Shell Script Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_selected.html">Git Selected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trick.html">Tricks</a></li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <section id="scipy-selected">
+<span id="id1"></span><h1>SciPy Selected<a class="headerlink" href="#scipy-selected" title="Permalink to this headline">#</a></h1>
+<p>This is an elegant-design introduction to SciPy, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="http://scipy.github.io/devdocs/index.html">SciPy</a>.</p>
+<section id="composition">
+<h2>Composition<a class="headerlink" href="#composition" title="Permalink to this headline">#</a></h2>
+<p>SciPy is composed of task-specific sub-modules:</p>
+<table class="table">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 61%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.cluster</span></code></p></td>
+<td><p>Vector quantization / Kmeans</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.constants</span></code></p></td>
+<td><p>Physical and mathematical constants</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.fftpack</span></code></p></td>
+<td><p>Fourier transform</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code></p></td>
+<td><p>Integration routines</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code></p></td>
+<td><p>Interpolation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.io</span></code></p></td>
+<td><p>Data input and output</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code></p></td>
+<td><p>Linear algebra routines</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.ndimage</span></code></p></td>
+<td><p>n-dimensional image package</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.odr</span></code></p></td>
+<td><p>Orthogonal distance regression</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></p></td>
+<td><p>Optimization</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code></p></td>
+<td><p>Signal processing</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.sparse</span></code></p></td>
+<td><p>Sparse matrices</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.spatial</span></code></p></td>
+<td><p>Spatial data structures and algorithms</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.special</span></code></p></td>
+<td><p>Any special mathematical functions</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></p></td>
+<td><p>Statistics</p></td>
+</tr>
+</tbody>
+</table>
+<p>The main namespace of SciPy contains original Numpy functions, so we do not import <code class="docutils literal notranslate"><span class="pre">scipy</span></code> only. Though SciPy is independent from Numpy, the modules depend on Numpy. For more information about Numpy, check out <a class="reference internal" href="numpy_guide.html#numpy-guide"><span class="std std-ref">Numpy Guide</span></a>.</p>
+<p>The conventional way of importing Numpy and SciPy modules necessary for illustration is:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">scipy.io</span> <span class="k">as</span> <span class="nn">sio</span>
+
+<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">special</span>
+
+<span class="gp">In [4]: </span><span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
+
+<span class="gp">In [5]: </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="gp">In [6]: </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+
+<span class="gp">In [7]: </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+
+<span class="gp">In [8]: </span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+<p>Next, we illustrate the common usage of libraries we imported with detailed examples.</p>
+</section>
+<section id="io-management">
+<h2>IO Management<a class="headerlink" href="#io-management" title="Permalink to this headline">#</a></h2>
+<p>Load and save MATLAB files:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="gp">In [10]: </span><span class="n">rand</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">rand</span>
+<span class="gh">Out[11]: </span><span class="go">array([0.7377, 0.0911, 0.8865])</span>
+
+<span class="gp">In [12]: </span><span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;rand&quot;</span> <span class="p">:</span> <span class="n">rand</span><span class="p">})</span>
+
+<span class="gp">In [13]: </span><span class="n">var</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;rand.mat&quot;</span><span class="p">)</span>
+
+<span class="gp">In [14]: </span><span class="n">var</span><span class="p">[</span><span class="s2">&quot;rand&quot;</span><span class="p">]</span>
+<span class="gh">Out[14]: </span><span class="go">array([[0.7377, 0.0911, 0.8865]])</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Notice MATLAB does not support 1D arrays; the shape of 1D arrays in Numpy and MATLAB are different with <strong>(n,)</strong> for Numpy and <strong>(1, n)</strong> for MATLAB by default.</p>
+</div>
+</section>
+<section id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">#</a></h2>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="o">-</span><span class="p">]:</span> <span class="n">help</span><span class="p">(</span><span class="n">integrate</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="o">-</span><span class="p">]:</span>
+
+<span class="n">Integrating</span> <span class="n">functions</span><span class="p">,</span> <span class="n">given</span> <span class="n">function</span> <span class="nb">object</span>
+<span class="o">============================================</span>
+
+   <span class="n">quad</span>          <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">integration</span>
+   <span class="n">quad_vec</span>      <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">integration</span> <span class="n">of</span> <span class="n">vector</span><span class="o">-</span><span class="n">valued</span> <span class="n">functions</span>
+   <span class="n">dblquad</span>       <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">double</span> <span class="n">integration</span>
+   <span class="n">tplquad</span>       <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">triple</span> <span class="n">integration</span>
+   <span class="n">nquad</span>         <span class="o">--</span> <span class="n">General</span> <span class="n">purpose</span> <span class="n">N</span><span class="o">-</span><span class="n">D</span> <span class="n">integration</span>
+   <span class="n">fixed_quad</span>    <span class="o">--</span> <span class="n">Integrate</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">using</span> <span class="n">Gaussian</span> <span class="n">quadrature</span> <span class="n">of</span> <span class="n">order</span> <span class="n">n</span>
+   <span class="n">quadrature</span>    <span class="o">--</span> <span class="n">Integrate</span> <span class="k">with</span> <span class="n">given</span> <span class="n">tolerance</span> <span class="n">using</span> <span class="n">Gaussian</span> <span class="n">quadrature</span>
+   <span class="n">romberg</span>       <span class="o">--</span> <span class="n">Integrate</span> <span class="n">func</span> <span class="n">using</span> <span class="n">Romberg</span> <span class="n">integration</span>
+   <span class="n">quad_explain</span>  <span class="o">--</span> <span class="n">Print</span> <span class="n">information</span> <span class="k">for</span> <span class="n">use</span> <span class="n">of</span> <span class="n">quad</span>
+   <span class="n">newton_cotes</span>  <span class="o">--</span> <span class="n">Weights</span> <span class="ow">and</span> <span class="n">error</span> <span class="n">coefficient</span> <span class="k">for</span> <span class="n">Newton</span><span class="o">-</span><span class="n">Cotes</span> <span class="n">integration</span>
+   <span class="n">IntegrationWarning</span> <span class="o">--</span> <span class="ne">Warning</span> <span class="n">on</span> <span class="n">issues</span> <span class="n">during</span> <span class="n">integration</span>
+   <span class="n">AccuracyWarning</span>  <span class="o">--</span> <span class="ne">Warning</span> <span class="n">on</span> <span class="n">issues</span> <span class="n">during</span> <span class="n">quadrature</span> <span class="n">integration</span>
+
+<span class="n">Integrating</span> <span class="n">functions</span><span class="p">,</span> <span class="n">given</span> <span class="n">fixed</span> <span class="n">samples</span>
+<span class="o">==========================================</span>
+
+   <span class="n">trapezoid</span>            <span class="o">--</span> <span class="n">Use</span> <span class="n">trapezoidal</span> <span class="n">rule</span> <span class="n">to</span> <span class="n">compute</span> <span class="n">integral</span><span class="o">.</span>
+   <span class="n">cumulative_trapezoid</span> <span class="o">--</span> <span class="n">Use</span> <span class="n">trapezoidal</span> <span class="n">rule</span> <span class="n">to</span> <span class="n">cumulatively</span> <span class="n">compute</span> <span class="n">integral</span><span class="o">.</span>
+   <span class="n">simpson</span>              <span class="o">--</span> <span class="n">Use</span> <span class="n">Simpson</span><span class="s1">&#39;s rule to compute integral from samples.</span>
+   <span class="n">romb</span>                 <span class="o">--</span> <span class="n">Use</span> <span class="n">Romberg</span> <span class="n">Integration</span> <span class="n">to</span> <span class="n">compute</span> <span class="n">integral</span> <span class="kn">from</span>
+                        <span class="o">--</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">evenly</span><span class="o">-</span><span class="n">spaced</span> <span class="n">samples</span><span class="o">.</span>
+
+<span class="n">Solving</span> <span class="n">initial</span> <span class="n">value</span> <span class="n">problems</span> <span class="k">for</span> <span class="n">ODE</span> <span class="n">systems</span>
+<span class="o">==============================================</span>
+<span class="n">The</span> <span class="n">solvers</span> <span class="n">are</span> <span class="n">implemented</span> <span class="k">as</span> <span class="n">individual</span> <span class="n">classes</span><span class="p">,</span> <span class="n">which</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">directly</span>
+<span class="p">(</span><span class="n">low</span><span class="o">-</span><span class="n">level</span> <span class="n">usage</span><span class="p">)</span> <span class="ow">or</span> <span class="n">through</span> <span class="n">a</span> <span class="n">convenience</span> <span class="n">function</span><span class="o">.</span>
+
+   <span class="n">solve_ivp</span>     <span class="o">--</span> <span class="n">Convenient</span> <span class="n">function</span> <span class="k">for</span> <span class="n">ODE</span> <span class="n">integration</span><span class="o">.</span>
+   <span class="n">RK23</span>          <span class="o">--</span> <span class="n">Explicit</span> <span class="n">Runge</span><span class="o">-</span><span class="n">Kutta</span> <span class="n">solver</span> <span class="n">of</span> <span class="n">order</span> <span class="mi">3</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span>
+   <span class="n">RK45</span>          <span class="o">--</span> <span class="n">Explicit</span> <span class="n">Runge</span><span class="o">-</span><span class="n">Kutta</span> <span class="n">solver</span> <span class="n">of</span> <span class="n">order</span> <span class="mi">5</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span>
+   <span class="n">DOP853</span>        <span class="o">--</span> <span class="n">Explicit</span> <span class="n">Runge</span><span class="o">-</span><span class="n">Kutta</span> <span class="n">solver</span> <span class="n">of</span> <span class="n">order</span> <span class="mf">8.</span>
+   <span class="n">Radau</span>         <span class="o">--</span> <span class="n">Implicit</span> <span class="n">Runge</span><span class="o">-</span><span class="n">Kutta</span> <span class="n">solver</span> <span class="n">of</span> <span class="n">order</span> <span class="mf">5.</span>
+   <span class="n">BDF</span>           <span class="o">--</span> <span class="n">Implicit</span> <span class="n">multi</span><span class="o">-</span><span class="n">step</span> <span class="n">variable</span> <span class="n">order</span> <span class="p">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">5</span><span class="p">)</span> <span class="n">solver</span><span class="o">.</span>
+   <span class="n">LSODA</span>         <span class="o">--</span> <span class="n">LSODA</span> <span class="n">solver</span> <span class="kn">from</span> <span class="nn">ODEPACK</span> <span class="n">Fortran</span> <span class="n">package</span><span class="o">.</span>
+   <span class="n">OdeSolver</span>     <span class="o">--</span> <span class="n">Base</span> <span class="k">class</span> <span class="nc">for</span> <span class="n">ODE</span> <span class="n">solvers</span><span class="o">.</span>
+   <span class="n">DenseOutput</span>   <span class="o">--</span> <span class="n">Local</span> <span class="n">interpolant</span> <span class="k">for</span> <span class="n">computing</span> <span class="n">a</span> <span class="n">dense</span> <span class="n">output</span><span class="o">.</span>
+   <span class="n">OdeSolution</span>   <span class="o">--</span> <span class="n">Class</span> <span class="n">which</span> <span class="n">represents</span> <span class="n">a</span> <span class="n">continuous</span> <span class="n">ODE</span> <span class="n">solution</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Integrate a bessel function <code class="docutils literal notranslate"><span class="pre">jv(3.5,x)</span></code> using <code class="docutils literal notranslate"><span class="pre">quad</span></code> along the interval <span class="math notranslate nohighlight">\([0, 4]\)</span></p>
+<div class="math notranslate nohighlight">
+\[I = \int^{4}_{0} J_{3.5} (x) dx\]</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">special</span><span class="o">.</span><span class="n">jv</span><span class="p">(</span><span class="mf">3.5</span> <span class="p">,</span><span class="n">x</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[15]: </span><span class="go">(0.4584570300316943, 2.7693609539252326e-10)</span>
+</pre></div>
+</div>
+<p>The return value is a tuple, with the first element holding the estimated value of the integral and the second element holding an upper bound on the error.</p>
+</section>
+<section id="linear-algebra">
+<h2>Linear algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">#</a></h2>
+<p>Calculate determinant and matrix inverse.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="gp">In [17]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gh">Out[17]: </span><span class="go">-0.22571937611825482</span>
+
+<span class="gp">In [18]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="go">array([[ 2.7944, -1.5144, -0.6223],</span>
+<span class="go">       [ 0.1559, -0.1875,  1.5106],</span>
+<span class="go">       [-1.7064,  1.9786, -0.0383]])</span>
+</pre></div>
+</div>
+</section>
+<section id="interpolation">
+<h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">#</a></h2>
+<p>Perform linear and cubic interpolation with 1D data.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="gp">In [20]: </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">9.0</span><span class="p">)</span>
+
+<span class="gp">In [21]: </span><span class="n">f1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="gp">In [22]: </span><span class="n">f2</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+
+<span class="gp">In [23]: </span><span class="n">xnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="gp">In [24]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">xnew</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">xnew</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="gh">Out[24]: </span><span class="go"></span>
+<span class="go">[&lt;matplotlib.lines.Line2D at 0x15bb3b610&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x15bb3b130&gt;,</span>
+<span class="go"> &lt;matplotlib.lines.Line2D at 0x15bb7c040&gt;]</span>
+</pre></div>
+</div>
+<img alt="../_images/scipy_interp1d.png" class="align-center" src="../_images/scipy_interp1d.png" />
+</section>
+<section id="root-finding">
+<h2>Root finding<a class="headerlink" href="#root-finding" title="Permalink to this headline">#</a></h2>
+<p>Finding the roots of a scalar function.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">   ....: </span>   <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [26]: </span><span class="n">root1</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [27]: </span><span class="n">root1</span>
+<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="go">    fjac: array([[-1.]])</span>
+<span class="go">     fun: array([0.])</span>
+<span class="go"> message: &#39;The solution converged.&#39;</span>
+<span class="go">    nfev: 10</span>
+<span class="go">     qtf: array([0.])</span>
+<span class="go">       r: array([-10.])</span>
+<span class="go">  status: 1</span>
+<span class="go"> success: True</span>
+<span class="go">       x: array([0.])</span>
+
+<span class="gp">In [28]: </span><span class="n">root2</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=-</span><span class="mf">2.5</span><span class="p">)</span>
+
+<span class="gp">In [29]: </span><span class="p">(</span><span class="n">root1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">root2</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="gh">Out[29]: </span><span class="go">(array([0.]), array([-2.4795]))</span>
+</pre></div>
+</div>
+<img alt="../_images/scipy_root.png" class="align-center" src="../_images/scipy_root.png" />
+</section>
+</section>
+
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="pandas_guide.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">pandas Guide</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="matlab_guide.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">MATLAB Guide</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#io-management">
+   IO Management
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integration">
+   Integration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-algebra">
+   Linear algebra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpolation">
+   Interpolation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#root-finding">
+   Root finding
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+<div id="searchbox"></div>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2021-2023, Yiming Dai.<br>
+
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>
