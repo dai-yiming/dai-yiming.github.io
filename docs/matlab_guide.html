@@ -1,0 +1,1224 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MATLAB Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/started.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/matlab_guide';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MATLAB for Finance" href="matlab_finance.html" />
+    <link rel="prev" title="SciPy Selected" href="scipy_selected.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class=" navbar-header-items">
+    <div id="navbar-center" class="ml-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Docs
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../quant/index.html">
+                        Quant
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/dai-yiming" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/yimingdai/" title="LinkedIn" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-linkedin"></i></span>
+            <label class="sr-only">LinkedIn</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://leetcode.com/yimingdai/" title="LeetCode" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><img src="../_static/img/leetcode.svg" class="icon-link-image" alt="LeetCode"/></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Docs
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../quant/index.html">
+                        Quant
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/dai-yiming" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/yimingdai/" title="LinkedIn" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-linkedin"></i></span>
+            <label class="sr-only">LinkedIn</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://leetcode.com/yimingdai/" title="LeetCode" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><img src="../_static/img/leetcode.svg" class="icon-link-image" alt="LeetCode"/></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs .." aria-label="Search the docs .." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    Section Navigation
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_selected.html">Python Selected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_selected.html">Java Selected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy_guide.html">Numpy Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy_exercise.html">Numpy Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_guide.html">pandas Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scipy_selected.html">SciPy Selected</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MATLAB Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab_finance.html">MATLAB for Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature_engineering.html">Feature Engineering Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neural_networks.html">Neural Networks Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_script.html">Shell Script Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_selected.html">Git Selected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trick.html">Tricks</a></li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <section id="matlab-guide">
+<span id="id1"></span><h1>MATLAB Guide<a class="headerlink" href="#matlab-guide" title="Permalink to this headline">#</a></h1>
+<p>This is an elegant-design introduction to MATLAB, geared mainly for new users. You can see more complex recipes at <a class="reference external" href="https://www.mathworks.com/help/index.html?s_tid=CRUX_lftnav">MATLAB</a>.</p>
+<p>As for getting help, MATLAB uses <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">func</span></code> to get brief documentation on the function <cite>func</cite> within the command window, and uses <code class="docutils literal notranslate"><span class="pre">doc</span> <span class="pre">func</span></code> to open the documentation page with external browser. Also, it uses <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">func</span></code> for user-defined source code. When debugging, before making a fix to your code, you should always stop your debugging session first so that you can save your changes.</p>
+<section id="io-management">
+<h2>IO management<a class="headerlink" href="#io-management" title="Permalink to this headline">#</a></h2>
+<section id="workspace-io">
+<h3>Workspace IO<a class="headerlink" href="#workspace-io" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">save</span> <span class="pre">file</span></code>: save current workspace to <cite>file.mat</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">file</span></code>: load variables in <cite>file.mat</cite> to the workspace</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clear</span> <span class="pre">[var]</span></code>: clear certain variable from the workspace, or clear all if not specified</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clc</span></code>: clear all text from the Command Window</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">bank/short/long</span></code>: set 2/4/16 digits for numeric display</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">[scriptName]</span></code>: edit script or create one if not existed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scriptName</span></code>: run the script</p></li>
+</ul>
+</section>
+<section id="text-io">
+<h3>Text IO<a class="headerlink" href="#text-io" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">input</span></code>: gather textual input from the Command Window</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disp</span></code>: display text or array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fprintf</span></code>: write data on the screen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warning</span></code>: display warning message in orange, program continues to execute</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code>: display error message in red, program stops execution</p></li>
+</ul>
+</section>
+<section id="graphical-io">
+<h3>Graphical IO<a class="headerlink" href="#graphical-io" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">menu</span></code>: a multiple-choice dialog box</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inputdlg</span></code>: a dialog box with input window</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uigetfile</span></code>: open standard dialog box for retrieving files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msgbox</span></code>: message dialog</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warndlg</span></code>: warning dialog</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">errordlg</span></code>: error dialog</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlsread</span></code>: import data from an Excel file</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">txt</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xlsread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">sheetname</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Cost = $%d\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
+<span class="n">Cost</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>$<span class="mi">20</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">menu</span><span class="p">(</span><span class="s">&#39;Choose a color&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;yellow&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">inputdlg</span><span class="p">(</span><span class="s">&#39;Please enter your ID: &#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">uigetfile</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">warndlg</span><span class="p">(</span><span class="s">&#39;Divided by zero.&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="object-creation">
+<h2>Object creation<a class="headerlink" href="#object-creation" title="Permalink to this headline">#</a></h2>
+<p>Several methods to create MATLAB arrays are available, and we should contain homogeneous elements only for optimal efficiency. The simplest way is</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="c">% row vector</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">;</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="c">% column vector</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="c">% matrix</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ndims</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span>#<span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">dimensions</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">numel</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span>#<span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">elements</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">  </span>#<span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Preallocation is an option for the growth acceleration of arrays</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">  </span><span class="c">% square matrix in U(0,1)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix in N(0,1)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">randi</span><span class="p">([</span><span class="nb">upper</span><span class="w"> </span><span class="nb">lower</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix in U(u,l)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% mxn matrix</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% square matrix</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% identity matrix</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">diag</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c">% 2D diagonal matrix</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In addition, we could use <code class="docutils literal notranslate"><span class="pre">:</span></code> and <code class="docutils literal notranslate"><span class="pre">linspace</span></code> to create evenly spaced vectors, and both methods’ <cite>end</cite> parameter is border-inclusive.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%  start : space : end</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="p">:</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="p">:</span><span class="w">  </span><span class="mi">6</span><span class="w"></span>
+<span class="c">%  linspace(start, end, steps)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="p">,</span><span class="w">  </span><span class="mi">6</span><span class="w"> </span><span class="p">,</span><span class="w">   </span><span class="mi">7</span><span class="w">  </span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The results for above two methods are the same: a list of size seven counting from zero to six.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code> to generate grid for optimal efficiency which generates two 2D matrices with identical shape</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">meshgrid</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mi">0</span><span class="w">     </span><span class="mi">1</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">1</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">1</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">1</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w"></span>
+<span class="w">     </span><span class="mi">1</span><span class="w">     </span><span class="mi">1</span><span class="w">     </span><span class="mi">1</span><span class="w"></span>
+<span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="w">     </span><span class="mi">3</span><span class="w">     </span><span class="mi">3</span><span class="w">     </span><span class="mi">3</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In order to make a deep copy, direct assigning the result to a new variable.</p>
+<p>Stack matrices are easy in MATLAB, either vertical or horizontal</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="c">% horizontal</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">;</span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="c">% vertical</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="mi">3</span><span class="w">   </span><span class="mi">4</span><span class="w">   </span><span class="mi">5</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To create an array of strings or a cell array, commonly used by pie chart, use curly bracket <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">cryptoNames</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;BTC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SNX&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YFI&quot;</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code> to get the number of rows and columns in a matrix. If we want to replace all values of the variable AAPL with 1000, use command</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">stockData</span><span class="p">.</span><span class="n">AAPL</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="nb">height</span><span class="p">(</span><span class="n">stockData</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="selection">
+<h2>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Indexing in MATLAB starts with one.</p>
+</div>
+<p>The common method to index an array is <code class="docutils literal notranslate"><span class="pre">a(start:step:stop)</span></code>. If we want to access the last element, use <code class="docutils literal notranslate"><span class="pre">end</span></code> logical value.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="c">% extract the second row</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span><span class="w"></span>
+<span class="c">% extract the second column</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c">% change value</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="mi">5</span><span class="w">     </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="mi">1</span><span class="w">     </span><span class="mi">1</span><span class="w">     </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="mi">3</span><span class="w">     </span><span class="mi">3</span><span class="w">     </span><span class="mi">3</span><span class="w"></span>
+</pre></div>
+</div>
+<p>MATLAB uses <cite>and</cite> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> , <cite>or</cite> <code class="docutils literal notranslate"><span class="pre">|</span></code>, <cite>not</cite> <code class="docutils literal notranslate"><span class="pre">~</span></code>, <cite>equal</cite> <code class="docutils literal notranslate"><span class="pre">==</span></code> for logical operations with application for boolean mask, assuming identical matrix dimensions. NaN data is dangerous in that it may ruins the analytical results or graphics, which leads to unsatisfactory conclusion.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">&#39;</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">((</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="o">&#39;</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="o">&#39;</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="n">mask</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">0</span><span class="w"></span>
+<span class="w">       </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w"></span>
+<span class="w">       </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w"></span>
+<span class="w">       </span><span class="mi">1</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">1</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Logical operator <code class="docutils literal notranslate"><span class="pre">==</span></code> cannot recognize NaN since basically it is for numerical comparison. Instead, we could use <code class="docutils literal notranslate"><span class="pre">isnan</span></code>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">Inf</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nb">NaN</span><span class="p">];</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NaN</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Numerous <code class="docutils literal notranslate"><span class="pre">is...</span></code> funcitons is provided that take an array as a input and return a logical output.</p>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">find</span></code> to generate indices that met the condition to the original <cite>ndarray</cite>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">criteria</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">find</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c">% indices</span><span class="w"></span>
+<span class="n">criteria</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">12</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">criteria</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> to check whether two strings are equal. Use <code class="docutils literal notranslate"><span class="pre">isequal</span></code> to test equality of two arrays, and use <code class="docutils literal notranslate"><span class="pre">isequaln</span></code> for the same functionality except ignoring NaN.</p>
+<p>Use column-wise operations <code class="docutils literal notranslate"><span class="pre">all</span></code> or <code class="docutils literal notranslate"><span class="pre">any</span></code> to test whether all or any elements in a logical vector are true. Use <code class="docutils literal notranslate"><span class="pre">nnz</span></code> to compute the number of non-zero elements. Parse the second argument to perform operation down this dimensional argument.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">all</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">nnz</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="control-flow">
+<h2>Control flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">#</a></h2>
+<p>Now we illustrate the <cite>if</cite>, <cite>switch</cite>, <cite>for</cite>, and <cite>while</cite> loops</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="n">condition</span><span class="w"></span>
+<span class="w">   </span><span class="n">statement</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="k">elseif</span><span class="w"> </span><span class="n">condition</span><span class="w"></span>
+<span class="w">   </span><span class="n">statement</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">   </span><span class="n">statement</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="n">expression</span><span class="w"></span>
+<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="n">value_1</span><span class="w"></span>
+<span class="w">      </span><span class="n">code_1</span><span class="w"></span>
+<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="n">value_2</span><span class="w"></span>
+<span class="w">      </span><span class="n">code_2</span><span class="w"></span>
+<span class="w">   </span><span class="k">otherwise</span><span class="w"></span>
+<span class="w">      </span><span class="n">code_3</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="w"></span>
+<span class="w">   </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;%i\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">i</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="n">condition</span><span class="w"></span>
+<span class="w">   </span><span class="n">statement</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="n">statement</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">   </span><span class="n">statement</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <cite>ctrl + c</cite> to terminate infinite loops if happens.</p>
+</section>
+<section id="missing-data">
+<h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this headline">#</a></h2>
+<p>One approach to delete elements is by assigning to <cite>[]</cite></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="c">% delete and flatten</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Another approach is to extract desired elements with <code class="docutils literal notranslate"><span class="pre">ismissing</span></code> to locate missing data.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="mi">1</span><span class="w">   </span><span class="nb">NaN</span><span class="w">     </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="mi">3</span><span class="w">     </span><span class="mi">3</span><span class="w">   </span><span class="nb">NaN</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">missingData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ismissing</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="n">missingData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w"></span>
+<span class="w">              </span><span class="mi">0</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">0</span><span class="w"></span>
+<span class="w">              </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w"></span>
+<span class="w">              </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">missingRows</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">missingData</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="n">missingRows</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">              </span><span class="mi">1</span><span class="w"></span>
+<span class="w">              </span><span class="mi">0</span><span class="w"></span>
+<span class="w">              </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">completeData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="o">~</span><span class="n">missingRows</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span><span class="w"></span>
+<span class="n">completeData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w"></span>
+<span class="w">               </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Commonly, we could remove all NaN from a matrix while preserving the most data as possible and keep the matrix format by</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">(:,</span><span class="w"> </span><span class="nb">all</span><span class="p">(</span><span class="nb">isnan</span><span class="p">(</span><span class="n">matrix</span><span class="p">)))</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<span class="n">matrix</span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="nb">isnan</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">:)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Instead, we could interpolating missing data by using <code class="docutils literal notranslate"><span class="pre">interp1</span></code>, which fits one-dimensional interpolant to the data, with methods available for <cite>nearest</cite>, <cite>next</cite>, <cite>previous</cite>, <cite>pchip</cite>, <cite>spline</cite>, <cite>cubic</cite>. The output dimension is the same as <cite>x</cite>. Additional parameters like <cite>extrap</cite> could be added to perform extrapolation.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">interp1</span><span class="p">(</span><span class="n">noNaNx</span><span class="p">,</span><span class="w"> </span><span class="n">noNaNy</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;linear&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="mathematics">
+<h2>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">#</a></h2>
+<p>Operations between a matrix and a scalar include <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<p>Element-wise operations between matrices with broadcasting concept include <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">.*</span></code>, <code class="docutils literal notranslate"><span class="pre">.^</span></code>, <code class="docutils literal notranslate"><span class="pre">./</span></code> , <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">nthroot</span></code>, <code class="docutils literal notranslate"><span class="pre">power</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">[trigonometry]</span></code>, <code class="docutils literal notranslate"><span class="pre">floor</span></code>, <code class="docutils literal notranslate"><span class="pre">ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>, <code class="docutils literal notranslate"><span class="pre">mod</span></code> etc.</p>
+<p>Statistical operations include <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">std</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">cov</span></code>, <code class="docutils literal notranslate"><span class="pre">prctile</span></code>, <code class="docutils literal notranslate"><span class="pre">corr</span></code>, <code class="docutils literal notranslate"><span class="pre">corrcoef</span></code>, <code class="docutils literal notranslate"><span class="pre">.'</span></code> for transpose, <code class="docutils literal notranslate"><span class="pre">'</span></code> for conjugate transpose, etc. These operations are default as column-wise, we could conduct row-wise operations by <code class="docutils literal notranslate"><span class="pre">func(x,</span> <span class="pre">2)</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">max</span></code> and <code class="docutils literal notranslate"><span class="pre">min</span></code> ignore NaN by default. Moreover,</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: matrix multiplication</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code>: solve linear systems of equations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diff</span></code>: calculate differences between adjacent elements of the input</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[]</span></code>: a placeholder to skip a parameter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'omitnan'</span></code>: omit NaN in calculations</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">nthroot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w">      </span><span class="mi">0</span><span class="w">         </span><span class="mi">0</span><span class="w">         </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="mf">1.0000</span><span class="w">    </span><span class="mf">1.0000</span><span class="w">    </span><span class="mf">1.0000</span><span class="w"></span>
+<span class="w">      </span><span class="mf">1.4142</span><span class="w">    </span><span class="mf">1.4142</span><span class="w">    </span><span class="mf">1.4142</span><span class="w"></span>
+<span class="w">      </span><span class="mf">1.7321</span><span class="w">    </span><span class="mf">1.7321</span><span class="w">    </span><span class="mf">1.7321</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">1</span><span class="w"> </span><span class="s">1]*[2</span><span class="w"> </span><span class="s">2</span><span class="p">;</span><span class="n">2</span><span class="w"> </span><span class="s">2]</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">4</span><span class="w">   </span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="mi">4</span><span class="w">   </span><span class="mi">4</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">1</span><span class="w"> </span><span class="s">1].*[2</span><span class="w"> </span><span class="s">2</span><span class="p">;</span><span class="n">2</span><span class="w"> </span><span class="s">2]</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="mi">2</span><span class="w">   </span><span class="mi">2</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.5000</span><span class="w">  </span><span class="mf">2.7500</span><span class="w">  </span><span class="mf">1.5000</span><span class="w"></span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="nb">ans</span><span class="p">,</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;omitnan&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">% row vector</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.5000</span><span class="w"></span>
+</pre></div>
+</div>
+<p>some functions above have polymorphism for multiple outputs</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">nrow</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">size</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">xMax</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For more information about operation and special characters, check out official documentation for <a class="reference external" href="https://www.mathworks.com/help/matlab/matlab_prog/matlab-operators-and-special-characters.html">operation</a> and <a class="reference external" href="https://www.mathworks.com/help/matlab/creating_plots/greek-letters-and-special-characters-in-graph-text.html">special characters</a>.</p>
+</section>
+<section id="statistics">
+<h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">#</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">mdl</span> <span class="pre">=</span> <span class="pre">fitlm(X,</span> <span class="pre">y)</span></code> function to create a MATLAB object, with more information about <a class="reference external" href="https://www.mathworks.com/help/stats/fitdist.html#inputarg_distname">fitdist</a></p>
+<ul class="simple">
+<li><p><cite>mdl</cite>:        A LinearModel object representing a least-squares fit of the response to the data</p></li>
+<li><p><cite>X</cite>: An n-by-p matrix</p></li>
+<li><p><cite>y</cite>: An n-by-1 matrix</p></li>
+</ul>
+<p>An object includes both:</p>
+<ul class="simple">
+<li><p>properties such as coefficients and residuals of the fit</p></li>
+<li><p>methods which are functions that you can perform on the fit, such as predictions and visualizations</p></li>
+</ul>
+<p>Use <code class="docutils literal notranslate"><span class="pre">plotResiduals</span></code> function to visually evaluate the quality of the fit. The default plot is histogram, we could add parameters to sprcify a graph like <code class="docutils literal notranslate"><span class="pre">probability</span></code>, <code class="docutils literal notranslate"><span class="pre">lagged</span></code>, <code class="docutils literal notranslate"><span class="pre">fitted</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry</span></code>, <code class="docutils literal notranslate"><span class="pre">caseorder</span></code>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">AAPLfit</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fitlm</span><span class="p">(</span><span class="n">daysNum</span><span class="p">,</span><span class="w"> </span><span class="n">AAPL</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="w"> </span><span class="n">AAPL</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="w"> </span><span class="n">predict</span><span class="p">(</span><span class="n">AAPLfit</span><span class="p">,</span><span class="w"> </span><span class="n">daysNum</span><span class="p">))</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">plotResiduals</span><span class="p">(</span><span class="n">AAPLfit</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">plotDiagnostics</span></code> function on your fit to help assess your fit visually.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">plotDiagnostics</span><span class="p">(</span><span class="n">FTSEfit</span><span class="p">,</span><span class="s">&#39;cookd&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">properties</span></code> to view available properties.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">properties</span><span class="p">(</span><span class="n">FTSEfit</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">Properties</span><span class="w"> </span><span class="s">for</span><span class="w"> </span><span class="s">class</span><span class="w"> </span><span class="s">LinearModel:</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">Residuals</span><span class="w"></span>
+<span class="w">   </span><span class="n">Fitted</span><span class="w"></span>
+<span class="w">   </span><span class="n">Diagnostics</span><span class="w"></span>
+<span class="w">   </span><span class="n">MSE</span><span class="w"></span>
+<span class="w">   </span><span class="n">Robust</span><span class="w"></span>
+<span class="w">   </span><span class="n">RMSE</span><span class="w"></span>
+<span class="w">   </span><span class="n">Formula</span><span class="w"></span>
+<span class="w">   </span><span class="n">LogLikelihood</span><span class="w"></span>
+<span class="w">   </span><span class="n">DFE</span><span class="w"></span>
+<span class="w">   </span><span class="n">SSE</span><span class="w"></span>
+<span class="w">   </span><span class="n">SST</span><span class="w"></span>
+<span class="w">   </span><span class="n">SSR</span><span class="w"></span>
+<span class="w">   </span><span class="n">CoefficientCovariance</span><span class="w"></span>
+<span class="w">   </span><span class="n">CoefficientNames</span><span class="w"></span>
+<span class="w">   </span><span class="n">NumCoefficients</span><span class="w"></span>
+<span class="w">   </span><span class="n">NumEstimatedCoefficients</span><span class="w"></span>
+<span class="w">   </span><span class="n">Coefficients</span><span class="w"></span>
+<span class="w">   </span><span class="n">Rsquared</span><span class="w"></span>
+<span class="w">   </span><span class="n">ModelCriterion</span><span class="w"></span>
+<span class="w">   </span><span class="n">VariableInfo</span><span class="w"></span>
+<span class="w">   </span><span class="n">NumVariables</span><span class="w"></span>
+<span class="w">   </span><span class="n">VariableNames</span><span class="w"></span>
+<span class="w">   </span><span class="n">NumPredictors</span><span class="w"></span>
+<span class="w">   </span><span class="n">PredictorNames</span><span class="w"></span>
+<span class="w">   </span><span class="n">ResponseName</span><span class="w"></span>
+<span class="w">   </span><span class="n">NumObservations</span><span class="w"></span>
+<span class="w">   </span><span class="n">Steps</span><span class="w"></span>
+<span class="w">   </span><span class="n">ObservationInfo</span><span class="w"></span>
+<span class="w">   </span><span class="n">Variables</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">predict</span></code> function to predict the reponse values given any predictor values. Note that the predictor values should be stored in a column vector.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">predict</span><span class="p">(</span><span class="n">modelName</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">300</span><span class="p">)</span><span class="o">&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% predict future 200 days</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We can apply different tests for normality on the raw residuals, generally having the following form: <code class="docutils literal notranslate"><span class="pre">[h,</span> <span class="pre">p]</span> <span class="pre">=</span> <span class="pre">distributionTest(x)</span></code>. We illustrate by using the jbtest function, which uses the Jarque-Bera normality test, on the raw residual data.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">hJB</span><span class="p">,</span><span class="w"> </span><span class="n">pJB</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">jbtest</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="w"></span>
+<span class="n">hJB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w">         </span><span class="c">% reject H_0</span><span class="w"></span>
+<span class="n">pJB</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.000e-03</span><span class="w"> </span><span class="c">% reject H_0</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pd</span> <span class="pre">=</span> <span class="pre">fitdist(x,</span> <span class="pre">distname)</span></code> function creates a MATLAB probability distribution object</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pd</span></code>: A probability distribution object</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>:        A column vector of data used to calculate the fit parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distname</span></code>: A string which identifies the probability distribution to model</p></li>
+</ul>
+<p>Use <code class="docutils literal notranslate"><span class="pre">icdf</span></code> function to determine the inverse cdf value of the fit at a given value</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tFit</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fitdist</span><span class="p">(</span><span class="n">AAPLReturns</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;tLocationScale&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">VaR99</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">icdf</span><span class="p">(</span><span class="n">tFit</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">histogram</span></code> function, you can normalize your display in many different ways using the <cite>Normalization</cite> property</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">histogram</span><span class="p">(</span><span class="n">FTSEreturns</span><span class="p">,</span><span class="w"> </span><span class="n">binEdges</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Normalization&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;pdf&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pdf</span></code> function to determine the pdf value of the fit with a given input vector.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">edgeBins</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mf">0.1</span><span class="p">:</span><span class="mf">0.0005</span><span class="p">:</span><span class="mf">0.1</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">pdf</span><span class="p">(</span><span class="n">tFit</span><span class="p">,</span><span class="w"> </span><span class="n">edgeBins</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">edgeBins</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You can actually generate random numbers from your data using your probability distribution object with <code class="docutils literal notranslate"><span class="pre">random</span></code> function. The simulated values that are generated are not simply sampled from the data, but generated from the fitted distribution. Use <code class="docutils literal notranslate"><span class="pre">rng</span></code> function with a nonnegative integer seed to start the random number generator in a specific spot.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">rng</span><span class="p">(</span><span class="s">&#39;shuffle&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">randomVector</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="n">tFit</span><span class="p">,</span><span class="w"> </span><span class="n">rows</span><span class="p">,</span><span class="w"> </span><span class="n">cols</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">function</span></code> keyword to customize functions with <code class="docutils literal notranslate"><span class="pre">end</span></code> keyword to terminate the process. The example below illustrates an example of getting biggest and smallest <cite>N</cite> number in a vector</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">getTails</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c">% function call</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">[topN, bottomN] = getTails</span><span class="p">(</span>v, N<span class="p">)</span><span class="w"></span>
+<span class="n">sortedv</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sort</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;descend&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">topN</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">sortedv</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="n">bottomN</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">sortedv</span><span class="p">(</span><span class="k">end</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">end</span><span class="o">-</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Function definitions in a script must appear at the end of the file. Functions have their own function workspace, which is independent from base workspace. So, while function is run, it cannot access variables in the base workspace and other functions’ workspaces.</p>
+</div>
+<p>By default, we can call functions in which folder the current file locates. If you want to access the files in the other folders, you can add the folders in MATLAB’s search path by <cite>ENVIRONMENT</cite> -&gt; <cite>Set Path</cite> in the manu bar.</p>
+<p>MATLAB has calling precedence. If two named item have the same name, an order as a set of rules is applied as</p>
+<ol class="arabic simple">
+<li><p>Variables</p></li>
+<li><p>Files in the current folder</p></li>
+<li><p>Files on MATLAB search path</p></li>
+</ol>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">which</span></code> command to check the item location and property in the precedence order. Suppose we have a variable named <cite>var</cite> as a VaR double,</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">which</span><span class="w"> </span><span class="nb">var</span><span class="w"> </span><span class="o">-</span><span class="nb">all</span><span class="w"></span>
+<span class="nb">var</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">variable</span><span class="p">.</span><span class="w"></span>
+<span class="k">...</span><span class="c">/MATLAB_R2021b/.../bigdata/var.m     % Shadowed tall method</span><span class="w"></span>
+<span class="k">...</span><span class="c">/MATLAB_R2021b/.../timeseries/var.m  % Shadowed timeseries method</span><span class="w"></span>
+<span class="k">...</span><span class="c">/MATLAB_R2021b/.../datafun/var.m     % Shadowed</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="graphics">
+<h2>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">#</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">y[,</span> <span class="pre">&quot;format&quot;,</span> <span class="pre">*args])</span></code> to create line plots of numeric data, <code class="docutils literal notranslate"><span class="pre">hold</span> <span class="pre">on</span></code> to draw multiple plots on the same canvas, and <code class="docutils literal notranslate"><span class="pre">hold</span> <span class="pre">off</span></code> to create a new axes for the next plotted line. Use <code class="docutils literal notranslate"><span class="pre">plotyy(x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2)</span></code> to create a chart containing two separate vertical axes. For more information about plots, check out official documentation for <a class="reference external" href="https://www.mathworks.com/help/matlab/creating_plots/types-of-matlab-plots.html">plots</a>.</p>
+<p>To create multiple figures simultaneously, we use <code class="docutils literal notranslate"><span class="pre">figure</span></code> and make figure number <cite>k</cite> active by <code class="docutils literal notranslate"><span class="pre">figure(k)</span></code>. To close one or more figures, we use <code class="docutils literal notranslate"><span class="pre">close</span></code> to close current active window, <code class="docutils literal notranslate"><span class="pre">close(k)</span></code> to close window number k, and <code class="docutils literal notranslate"><span class="pre">close</span> <span class="pre">all</span></code> to close all figures windows.</p>
+<p>Currently, we only discuss about drawing one plot per window. If we want to create multiple axes within a single window, using <code class="docutils literal notranslate"><span class="pre">subplot(m,n,k)</span></code> to create an active set of axes at the <cite>kth</cite> position in an <cite>m-by-n</cite> grid . If axes already exist in this location, they are made active. The axes in the grid are numbered sequentially left-to-right, then top-to-bottom.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">BTC</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">randi</span><span class="p">([</span><span class="mi">20000</span><span class="p">,</span><span class="w"> </span><span class="mi">22000</span><span class="p">],</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">YFI</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">randi</span><span class="p">([</span><span class="mi">19500</span><span class="p">,</span><span class="w"> </span><span class="mi">21500</span><span class="p">],</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">BTC</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LineWidth&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">YFI</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Color&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0.3</span><span class="w"> </span><span class="mf">0.3</span><span class="w"> </span><span class="mf">0.8</span><span class="p">])</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&quot;Cryptocurrency Price Changes&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&quot;Days&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&quot;Price in &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">163</span><span class="p">))</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">legend</span><span class="p">(</span><span class="s">&quot;BTC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YFI&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Location&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;best&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlim</span><span class="p">([</span><span class="mi">1</span><span class="w"> </span><span class="mi">100</span><span class="p">])</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">histogram</span><span class="p">(</span><span class="n">BTC</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DisplayStyle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;stairs&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">histogram</span><span class="p">(</span><span class="n">YFI</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;EdgeColor&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">var</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prctile</span><span class="p">(</span><span class="n">BTC</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">([</span><span class="nb">var</span><span class="w"> </span><span class="nb">var</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9</span><span class="p">])</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&quot;Cryptocurrency Price Histogram&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&quot;Price in &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">163</span><span class="p">))</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&quot;Frequency&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">legend</span><span class="p">(</span><span class="s">&quot;BTC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YFI&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Location&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;best&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="w"></span>
+</pre></div>
+</div>
+<img alt="../_images/matlab_plot.png" class="align-center" src="../_images/matlab_plot.png" />
+</section>
+<section id="dates-times">
+<h2>Dates &amp; Times<a class="headerlink" href="#dates-times" title="Permalink to this headline">#</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">datetime</span></code> to represent specific dates or points in time</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="s">&#39;July 14 2021&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;InputFormat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MMMM dd yyyy&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">14</span><span class="o">-</span><span class="n">Jul</span><span class="o">-</span><span class="mi">2021</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">Format</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;MM/dd/yyyy&#39;</span><span class="w"></span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">07</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2021</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Q1 2021&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Q2 2021&#39;</span><span class="p">}</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;InputFormat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;QQQ yyyy&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">01</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">2015</span><span class="w">   </span><span class="mi">01</span><span class="o">-</span><span class="n">Apr</span><span class="o">-</span><span class="mi">2015</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">([</span><span class="mi">2001</span><span class="p">,</span><span class="w"> </span><span class="mi">2003</span><span class="p">,</span><span class="w"> </span><span class="mi">2006</span><span class="p">],</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">)</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">17</span><span class="o">-</span><span class="n">Aug</span><span class="o">-</span><span class="mi">2001</span><span class="w">   </span><span class="mi">17</span><span class="o">-</span><span class="n">Aug</span><span class="o">-</span><span class="mi">2003</span><span class="w">   </span><span class="mi">17</span><span class="o">-</span><span class="n">Aug</span><span class="o">-</span><span class="mi">2006</span><span class="w"></span>
+<span class="c">% the month parameter may be a column vector</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">;</span><span class="mi">3</span><span class="p">;</span><span class="mi">7</span><span class="p">;</span><span class="mi">10</span><span class="p">;</span><span class="mi">12</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">01</span><span class="o">-</span><span class="n">Feb</span><span class="o">-</span><span class="mi">2007</span><span class="w"></span>
+<span class="w">   </span><span class="mi">01</span><span class="o">-</span><span class="n">Mar</span><span class="o">-</span><span class="mi">2007</span><span class="w"></span>
+<span class="w">   </span><span class="mi">01</span><span class="o">-</span><span class="n">Jul</span><span class="o">-</span><span class="mi">2007</span><span class="w"></span>
+<span class="w">   </span><span class="mi">01</span><span class="o">-</span><span class="n">Oct</span><span class="o">-</span><span class="mi">2007</span><span class="w"></span>
+<span class="w">   </span><span class="mi">01</span><span class="o">-</span><span class="n">Dec</span><span class="o">-</span><span class="mi">2007</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t1</span><span class="p">:</span><span class="n">t2</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">01</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">2015</span><span class="w"> </span><span class="k">...</span><span class="c"> 04-Jan-2015   05-Jan-2015</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">01</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">2015</span><span class="w">   </span><span class="mi">03</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">2015</span><span class="w">   </span><span class="mi">05</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">2015</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">duration</span></code> represent a fixed-length time duration between dates, or from single unit duration variables <code class="docutils literal notranslate"><span class="pre">years</span></code>, <code class="docutils literal notranslate"><span class="pre">days</span></code>, <code class="docutils literal notranslate"><span class="pre">hours</span></code>, <code class="docutils literal notranslate"><span class="pre">minutes</span></code>, <code class="docutils literal notranslate"><span class="pre">seconds</span></code>. Note that the function years returns one year as 365.24 days (a fixed-length year).</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">duration</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">Format</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;mm:hh:ss.SSS&#39;</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">02.500</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">minutes</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">30</span><span class="p">)</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nb">min</span><span class="w">   </span><span class="mi">10</span><span class="w"> </span><span class="nb">min</span><span class="w">   </span><span class="mi">20</span><span class="w"> </span><span class="nb">min</span><span class="w">   </span><span class="mi">30</span><span class="w"> </span><span class="nb">min</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">calendarDuration</span></code> to represent a variable-length duration in calendar units, or from single unit duration variables <code class="docutils literal notranslate"><span class="pre">calyears</span></code>, <code class="docutils literal notranslate"><span class="pre">calquarters</span></code>, <code class="docutils literal notranslate"><span class="pre">calmonths</span></code>, <code class="docutils literal notranslate"><span class="pre">calweeks</span></code>, <code class="docutils literal notranslate"><span class="pre">caldays</span></code></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">calendarDuration</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>1<span class="n">y</span><span class="w"> </span>2<span class="n">mo</span><span class="w"> </span>3<span class="n">d</span><span class="w"> </span>4<span class="n">h</span><span class="w"> </span>5<span class="n">m</span><span class="w"> </span>6<span class="n">s</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">calendarDuration</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>3<span class="n">y</span><span class="w"> </span>1<span class="n">mo</span><span class="w"> </span>4<span class="n">d</span><span class="w">   </span>4<span class="n">y</span><span class="w"> </span>1<span class="n">mo</span><span class="w"> </span>5<span class="n">d</span><span class="w">   </span>5<span class="n">y</span><span class="w"> </span>1<span class="n">mo</span><span class="w"> </span>6<span class="n">d</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">calyears</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">calmonths</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>1<span class="n">y</span><span class="w">  </span>6<span class="n">mo</span><span class="w"></span>
+</pre></div>
+</div>
+<p>MATLAB supports date arithmetic operations and functions between datetime and duration variables</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">1999</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">duration</span><span class="p">(</span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">06</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">1999</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">t</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">&#39;</span><span class="w"></span>
+<span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">07</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">1999</span><span class="w"></span>
+<span class="w">    </span><span class="mi">08</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">1999</span><span class="w"></span>
+<span class="w">    </span><span class="mi">09</span><span class="o">-</span><span class="n">Jan</span><span class="o">-</span><span class="mi">1999</span><span class="w"></span>
+<span class="c">% number of full calendar months between t1 and t2</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">numel</span><span class="p">(</span><span class="n">t1</span><span class="p">:</span><span class="nb">calmonths</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span><span class="n">t2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When applied to matrices, these functions work on a columnwise basis</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">diff</span></code>: finds the differences between successive elements of a datetime or duration array, returning the output as a duration array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">caldiff</span></code>: finds the differences between successive elements of a datetime array, returning the output as a calendarDuration array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">between</span></code>: finds the differences between corresponding elements of two datetime arrays, returning the output as a calendarDuration arrays</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dateshift</span></code>: shift dates by a specific rule</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">1999</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">])</span><span class="w"></span>
+<span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">07</span><span class="o">-</span><span class="n">Feb</span><span class="o">-</span><span class="mi">1999</span><span class="w">   </span><span class="mi">20</span><span class="o">-</span><span class="n">Mar</span><span class="o">-</span><span class="mi">1999</span><span class="w">   </span><span class="mi">11</span><span class="o">-</span><span class="n">Apr</span><span class="o">-</span><span class="mi">1999</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">2003</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="n">t2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">01</span><span class="o">-</span><span class="n">Jun</span><span class="o">-</span><span class="mi">2003</span><span class="w">   </span><span class="mi">01</span><span class="o">-</span><span class="n">Dec</span><span class="o">-</span><span class="mi">2003</span><span class="w">   </span><span class="mi">01</span><span class="o">-</span><span class="n">Mar</span><span class="o">-</span><span class="mi">2003</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">diff</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">984</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w">   </span><span class="mi">528</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">caldiff</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>1<span class="n">mo</span><span class="w"> </span>13<span class="n">d</span><span class="w">       </span>22<span class="n">d</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">between</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">)</span><span class="w"></span>
+<span class="n">z</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>4<span class="n">y</span><span class="w"> </span>3<span class="n">mo</span><span class="w"> </span>25<span class="n">d</span><span class="w">    </span>4<span class="n">y</span><span class="w"> </span>8<span class="n">mo</span><span class="w"> </span>11<span class="n">d</span><span class="w">   </span>3<span class="n">y</span><span class="w"> </span>10<span class="n">mo</span><span class="w"> </span>18<span class="n">d</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">])</span><span class="w"></span>
+<span class="n">t3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">02</span><span class="o">-</span><span class="n">Feb</span><span class="o">-</span><span class="mi">2020</span><span class="w">   </span><span class="mi">30</span><span class="o">-</span><span class="n">Mar</span><span class="o">-</span><span class="mi">2020</span><span class="w">   </span><span class="mi">11</span><span class="o">-</span><span class="n">Apr</span><span class="o">-</span><span class="mi">2020</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">dateshift</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;start&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;month&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">01</span><span class="o">-</span><span class="n">Feb</span><span class="o">-</span><span class="mi">2020</span><span class="w">   </span><span class="mi">01</span><span class="o">-</span><span class="n">Mar</span><span class="o">-</span><span class="mi">2020</span><span class="w">   </span><span class="mi">01</span><span class="o">-</span><span class="n">Apr</span><span class="o">-</span><span class="mi">2020</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">dateshift</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;end&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;week&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">08</span><span class="o">-</span><span class="n">Feb</span><span class="o">-</span><span class="mi">2020</span><span class="w">   </span><span class="mi">04</span><span class="o">-</span><span class="n">Apr</span><span class="o">-</span><span class="mi">2020</span><span class="w">   </span><span class="mi">11</span><span class="o">-</span><span class="n">Apr</span><span class="o">-</span><span class="mi">2020</span><span class="w"></span>
+</pre></div>
+</div>
+<p>By specifying output type options, we get preferable display option. For example, if we have a datetime</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="w"> </span><span class="mi">07</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">00</span><span class="p">)</span><span class="w"></span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">20</span><span class="o">-</span><span class="n">Jul</span><span class="o">-</span><span class="mi">2021</span><span class="w"> </span><span class="mi">15</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"></span>
+</pre></div>
+</div>
+<p>the output type options could be (default listed first):</p>
+<ul class="simple">
+<li><p>month: <code class="docutils literal notranslate"><span class="pre">monthofyear</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">shortname</span></code></p></li>
+<li><p>week: <code class="docutils literal notranslate"><span class="pre">weekofyear</span></code>, <code class="docutils literal notranslate"><span class="pre">weekofmonth</span></code></p></li>
+<li><p>day: <code class="docutils literal notranslate"><span class="pre">dayofmonth</span></code>, <code class="docutils literal notranslate"><span class="pre">dayofweek</span></code>, <code class="docutils literal notranslate"><span class="pre">dayofyear</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">shortname</span></code></p></li>
+<li><p>second: <code class="docutils literal notranslate"><span class="pre">secondofminute</span></code>, <code class="docutils literal notranslate"><span class="pre">secondofday</span></code></p></li>
+</ul>
+<p>Several methods to extracting date components are available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ymd</span></code>: get the year, month, and day numbers of a datetime as separate arrays</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hms</span></code>: get the hour, minutes, and seconds of a datetime or duration as separate arrays</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">split</span></code>: split a <cite>calendarDuration</cite> variable into its constituent units</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ymd</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">hms</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">mth</span><span class="p">,</span><span class="w"> </span><span class="n">wk</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">split</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;months&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;weeks&#39;</span><span class="p">})</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use axes tick labels to plot specific date format</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DatetimeTickFormat&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MMM dd yyyy&quot;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>ALso, we could join data by dates using <code class="docutils literal notranslate"><span class="pre">intersect</span></code></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">intersection</span><span class="p">,</span><span class="w"> </span><span class="n">idxA</span><span class="p">,</span><span class="w"> </span><span class="n">idxB</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">intersect</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>with more set operators <code class="docutils literal notranslate"><span class="pre">union</span></code>, <code class="docutils literal notranslate"><span class="pre">setxor</span></code>, <code class="docutils literal notranslate"><span class="pre">setdiff</span></code>, etc.</p>
+</section>
+<section id="tabular-data">
+<h2>Tabular Data<a class="headerlink" href="#tabular-data" title="Permalink to this headline">#</a></h2>
+<p>If the data is organized in a tabular manner, such as in a spreadsheet, MATLAB provides the <code class="docutils literal notranslate"><span class="pre">table</span></code> data type. The data can be thought of as a series of observations (rows) over a set of different variables (columns). Use <code class="docutils literal notranslate"><span class="pre">readtable</span></code> to import data from a delimited text file</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">stockData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readtable</span><span class="p">(</span><span class="s">&#39;stockPrices.xls&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">stockInfo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">table</span><span class="p">(</span><span class="n">Ticker</span><span class="p">,</span><span class="w"> </span><span class="n">Sector</span><span class="p">,</span><span class="w"> </span><span class="n">Beta</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">stockPrices</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">array2table</span><span class="p">(</span><span class="n">Prices</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;VariableNames&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;BA&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;BARC&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;BRBY&#39;</span><span class="p">})</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can access data in a table with dot notation or curly brackets. When using curly brackets, we can index via variable name or column number. Indexing with parentheses will return another table, not a numeric array. Three methods to access a specific column named <cite>colName</cite> below are identical</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">numArr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tableName</span><span class="p">.</span><span class="n">colName</span><span class="p">{:}</span><span class="w"></span>
+<span class="n">numArr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tableName</span><span class="p">{:,</span><span class="w"> </span><span class="s">&#39;colName&#39;</span><span class="p">}</span><span class="w"></span>
+<span class="n">numArr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tableName</span><span class="p">{:,</span><span class="w"> </span><span class="n">colIdx</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<p>To add a new variable in a table as a column, use command</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tableName</span><span class="p">.</span><span class="n">NewVariable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">variableToAdd</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">.Properties</span></code> to retrieve all properties for a table, and we could modify a certain properties by assigning a new value.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">stockData</span><span class="p">.</span><span class="n">Properties</span><span class="w"></span>
+
+<span class="n">TableProperties</span><span class="w"> </span><span class="s">with</span><span class="w"> </span><span class="s">properties:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
+<span class="w">               </span><span class="n">UserData</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">         </span><span class="n">DimensionNames</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Row&#39;</span><span class="w">  </span><span class="s">&#39;Variables&#39;</span><span class="p">}</span><span class="w"></span>
+<span class="w">         </span><span class="n">VariableNames</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;ENRC&#39;</span><span class="w">  </span><span class="s">&#39;EXPN&#39;</span><span class="w">  </span><span class="s">&#39;FRES&#39;</span><span class="w">  </span><span class="s">&#39;GFS&#39;</span><span class="w">  </span><span class="s">&#39;GKN&#39;</span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="n">VariableDescriptions</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">         </span><span class="n">VariableUnits</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">      </span><span class="n">VariableContinuity</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">               </span><span class="n">RowNames</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">      </span><span class="n">CustomProperties</span><span class="p">:</span><span class="w"> </span><span class="n">No</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="nb">properties</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="nb">set</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">Use</span><span class="w"> </span><span class="nb">addprop</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="nb">rmprop</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">CustomProperties</span><span class="p">.</span><span class="w"></span>
+</pre></div>
+</div>
+<p>A function handle is a MATLAB variable that represents a function, and we use the &#64; symbol to create a handle to a function file and store it in a variable</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">variableName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">@</span><span class="n">functionName</span><span class="w"></span>
+</pre></div>
+</div>
+<p>While one can apply a function to an array, this will lead to an error with tables. For tables, one can use a <code class="docutils literal notranslate"><span class="pre">varfun</span></code> function to apply a function <cite>f</cite> to all variables in a table <cite>t</cite>. The function <cite>f</cite> must take one input argument and return arrays with the same number of rows each time it is called.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">varfun</span><span class="p">(@</span><span class="nb">abs</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="c">% make all cells to absolute value</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To work around multiple inputs, we create a wrapper function which only requires one input and others are inferred by scenarios.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">naninterp</span><span class="p">(</span>y<span class="p">)</span><span class="w"></span>
+
+<span class="c">% create a vector of evenly spaced x-values the same length as y</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% create a logical vector with true at the location of non-missing values</span><span class="w"></span>
+<span class="n">idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">~</span><span class="nb">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% extract non-missing values</span><span class="w"></span>
+<span class="n">xClean</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span><span class="w"></span>
+<span class="n">yClean</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% use this index to extract non-missing data and interpolate the missing values</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">interp1</span><span class="p">(</span><span class="n">xClean</span><span class="p">,</span><span class="w"> </span><span class="n">yClean</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;linear&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;extrap&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% replace missing values with interpolated values</span><span class="w"></span>
+<span class="n">interpData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">varfun</span><span class="p">(@</span><span class="n">naninterp</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">categorical</span></code> to create a categorical array when text labels are intended to represent a finite set of possibilities, occupying less memory than cell arrays of strings.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">mergecats</span></code> to merge multiple cartegories into one categoty.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tableName</span><span class="p">.</span><span class="n">var</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">categorical</span><span class="p">(</span><span class="n">tableName</span><span class="p">.</span><span class="n">var</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">categorical</span><span class="p">({</span><span class="s">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;4&#39;</span><span class="p">})</span><span class="w"></span>
+<span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;4&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;6&#39;</span><span class="p">}</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">mergecats</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">even</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;even&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">even</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">writetable</span></code> to export a table to a delimited text file or Excel spreadsheet. By default, it determines the output format by file extension. No assignment operator is used.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">writetable</span><span class="p">(</span><span class="n">tableName</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;filename.xls&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Range&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;C5:L23&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">writetable</span><span class="p">(</span><span class="n">tableName</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;filename.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delimiter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\t&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Differentiate common usage of <a class="reference external" href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html">Numpy vs. MATLAB</a>.</p></li>
+<li><p>MATLAB basic functions can be referenced through an official <a class="reference external" href="https://www.mathworks.com/content/dam/mathworks/fact-sheet/matlab-basic-functions-reference.pdf">cheatsheet</a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="scipy_selected.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">SciPy Selected</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="matlab_finance.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">MATLAB for Finance</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#io-management">
+   IO management
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#workspace-io">
+     Workspace IO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-io">
+     Text IO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graphical-io">
+     Graphical IO
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#object-creation">
+   Object creation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selection">
+   Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#control-flow">
+   Control flow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-data">
+   Missing data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mathematics">
+   Mathematics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistics">
+   Statistics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graphics">
+   Graphics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dates-times">
+   Dates &amp; Times
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tabular-data">
+   Tabular Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#miscellaneous">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+<div id="searchbox"></div>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2021-2023, Yiming Dai.<br>
+
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>
