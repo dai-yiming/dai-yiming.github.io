@@ -512,7 +512,7 @@
 <span class="gh">Out[29]: </span><span class="go">array([3, 4, 5, 6])</span>
 </pre></div>
 </div>
-<p>Similarly, we use <code class="docutils literal notranslate"><span class="pre">np.where</span></code> for logical operations when all there parameters are provided: <cite>condition</cite>, <cite>x</cite> for origincal value or new filling value when condition is met, and <cite>y</cite> for new filling value otherwise. But note that <code class="docutils literal notranslate"><span class="pre">np.where()</span></code> takes no keyword arguments. If only the <cite>condition</cite> parameter is provided, <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> is preferable to generate indices that met the condition to the original ndarray.</p>
+<p>Similarly, we use <code class="docutils literal notranslate"><span class="pre">np.where</span></code> for logical operations when all three parameters are provided: <cite>condition</cite>, <cite>x</cite> for original value or new filling value when condition is met, and <cite>y</cite> for new filling value otherwise. But note that <code class="docutils literal notranslate"><span class="pre">np.where()</span></code> takes no keyword arguments. If only the <cite>condition</cite> parameter is provided, <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> is preferable to generate indices that met the condition to the original ndarray.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># indices</span>
 <span class="gh">Out[30]: </span><span class="go">(array([3, 4, 5]),)</span>
 
@@ -542,25 +542,25 @@
 <p>and illustrate common usages for uniform and (standard) normal distribution</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># uniform distribution with half-open interval (default)</span>
 <span class="gp">In [36]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="c1"># U[0,6)</span>
-<span class="gh">Out[36]: </span><span class="go">array([2, 3, 0, 2, 5, 1])</span>
+<span class="gh">Out[36]: </span><span class="go">array([3, 2, 4, 3, 5, 2])</span>
 
 <span class="go"># closed-interval uniform distribution</span>
 <span class="gp">In [37]: </span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># U[0,6]</span>
-<span class="gh">Out[37]: </span><span class="go">array([0, 2, 2, 6, 1, 0])</span>
+<span class="gh">Out[37]: </span><span class="go">array([6, 1, 3, 1, 0, 0])</span>
 
 <span class="gp">In [38]: </span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># U[0,1)</span>
-<span class="gh">Out[38]: </span><span class="go">array([0.092 , 0.0865, 0.9718, 0.4074, 0.1849])</span>
+<span class="gh">Out[38]: </span><span class="go">array([0.2604, 0.6047, 0.794 , 0.0536, 0.1213])</span>
 
 <span class="gp">In [39]: </span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="c1"># U[0,6)</span>
 <span class="gh">Out[39]: </span><span class="go"></span>
-<span class="go">array([[3.1684, 1.085 , 2.6175, 5.0992, 2.2682, 1.5483],</span>
-<span class="go">       [4.4561, 4.4223, 1.2945, 2.2511, 1.2121, 3.5201]])</span>
+<span class="go">array([[2.2142, 1.8147, 5.2545, 2.3939, 4.0789, 4.7859],</span>
+<span class="go">       [3.8659, 5.6163, 2.0785, 4.9662, 4.9981, 4.6587]])</span>
 
 <span class="gp">In [40]: </span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(5,2)</span>
-<span class="gh">Out[40]: </span><span class="go">array([1.3685, 5.57  , 7.9713, 7.2003, 5.5426, 3.2252])</span>
+<span class="gh">Out[40]: </span><span class="go">array([5.7132, 6.0061, 4.1399, 4.2915, 4.8945, 8.7625])</span>
 
 <span class="gp">In [41]: </span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># N(0,1)</span>
-<span class="gh">Out[41]: </span><span class="go">array([-0.7842,  0.7543,  1.1324, -0.2269,  1.0925, -0.9938])</span>
+<span class="gh">Out[41]: </span><span class="go">array([ 1.8007, -0.7039,  0.5749,  0.7555,  0.2405,  0.4692])</span>
 </pre></div>
 </div>
 <p>For more information about <code class="docutils literal notranslate"><span class="pre">default_rng</span></code>, check out the official documentation for <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html">default_rng</a>.</p>
